@@ -17,6 +17,9 @@ for(const viewport of [{width:390,height:844},{width:1165,height:747}])for(const
  if(delay===0){for(const phase of ['준비','방출','비행','접촉·피해'])assert(snap.audit.some(a=>a.phase===phase),`missing ${phase}`);}
  const attackId=startTick===122?10:12,impactTick=startTick+6;
  for(const a of snap.audit){
+  for(const c of a.surfaceContacts){assert.equal(c.protectedChanges,0,'surface cue touches body/eyes/HP');assert(a.impact.includes(c.attackId));assert(a.tick>=impactTick);}
+  const firstShown=snap.audit.find(x=>x.impact.includes(attackId))?.tick;
+  if(firstShown!==undefined&&a.tick>firstShown)assert.equal(a.surfaceContacts.length,0,'surface cue persists beyond first presented impact tick');
   if(a.tick<impactTick){assert.equal(a.contacts.length,0);assert.equal(a.rasterContacts.length,0);}
   for(const f of a.flightPixels)for(const e of a.enemyPixels)assert(Math.hypot(f.position.x-e.position.x,f.position.y-e.position.y)>=a.clearance-1e-6,'speculative silhouette overlap');
   for(const f of a.rasterFlights)if(f.raster&&f.raster.bodyGapPx!==null)assert(f.raster.bodyGapPx>=2-1e-6,'actual raster loses2px gap');
@@ -25,12 +28,13 @@ for(const viewport of [{width:390,height:844},{width:1165,height:747}])for(const
  const contact=snap.audit.find(a=>a.contacts.some(c=>c.attackId===attackId));
  const lp=last?.flightPixels.find(f=>f.attackId===attackId)?.position,cp=contact?.contacts.find(c=>c.attackId===attackId)?.position;
  const lr=last?.rasterFlights.find(f=>f.attackId===attackId)?.raster,cr=contact?.rasterContacts.find(f=>f.attackId===attackId)?.raster;
- const metrics={lastFlightTick:last?.tick??null,impactTick:contact?.tick??null,centerJumpPx:lp&&cp?Math.hypot(lp.x-cp.x,lp.y-cp.y):null,
+ const surface=contact?.surfaceContacts.find(c=>c.attackId===attackId);
+ const metrics={surfaceAnchor:surface?.anchor??null,direction:surface?.direction??null,surfaceVisible:surface?.visible??false,visualAnchorJumpPx:lp&&surface?Math.hypot(lp.x-surface.anchor.x,lp.y-surface.anchor.y):null,lastFlightTick:last?.tick??null,impactTick:contact?.tick??null,centerJumpPx:lp&&cp?Math.hypot(lp.x-cp.x,lp.y-cp.y):null,
   rasterCenterJumpPx:lr&&cr?Math.hypot(lr.x+lr.width/2-cr.x-cr.width/2,lr.y+lr.height/2-cr.y-cr.height/2):null,
-  lastFlightRaster:lr??null,firstContactRaster:cr??null,
+  lastFlightRaster:lr??null,firstSurfaceRaster:cr??null,unchangedCoreHit:cp??null,
   minRasterGapPx:Math.min(...snap.audit.flatMap(a=>a.rasterFlights.flatMap(f=>f.raster?.bodyGapPx==null?[]:[f.raster.bodyGapPx]))),
   widths:[...new Set(snap.audit.flatMap(a=>a.rasterFlights.flatMap(f=>f.raster?[f.raster.width]:[])))]};
- if(delay===0){assert(lp&&cp&&lr&&cr,'normal flight/contact raster evidence required');assert(last.tick===impactTick-1);}
+ if(delay===0){assert(lp&&cp&&lr&&cr&&surface,'normal flight/surface raster evidence required');assert(metrics.visualAnchorJumpPx<metrics.centerJumpPx,'surface anchor must shorten terminal center displacement');assert(last.tick===impactTick-1);}
 
  await Promise.all(writes);
  await p.screenshot({path:`${dir}/final.png`});
