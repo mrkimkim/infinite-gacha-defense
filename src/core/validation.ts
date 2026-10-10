@@ -43,7 +43,7 @@ export function command(value: unknown): value is Command {
   if (shape(value, ['type'])) return value.type === 'startWave';
   return shape(value, ['type', 'ids', 'keepId']) && value.type === 'merge'
     && array(value.ids) && value.ids.length === 3 && value.ids.every(id => integer(id, 1))
-    && integer(value.keepId, 1);
+    && new Set(value.ids).size === 3 && integer(value.keepId, 1) && value.ids.includes(value.keepId);
 }
 
 export function event(value: unknown): value is CommandEvent {

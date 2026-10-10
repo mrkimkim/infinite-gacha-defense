@@ -48,7 +48,7 @@ owner 모모 · assignment-generation 1 · base `ee2fa330b148dffe1e1b8f1c59b86aa
 
 실행 환경은 Node 24.19.0이다. 기존 검토 설치 `/tmp`의 dependency tree를 로컬 ignored `node_modules/`에서 재사용했으며 양쪽 package-lock SHA-256이 동일함을 확인했다. package/lock/CI 파일은 변경하지 않았다.
 
-- `node --test tests/core/*.test.ts`: **41 PASS**, 0 FAIL. 코어 전용 테스트는 현재 루트 `npm test`에 자동 포함되지 않으므로 이 명령을 별도로 실행해야 한다.
+- `node --test tests/core/*.test.ts`: **42 PASS**, 0 FAIL. 코어 전용 테스트는 현재 루트 `npm test`에 자동 포함되지 않으므로 이 명령을 별도로 실행해야 한다.
 - `node node_modules/typescript/bin/tsc --noEmit -p tsconfig.core.json`: PASS, ES2022만 허용하고 Node/DOM ambient types 없음.
 - `npm run typecheck`: PASS. 테스트와 기존 tooling/Vite 설정까지 포함한 전체 타입 검사.
 - `npm run check`: PASS. 전체 타입 검사 + 기존 tooling 테스트 3개 + tooling ES 번들. 게임 UI 빌드 성공을 뜻하지 않는다.
@@ -74,3 +74,10 @@ owner 모모 · assignment-generation 1 · base `ee2fa330b148dffe1e1b8f1c59b86aa
 두 사례 모두 원본 acceptedLog와 최종 해시로 replay 일치를 확인했다. 경계 검사의 임의 fixture는 정상 경기/밸런스 증거와 분리했다. 이 자동 시뮬레이션은 재미/승률/경제 전환 검증이나 사람 플레이가 아니다.
 
 브라우저·Node 코어 bytes 교차 실행, 실제 UI 시작→결과→재시작, 어댑터 pause/hidden/stale callback, 사람 플레이는 이 코어 작업에서 **NOT_RUN**이다. 독립 동료 리뷰 및 실제 통합 SHA 재검증 전에는 verified로 표시하지 않는다.
+
+
+## 리뷰 반영: merge 사전 형식 검사
+
+[리더 PR #17 검토 질문](https://github.com/mrkimkim/infinite-gacha-defense/pull/17#issuecomment-6094047783)과 계약 §3의 `ids` 중복 불가/`keepId` 포함 조건을 반영했다. `ids`는 서로 다른 양의 안전한 정수 정확히 3개이며 `keepId`가 그중 하나여야 유효한 명령 형식이다. 위반은 dispatch의 `BAD_FORMAT`, replay 전체 사전 검사에서 해당 entryIndex의 `BAD_FORMAT`이다. 정상 형식의 merge는 첫 기술 프로필에서 계속 `UNSUPPORTED_COMMAND`로 거부되며, replay 적용 시 `COMMAND_REJECTED`다.
+
+회귀 검사에는 frozen 입력의 동일 참조/전체 불변, 앞 entry의 tick 불일치보다 뒤 malformed merge의 사전 검사 오류가 우선하는 경우, 정상 형식의 미지원 merge 거부를 포함한다. 이 수정은 공개 API·승인 규칙 수치·규칙 digest를 바꾸지 않는다. 검증은 구현 head `0918459aeb7684ab850da19627d3f4969f044517` 위의 미커밋 수정에서 수행했고, 새 게시 SHA의 동료 재검토는 별도다.

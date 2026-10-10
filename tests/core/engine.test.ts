@@ -87,7 +87,9 @@ test('all malformed command families reject atomically including accessors and s
     Object.defineProperty({type:'startWave'}, 'hidden', {value:1}),
   ];
   for (const payload of bad) rejected(state, payload, 'BAD_FORMAT');
-  rejected(state, {type:'merge',ids:[1,1,1],keepId:1}, 'UNSUPPORTED_COMMAND');
+  rejected(state, {type:'merge',ids:[1,1,1],keepId:1}, 'BAD_FORMAT');
+  rejected(state, {type:'merge',ids:[1,2,3],keepId:4}, 'BAD_FORMAT');
+  rejected(state, {type:'merge',ids:[1,2,3],keepId:1}, 'UNSUPPORTED_COMMAND');
   rejected(state, {type:'recruit',offerSlot:0,to:{kind:'bench',slot:0}}, 'BAD_LOCATION');
 });
 

@@ -105,3 +105,20 @@ test('complete rule projection and Node SHA-256 independently verify digest and 
   for(let i=0;i<4;i++)assert.deepEqual(pathPosition(i*5000),vertices[i]);
   assert.deepEqual(pathPosition(19999),{x:vertices[0].x,y:vertices[0].y+1});
 });
+
+
+test('merge distinct IDs and keep membership are preflight shape constraints before replay applies entries',()=>{
+  const state=fixture(), h=header(state), first=state.acceptedLog[0];
+  if(first.type!=='command')throw new Error();
+  const before=structuredClone(state);
+  for(const command of [
+    {type:'merge',ids:[1,1,1],keepId:1},
+    {type:'merge',ids:[1,2,2],keepId:1},
+    {type:'merge',ids:[1,2,3],keepId:4},
+  ]) {
+    failure(h,[{...first,atTick:999},{type:'command',seq:2,atTick:0,command,events:[]}],'BAD_FORMAT',1);
+  }
+  failure(h,[{type:'command',seq:1,atTick:0,
+    command:{type:'merge',ids:[1,2,3],keepId:1},events:[]}],'COMMAND_REJECTED',0);
+  assert.deepEqual(state,before);
+});
