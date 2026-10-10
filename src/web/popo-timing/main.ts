@@ -9,10 +9,22 @@ const consumer=createConsumer();
 let state=scenario(),owner={},size=36,delay=0,paused=true,lastTime=0,accumulator=0,lastPaint=0,endTick=136;
 let observation=core.observe(state),events:readonly CombatEvent[]=[],generation=0;
 let assets:Record<string,HTMLImageElement>={},ready=false;
+let presentationAlpha=0;
+let flightPixels=new Map<number,Point>();
+let retryScene={tick:122,autoplay:false};
+function loadingStatus(failed=false){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ $('#status').textContent=failed?'이미지를 불러오지 못했습니다. 다시 불러오기를 눌러 재시도해 주세요.':'이미지를 불러오는 중입니다…';
+ $('#status').setAttribute('role',failed?'alert':'status');
+ canvas.setAttribute('aria-busy',String(!failed));
+ $('#ledger').textContent='';
+ document.querySelectorAll('.steps span').forEach(e=>e.classList.remove('active'));
+ $('#retry').hidden=!failed;$<HTMLButtonElement>('#pause').disabled=true;
+}
 let impacts=new Map<number,{event:Extract<CombatEvent,{type:'attackImpacted'}>;shown:number;before:number;after:number}>();
 const point=(p:Point)=>({x:100+(p.x-3500)*.11,y:140+(p.y-500)*.08});
 const assetRoot='/assets/popo-timing/';
-const audit:{wall:number;tick:number;phase:string;flights:number[];hp:readonly (readonly number[])[];pose:string;impact:number[]}[]=[];
+const audit:{wall:number;tick:number;phase:string;flights:number[];hp:readonly (readonly number[])[];pose:string;impact:number[];flightPixels:{attackId:number;position:Point}[]}[]=[];
 function letter(p:{x:number;y:number},scale:number){
  const w=138*scale;ctx.drawImage(assets.letter,110,335,1033,584,p.x-w/2,p.y-w*584/1033/2,w,w*584/1033);
 }
@@ -23,8 +35,10 @@ function enemy(p:Point,hp:number,maxHp:number,hit=false,dead=false,opacity=1){
  for(const dx of [-4,4]){if(dead){ctx.beginPath();ctx.moveTo(p.x+dx-2,p.y-4);ctx.lineTo(p.x+dx+2,p.y);ctx.moveTo(p.x+dx+2,p.y-4);ctx.lineTo(p.x+dx-2,p.y);ctx.stroke();}else{ctx.fillStyle='#17281d';ctx.fillRect(p.x+dx-1,p.y-4,2,4);}}
  ctx.fillStyle='#4e4437';ctx.fillRect(p.x-13,p.y-20,26,4);ctx.fillStyle=hit?'#f6a16a':'#59a56f';ctx.fillRect(p.x-13,p.y-20,26*hp/maxHp,4);ctx.restore();
 }
-function paint(from:object,o:Observation,ev:readonly CombatEvent[],alpha:number){
+function paint(from:object,o:Observation,ev:readonly CombatEvent[],alpha:number,cosmetic=false){
  const view=consumer.present(from,o,ev,alpha);if(!view||!ready)return null;
+ presentationAlpha=alpha;
+ const drawnFlights:{attackId:number;position:Point}[]=[];
  for(const a of view.aftermath)if(!impacts.has(a.attackId)){
   const hit=a.hits[0],after=o.enemies.find(e=>e.id===hit.enemyId)?.hp??0;
   impacts.set(a.attackId,{event:a,shown:o.tick,before:after+hit.damage,after});
@@ -49,7 +63,8 @@ function paint(from:object,o:Observation,ev:readonly CombatEvent[],alpha:number)
   const traveled=Math.max(Math.abs(f.position.x-original.sourcePosition.x),Math.abs(f.position.y-original.sourcePosition.y));
   const distance=Math.max(Math.abs(t.position.x-original.sourcePosition.x),Math.abs(t.position.y-original.sourcePosition.y));
   const progress=Math.min(1,traveled/Math.max(1,distance));
-  letter({x:p.x+(688-360+69)*s*(1-progress),y:p.y+(365-640)*s*(1-progress)},s);
+  const pixel=cosmetic&&flightPixels.has(f.attackId)?flightPixels.get(f.attackId)!:{x:p.x+(688-360+69)*s*(1-progress),y:p.y+(365-640)*s*(1-progress)};
+  letter(pixel,s);drawnFlights.push({attackId:f.attackId,position:pixel});
  }
  if(active){for(const h of active.event.hits){const p=point(h.position),dead=!o.enemies.some(e=>e.id===h.enemyId);if(dead)enemy(p,0,active.before,true,true,Math.max(.35,1-(o.tick-active.shown)/12));
   // Contact mark is stationary at the core hit position, never another flight.
@@ -60,7 +75,8 @@ function paint(from:object,o:Observation,ev:readonly CombatEvent[],alpha:number)
  $('#status').textContent=`${size}px · tick ${o.tick} · ${phase}${pending&&!facing?' / 이 방향 자세 미지원':''}`;
  $('#ledger').textContent=active?`적 #${active.event.targetId} · HP ${active.before} → ${active.after} · 실제 피해 ${active.event.hits[0].damage}${active.after===0?' · 처치':''}`:'피해는 편지가 도착할 때 코어에서 확정됩니다.';
  document.querySelectorAll('.steps span').forEach(e=>e.classList.toggle('active',e.textContent===phase));
- audit.push({wall:performance.now(),tick:view.tick,phase,flights:view.flights.map(f=>f.attackId),hp:view.hp,pose,impact:active?[active.event.attackId]:[]});if(audit.length>4000)audit.shift();
+ flightPixels=new Map(drawnFlights.map(f=>[f.attackId,f.position]));
+ audit.push({wall:performance.now(),tick:view.tick,phase,flights:view.flights.map(f=>f.attackId),hp:view.hp,pose,impact:active?[active.event.attackId]:[],flightPixels:drawnFlights});if(audit.length>4000)audit.shift();
  return view;
 }
 function schedule(token:object){requestAnimationFrame(now=>{
@@ -78,14 +94,21 @@ function schedule(token:object){requestAnimationFrame(now=>{
 });}
 async function reset(tick=122,autoplay=true){
  owner={};const token=owner,currentGeneration=++generation;consumer.bind(owner);state=scenario(tick);observation=core.observe(state);events=[];impacts=new Map();audit.length=0;endTick=tick<140?136:160;accumulator=0;lastTime=0;lastPaint=0;paused=true;ready=false;
+ retryScene={tick,autoplay};presentationAlpha=0;flightPixels=new Map();assets={};loadingStatus();
  const loaded:Record<string,HTMLImageElement>={};
- await Promise.all(['idle','anticipation','release','recovery','letter'].map(async name=>{const img=new Image();img.src=assetRoot+name+'.png';await img.decode();loaded[name]=img;}));
+ try {await Promise.all(['idle','anticipation','release','recovery','letter'].map(async name=>{const img=new Image();img.src=assetRoot+name+'.png';await img.decode();loaded[name]=img;}));
+ }catch{
+  // A superseded decode failure must not clear a newer scene or its error state.
+  if(token!==owner||currentGeneration!==generation)return false;
+  paused=true;ready=false;assets={};loadingStatus(true);return false;
+ }
  if(token!==owner||currentGeneration!==generation)return false;
- assets=loaded;ready=true;paint(token,observation,[],0);paused=!autoplay;schedule(token);return true;
+ assets=loaded;ready=true;canvas.setAttribute('aria-busy','false');$('#status').setAttribute('role','status');$('#retry').hidden=true;$<HTMLButtonElement>('#pause').disabled=false;paint(token,observation,[],0);paused=!autoplay;schedule(token);return true;
 }
+$('#retry').onclick=()=>void reset(retryScene.tick,retryScene.autoplay);
 $('#restart').onclick=()=>void reset(122);$('#hit').onclick=()=>void reset(146);
 $('#pause').onclick=()=>{paused=!paused;lastTime=0;};
-$<HTMLSelectElement>('#size').onchange=e=>{size=Number((e.target as HTMLSelectElement).value);paint(owner,observation,[],1);};
+$<HTMLSelectElement>('#size').onchange=e=>{size=Number((e.target as HTMLSelectElement).value);paint(owner,observation,[],presentationAlpha,true);};
 $<HTMLSelectElement>('#delay').onchange=e=>{delay=Number((e.target as HTMLSelectElement).value);lastTime=0;};
 document.addEventListener('visibilitychange',()=>{lastTime=0;});
 // Explicit review API exercises the same production paint/RAF functions.
