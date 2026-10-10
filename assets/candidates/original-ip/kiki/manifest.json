@@ -1,0 +1,68 @@
+{
+  "actor": "키키",
+  "issue": 19,
+  "generation": 1,
+  "base": "5d69aacad292156de563f8c737e169a38687cb4c",
+  "tool": "built-in imagegen",
+  "status": "independent concept proposal; not production approved",
+  "cast_order": [
+    "나린",
+    "돌문",
+    "세오",
+    "루미",
+    "해솔",
+    "오목",
+    "바루",
+    "이안"
+  ],
+  "artifacts": [
+    {
+      "path": "assets/candidates/original-ip/kiki/cast-concept.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "sha256": "ab3f9e6ee691300e0af1eebad871dffb88e5e9ff035abe99df0a6cfc948fc018"
+    },
+    {
+      "path": "assets/candidates/original-ip/kiki/cast-concept.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "sha256": "f84848dfadbf1a185d8e7e71d1fcb9212f6b8874ee7e50730307142e63446fb6"
+    },
+    {
+      "path": "assets/candidates/original-ip/kiki/cast-sd.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "sha256": "67532970641877b0ba0c5e91293c15a1566513bbef202ee480da3f7a777db8bb"
+    },
+    {
+      "path": "assets/candidates/original-ip/kiki/cast-sd.jpg",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "sha256": "d5db8eb7239fa55e4ba0727ca7f65d2bae45eabca9476d621476301f6e99850a"
+    }
+  ],
+  "limitations": [
+    "SD has generated alpha0..254; hidden RGB and faint alpha residues require production edge validation",
+    "No animation or gameplay balance validation",
+    "Peer review pending"
+  ]
+}
