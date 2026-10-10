@@ -17,6 +17,7 @@ export interface V2ShellRefs {
   readonly capacity: HTMLElement;
   readonly enemyCount: HTMLElement;
   readonly bossTime: HTMLElement;
+  readonly segmentTime: HTMLElement;
   readonly wavePreview: HTMLElement;
   readonly arena: HTMLElement;
   readonly board: HTMLElement;
@@ -37,12 +38,10 @@ export interface V2ShellRefs {
   readonly attack: HTMLElement;
   readonly attackSpeed: HTMLElement;
   readonly range: HTMLElement;
+  readonly recruitButton: HTMLButtonElement;
+  readonly recruitPreview: HTMLElement;
   readonly sellButton: HTMLButtonElement;
-  readonly mergeButton: HTMLButtonElement;
-  readonly booksButton: HTMLButtonElement;
   readonly cancelButton: HTMLButtonElement;
-  /** Empty host for controller-owned book choices. */
-  readonly bookChoices: HTMLElement;
   readonly synergies: HTMLDetailsElement;
   readonly synergyList: HTMLUListElement;
   readonly synergyCount: HTMLElement;
@@ -78,7 +77,7 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
             <summary>시너지 <strong data-v2="synergy-count">—</strong><span aria-hidden="true">⌄</span></summary>
             <div class="v2-synergy-body"><h2>활성 시너지</h2><ul data-v2="synergy-list"><li>연결 후 표시됩니다.</li></ul></div>
           </details>
-          <div class="v2-combat-status"><span>남은 적 <strong data-v2="enemy-count">—</strong></span><span>보스 남은 시간 <strong data-v2="boss-time">—</strong></span></div>
+          <div class="v2-combat-status"><span>남은 적 <strong data-v2="enemy-count">—</strong></span><span>전투 남은 시간 <strong data-v2="segment-time">—</strong></span><span>보스 남은 시간 <strong data-v2="boss-time">—</strong></span></div>
           <div class="v2-play-actions"><button type="button" class="v2-button v2-primary" data-v2="start" disabled>전투 시작</button><button type="button" class="v2-button" data-v2="pause" disabled>일시정지</button></div>
         </div>
         <div class="v2-arena" data-v2="arena">
@@ -99,8 +98,8 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
         <section class="v2-panel v2-selection-panel" data-v2="selection-panel" aria-label="선택한 수호자" hidden>
           <div class="v2-selection-heading"><h2 data-v2="selected-name">수호자를 선택하세요</h2><span data-v2="selected-detail">선택 없음</span><button type="button" class="v2-button" data-v2="cancel" disabled>선택 취소</button></div>
           <dl class="v2-unit-stats" data-v2="selected-stats"><div><dt>공격력</dt><dd data-v2="attack">—</dd></div><div><dt>공격 속도</dt><dd data-v2="attack-speed">—</dd></div><div><dt>사거리</dt><dd data-v2="range">—</dd></div></dl>
-          <div class="v2-unit-actions"><button type="button" class="v2-button" data-v2="sell" disabled>판매</button><button type="button" class="v2-button" data-v2="merge" disabled>합성</button><button type="button" class="v2-button v2-book-button" data-v2="books" disabled>경험치책</button></div>
-          <div class="v2-book-choices" data-v2="book-choices" hidden></div>
+          <div data-v2="recruit-preview" class="v2-recruit-preview" hidden></div>
+          <div class="v2-unit-actions"><button type="button" class="v2-button v2-primary" data-v2="recruit" disabled hidden>영입</button><button type="button" class="v2-button" data-v2="sell" disabled>판매</button></div>
         </section>
         <p class="v2-message" data-v2="message" role="status" aria-live="polite" aria-atomic="true">화면 준비 완료 · 게임 연결 전에는 조작할 수 없습니다.</p>
       </div>
@@ -144,7 +143,7 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
   const offers = ref('offers');
   return {
     root, phase: ref('phase'), wave: ref('wave'), gold: ref('gold'), enemyPressure: ref('enemy-pressure'),
-    capacity: ref('capacity'), enemyCount: ref('enemy-count'), bossTime: ref('boss-time'),
+    capacity: ref('capacity'), enemyCount: ref('enemy-count'), bossTime: ref('boss-time'), segmentTime: ref('segment-time'),
     wavePreview: ref('wave-preview'), arena: ref('arena'), board,
     boardCells: slots(board, 16, 'board'), enemyLayer: ref<SVGSVGElement>('enemy-layer'),
     bench, benchSlots: slots(bench, 8, 'bench'), benchCount: ref('bench-count'),
@@ -153,8 +152,8 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
     selectionPanel: ref('selection-panel'), selectedName: ref('selected-name'), selectedDetail: ref('selected-detail'),
     selectedStats: ref<HTMLDListElement>('selected-stats'), attack: ref('attack'),
     attackSpeed: ref('attack-speed'), range: ref('range'),
-    sellButton: ref<HTMLButtonElement>('sell'), mergeButton: ref<HTMLButtonElement>('merge'),
-    booksButton: ref<HTMLButtonElement>('books'), cancelButton: ref<HTMLButtonElement>('cancel'), bookChoices: ref('book-choices'),
+    recruitButton: ref<HTMLButtonElement>('recruit'), recruitPreview: ref('recruit-preview'),
+    sellButton: ref<HTMLButtonElement>('sell'), cancelButton: ref<HTMLButtonElement>('cancel'),
     synergies: ref<HTMLDetailsElement>('synergies'), synergyList: ref<HTMLUListElement>('synergy-list'), synergyCount: ref('synergy-count'),
     startButton: ref<HTMLButtonElement>('start'), pauseButton: ref<HTMLButtonElement>('pause'),
     message: ref('message'),
