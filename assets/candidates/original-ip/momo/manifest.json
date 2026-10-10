@@ -1,0 +1,59 @@
+{
+  "owner": "모모",
+  "assignmentGeneration": 1,
+  "status": "proposal-not-production",
+  "ip": "절기권사",
+  "use": "infinite-gacha-defense only; original gacha shop unchanged",
+  "castOrder": [
+    "나도",
+    "든",
+    "소리",
+    "보준",
+    "련",
+    "하온",
+    "무레",
+    "설기"
+  ],
+  "assets": [
+    {
+      "path": "cast-concept-v1.jpg",
+      "bytes": 474088,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "e06d81d1fa4b745ba453823827e70f1fd69d44ce1892929c3cd60d4b3b997c37"
+    },
+    {
+      "path": "cast-concept-v1.png",
+      "bytes": 2505774,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "ff04ecd537e6b1382b5f0de589978a1aac81d3cdaf1bfba2d12b12b2a115566f"
+    },
+    {
+      "path": "cast-sd-v1.jpg",
+      "bytes": 506484,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "5a6549d2082fa8450ad8063a50faf3a5bd0239ecc56ae50087a47ae276bc1ef4"
+    },
+    {
+      "path": "cast-sd-v1.png",
+      "bytes": 2532263,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "67c1b99f1bf985919affc66d78377b2c7cfb7fe2ec0988c2487d95b6f9c687ca"
+    }
+  ]
+}
