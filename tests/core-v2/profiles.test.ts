@@ -13,8 +13,10 @@ const profiles = Object.values(api.RULES_PROPOSALS);
 function frozen(value: unknown): void {
   if (value !== null && typeof value === 'object') { assert.ok(Object.isFrozen(value)); Object.values(value).forEach(frozen); }
 }
-test('honest schema3 API/data-only exports contain no fake engine operations or schema2 IDs', () => {
-  assert.deepEqual(Object.keys(api).sort(), ['CANONICAL_STATE_KEYS', 'EXPERIMENT_RULES_ID', 'RULES_DIGESTS', 'RULES_PROPOSALS', 'SCHEMA_VERSION']);
+test('schema3 entry exports the approved engine and no schema2 profile IDs', () => {
+  assert.deepEqual(Object.keys(api).sort(), ['CANONICAL_STATE_KEYS', 'EXPERIMENT_RULES_ID', 'RULES_DIGESTS', 'RULES_PROPOSALS', 'SCHEMA_VERSION',
+    'advance', 'boardPosition', 'canonicalState', 'createMatch', 'dispatch', 'getRules',
+    'observe', 'pathPosition', 'previewRecruit', 'replay', 'stateHash']);
   assert.equal(api.SCHEMA_VERSION, 3); assert.equal(profiles.length, 2);
   for (const p of profiles) { assert.equal(p.schemaVersion, 3); assert.match(p.rulesId, /^playable-v2-gen2-fixture1-count(40|80)$/); }
 });

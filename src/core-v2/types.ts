@@ -1,4 +1,4 @@
-/** Generation2/schema3 API review checkpoint. Engine operations are TYPES ONLY. */
+/** Approved readonly generation2/schema3 engine contract. */
 export type DeepReadonly<T> = T extends object
   ? { readonly [K in keyof T]: DeepReadonly<T[K]> } : T;
 export type RulesId = 'playable-v2-gen2-fixture1-count40' | 'playable-v2-gen2-fixture1-count80';
@@ -178,7 +178,7 @@ export type ReplayErrorCode = 'BAD_FORMAT' | 'UNSUPPORTED_SCHEMA' | 'UNKNOWN_RUL
 export type ReplayResult =
   | Readonly<{ ok: true; state: MatchState }>
   | Readonly<{ ok: false; error: Readonly<{ code: ReplayErrorCode; entryIndex: number | null }> }>;
-/** Planned synchronous contract only; runtime engine functions are NOT exported yet. */
+/** Synchronous contract implemented by the schema3 entry point. */
 export interface CoreApi {
   createMatch(seed: unknown, rulesId: unknown): CreateMatchResult;
   previewRecruit(state: MatchState, offerSlot: unknown): RecruitPreview;
