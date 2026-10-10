@@ -14,13 +14,30 @@ for(const viewport of [{width:390,height:844},{width:1165,height:747}])for(const
  const snap=await p.evaluate(()=>window.popoReview.snapshot());assert.equal(errors.length,0);assert(snap.audit.some(a=>a.impact.includes(startTick===122?10:12)));
  for(const a of snap.audit.filter(a=>a.tick>=(startTick===122?128:152)))assert(!a.flights.includes(startTick===122?10:12),'dead attack resurrected');
  if(delay===0){for(const phase of ['준비','방출','비행','접촉·피해'])assert(snap.audit.some(a=>a.phase===phase),`missing ${phase}`);}
+ const attackId=startTick===122?10:12,impactTick=startTick+6;
+ for(const a of snap.audit){
+  if(a.tick<impactTick){assert.equal(a.contacts.length,0);assert.equal(a.rasterContacts.length,0);}
+  for(const f of a.flightPixels)for(const e of a.enemyPixels)assert(Math.hypot(f.position.x-e.position.x,f.position.y-e.position.y)>=a.clearance-1e-6,'speculative silhouette overlap');
+  for(const f of a.rasterFlights)if(f.raster&&f.raster.bodyGapPx!==null)assert(f.raster.bodyGapPx>=2-1e-6,'actual raster loses2px gap');
+ }
+ const last=[...snap.audit].reverse().find(a=>a.tick<impactTick&&a.flightPixels.some(f=>f.attackId===attackId));
+ const contact=snap.audit.find(a=>a.contacts.some(c=>c.attackId===attackId));
+ const lp=last?.flightPixels.find(f=>f.attackId===attackId)?.position,cp=contact?.contacts.find(c=>c.attackId===attackId)?.position;
+ const lr=last?.rasterFlights.find(f=>f.attackId===attackId)?.raster,cr=contact?.rasterContacts.find(f=>f.attackId===attackId)?.raster;
+ const metrics={lastFlightTick:last?.tick??null,impactTick:contact?.tick??null,centerJumpPx:lp&&cp?Math.hypot(lp.x-cp.x,lp.y-cp.y):null,
+  rasterCenterJumpPx:lr&&cr?Math.hypot(lr.x+lr.width/2-cr.x-cr.width/2,lr.y+lr.height/2-cr.y-cr.height/2):null,
+  lastFlightRaster:lr??null,firstContactRaster:cr??null,
+  minRasterGapPx:Math.min(...snap.audit.flatMap(a=>a.rasterFlights.flatMap(f=>f.raster?.bodyGapPx==null?[]:[f.raster.bodyGapPx]))),
+  widths:[...new Set(snap.audit.flatMap(a=>a.rasterFlights.flatMap(f=>f.raster?[f.raster.width]:[])))]};
+ if(delay===0){assert(lp&&cp&&lr&&cr,'normal flight/contact raster evidence required');assert(last.tick===impactTick-1);}
+
  await client.send('Page.stopScreencast');await Promise.all(writes);
  await p.screenshot({path:`${dir}/final.png`});
  const lifecycle=await p.evaluate(()=>window.popoReview.lifecycle());assert.equal(lifecycle.stale,null);assert.equal(lifecycle.resetStale,null);assert.equal(lifecycle.impact.flights.length,0);assert.equal(lifecycle.after.flights.length,0);
  const current=await p.evaluate(()=>window.popoReview.snapshot());await p.waitForTimeout(180);assert.equal((await p.evaluate(()=>window.popoReview.snapshot())).hash,current.hash);
  for(const tick of [124,127,128]){await p.evaluate(t=>window.popoReview.attach(t),tick);const at=await p.evaluate(()=>window.popoReview.snapshot());assert.equal(at.audit.at(-1).tick,tick);if(tick===128)assert.equal(at.audit.at(-1).flights.length,0);}
  const race=await p.evaluate(()=>Promise.all([window.popoReview.reset(127,false),window.popoReview.reset(122,false)]));assert.deepEqual(race,[false,true]);
- results.push({id,viewport,size,delay,startTick,hash:snap.hash,frames:frames.length,phases:[...new Set(snap.audit.map(a=>a.phase))],lifecycle,race});runs.push({id,frames});await fs.writeFile(`${dir}/audit.json`,JSON.stringify(snap,null,2));await p.close();
+ results.push({id,viewport,size,delay,startTick,metrics,hash:snap.hash,frames:frames.length,phases:[...new Set(snap.audit.map(a=>a.phase))],lifecycle,race});runs.push({id,frames});await fs.writeFile(`${dir}/audit.json`,JSON.stringify(snap,null,2));await p.close();
 }
 for(const tick of [122,146])assert.equal(new Set(results.filter(r=>r.startTick===tick).map(r=>r.hash)).size,1);
 await fs.writeFile(`${root}/results.json`,JSON.stringify(results,null,2));await fs.writeFile(`${root}/runs.json`,JSON.stringify(runs,null,2));

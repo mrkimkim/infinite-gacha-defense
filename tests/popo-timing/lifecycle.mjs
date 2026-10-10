@@ -48,7 +48,7 @@ for(const viewport of [{width:390,height:844},{width:1165,height:747}]){
   return new Promise(resolve=>{function inspect(){const s=window.popoReview.snapshot(),f=s.audit.at(-1);if(s.tick===127&&f.flightPixels.length&&f.flightPixels[0].position.x>135){window.popoReview.pause();resolve(s);}else requestAnimationFrame(inspect);}requestAnimationFrame(inspect);});
  });
  const position=paused.audit.at(-1).flightPixels;assert.equal(position.length,1);await capture('paused-before-resize-36');let resizeIndex=0;
- for(const size of ['32','36','32']){await page.selectOption('#size',size);const after=await page.evaluate(()=>window.popoReview.snapshot());assert.deepEqual(after.audit.at(-1).flightPixels,position);assert.equal(after.hash,paused.hash);await capture('paused-after-resize-'+(++resizeIndex)+'-'+size);}
+ for(const size of ['32','36','32']){await page.selectOption('#size',size);const after=await page.evaluate(()=>window.popoReview.snapshot());assert.deepEqual(after.audit.at(-1).flightPixels,position);assert.equal(after.hash,paused.hash);for(const f of after.audit.at(-1).rasterFlights)if(f.raster?.bodyGapPx!=null)assert(f.raster.bodyGapPx>=2);await capture('paused-after-resize-'+(++resizeIndex)+'-'+size);}
  await page.waitForTimeout(120);assert.deepEqual((await page.evaluate(()=>window.popoReview.snapshot())).audit.at(-1).flightPixels,position);
  await page.screenshot({path:`${root}/${viewport.width}-paused-resize.png`});
  await page.evaluate(()=>window.popoReview.resume());await page.waitForFunction(()=>window.popoReview.snapshot().tick===136);
