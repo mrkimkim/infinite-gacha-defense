@@ -1,4 +1,5 @@
 import type { CoreApi, CommandEvent, Location, RulesId } from '../core-v2/index.ts';
+import './v2-art.css';
 import { createV2Session } from './v2-session.ts';
 import { createV2Shell } from './v2-shell.ts';
 import { createV2Renderer } from './v2-view.ts';

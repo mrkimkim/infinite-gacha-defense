@@ -1,8 +1,16 @@
 import type {
   CombatEvent, CoreApi, Observation, ObservedUnit, Point, PublicRules,
-  DefinitionId, RarityId, RecruitPreview, PlanRef, Location, CharacterDefinition, Phase,
+  DefinitionId, RecruitPreview, CharacterDefinition, Phase,
 } from '../core-v2/index.ts';
 import type { V2ShellRefs, V2SlotRefs } from './v2-shell.ts';
+import { waveGuidance } from './v2-wave-guidance.ts';
+import { createArtLibrary, createSpritePlayer, loadArtImage, spriteLayout } from './v2-art.ts';
+import type { ArtLibrary, ArtLoader, ArtSprite, SpritePlayer } from './v2-art.ts';
+import {
+  definitionLabel, rarityLabel, locationLabel, planRefLabel, RECRUIT_ERRORS,
+  unitRole, unitStatsDisplay, recruitPreviewDetails, attackIntervalLabel,
+} from './v2-unit-display.ts';
+export { definitionLabel, rarityLabel, locationLabel, planRefLabel } from './v2-unit-display.ts';
 
 export interface V2RenderUi {
   readonly unitId?: number | null;
@@ -13,10 +21,20 @@ export interface V2RenderUi {
   readonly fatal?: boolean;
 }
 
-const ROLES = {
-  single: ['●', '단일 공격'], splash: ['◎', '범위 공격'], multi: ['Ⅱ', '두 대상 공격'],
-  slow: ['❄', '둔화'], support: ['＋', '인접 지원'], bossFirst: ['◆', '보스 우선'],
-} as const;
+export interface V2RendererOptions {
+  /** Only an explicitly reviewed definition-to-asset mapping enables sprites. */
+  readonly art?: {
+    readonly mapping: Readonly<Record<DefinitionId, string>>;
+    /** The renderer owns disposal of an injected library as well as a fetched one. */
+    readonly library?: ArtLibrary;
+    readonly loader?: ArtLoader;
+  };
+  readonly reducedMotion?: () => boolean;
+}
+
+// No approved fixture-to-IP mapping exists. Loading an image cannot approve one.
+const PRODUCTION_ART_MAPPING: Readonly<Record<DefinitionId, string>> = Object.freeze({});
+
 const TAG_NAMES = { focus: '집중', cooperation: '협동' } as const;
 const ENEMY_NAMES = { basic: '일반', swift: '신속', sturdy: '튼튼', boss: '보스' } as const;
 const OUTCOME_NAMES = {
@@ -34,29 +52,10 @@ export function activeAttackEffects<T extends { shownAt: number }>(effects: read
   return phase === 'combat' ? effects.filter(effect => tick - effect.shownAt < EFFECT_LIFETIME_TICKS) : [];
 }
 
-/** Pure copy projection, including deliberately symbolic transaction-local refs. */
-export function definitionLabel(rules: Pick<PublicRules, 'characters'>, id: DefinitionId): string {
-  return rules.characters.find(definition => definition.id === id)?.label ?? id;
-}
-export function rarityLabel(rules: Pick<PublicRules, 'rarities'>, id: RarityId): string {
-  return rules.rarities.find(rarity => rarity.id === id)?.label ?? id;
-}
 export function unitAccessibleLabel(unit: Pick<ObservedUnit, 'definitionId' | 'rarityId' | 'star'>, rules: Pick<PublicRules, 'characters' | 'rarities'>): string {
   return `${definitionLabel(rules, unit.definitionId)}, 희귀도 ${rarityLabel(rules, unit.rarityId)}, ${unit.star}성`;
 }
-export function locationLabel(location: Location): string {
-  return location.kind === 'board' ? `${location.row + 1}행 ${location.col + 1}열`
-    : `대기석 ${location.slot + 1}`;
-}
-export function planRefLabel(ref: PlanRef): string {
-  return ref.kind === 'existing' ? `기존 #${ref.unitId}` : `생성 예정 기물 ${ref.creationIndex + 1}`;
-}
-const RECRUIT_ERRORS = {
-  BAD_FORMAT: '영입 요청 형식 오류', BAD_PHASE: '준비 단계에서 영입할 수 있습니다',
-  BAD_SLOT: '잘못된 후보', OFFER_EMPTY: '이미 영입한 후보',
-  INSUFFICIENT_GOLD: '코인이 부족합니다', NO_RECRUIT_SPACE: '자동 승급 후에도 대기석 공간이 부족합니다',
-  INTEGER_OVERFLOW: '수치 한계를 초과해 영입할 수 없습니다',
-} as const;
+/** Symbolic diagnostic projection retained for callers without observed material units. */
 export function recruitPreviewLabel(preview: RecruitPreview, rules: Pick<PublicRules, 'characters' | 'benchCapacity'>): string {
   if (!preview.ok) return RECRUIT_ERRORS[preview.error.code];
   const steps = preview.upgrades.map((upgrade, index) =>
@@ -69,17 +68,149 @@ export function recruitPreviewLabel(preview: RecruitPreview, rules: Pick<PublicR
   ].join('\n');
 }
 export function ticksLabel(ticks: number | null, tickMs: number): string {
-  return ticks === null ? '—' : `${(ticks * tickMs / 1000).toFixed(1)}초`;
+  return ticks === null ? '—' : attackIntervalLabel(ticks, tickMs);
 }
 
 /** Pure projection of observations and event snapshots; owns no simulation clock. */
-export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
+export function createV2Renderer(shell: V2ShellRefs, api: CoreApi, options: V2RendererOptions = {}) {
   const document = shell.root.ownerDocument;
+  const statNote = document.createElement('p');
+  statNote.className = 'v2-message';
+  statNote.dataset.v2 = 'unit-stat-note';
+  shell.selectedStats.after(statNote);
+  // The displayed distance is a center-to-target radius, not a diameter.
+  if (shell.range.previousElementSibling) shell.range.previousElementSibling.textContent = '사거리 반경';
   let observation: Observation | null = null;
   let currentUi: V2RenderUi = {};
   let effects: AttackEffect[] = [];
   let disposed = false;
   const definition = (id: DefinitionId) => observation?.rules.characters.find(item => item.id === id);
+
+  type TokenNodes = { icon: HTMLSpanElement; sprite: HTMLSpanElement };
+  type EntityPlayer = { player: SpritePlayer; generation: number; sprite: ArtSprite; paused: boolean };
+  type ArtBinding = { key: string; assetId: string; unitId?: number; nodes: TokenNodes; resolved?: EntityPlayer };
+  const artMapping = Object.freeze({ ...(options.art?.mapping ?? PRODUCTION_ART_MAPPING) });
+  const tokenNodes = new Map<V2SlotRefs, TokenNodes>();
+  const artBindings = new Map<V2SlotRefs, ArtBinding>();
+  const entityPlayers = new Map<string, EntityPlayer>();
+  const attackTicks = new Map<number, number>();
+  const pendingAttackTicks = new Map<number, number>();
+  const artAbort = new AbortController();
+  let artOwner: object = {}, artGeneration = 0, reducedMotion = false;
+  let seenArtEntities = new Set<string>();
+  let artLibrary = options.art?.library ?? null;
+  let libraryTask: Promise<ArtLibrary | null> | null = null;
+  const deploymentBase = () => new URL('.', document.baseURI);
+  // One captured deployment base is shared by manifest, decoder, and CSS URLs.
+  const assetBase = Object.keys(artMapping).length ? deploymentBase() : null;
+  const assetUrl = (src: string) => new URL(src, assetBase!).href;
+  function library(): Promise<ArtLibrary | null> {
+    if (artLibrary) return Promise.resolve(artLibrary);
+    if (!libraryTask) libraryTask = fetch(assetUrl('assets/mvp/manifest.json'), { signal: artAbort.signal })
+      .then(response => { if (!response.ok) throw new Error('ART_MANIFEST_LOAD'); return response.json(); })
+      .then(input => {
+        const loaded = createArtLibrary(input, { loader: src => (options.art?.loader ?? loadArtImage)(assetUrl(src)) });
+        if (disposed) { loaded.dispose(); return null; }
+        artLibrary = loaded;
+        return loaded;
+      }).catch(() => null);
+    return libraryTask;
+  }
+  function roleIcon(slot: V2SlotRefs, icon: string) {
+    const nodes = tokenNodes.get(slot);
+    if (nodes) nodes.icon.textContent = icon;
+    else slot.token.textContent = icon;
+  }
+  function clearArt(slot: V2SlotRefs) {
+    artBindings.delete(slot);
+    const nodes = tokenNodes.get(slot);
+    if (!nodes) return;
+    nodes.sprite.hidden = true;
+    nodes.icon.hidden = false;
+    slot.token.style.width = '';
+    slot.token.style.height = '';
+  }
+  function resetArt(rotateOwner: boolean) {
+    artGeneration += 1;
+    if (rotateOwner) artOwner = {};
+    for (const slot of artBindings.keys()) clearArt(slot);
+    entityPlayers.clear();
+    attackTicks.clear();
+    pendingAttackTicks.clear();
+  }
+  function paintArt(slot: V2SlotRefs, binding: ArtBinding, entity: EntityPlayer, frame: number, clip: string) {
+    const layout = spriteLayout(entity.sprite, frame, { width: 32, height: 32 }, { x: 16, y: 30 });
+    Object.assign(binding.nodes.sprite.style, {
+      left: `${layout.left}px`, top: `${layout.top}px`, width: `${layout.width}px`, height: `${layout.height}px`,
+      backgroundSize: layout.backgroundSize, backgroundPosition: layout.backgroundPosition,
+      backgroundImage: `url(${JSON.stringify(assetUrl(entity.sprite.src))})`,
+    });
+    Object.assign(binding.nodes.sprite.dataset, { artStatus: entity.sprite.status,
+      artId: entity.sprite.id, artEntity: binding.key, artFrame: String(frame), artClip: clip });
+    slot.token.style.width = '32px';
+    slot.token.style.height = '32px';
+    binding.nodes.icon.hidden = true;
+    binding.nodes.sprite.hidden = false;
+  }
+  function sampleArt(slot: V2SlotRefs, binding: ArtBinding) {
+    const entity = binding.resolved, o = observation;
+    if (!entity || !o) return;
+    if (reducedMotion) {
+      paintArt(slot, binding, entity, entity.sprite.clips.idle.frames[0], 'idle');
+      return;
+    }
+    const paused = binding.unitId === undefined || o.phase !== 'combat'
+      || Boolean(currentUi.paused || currentUi.hidden || currentUi.fatal);
+    const committed = binding.unitId === undefined ? undefined : attackTicks.get(binding.unitId);
+    const input = { owner: artOwner, generation: entity.generation, tick: o.tick,
+      paused, attackTick: committed !== undefined && committed <= o.tick ? committed : undefined };
+    // Close a paused interval at the resume tick before allowing active progression.
+    if (entity.paused && !paused) entity.player.sample({ ...input, paused: true });
+    const pose = entity.player.sample(input);
+    entity.paused = paused;
+    if (pose) paintArt(slot, binding, entity, pose.frame, pose.clip);
+  }
+  function bindArt(slot: V2SlotRefs, key: string | null, id?: DefinitionId, unitId?: number) {
+    const assetId = id !== undefined && Object.hasOwn(artMapping, id) ? artMapping[id] : undefined;
+    if (!key || !assetId || !observation) { clearArt(slot); return; }
+    seenArtEntities.add(key);
+    const current = artBindings.get(slot);
+    if (current?.key === key && current.assetId === assetId) { sampleArt(slot, current); return; }
+    clearArt(slot);
+    let nodes = tokenNodes.get(slot);
+    if (!nodes) {
+      const icon = document.createElement('span'), sprite = document.createElement('span');
+      icon.textContent = slot.token.textContent;
+      sprite.className = 'v2-art-sprite'; sprite.hidden = true;
+      sprite.setAttribute('aria-hidden', 'true');
+      slot.token.classList.add('v2-art-host');
+      slot.token.replaceChildren(icon, sprite);
+      nodes = { icon, sprite }; tokenNodes.set(slot, nodes);
+    }
+    const binding: ArtBinding = { key, assetId, unitId, nodes };
+    artBindings.set(slot, binding);
+    const owner = artOwner, generation = artGeneration;
+    const startTick = Math.min(observation.tick, unitId === undefined
+      ? observation.tick : attackTicks.get(unitId) ?? observation.tick);
+    void library().then(async loaded => {
+      if (!loaded) return;
+      const resolution = await loaded.resolve(assetId);
+      if (disposed || owner !== artOwner || generation !== artGeneration
+          || artBindings.get(slot) !== binding || !resolution.ok) return;
+      let entity = entityPlayers.get(key);
+      if (!entity || entity.sprite.id !== resolution.sprite.id) {
+        const player = createSpritePlayer(resolution.sprite);
+        entity = { player, generation: player.reset(owner, startTick), sprite: resolution.sprite,
+          paused: unitId === undefined || observation?.phase !== 'combat'
+            || Boolean(currentUi.paused || currentUi.hidden || currentUi.fatal) };
+        entityPlayers.set(key, entity);
+      }
+      binding.resolved = entity;
+      // Async completion may occur between consume and render. Reveal only static
+      // idle here; attack sampling happens exclusively in the next render call.
+      paintArt(slot, binding, entity, entity.sprite.clips.idle.frames[0], 'idle');
+    }).catch(() => { /* Malformed/failed assets retain the existing role icon. */ });
+  }
 
   function svg<K extends keyof SVGElementTagNameMap>(
     tag: K, attributes: Record<string, string | number> = {}, text?: string,
@@ -109,21 +240,23 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
       delete slot.button.dataset.unitId;
       delete slot.button.dataset.definitionId;
       delete slot.button.dataset.rarity;
-      slot.token.textContent = '·';
+      roleIcon(slot, '·');
+      bindArt(slot, null);
       slot.label.textContent = '';
       slot.detail.textContent = '';
       slot.button.setAttribute('aria-label', `${location}, 빈칸`);
       slot.button.title = `${location}, 빈칸`;
       return;
     }
-    const role = ROLES[definition(unit.definitionId)?.behavior ?? 'single'];
+    const role = unitRole(definition(unit.definitionId));
     slot.button.dataset.unitId = String(unit.id);
     slot.button.dataset.definitionId = unit.definitionId;
     slot.button.dataset.rarity = unit.rarityId;
-    slot.token.textContent = role[0];
+    roleIcon(slot, role[0]);
+    bindArt(slot, `unit:${unit.id}`, unit.definitionId, unit.id);
     slot.label.textContent = definitionLabel(observation.rules, unit.definitionId);
     slot.detail.textContent = `${rarityLabel(observation.rules, unit.rarityId)} · ${unit.star}★`;
-    const label = `${location}, ${unitAccessibleLabel(unit, observation.rules)}, ${role[1]}, 임시 역할 아이콘`;
+    const label = `${location}, ${unitAccessibleLabel(unit, observation.rules)}, ${role[1]}`;
     slot.button.setAttribute('aria-label', label);
     slot.button.title = label;
   }
@@ -212,7 +345,22 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
 
   function render(o: Observation, ui: V2RenderUi = {}) {
     if (disposed) return;
-    if (observation && o.tick < observation.tick) effects = [];
+    const nextReducedMotion = options.reducedMotion?.()
+      ?? document.defaultView?.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    const backwards = observation !== null && o.tick < observation.tick;
+    const pending = backwards ? [] : [...pendingAttackTicks];
+    pendingAttackTicks.clear();
+    if (backwards) { effects = []; resetArt(true); }
+    else if (observation && observation.phase !== o.phase) resetArt(false);
+    if (nextReducedMotion !== reducedMotion) resetArt(false);
+    reducedMotion = nextReducedMotion;
+    // Phase/presentation resets discard old feedback, but events just consumed
+    // for this new combat observation still need their original committed age.
+    for (const [unitId, tick] of pending) {
+      if (tick > o.tick) pendingAttackTicks.set(unitId, tick);
+      else if (o.phase === 'combat') attackTicks.set(unitId, Math.max(attackTicks.get(unitId) ?? -1, tick));
+    }
+    seenArtEntities = new Set();
     observation = o;
     currentUi = ui;
     const canPrepare = o.phase === 'preparation' && !ui.fatal;
@@ -231,9 +379,10 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
     shell.segmentTime.textContent = ticksLabel(o.segmentRemainingTicks, o.rules.tickMs);
     shell.bossTime.textContent = ticksLabel(o.bossRemainingTicks, o.rules.tickMs);
     shell.benchCount.textContent = `${o.benchCount} / ${o.rules.benchCapacity}`;
-    shell.wavePreview.textContent = o.nextWave
-      ? `${o.nextWave.wave}웨이브 · 적 ${o.nextWave.spawns.length}명${o.nextWave.bossDeadlineWaveTick !== null ? ' · 보스' : ''}`
-      : '다음 웨이브 없음';
+    const guidance = waveGuidance(o);
+    shell.wavePreview.textContent = guidance.preview;
+    shell.waveCarry.textContent = guidance.carry;
+    shell.waveTiming.textContent = guidance.timing;
     shell.rerollCost.textContent = `${o.rules.rerollCost}코인`;
     shell.rerollButton.disabled = !canPrepare || o.gold < o.rules.rerollCost;
     shell.startButton.disabled = !canPrepare || !o.canStartWave;
@@ -257,11 +406,13 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
       selected(slot, ui.offerSlot === index);
       // A rejected preview remains inspectable, including full-bench failures.
       slot.button.disabled = !id || !canPrepare;
-      slot.token.textContent = id ? ROLES[definition(id)?.behavior ?? 'single'][0] : '·';
+      const stats = id ? unitStatsDisplay(o.rules, id) : null;
+      roleIcon(slot, id ? unitRole(definition(id))[0] : '·');
+      bindArt(slot, id ? `offer:${index}:${id}` : null, id ?? undefined);
       slot.label.textContent = id ? definitionLabel(o.rules, id) : '영입 완료';
-      slot.detail.textContent = id && offer ? `${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'} · 1★ · ${offer.price ?? '—'}코인` : '';
+      slot.detail.textContent = id && offer ? `${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'} · 1★ · ${offer.price ?? '—'}코인 · ${stats?.role}` : '';
       slot.button.setAttribute('aria-label', id && offer
-        ? `후보 ${index + 1}, ${definitionLabel(o.rules, id)}, 희귀도 ${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'}, 1성, ${offer.price ?? '—'}코인, ${offer.recruitPreview.ok ? '영입 가능' : RECRUIT_ERRORS[offer.recruitPreview.error.code]}`
+        ? `후보 ${index + 1}, ${definitionLabel(o.rules, id)}, 희귀도 ${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'}, 1성, ${offer.price ?? '—'}코인, ${stats?.role}, 1성 기본 공격력 ${stats?.attack}, 공격 주기 ${stats?.attackInterval}, 사거리 반경 ${stats?.range}, ${offer.recruitPreview.ok ? '영입 가능' : RECRUIT_ERRORS[offer.recruitPreview.error.code]}`
         : `후보 ${index + 1}, 비어 있음`);
       slot.button.title = slot.button.getAttribute('aria-label') ?? '';
       if (id) slot.button.dataset.definitionId = id;
@@ -269,16 +420,21 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
       if (offer?.rarityId) slot.button.dataset.rarity = offer.rarityId;
       else delete slot.button.dataset.rarity;
     }
+    for (const key of entityPlayers.keys()) if (!seenArtEntities.has(key)) entityPlayers.delete(key);
+    const stats = chosen ? unitStatsDisplay(o.rules, chosen.definitionId, chosen, o.synergies)
+      : chosenOffer?.definitionId ? unitStatsDisplay(o.rules, chosenOffer.definitionId) : null;
     shell.selectionPanel.hidden = !chosen && !chosenOffer;
-    shell.selectedStats.hidden = !chosen;
+    shell.selectedStats.hidden = !stats;
     shell.selectedName.textContent = chosen ? definitionLabel(o.rules, chosen.definitionId)
       : chosenOffer?.definitionId ? definitionLabel(o.rules, chosenOffer.definitionId) : '수호자를 선택하세요';
     shell.selectedDetail.textContent = chosen
-      ? `희귀도 ${rarityLabel(o.rules, chosen.rarityId)} · ${chosen.star}★ · ${locationLabel(chosen.location)}${chosen.supportActive ? ` · 지원 #${chosen.supportSourceIds.join(', #')}` : ''}`
-      : chosenOffer?.rarityId ? `희귀도 ${rarityLabel(o.rules, chosenOffer.rarityId)} · 1★ · ${chosenOffer.price ?? '—'}코인` : '';
-    shell.attack.textContent = chosen ? `${chosen.damage} / 보스 ${chosen.bossDamage}` : '—';
-    shell.attackSpeed.textContent = chosen ? `${ticksLabel(chosen.nextAttackCooldown, o.rules.tickMs)}/회` : '—';
-    shell.range.textContent = chosen ? String(chosen.range) : '—';
+      ? `희귀도 ${rarityLabel(o.rules, chosen.rarityId)} · ${chosen.star}★ · ${locationLabel(chosen.location)} · ${stats?.role} · ${stats?.basis}`
+      : chosenOffer?.rarityId ? `희귀도 ${rarityLabel(o.rules, chosenOffer.rarityId)} · 1★ · ${chosenOffer.price ?? '—'}코인 · ${stats?.role} · ${stats?.basis}` : '';
+    shell.attack.textContent = stats?.attack ?? '—';
+    shell.attackSpeed.textContent = stats?.attackInterval ?? '—';
+    shell.range.textContent = stats?.range ?? '—';
+    statNote.hidden = !stats;
+    statNote.textContent = stats?.note ?? '';
     shell.sellButton.hidden = !chosen;
     shell.sellButton.textContent = chosen ? `판매 ${chosen.sellGold}코인` : '판매';
     shell.sellButton.disabled = !canPrepare || !chosen;
@@ -286,7 +442,7 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
     shell.recruitButton.disabled = !canPrepare || !chosenOffer?.recruitPreview.ok;
     shell.recruitButton.textContent = chosenOffer ? `영입 ${chosenOffer.price ?? '—'}코인` : '영입';
     shell.recruitPreview.hidden = !chosenOffer;
-    shell.recruitPreview.textContent = chosenOffer ? recruitPreviewLabel(chosenOffer.recruitPreview, o.rules) : '';
+    shell.recruitPreview.textContent = chosenOffer ? recruitPreviewDetails(chosenOffer.recruitPreview, o.rules, o.units) : '';
     shell.cancelButton.disabled = !chosen && !chosenOffer;
     shell.synergyCount.textContent = String(o.synergies.filter(synergy => synergy.tier > 0).length);
     shell.synergyList.replaceChildren(...o.synergies.map(synergy => {
@@ -304,19 +460,21 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
 
   function consume(events: readonly CombatEvent[]) {
     if (disposed) return;
-    // Called before render: the next observation clears attack feedback on a phase
-    // transition. Recorded events remain untouched; no display wall clock.
+    // Queue committed feedback until render receives its matching observation.
+    // Rendering here would age/filter new effects against the previous phase and
+    // can permanently discard a first combat hit while that phase is preparation.
+    // The next render still clears final hits on preparation/result boundaries.
     for (const event of events) {
       if (event.type !== 'attack') continue;
+      pendingAttackTicks.set(event.unitId, Math.max(pendingAttackTicks.get(event.unitId) ?? -1, event.tick));
       const source = observation?.units.find(unit => unit.id === event.unitId);
       effects.push({ event, shownAt: event.tick,
         definition: source ? definition(source.definitionId) : undefined });
     }
     if (effects.length > MAX_ATTACK_EFFECTS) effects = effects.slice(-MAX_ATTACK_EFFECTS);
-    renderScene();
   }
-  function clearEffects() { effects = []; renderScene(); }
-  function reset() { effects = []; observation = null; currentUi = {}; shell.enemyLayer.replaceChildren(); }
-  function dispose() { reset(); disposed = true; }
+  function clearEffects() { effects = []; resetArt(true); renderScene(); }
+  function reset() { effects = []; resetArt(true); observation = null; currentUi = {}; shell.enemyLayer.replaceChildren(); statNote.textContent = ''; }
+  function dispose() { reset(); statNote.remove(); disposed = true; artAbort.abort(); artLibrary?.dispose(); }
   return { render, consume, reset, dispose, showEvents: consume, clearEffects };
 }
