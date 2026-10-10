@@ -42,6 +42,11 @@ function boot() {
     for (const button of document.querySelectorAll<HTMLButtonElement>(
       '#board button, #offers button, #start-wave, #pause, #restart, #cancel')) button.disabled = true;
   }
+  function halt(error: unknown) {
+    fatalError = error instanceof Error ? error.message : String(error);
+    scheduler.dispose();
+    showFatal();
+  }
   const scheduler = createScheduler({
     tickMs: initial.rules.tickMs,
     getMatch: () => session.match,
@@ -51,8 +56,7 @@ function boot() {
         session.advance(match, ticks);
         render();
       } catch (error) {
-        fatalError = error instanceof Error ? error.message : String(error);
-        showFatal();
+        halt(error);
         throw error;
       }
     },
@@ -65,12 +69,13 @@ function boot() {
     if (fatalError !== null) { showFatal(); return; }
     const observation = session.observe();
     view.render(observation, session.selection, scheduler.getStatus());
+    element('prototype').textContent = `${observation.rules.waveCount}웨이브 기술 실험 · 임시 그래픽`;
     element('identity').textContent = `seed ${seed} · ${initial.rules.rulesId} · ${initial.rules.rulesDigest}`;
     element('archive-count').textContent = `보존된 이전 경기: ${session.archives.length} (현재 페이지 세션 안에서만 보존)`;
     element<HTMLButtonElement>('export-previous').disabled = session.archives.length === 0;
     if (lastPhase !== observation.phase) {
       if (lastPhase === 'combat' && observation.phase === 'preparation') say('웨이브를 막았습니다. 배치를 바꾸거나 수호자를 영입하세요.');
-      if (observation.phase === 'result') say(observation.outcome === 'win' ? '5웨이브 기술 실험을 완주했습니다.' : '적을 놓쳐 체력이 모두 소진됐습니다. 다음 배치를 시험해 보세요.');
+      if (observation.phase === 'result') say(observation.outcome === 'win' ? `${observation.rules.waveCount}웨이브 기술 실험을 완주했습니다.` : '적을 놓쳐 체력이 모두 소진됐습니다. 다음 배치를 시험해 보세요.');
       lastPhase = observation.phase;
     }
   }
@@ -82,9 +87,7 @@ function boot() {
       scheduler.sync();
       render();
     } catch (error) {
-      fatalError = error instanceof Error ? error.message : String(error);
-      scheduler.dispose();
-      showFatal();
+      halt(error);
     }
   }
   element('start-wave').addEventListener('click', () => input(() => session.start()));
@@ -103,16 +106,18 @@ function boot() {
   window.addEventListener('pageshow', () => { scheduler.setHidden(document.hidden); render(); });
   element('restart').addEventListener('click', () => {
     if (fatalError !== null) return;
-    const result = session.restart();
-    if (result.ok) {
-      captureEpoch += 1;
-      scheduler.sync();
-      scheduler.setPaused(false);
-      element('hash').textContent = '상태 해시: 아직 계산하지 않음';
-      element<HTMLTextAreaElement>('evidence').value = '';
-      say('이전 경기 기록을 보존했습니다. 같은 seed로 배치를 다시 시험하세요.');
-    } else say(errors[result.code] ?? result.code, true);
-    render();
+    try {
+      const result = session.restart();
+      if (result.ok) {
+        captureEpoch += 1;
+        scheduler.sync();
+        scheduler.setPaused(false);
+        element('hash').textContent = '상태 해시: 아직 계산하지 않음';
+        element<HTMLTextAreaElement>('evidence').value = '';
+        say('이전 경기 기록을 보존했습니다. 같은 seed로 배치를 다시 시험하세요.');
+      } else say(errors[result.code] ?? result.code, true);
+      render();
+    } catch (error) { halt(error); }
   });
 
   async function capture() {
@@ -150,7 +155,10 @@ function boot() {
   say('후보를 고르고 빈칸을 누르면 영입합니다. 수호자를 배치한 뒤 전투를 시작하세요.');
 }
 try { boot(); } catch (error) {
-  say(`게임 연결 전: ${error instanceof Error ? error.message : String(error)}. 실제 코어 구현을 기다리고 있습니다.`, true);
-  element('phase').textContent = '코어 미연결';
+  const detail = error instanceof Error ? error.message : String(error);
+  say(detail.startsWith('CORE_NOT_IMPLEMENTED')
+    ? `코어 미연결: ${detail}. 실제 코어 구현을 기다리고 있습니다.`
+    : `게임 초기화 실패: ${detail}. 페이지를 다시 열거나 오류를 보고해 주세요.`, true);
+  element('phase').textContent = '초기화 중단';
   for (const id of ['snapshot', 'export', 'start-wave', 'pause', 'restart']) element<HTMLButtonElement>(id).disabled = true;
 }

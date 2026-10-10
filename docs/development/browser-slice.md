@@ -2,6 +2,12 @@
 
 Issue [#13](https://github.com/mrkimkim/infinite-gacha-defense/issues/13), owner 키키, assignment-generation 1. 기준 `ee2fa330b148dffe1e1b8f1c59b86aaeeb6a37e1`, branch `kiki/browser-slice-v1`.
 
+## 최신 검증 상태 · 2026-10-10 05:05 UTC
+
+실행 가능한 코어 `0918459aeb7684ab850da19627d3f4969f044517`와 CLI `c05e52dd80d1a4e4f92448ce35334af5f7e58cd6`를 별도 폴더에 무수정 결합했다. web `5e83f3e4e488848eb0e7e14e32712020dbe5e679` 기준 `npm run check` **104 PASS / 0 SKIP**, 코어 전용 타입 검사 및 실제 web build가 통과했다. 아래 API stub/미게시 기록은 이전 단계의 역사이며 현재 코어 연결 차단은 해제됐다. 이 별도 조합은 아직 main 통합 SHA가 아니다.
+
+후속 web 수정은 restart의 예상 밖 throw도 같은 fatal 경계로 처리하고, 기술 실험 배지/성공 안내의 웨이브 수를 공개 rules.waveCount에서 읽는다. 타입 검사 및 실제 코어와 결합한 빌드를 재통과했다. 정적/Node/번들 검증과 실제 브라우저 플레이 차단은 구분한다.
+
 ## 범위
 
 정면 4×4 준비 → 후보 영입/배치/이동/교환 → 전투 → 5웨이브 결과 → 같은 seed 재시작의 브라우저 어댑터다. 승인 계약의 첫 기술 프로필만 사용한다. 실제 규칙, 경제, 명령 검증, 표적/경로/전투는 `src/core/index.ts`의 공통 코어를 사용하며 복제하지 않는다. 코어 API 연결 및 실제 실행 검증이 끝나기 전에는 완주했다고 보고하지 않는다.
@@ -39,3 +45,11 @@ Issue [#13](https://github.com/mrkimkim/infinite-gacha-defense/issues/13), owner
 입력 세션은 `tests/web/session.test.ts`의 22개 명시적 CoreApi test double 검사도 통과했다. frozen 상태/스크립트된 반환을 쓰며 실제 core 게임 규칙 구현을 대신하지 않는다. 선택·취소, 정확한 recruit/move/swap 명령, 빠른 두 번째 클릭에서 중복 구매하지 않음, 실패 시 상태/선택 유지, phase 제한, 재시작 실패/재시도, 보존→새 wrapper 순서, 오래된 wrapper 입력/advance 무시를 검사한다. 합계 어댑터 테스트 57개, 타입 검사 및 스텁 API와 결합한 브라우저 번들이 통과했다. 실제 코어 통합 검사는 아직 별도다.
 
 예상하지 못한 전투/입력 예외는 치명 오류로 고정하고 편성·시작·pause·재시작을 잠근다. 멈춘 scheduler에서 ‘재개했다’고 잘못 안내하지 않으며 기록 저장 후 수동 새로고침이 필요함을 표시한다. 이 예외 안내와 결과→새 경기 안내 수정은 코드 경로 검토와 타입/빌드 검사를 거쳤지만 실제 DOM 이벤트로 재현한 증거는 아직 없다.
+
+### 실제 코어와 연결한 세션 회귀
+
+`session-core.test.ts`는 실제 코어0918459에 연결한7개 Node 검사다. recruit→move→swap, 거부 시 full state/선택 불변, seed1의 승리/패배 고정 시나리오, Node SHA-256 대조, 실제 replay/archive, 같은 seed 재시작과 오래된 wrapper 거부, advance1/5 상태 동등성을 포함한다.
+
+관측 후 고정한 회귀 시나리오: 준비 때 공개 observe만 보고 중앙 네 위치를 채우며 보이는 single 후보를 우선하는 smoke는 seed1/tick970/lives9 승리. 첫 offer0을(0,0)에 한 번만 영입하는 smoke는 seed1/tick500/wave2 패배. 이는 일반/숙련 사람 정책이나 밸런스 기대값이 아니며 실제 브라우저 입력을 대신하지 않는다. 완주/결과를 Node에서 검사하는 고정 회귀다.
+
+restart 시 예상 밖 createMatch throw에서도 이전 match/로그/archive가 보존되는 test double 검사1개를 추가했다. 현재 web은 fakeRAF35 + 입력double23 + 실제core연결7 = **65개**다. 실제 DOM의 restart 예외 안내 유지와 crypto 완료 시점은 리더의 별도 브라우저 검사가 필요하다.

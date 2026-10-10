@@ -340,3 +340,14 @@ test('advance failure throws the core error and preserves wrapper, state, select
   assert.deepEqual(h.session.selection, { kind: 'offer', slot: 0 });
   assert.deepEqual(h.session.archives, []);
 });
+
+test('unexpected createMatch throw during restart preserves current match and old log', () => {
+  const h = harness(state({ phase: 'result', outcome: 'loss' }));
+  const before = h.session.match;
+  const oldRecord = h.session.record();
+  h.onCreate(() => { throw new Error('unexpected engine failure'); });
+  assert.throws(() => h.session.restart(), /unexpected engine failure/);
+  assert.strictEqual(h.session.match, before);
+  assert.deepEqual(h.session.record(), oldRecord);
+  assert.deepEqual(h.session.archives, []);
+});
