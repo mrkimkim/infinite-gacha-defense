@@ -1,0 +1,355 @@
+{
+  "purpose": "Assemble real unmodified PNG assets for review; not imagegen-generated whole-board art",
+  "grid": {
+    "rows": 6,
+    "cols": 6,
+    "gap": 0
+  },
+  "variants": [
+    {
+      "id": "board-864",
+      "board_px": [
+        864,
+        864
+      ],
+      "tile_px": 144,
+      "unit_canvas_px": 116
+    },
+    {
+      "id": "board-360",
+      "board_px": [
+        360,
+        360
+      ],
+      "tile_px": 60,
+      "unit_canvas_px": 48
+    }
+  ],
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "role": "path",
+      "file": "mint-corner-path-v2.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "role": "path",
+      "file": "mint-corner-path-v2.png",
+      "rotation_degrees_clockwise": 180
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "role": "deployment",
+      "file": "cream-deployment.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "role": "path",
+      "file": "mint-corner-path-v2.png",
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "role": "path",
+      "file": "mint-straight-path.png",
+      "rotation_degrees_clockwise": 90
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "role": "path",
+      "file": "mint-corner-path-v2.png",
+      "rotation_degrees_clockwise": 270
+    }
+  ],
+  "units": [
+    {
+      "row": 1,
+      "col": 1,
+      "file": "capsule-guardian.png",
+      "pivot_normalized": [
+        0.5,
+        0.9433811802232854
+      ],
+      "tile_anchor_normalized": [
+        0.5,
+        0.875
+      ],
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "file": "capsule-guardian.png",
+      "pivot_normalized": [
+        0.5,
+        0.9433811802232854
+      ],
+      "tile_anchor_normalized": [
+        0.5,
+        0.875
+      ],
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "file": "capsule-guardian.png",
+      "pivot_normalized": [
+        0.5,
+        0.9433811802232854
+      ],
+      "tile_anchor_normalized": [
+        0.5,
+        0.875
+      ],
+      "rotation_degrees_clockwise": 0
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "file": "capsule-guardian.png",
+      "pivot_normalized": [
+        0.5,
+        0.9433811802232854
+      ],
+      "tile_anchor_normalized": [
+        0.5,
+        0.875
+      ],
+      "rotation_degrees_clockwise": 0
+    }
+  ],
+  "assembly_constraints": [
+    "Use unchanged source PNG files as image elements; no generated complete-board replacement and no raster pixel editing.",
+    "Floor image width and height both equal tile size, display block; no object-fit crop, per-cell margins, or rounded masks.",
+    "Rotation, layout scaling, and compositing are display transforms only. Do not overwrite sources.",
+    "Unit pivot aligns with each tile's (0.5,0.875) local anchor. Distinguish image canvas dimensions from visible silhouette.",
+    "For a comparison of bevel-lighting effects, optionally display a second board with all floor assets at 0deg; this is a QA variant, not a direction-accurate corner layout.",
+    "No UI labels, arrows, numbers, stars or plus signs overlaid in the board specimen.",
+    "Store a screenshot of each actual browser composition and report viewport/render scale. Inspect whether repeated texture is distracting, at both 144px and60px tile sizes."
+  ],
+  "known_qa_risks": [
+    "Subtle directional bevel lighting rotates with image transforms.",
+    "Thin corner seam endpoints approximately match adjacent centerlines; should be inspected at target scale.",
+    "Unit alpha noise outside substantial bounds is retained and may need later authorized imagegen correction.",
+    "Actual assembled board remains the next verification step; this spec does not claim it was rendered."
+  ]
+}

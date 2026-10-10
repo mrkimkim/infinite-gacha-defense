@@ -1,0 +1,257 @@
+{
+  "status": "Provisional leader candidate: complete source bytes and actual assembly verified; peer approval pending",
+  "created_utc": "2026-10-10T03:26:00Z",
+  "generation_method": "Built-in imagegen only. PNG originals copied byte-for-byte, not resized/cropped/color-corrected or edited by Python.",
+  "reference": "docs/reference/front-square-4x4.png (known decode blocker reported in Issue #4)",
+  "selected_files": [
+    "cream-deployment.png",
+    "mint-straight-path.png",
+    "mint-corner-path-v2.png",
+    "capsule-guardian.png"
+  ],
+  "assets": [
+    {
+      "filename": "cream-deployment.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "source_bytes_unmodified": true,
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha": "none; deliberately opaque full-bleed floor tile",
+      "proposed_pivot_px": [
+        627,
+        627
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.5
+      ],
+      "display_canvas_px": {
+        "tile_144": [
+          144,
+          144
+        ],
+        "tile_60": [
+          60,
+          60
+        ]
+      },
+      "center_half_mean_rgb": [
+        246.46582165141723,
+        229.34858786810437,
+        197.6320240938725
+      ],
+      "limitations": [
+        "Footprint is a full-bleed actual square with no transparent margins.",
+        "Directional bevel highlights remain subtly visible; 90-degree rotation is not perfectly lighting-invariant.",
+        "Adjacent copies have visible intended grout; color/texture continuity is not mathematically seamless."
+      ],
+      "creator_reported_source_sha256": "55cbf7b299ad38043476c10565c132a1714f175881cbf07a279fd9663eb155d0",
+      "creator_reported_source_byte_count": 1996790,
+      "sha256": "55cbf7b299ad38043476c10565c132a1714f175881cbf07a279fd9663eb155d0",
+      "byte_count": 1996790,
+      "git_blob_sha": "3d6b3e4a687bd699e5aff43cd2797b1d3328808d"
+    },
+    {
+      "filename": "mint-straight-path.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "source_bytes_unmodified": true,
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha": "none; deliberately opaque full-bleed floor tile",
+      "proposed_pivot_px": [
+        627,
+        627
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.5
+      ],
+      "display_canvas_px": {
+        "tile_144": [
+          144,
+          144
+        ],
+        "tile_60": [
+          60,
+          60
+        ]
+      },
+      "center_half_mean_rgb": [
+        202.71123982204315,
+        226.0760564598389,
+        190.68815325249471
+      ],
+      "limitations": [
+        "Footprint is a full-bleed actual square with no transparent margins.",
+        "Directional bevel highlights remain subtly visible; 90-degree rotation is not perfectly lighting-invariant.",
+        "Adjacent copies have visible intended grout; color/texture continuity is not mathematically seamless."
+      ],
+      "creator_reported_source_sha256": "ab78d36bde12cfd87d8c6b36c7fa0c81c2051b1733ae3e51444db4bdafb4d45e",
+      "creator_reported_source_byte_count": 2443656,
+      "sha256": "ab78d36bde12cfd87d8c6b36c7fa0c81c2051b1733ae3e51444db4bdafb4d45e",
+      "byte_count": 2443656,
+      "git_blob_sha": "ae59ca50aa2670765a6aaddd3780ba7f2fac922a"
+    },
+    {
+      "filename": "mint-corner-path-v2.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "source_bytes_unmodified": true,
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha": "none; deliberately opaque full-bleed floor tile",
+      "proposed_pivot_px": [
+        627,
+        627
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.5
+      ],
+      "display_canvas_px": {
+        "tile_144": [
+          144,
+          144
+        ],
+        "tile_60": [
+          60,
+          60
+        ]
+      },
+      "center_half_mean_rgb": [
+        202.30237148620427,
+        226.63293473643512,
+        188.8029883320742
+      ],
+      "limitations": [
+        "Footprint is a full-bleed actual square with no transparent margins.",
+        "Directional bevel highlights remain subtly visible; 90-degree rotation is not perfectly lighting-invariant.",
+        "Adjacent copies have visible intended grout; color/texture continuity is not mathematically seamless.",
+        "Selected improved corner: color closer to straight and seam flat/faint; curve endpoints are approximate, not exact numeric geometry."
+      ],
+      "creator_reported_source_sha256": "d2003de0d74d959c7e276004ee87081a7410ca3c73071f4b4410a616ac2e7a56",
+      "creator_reported_source_byte_count": 2206393,
+      "sha256": "d2003de0d74d959c7e276004ee87081a7410ca3c73071f4b4410a616ac2e7a56",
+      "byte_count": 2206393,
+      "git_blob_sha": "9eb27c5a11e347f231b458258ea9e0f0ae55e49c"
+    },
+    {
+      "filename": "capsule-guardian.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_bytes_unmodified": true,
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_nonzero_bbox_px_exclusive": [
+        0,
+        17,
+        1202,
+        1254
+      ],
+      "alpha_ge_16_bbox_px_exclusive": [
+        112,
+        57,
+        1140,
+        1183
+      ],
+      "alpha_pixel_counts": {
+        "transparent": 910770,
+        "partial": 661015,
+        "opaque": 731
+      },
+      "dominant_interior_alpha": 253,
+      "proposed_pivot_px": [
+        627,
+        1183
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.9433811802232854
+      ],
+      "pivot_description": "Bottom center of substantially visible feet at alpha >= 16; a proposed placement pivot, not a generated metadata field.",
+      "display_canvas_px": {
+        "tile_144": [
+          116,
+          116
+        ],
+        "tile_60": [
+          48,
+          48
+        ]
+      },
+      "estimated_visible_size_at_canvas116_px": [
+        95.09409888357257,
+        104.15948963317385
+      ],
+      "alternate_canvas_width_for_visible_width116_px": 141.50194552529183,
+      "limitations": [
+        "Actual alpha is present. Most interior alpha is 253/255, so it is slightly translucent.",
+        "Very faint alpha (<8) noise reaches canvas edges, so use substantial bounds for placement; no cleanup was performed.",
+        "116px image canvas yields about 95px visible silhouette width, not 116px visible width.",
+        "Neutral placeholder original capsule guardian; no claim of approved character identity or IP clearance."
+      ],
+      "creator_reported_source_sha256": "91a6e794253673b71cf5921d1f6a246b344aac23878fa701bfea7e71bdfc9fc1",
+      "creator_reported_source_byte_count": 1188762,
+      "sha256": "91a6e794253673b71cf5921d1f6a246b344aac23878fa701bfea7e71bdfc9fc1",
+      "byte_count": 1188762,
+      "git_blob_sha": "95582159ada32e4f437b1a475131bc67e80172fb"
+    }
+  ],
+  "qa": {
+    "fresh_clone_full_png_decode": true,
+    "exact_source_bytes_and_sha256": true,
+    "actual_browser_render": "Chromium151.0.7922.173, localhost, DPR1, viewport960x1600",
+    "screenshots_inspected": true,
+    "visual_result": "Complete source rendering. Texture/grout prominent at60px; directional bevel rotation remains; no production approval.",
+    "independent_peer_approval": false,
+    "exact_png_dimensions": {
+      "comparison-864.png": [
+        864,
+        864
+      ],
+      "comparison-360.png": [
+        360,
+        360
+      ],
+      "comparison-360-silhouette80.png": [
+        360,
+        360
+      ]
+    },
+    "capture_method": "integer-origin exact page clip, no raster edits",
+    "additional_visual_limits": [
+      "Guardian contrast against pale floors is low",
+      "Mint/cream color separation weak",
+      "Texture/grout stronger than desired quiet reference"
+    ]
+  },
+  "assembly_handoff": "See preview.html and actual screenshots; peer comparison pending. Prior incomplete-source images are historical failure diagnostics only.",
+  "creator_reported_qa": {
+    "inspected_original_pixels": true,
+    "actual_dimensions_and_alpha_verified": true,
+    "square_footprints": true,
+    "no_baked_text_arrows_numbers_stars_observed": true,
+    "rotation_invariant_lighting": false,
+    "assembled_test_board_created_in_this_worker": false,
+    "actual_render_at144_and60_verified": false,
+    "target_scale_texture_readability": "Unknown pending actual assembly; visibly texture-heavy in original pixels."
+  }
+}
