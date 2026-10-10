@@ -1,0 +1,255 @@
+{
+  "status": "candidate/unapproved",
+  "asset_id": "momo-round-01",
+  "task": "https://github.com/mrkimkim/infinite-gacha-defense/issues/4",
+  "dot": "모모",
+  "variant": "round-01",
+  "assignment_generation": 1,
+  "base_commit": "62ca8d0fddb6b51fef596f91d6ad668c83cd3176",
+  "reference": "docs/reference/front-square-4x4.png",
+  "reference_verification": {
+    "repository_file": {
+      "path": "docs/reference/front-square-4x4.png",
+      "bytes": 786445,
+      "sha256": "8b7a13cba742638198a3ba06598d9161d636970b7be8a34167323e3aa83293fa",
+      "pillow_verify": "TruncatedFileRead; not visually verified as a valid repository image"
+    },
+    "user_attachment_original": {
+      "dimensions_px": [
+        941,
+        1672
+      ],
+      "mode": "RGBA",
+      "sha256": "aaa262539399848781ea841597c70d74e59a3ff3532447fb416bfd4a2de3ff95",
+      "visual_confirmation": "Viewed directly by 모모; attachment original, not the damaged repository copy"
+    }
+  },
+  "provenance": {
+    "tool": "built-in imagegen",
+    "generation": "newly generated candidate assets",
+    "existing_ip_assets_used": false,
+    "exclusivity_guaranteed": false,
+    "prompt_record": "prompts.json",
+    "source_originals_byte_preserved": true,
+    "derived_boards": "assembly only; resize, quarter-turn rotation, alpha compositing"
+  },
+  "rights_basis": "New AI-generated project candidates. No existing IP asset reuse. No guarantee of exclusivity or non-infringement; production adoption remains unapproved.",
+  "approval": {
+    "status": "unapproved",
+    "reviews": [],
+    "decision_url": null
+  },
+  "assets": [
+    {
+      "path": "cream.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "has_alpha_channel": false,
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_interpretation": "RGB is fully opaque; implicit alpha 255",
+      "alpha_nonzero_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_ge128_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_ge250_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_zero_pixels": 0,
+      "alpha_partial_pixels": 0,
+      "alpha_opaque_pixels": 1572516,
+      "sha256": "4c758c35958dedb4e9ee5d247d619781df4cbc47f50a968d1847f410714f2143",
+      "asset_id": "momo-cream",
+      "recommended_display_box_px": [
+        60,
+        60
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "straight.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "has_alpha_channel": false,
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_interpretation": "RGB is fully opaque; implicit alpha 255",
+      "alpha_nonzero_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_ge128_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_ge250_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_zero_pixels": 0,
+      "alpha_partial_pixels": 0,
+      "alpha_opaque_pixels": 1572516,
+      "sha256": "acbe61f44f0e7bcc428193758b98484d8e7e8c347219e0ea7d6912e712f417d0",
+      "asset_id": "momo-straight",
+      "recommended_display_box_px": [
+        60,
+        60
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "corner.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "has_alpha_channel": false,
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_interpretation": "RGB is fully opaque; implicit alpha 255",
+      "alpha_nonzero_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_ge128_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_ge250_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "alpha_zero_pixels": 0,
+      "alpha_partial_pixels": 0,
+      "alpha_opaque_pixels": 1572516,
+      "sha256": "022c4523539c1a7f5c995950cc597829b70870eb8304e5875b22b4edcc830a99",
+      "asset_id": "momo-corner",
+      "recommended_display_box_px": [
+        60,
+        60
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "guardian.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel": true,
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_interpretation": "stored alpha",
+      "alpha_nonzero_bbox": [
+        70,
+        97,
+        1190,
+        1254
+      ],
+      "alpha_ge128_bbox": [
+        74,
+        234,
+        1143,
+        1132
+      ],
+      "alpha_ge250_bbox": [
+        75,
+        235,
+        1143,
+        1131
+      ],
+      "alpha_zero_pixels": 987122,
+      "alpha_partial_pixels": 584116,
+      "alpha_opaque_pixels": 1278,
+      "sha256": "b28af179b846b0e22ebc18bbe51935378826cd64a69821cda634d4d519f12d4e",
+      "asset_id": "momo-guardian",
+      "recommended_display_box_px": [
+        44,
+        48
+      ],
+      "pivot": [
+        0.5,
+        0.9
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "path": "board-360.png",
+      "dimensions_px": [
+        360,
+        360
+      ],
+      "sha256": "a801b5a8769bddbac5f82e9f54c61922565d9dc5b43a25bc9b90f18373dcc6ce"
+    },
+    {
+      "path": "board-864.png",
+      "dimensions_px": [
+        864,
+        864
+      ],
+      "sha256": "aa4390c71a9394aa878d21b8e1ed1692b417e9497e67e268e3bf5d7fe7ed4499"
+    }
+  ],
+  "tile_seams": {
+    "status": "unapproved; quantitative edge checks in checks.json",
+    "rotation_rule": "Source straight is vertical. Top-left corner opens down/right. Quarter-turn rotations connect perimeter."
+  },
+  "limitations": [
+    "Straight/corner were regenerated to reduce seam mismatch; residual color/border differences remain and need peer review.",
+    "Rotating source tiles also rotates baked lighting; potential lighting inconsistency remains.",
+    "Full guardian canvas is preserved without bbox trim. Actual silhouette differs from nominal 44x48 display box.",
+    "Guardian alpha>=1 bounding box reaches source canvas bottom; threshold-specific bounds are recorded.",
+    "Comparison only; no UI, platform, game integration, human play test or independent peer approval."
+  ],
+  "reproduce": "python assets/candidates/round-01/momo/assemble.py",
+  "numeric_evidence": "checks.json"
+}
