@@ -1,0 +1,1005 @@
+{
+  "method": "Read-only PNG decoding, direct static contact-sheet pixels, original and v03 visual comparison, manifest/embedded/source-code inspection. No browser or engine execution; no source PNG edits.",
+  "files": [
+    {
+      "key": "character",
+      "file": "nuri-five-poses-final-raw-v04.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "bytes": 1314793,
+      "sha256": "2c65e3deeabf77145e99fcdd813a68fc999678aca5beb8213efa3643f94a7e32",
+      "manifest_match": true,
+      "embedded_match": true
+    },
+    {
+      "key": "bubble",
+      "file": "bubble-emission-raw-v04.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 257745,
+      "sha256": "f04454fbb306837d1f9e396bc54eeb759ad90e7b24820b4b7dad9afcb5e7a9a9",
+      "manifest_match": true,
+      "embedded_match": true
+    },
+    {
+      "key": "impact",
+      "file": "water-impact-simple-raw-v04.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 195629,
+      "sha256": "5765e53597267abd72a3ab147cb2f37e6e32b4f4d6d3c6e7cf1729041959f863",
+      "manifest_match": true,
+      "embedded_match": true
+    },
+    {
+      "key": "ripple",
+      "file": "ground-ripple-raw-v04.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "bytes": 403886,
+      "sha256": "3eefc591750cc58ba0d16f73dd8c9cba15b45e8392abc6d7d32208477425fdb3",
+      "manifest_match": true,
+      "embedded_match": true
+    }
+  ],
+  "reference_sha256": "8ec7b3cc8e16db5f0252eba82ab243ad5c7005f1b121734bfa49f609f0c488f1",
+  "v03_reference_sha256": "c53d340bcb53386dfd0a2424a0d24a853b32ba12b732e6c5434c52969599727f",
+  "v03_original_matches": true,
+  "manifest_embedded_fixture_match": true,
+  "manifest_fixture": {
+    "kind": "synthetic_art_presentation_only",
+    "direction": "down-right",
+    "character_ground": [
+      54,
+      60
+    ],
+    "hit_position_far": [
+      142,
+      87
+    ],
+    "hit_position_near": [
+      103,
+      87
+    ],
+    "enemy_ground_far": [
+      142,
+      95
+    ],
+    "enemy_ground_near": [
+      103,
+      95
+    ],
+    "scene_dimensions": [
+      240,
+      124
+    ],
+    "hit_semantics": "First displayed committed-hit sample shows release, emission, instantaneous dotted trace, impact, hit tint and proxy HP change together; no projectile travel. Preparation exists only in separate art-pose preview, not committed-hit playback.",
+    "aoe": "Decorative ripple only; no approved multi-hit fixture, area center or radius contract.",
+    "holds_ms": {
+      "idle": 500,
+      "release": 180,
+      "recoil": 180,
+      "recovery": 230,
+      "settled_idle": 500
+    },
+    "preparation_preview_only_ms": 350
+  },
+  "frames": [
+    {
+      "name": "idle",
+      "pivot": [
+        182.25,
+        612
+      ],
+      "sole_slices": [
+        {
+          "y": 588,
+          "runs": [
+            [
+              48,
+              149
+            ],
+            [
+              214,
+              319
+            ]
+          ],
+          "relative_centers": [
+            -83.75,
+            84.25
+          ],
+          "shift_at32": [
+            0,
+            0
+          ],
+          "shift_at36": [
+            0,
+            0
+          ]
+        },
+        {
+          "y": 596,
+          "runs": [
+            [
+              49,
+              143
+            ],
+            [
+              220,
+              317
+            ]
+          ],
+          "relative_centers": [
+            -86.25,
+            86.25
+          ],
+          "shift_at32": [
+            0,
+            0
+          ],
+          "shift_at36": [
+            0,
+            0
+          ]
+        },
+        {
+          "y": 604,
+          "runs": [
+            [
+              57,
+              132
+            ],
+            [
+              230,
+              310
+            ]
+          ],
+          "relative_centers": [
+            -87.75,
+            87.75
+          ],
+          "shift_at32": [
+            0,
+            0
+          ],
+          "shift_at36": [
+            0,
+            0
+          ]
+        },
+        {
+          "y": 608,
+          "runs": [
+            [
+              66,
+              122
+            ],
+            [
+              240,
+              300
+            ]
+          ],
+          "relative_centers": [
+            -88.25,
+            87.75
+          ],
+          "shift_at32": [
+            0,
+            0
+          ],
+          "shift_at36": [
+            0,
+            0
+          ]
+        }
+      ],
+      "head_band_135_to_300": {
+        "bounds": [
+          37,
+          136,
+          331,
+          300
+        ],
+        "center_relative_to_pivot": [
+          3.257352765357126,
+          -387.1070753927453
+        ],
+        "pixel_count": 41821
+      },
+      "head_band_centroid_shift_at36": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "preparation",
+      "pivot": [
+        599.25,
+        612
+      ],
+      "sole_slices": [
+        {
+          "y": 588,
+          "runs": [
+            [
+              465,
+              566
+            ],
+            [
+              631,
+              736
+            ]
+          ],
+          "relative_centers": [
+            -83.75,
+            84.25
+          ],
+          "shift_at32": [
+            0,
+            0
+          ],
+          "shift_at36": [
+            0,
+            0
+          ]
+        },
+        {
+          "y": 596,
+          "runs": [
+            [
+              466,
+              559
+            ],
+            [
+              637,
+              734
+            ]
+          ],
+          "relative_centers": [
+            -86.75,
+            86.25
+          ],
+          "shift_at32": [
+            -0.03361344537815126,
+            0
+          ],
+          "shift_at36": [
+            -0.037815126050420166,
+            0
+          ]
+        },
+        {
+          "y": 604,
+          "runs": [
+            [
+              474,
+              548
+            ],
+            [
+              648,
+              727
+            ]
+          ],
+          "relative_centers": [
+            -88.25,
+            88.25
+          ],
+          "shift_at32": [
+            -0.03361344537815126,
+            0.03361344537815126
+          ],
+          "shift_at36": [
+            -0.037815126050420166,
+            0.037815126050420166
+          ]
+        },
+        {
+          "y": 608,
+          "runs": [
+            [
+              484,
+              537
+            ],
+            [
+              658,
+              718
+            ]
+          ],
+          "relative_centers": [
+            -88.75,
+            88.75
+          ],
+          "shift_at32": [
+            -0.03361344537815126,
+            0.06722689075630252
+          ],
+          "shift_at36": [
+            -0.037815126050420166,
+            0.07563025210084033
+          ]
+        }
+      ],
+      "head_band_135_to_300": {
+        "bounds": [
+          449,
+          136,
+          742,
+          300
+        ],
+        "center_relative_to_pivot": [
+          -3.235449289327903,
+          -386.86904360395084
+        ],
+        "pixel_count": 41510
+      },
+      "head_band_centroid_shift_at36": [
+        -0.49105225623668286,
+        0.018002404194537806
+      ]
+    },
+    {
+      "name": "release",
+      "pivot": [
+        1059.5,
+        612
+      ],
+      "sole_slices": [
+        {
+          "y": 588,
+          "runs": [
+            [
+              923,
+              1025
+            ],
+            [
+              1091,
+              1197
+            ]
+          ],
+          "relative_centers": [
+            -85.5,
+            84.5
+          ],
+          "shift_at32": [
+            -0.11764705882352941,
+            0.01680672268907563
+          ],
+          "shift_at36": [
+            -0.1323529411764706,
+            0.018907563025210083
+          ]
+        },
+        {
+          "y": 596,
+          "runs": [
+            [
+              924,
+              1019
+            ],
+            [
+              1097,
+              1196
+            ]
+          ],
+          "relative_centers": [
+            -88,
+            87
+          ],
+          "shift_at32": [
+            -0.11764705882352941,
+            0.05042016806722689
+          ],
+          "shift_at36": [
+            -0.1323529411764706,
+            0.05672268907563025
+          ]
+        },
+        {
+          "y": 604,
+          "runs": [
+            [
+              933,
+              1008
+            ],
+            [
+              1108,
+              1189
+            ]
+          ],
+          "relative_centers": [
+            -89,
+            89
+          ],
+          "shift_at32": [
+            -0.08403361344537816,
+            0.08403361344537816
+          ],
+          "shift_at36": [
+            -0.09453781512605042,
+            0.09453781512605042
+          ]
+        },
+        {
+          "y": 608,
+          "runs": [
+            [
+              943,
+              997
+            ],
+            [
+              1118,
+              1178
+            ]
+          ],
+          "relative_centers": [
+            -89.5,
+            88.5
+          ],
+          "shift_at32": [
+            -0.08403361344537816,
+            0.05042016806722689
+          ],
+          "shift_at36": [
+            -0.09453781512605042,
+            0.05672268907563025
+          ]
+        }
+      ],
+      "head_band_135_to_300": {
+        "bounds": [
+          920,
+          138,
+          1220,
+          300
+        ],
+        "center_relative_to_pivot": [
+          10.882683019225396,
+          -386.2595416232598
+        ],
+        "pixel_count": 42236
+      },
+      "head_band_centroid_shift_at36": [
+        0.5767056494522221,
+        0.06409919265016344
+      ]
+    },
+    {
+      "name": "recoil",
+      "pivot": [
+        1542.5,
+        612
+      ],
+      "sole_slices": [
+        {
+          "y": 588,
+          "runs": [
+            [
+              1407,
+              1508
+            ],
+            [
+              1574,
+              1679
+            ]
+          ],
+          "relative_centers": [
+            -85,
+            84
+          ],
+          "shift_at32": [
+            -0.08403361344537816,
+            -0.01680672268907563
+          ],
+          "shift_at36": [
+            -0.09453781512605042,
+            -0.018907563025210083
+          ]
+        },
+        {
+          "y": 596,
+          "runs": [
+            [
+              1409,
+              1501
+            ],
+            [
+              1580,
+              1678
+            ]
+          ],
+          "relative_centers": [
+            -87.5,
+            86.5
+          ],
+          "shift_at32": [
+            -0.08403361344537816,
+            0.01680672268907563
+          ],
+          "shift_at36": [
+            -0.09453781512605042,
+            0.018907563025210083
+          ]
+        },
+        {
+          "y": 604,
+          "runs": [
+            [
+              1417,
+              1491
+            ],
+            [
+              1591,
+              1671
+            ]
+          ],
+          "relative_centers": [
+            -88.5,
+            88.5
+          ],
+          "shift_at32": [
+            -0.05042016806722689,
+            0.05042016806722689
+          ],
+          "shift_at36": [
+            -0.05672268907563025,
+            0.05672268907563025
+          ]
+        },
+        {
+          "y": 608,
+          "runs": [
+            [
+              1427,
+              1480
+            ],
+            [
+              1600,
+              1660
+            ]
+          ],
+          "relative_centers": [
+            -89,
+            87.5
+          ],
+          "shift_at32": [
+            -0.05042016806722689,
+            -0.01680672268907563
+          ],
+          "shift_at36": [
+            -0.05672268907563025,
+            -0.018907563025210083
+          ]
+        }
+      ],
+      "head_band_135_to_300": {
+        "bounds": [
+          1399,
+          136,
+          1691,
+          300
+        ],
+        "center_relative_to_pivot": [
+          3.156339796682232,
+          -386.82097409026153
+        ],
+        "pixel_count": 41413
+      },
+      "head_band_centroid_shift_at36": [
+        -0.007639636286336518,
+        0.02163791363322536
+      ]
+    },
+    {
+      "name": "recovery",
+      "pivot": [
+        1955,
+        612
+      ],
+      "sole_slices": [
+        {
+          "y": 588,
+          "runs": [
+            [
+              1821,
+              1922
+            ],
+            [
+              1986,
+              2090
+            ]
+          ],
+          "relative_centers": [
+            -83.5,
+            83
+          ],
+          "shift_at32": [
+            0.01680672268907563,
+            -0.08403361344537816
+          ],
+          "shift_at36": [
+            0.018907563025210083,
+            -0.09453781512605042
+          ]
+        },
+        {
+          "y": 596,
+          "runs": [
+            [
+              1823,
+              1916
+            ],
+            [
+              1992,
+              2089
+            ]
+          ],
+          "relative_centers": [
+            -85.5,
+            85.5
+          ],
+          "shift_at32": [
+            0.05042016806722689,
+            -0.05042016806722689
+          ],
+          "shift_at36": [
+            0.05672268907563025,
+            -0.05672268907563025
+          ]
+        },
+        {
+          "y": 604,
+          "runs": [
+            [
+              1831,
+              1906
+            ],
+            [
+              2002,
+              2081
+            ]
+          ],
+          "relative_centers": [
+            -86.5,
+            86.5
+          ],
+          "shift_at32": [
+            0.08403361344537816,
+            -0.08403361344537816
+          ],
+          "shift_at36": [
+            0.09453781512605042,
+            -0.09453781512605042
+          ]
+        },
+        {
+          "y": 608,
+          "runs": [
+            [
+              1839,
+              1896
+            ],
+            [
+              2012,
+              2072
+            ]
+          ],
+          "relative_centers": [
+            -87.5,
+            87
+          ],
+          "shift_at32": [
+            0.05042016806722689,
+            -0.05042016806722689
+          ],
+          "shift_at36": [
+            0.05672268907563025,
+            -0.05672268907563025
+          ]
+        }
+      ],
+      "head_band_135_to_300": {
+        "bounds": [
+          1812,
+          139,
+          2105,
+          300
+        ],
+        "center_relative_to_pivot": [
+          3.9900194203396495,
+          -385.58002900759607
+        ],
+        "pixel_count": 40679
+      },
+      "head_band_centroid_shift_at36": [
+        0.05541176382220765,
+        0.1154909030785124
+      ]
+    }
+  ],
+  "release_source_local_clearance": {
+    "method": "Nearest alpha>=128 pixel centers between manually inspected shell lower-contour and exposed-tail regions; not a guaranteed empty-pixel gap.",
+    "pair": [
+      [
+        1266,
+        480
+      ],
+      [
+        1255,
+        491
+      ]
+    ],
+    "source_pixel_center_distance": 15.556349186104045,
+    "at32": 1.0458049873011124,
+    "at36": 1.1765306107137512
+  },
+  "release_contact_32_diagonal_adjacency": {
+    "shell": {
+      "position": [
+        552,
+        158
+      ],
+      "rgb": [
+        84,
+        47,
+        22
+      ]
+    },
+    "tail": {
+      "position": [
+        551,
+        159
+      ],
+      "rgb": [
+        116,
+        85,
+        61
+      ]
+    },
+    "flat_background": [
+      245,
+      240,
+      230
+    ],
+    "finding": "Diagonally neighboring dark edge pixels; no full background pixel lies between the closest pixel-square corners in this provided 32px native-Canvas sample."
+  },
+  "trace_samples": [
+    {
+      "height": 32,
+      "dark": false,
+      "t": 0.38,
+      "region": [
+        98.58991596638656,
+        61.71579831932773,
+        2.8444444444444446,
+        2.488888888888889
+      ],
+      "pixels_changed_gt10": 2,
+      "pixels_changed_gt30": 2,
+      "max_contrast": 1.3963525332557323,
+      "strongest": {
+        "position": [
+          124,
+          492
+        ],
+        "rgb": [
+          157,
+          215,
+          225
+        ],
+        "contrast_against_flat_background": 1.3963525332557323,
+        "max_rgb_difference": 88
+      }
+    },
+    {
+      "height": 32,
+      "dark": false,
+      "t": 0.64,
+      "region": [
+        116.37478991596639,
+        71.89949579831932,
+        2.8444444444444446,
+        2.488888888888889
+      ],
+      "pixels_changed_gt10": 3,
+      "pixels_changed_gt30": 3,
+      "max_contrast": 2.3485451986530506,
+      "strongest": {
+        "position": [
+          142,
+          503
+        ],
+        "rgb": [
+          126,
+          165,
+          173
+        ],
+        "contrast_against_flat_background": 2.3485451986530506,
+        "max_rgb_difference": 119
+      }
+    },
+    {
+      "height": 32,
+      "dark": true,
+      "t": 0.38,
+      "region": [
+        98.58991596638656,
+        61.71579831932773,
+        2.8444444444444446,
+        2.488888888888889
+      ],
+      "pixels_changed_gt10": 2,
+      "pixels_changed_gt30": 2,
+      "max_contrast": 3.1496573113974944,
+      "strongest": {
+        "position": [
+          395,
+          493
+        ],
+        "rgb": [
+          46,
+          129,
+          147
+        ],
+        "contrast_against_flat_background": 3.1496573113974944,
+        "max_rgb_difference": 88
+      }
+    },
+    {
+      "height": 32,
+      "dark": true,
+      "t": 0.64,
+      "region": [
+        116.37478991596639,
+        71.89949579831932,
+        2.8444444444444446,
+        2.488888888888889
+      ],
+      "pixels_changed_gt10": 3,
+      "pixels_changed_gt30": 2,
+      "max_contrast": 3.2451209847658316,
+      "strongest": {
+        "position": [
+          412,
+          502
+        ],
+        "rgb": [
+          80,
+          128,
+          142
+        ],
+        "contrast_against_flat_background": 3.2451209847658316,
+        "max_rgb_difference": 83
+      }
+    },
+    {
+      "height": 36,
+      "dark": false,
+      "t": 0.38,
+      "region": [
+        100.10865546218487,
+        60.7727731092437,
+        3.2,
+        2.8
+      ],
+      "pixels_changed_gt10": 4,
+      "pixels_changed_gt30": 4,
+      "max_contrast": 2.276138145903912,
+      "strongest": {
+        "position": [
+          666,
+          491
+        ],
+        "rgb": [
+          126,
+          168,
+          177
+        ],
+        "contrast_against_flat_background": 2.276138145903912,
+        "max_rgb_difference": 119
+      }
+    },
+    {
+      "height": 36,
+      "dark": false,
+      "t": 0.64,
+      "region": [
+        117.25663865546218,
+        71.35193277310924,
+        3.2,
+        2.8
+      ],
+      "pixels_changed_gt10": 4,
+      "pixels_changed_gt30": 3,
+      "max_contrast": 1.36263463676414,
+      "strongest": {
+        "position": [
+          684,
+          503
+        ],
+        "rgb": [
+          146,
+          220,
+          227
+        ],
+        "contrast_against_flat_background": 1.36263463676414,
+        "max_rgb_difference": 99
+      }
+    },
+    {
+      "height": 36,
+      "dark": true,
+      "t": 0.38,
+      "region": [
+        100.10865546218487,
+        60.7727731092437,
+        3.2,
+        2.8
+      ],
+      "pixels_changed_gt10": 4,
+      "pixels_changed_gt30": 3,
+      "max_contrast": 3.540718515763312,
+      "strongest": {
+        "position": [
+          936,
+          492
+        ],
+        "rgb": [
+          73,
+          136,
+          152
+        ],
+        "contrast_against_flat_background": 3.540718515763312,
+        "max_rgb_difference": 93
+      }
+    },
+    {
+      "height": 36,
+      "dark": true,
+      "t": 0.64,
+      "region": [
+        117.25663865546218,
+        71.35193277310924,
+        3.2,
+        2.8
+      ],
+      "pixels_changed_gt10": 4,
+      "pixels_changed_gt30": 4,
+      "max_contrast": 4.410008823044661,
+      "strongest": {
+        "position": [
+          954,
+          502
+        ],
+        "rgb": [
+          118,
+          149,
+          156
+        ],
+        "contrast_against_flat_background": 4.410008823044661,
+        "max_rgb_difference": 104
+      }
+    }
+  ],
+  "contact": {
+    "dimensions": [
+      1120,
+      1170
+    ],
+    "sha256": "47cc6b3617acee94bd2d3c8ac40abd82f194c328d6543faae73f1ed3bd274444"
+  },
+  "html_sha256": "32e87d7bafa4831631dff9cf7614b96a9400ba206d454e1d222ba63b02bbf3bf",
+  "limits": [
+    "Single-row per-foot metric is center-separation only, not complete foot-shape or fixed-rig proof.",
+    "Upper-head band centroid comparison is a deliberately restricted alpha-mask diagnostic; not full head anatomy.",
+    "Contrast is descriptive measurement of sparse trace pixels, not an accessibility criterion.",
+    "Static native-Canvas output is not browser playback or engine timing evidence."
+  ]
+}

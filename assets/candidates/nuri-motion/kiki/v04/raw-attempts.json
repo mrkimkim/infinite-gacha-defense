@@ -1,0 +1,119 @@
+[
+  {
+    "file": "nuri-five-poses-raw-v04.png",
+    "prompt": "prompt-character.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 1399997,
+    "sha256": "a4fcdf4aea4e57fafe75ebe6fdc6344dc1172cc926eb1ef5d59f0b7ffa698cf5",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "nuri-five-poses-refined-raw-v04.png",
+    "prompt": "prompt-character-refine.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 1298406,
+    "sha256": "2f16238860d967e625dee4dbf5bdc6d141acd13935aa3def13aefb307398a9ec",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "nuri-five-poses-gap-raw-v04.png",
+    "prompt": "prompt-character-gap.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 1296452,
+    "sha256": "6fc5e2c1d6a6e2dbdf8722e5e2b07048ba318832bf0a4de1c12c850c1ba4ceae",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "nuri-five-poses-final-raw-v04.png",
+    "prompt": "prompt-character-padding.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 1314793,
+    "sha256": "2c65e3deeabf77145e99fcdd813a68fc999678aca5beb8213efa3643f94a7e32",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "bubble-emission-raw-v04.png",
+    "prompt": "prompt-bubble.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bytes": 257745,
+    "sha256": "f04454fbb306837d1f9e396bc54eeb759ad90e7b24820b4b7dad9afcb5e7a9a9",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "water-impact-raw-v04.png",
+    "prompt": "prompt-impact.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "bytes": 1325372,
+    "sha256": "678297eb5d15170dde50d10ca89cc017cbcc408e617c2a8a4de30e29190ba042",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "water-impact-clear-raw-v04.png",
+    "prompt": "prompt-impact-refine.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "bytes": 1525845,
+    "sha256": "08dfd931ee308619ea16cd9aa8a36501858171017bc854e37786b6e5e74d18a5",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "water-impact-simple-raw-v04.png",
+    "prompt": "prompt-impact-simple.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bytes": 195629,
+    "sha256": "5765e53597267abd72a3ab147cb2f37e6e32b4f4d6d3c6e7cf1729041959f863",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  },
+  {
+    "file": "ground-ripple-raw-v04.png",
+    "prompt": "prompt-ripple.txt",
+    "tool": "image_gen.imagegen builtin",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "bytes": 403886,
+    "sha256": "3eefc591750cc58ba0d16f73dd8c9cba15b45e8392abc6d7d32208477425fdb3",
+    "raw_preservation_verified": true,
+    "provenance_note": "Generated output copied unchanged; preserved file and SHA-256 identify the published bytes. Private executor path omitted."
+  }
+]
