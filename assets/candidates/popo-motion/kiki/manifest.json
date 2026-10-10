@@ -1,0 +1,568 @@
+{
+  "asset_id": "popo-motion-kiki-generated-01",
+  "task": "https://github.com/mrkimkim/infinite-gacha-defense/issues/26",
+  "dot": "kiki",
+  "variant": "generated-motion-01",
+  "assignment_generation": 1,
+  "base_commit": "5d69aacad292156de563f8c737e169a38687cb4c",
+  "raw": {
+    "path": "raw-generated.png",
+    "sha256": "ce074d432bdfe8ec52015411d7cb433d666d90b20cbc703d269bd4ead5e21d61",
+    "dimensions_px": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "alpha_nonzero_pixels": 733374,
+    "alpha_zero_pixels": 840164,
+    "alpha_partial_pixels": 732013
+  },
+  "extraction": {
+    "method": "Measured spatial partitions, then strict alpha>0 bounding crop and integer translation only; all nonzero pixels retained exactly once",
+    "coordinates": "xyxy rectangles are half-open; pivots use pixel-edge coordinates",
+    "partition_x": [
+      0,
+      425,
+      908,
+      1328,
+      1774
+    ],
+    "partition_y": [
+      0,
+      450,
+      887
+    ],
+    "vertical_seams": "x=425,908,1328 are wholly transparent columns",
+    "horizontal_seam": "y=450 boundary intersects no alpha>0 8-connected component; there is no wholly transparent row between character rows",
+    "anchor_method": "Horizontal midpoint of union of alpha>127 pixels in last 5 occupied rows, rounded to nearest integer; y is exclusive bottom of alpha>127 bbox. This is a geometric foot-baseline approximation, not rigged anatomical annotation.",
+    "canvas_px": [
+      512,
+      512
+    ],
+    "pivot_px": [
+      256,
+      464
+    ],
+    "per_frame_scale": 1,
+    "normalization": "No per-frame resizing, rotations, recoloring, alpha retouching, isolated-pixel deletion or pose correction."
+  },
+  "reference": {
+    "url": "https://github.com/mrkimkim/infinite-gacha-defense/blob/eb95229d0ba9176c6f4bd396ae8acb34f717d3a8/docs/reference/characters/popo/sheet.png",
+    "sha256": "324d5a44059328ec6e8219bb19f0f059275675c7a73a4c25fd7a01e7ea1be11b",
+    "style_reference": "Original user-provided 4x4 concept, not copied into this candidate."
+  },
+  "provenance": "Built-in image generation output created for Kiki\u2019s candidate, preserved byte-for-byte as raw-generated.png. Technical extraction script creates only crops, translations and inspection renders.",
+  "license_rights_basis": "Project owner authorized public project-specific reference and generated candidate preparation; no claim of separate third-party license or production approval.",
+  "approval": {
+    "status": "candidate_only_not_production_ready",
+    "independent_dot_review": "pending",
+    "decision_url": null
+  },
+  "tile_seams": "Not a tiling asset. No tile continuity claim.",
+  "limitations": [
+    "Generated pose sheet, not a designed animation cycle. Frames 1 and 2 have little idle distinction; head, face, clothing and bag vary between poses.",
+    "Faint isolated pixels and partially transparent fringe are retained. Their assignment to neighboring frames follows measured spatial partitions, not semantic certainty.",
+    "Foot anchors are consistent geometric baselines, but pose silhouettes and character proportions still vary.",
+    "44/56px checks show the entire 512px normalized canvas at that size; visible character is smaller because preserved outliers require padding.",
+    "Frame order and timing in viewer are inspection controls, not approved animation choreography."
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "path": "frames/01.png",
+      "sha256": "8f4472ae127d054f5b234e8c0a6bfcfc70d61aea1cd5b938483296db62661a02",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        0,
+        0,
+        425,
+        450
+      ],
+      "source_crop_xyxy": [
+        23,
+        49,
+        413,
+        444
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        58,
+        56,
+        404,
+        425
+      ],
+      "source_anchor_xy": [
+        240,
+        425
+      ],
+      "crop_offset_in_output_xy": [
+        39,
+        88
+      ],
+      "source_to_output_translation_xy": [
+        16,
+        39
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 89029,
+        "transparent_pixels": 173115,
+        "partial_pixels": 88889,
+        "opaque_pixels": 140,
+        "max": 255,
+        "strict_bbox_output": [
+          39,
+          88,
+          429,
+          483
+        ],
+        "components_8connected": 43,
+        "components_at_most_4_pixels": 41,
+        "pixels_in_components_at_most_4_pixels": 63
+      }
+    },
+    {
+      "index": 2,
+      "path": "frames/02.png",
+      "sha256": "78c709182f566b89f0d1606a7703b55bd2d7b65317bf770acc3b19216692c23e",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        425,
+        0,
+        908,
+        450
+      ],
+      "source_crop_xyxy": [
+        436,
+        19,
+        895,
+        450
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        494,
+        56,
+        849,
+        425
+      ],
+      "source_anchor_xy": [
+        683,
+        425
+      ],
+      "crop_offset_in_output_xy": [
+        9,
+        58
+      ],
+      "source_to_output_translation_xy": [
+        -427,
+        39
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 90714,
+        "transparent_pixels": 171430,
+        "partial_pixels": 90562,
+        "opaque_pixels": 152,
+        "max": 255,
+        "strict_bbox_output": [
+          9,
+          58,
+          468,
+          489
+        ],
+        "components_8connected": 112,
+        "components_at_most_4_pixels": 103,
+        "pixels_in_components_at_most_4_pixels": 140
+      }
+    },
+    {
+      "index": 3,
+      "path": "frames/03.png",
+      "sha256": "0262140d7c3937eb42af0fe76593261ad620329a53cab47d50b90d05e4b5bae7",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        908,
+        0,
+        1328,
+        450
+      ],
+      "source_crop_xyxy": [
+        912,
+        17,
+        1318,
+        450
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        948,
+        58,
+        1288,
+        426
+      ],
+      "source_anchor_xy": [
+        1109,
+        426
+      ],
+      "crop_offset_in_output_xy": [
+        59,
+        55
+      ],
+      "source_to_output_translation_xy": [
+        -853,
+        38
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 89507,
+        "transparent_pixels": 172637,
+        "partial_pixels": 89342,
+        "opaque_pixels": 165,
+        "max": 255,
+        "strict_bbox_output": [
+          59,
+          55,
+          465,
+          488
+        ],
+        "components_8connected": 113,
+        "components_at_most_4_pixels": 109,
+        "pixels_in_components_at_most_4_pixels": 146
+      }
+    },
+    {
+      "index": 4,
+      "path": "frames/04.png",
+      "sha256": "7d5edbc03e3f893d0cd8e35171c950702ed1306b926e3437d8f2a017569cce67",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        1328,
+        0,
+        1774,
+        450
+      ],
+      "source_crop_xyxy": [
+        1360,
+        15,
+        1728,
+        436
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        1372,
+        56,
+        1723,
+        426
+      ],
+      "source_anchor_xy": [
+        1562,
+        426
+      ],
+      "crop_offset_in_output_xy": [
+        54,
+        53
+      ],
+      "source_to_output_translation_xy": [
+        -1306,
+        38
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 91028,
+        "transparent_pixels": 171116,
+        "partial_pixels": 90866,
+        "opaque_pixels": 162,
+        "max": 255,
+        "strict_bbox_output": [
+          54,
+          53,
+          422,
+          474
+        ],
+        "components_8connected": 73,
+        "components_at_most_4_pixels": 71,
+        "pixels_in_components_at_most_4_pixels": 108
+      }
+    },
+    {
+      "index": 5,
+      "path": "frames/05.png",
+      "sha256": "0bfd9e96002ffcade0f0dbe2d9be9c42385178a9254ea79ee370a851c1f11b31",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        0,
+        450,
+        425,
+        887
+      ],
+      "source_crop_xyxy": [
+        49,
+        452,
+        413,
+        857
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        54,
+        484,
+        409,
+        852
+      ],
+      "source_anchor_xy": [
+        248,
+        852
+      ],
+      "crop_offset_in_output_xy": [
+        57,
+        64
+      ],
+      "source_to_output_translation_xy": [
+        8,
+        -388
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 90755,
+        "transparent_pixels": 171389,
+        "partial_pixels": 90617,
+        "opaque_pixels": 138,
+        "max": 255,
+        "strict_bbox_output": [
+          57,
+          64,
+          421,
+          469
+        ],
+        "components_8connected": 66,
+        "components_at_most_4_pixels": 61,
+        "pixels_in_components_at_most_4_pixels": 89
+      }
+    },
+    {
+      "index": 6,
+      "path": "frames/06.png",
+      "sha256": "7786d22f19f0c59d52d020aa2aa185c09fa8fbe6491b356459ed8d19deab9f91",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        425,
+        450,
+        908,
+        887
+      ],
+      "source_crop_xyxy": [
+        440,
+        450,
+        905,
+        857
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        478,
+        483,
+        889,
+        853
+      ],
+      "source_anchor_xy": [
+        665,
+        853
+      ],
+      "crop_offset_in_output_xy": [
+        31,
+        61
+      ],
+      "source_to_output_translation_xy": [
+        -409,
+        -389
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 97307,
+        "transparent_pixels": 164837,
+        "partial_pixels": 97108,
+        "opaque_pixels": 199,
+        "max": 255,
+        "strict_bbox_output": [
+          31,
+          61,
+          496,
+          468
+        ],
+        "components_8connected": 170,
+        "components_at_most_4_pixels": 156,
+        "pixels_in_components_at_most_4_pixels": 216
+      }
+    },
+    {
+      "index": 7,
+      "path": "frames/07.png",
+      "sha256": "01c9a36600a727bea3362e802bd4a242cd8a45fa6ca683ead8d3ea299c9c7a41",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        908,
+        450,
+        1328,
+        887
+      ],
+      "source_crop_xyxy": [
+        918,
+        459,
+        1317,
+        856
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        931,
+        483,
+        1297,
+        853
+      ],
+      "source_anchor_xy": [
+        1113,
+        853
+      ],
+      "crop_offset_in_output_xy": [
+        61,
+        70
+      ],
+      "source_to_output_translation_xy": [
+        -857,
+        -389
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 95546,
+        "transparent_pixels": 166598,
+        "partial_pixels": 95372,
+        "opaque_pixels": 174,
+        "max": 255,
+        "strict_bbox_output": [
+          61,
+          70,
+          460,
+          467
+        ],
+        "components_8connected": 91,
+        "components_at_most_4_pixels": 86,
+        "pixels_in_components_at_most_4_pixels": 111
+      }
+    },
+    {
+      "index": 8,
+      "path": "frames/08.png",
+      "sha256": "425a59ccc618d853c7b4483d44cedaa6263083d48bdcef4c544f8226fee431fa",
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "source_partition_xyxy": [
+        1328,
+        450,
+        1774,
+        887
+      ],
+      "source_crop_xyxy": [
+        1339,
+        452,
+        1726,
+        856
+      ],
+      "source_alpha_gt127_bbox_xyxy": [
+        1374,
+        484,
+        1723,
+        852
+      ],
+      "source_anchor_xy": [
+        1562,
+        852
+      ],
+      "crop_offset_in_output_xy": [
+        33,
+        64
+      ],
+      "source_to_output_translation_xy": [
+        -1306,
+        -388
+      ],
+      "scale": 1,
+      "pivot": [
+        256,
+        464
+      ],
+      "alpha": {
+        "nonzero_pixels": 89488,
+        "transparent_pixels": 172656,
+        "partial_pixels": 89257,
+        "opaque_pixels": 231,
+        "max": 255,
+        "strict_bbox_output": [
+          33,
+          64,
+          420,
+          468
+        ],
+        "components_8connected": 65,
+        "components_at_most_4_pixels": 59,
+        "pixels_in_components_at_most_4_pixels": 82
+      }
+    }
+  ],
+  "contact_sheet": {
+    "path": "contact-sheet.png",
+    "dimensions_px": [
+      800,
+      410
+    ],
+    "sha256": "a002f6b6ad7a7fc3e4ae4954feb74755f87065ab027d0c92a28da99a1e2e7959",
+    "backgrounds": [
+      "#fff7e8",
+      "#d8eee3"
+    ],
+    "frame_canvas_display_px": [
+      44,
+      56
+    ],
+    "filter": "nearest-neighbor"
+  }
+}

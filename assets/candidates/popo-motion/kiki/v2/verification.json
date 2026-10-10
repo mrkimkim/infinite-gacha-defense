@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "method": "Node VM minimal DOM state/control test; not browser rendering",
+  "checks": [
+    "next/previous",
+    "distinct pose image sources",
+    "wraparound",
+    "250ms timer",
+    "pause",
+    "slider",
+    "actual-body-size preview selection",
+    "mint background"
+  ],
+  "browser": "Not run. Local Chromium launch was previously blocked by socket restrictions."
+}

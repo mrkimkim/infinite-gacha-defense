@@ -1,0 +1,360 @@
+{
+  "asset_id": "popo-motion-kiki-v2",
+  "task": "https://github.com/mrkimkim/infinite-gacha-defense/issues/26",
+  "dot": "kiki",
+  "assignment_generation": 1,
+  "base_commit": "44bad8b2370e4f7086dfb3ea86586dccac527772",
+  "raw": {
+    "path": "raw-generated.png",
+    "sha256": "b0a6dbe2f66847f9b718769634bd509ba78251839e544a87c066eba9963bfb36",
+    "dimensions_px": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "nonzero_alpha_pixels": 626457
+  },
+  "normalization": {
+    "method": "Measured transparent x=650 and x=1500 seams, strict alpha>0 crops, integer translation only",
+    "canvas_px": [
+      896,
+      704
+    ],
+    "pivot": [
+      448,
+      640
+    ],
+    "body_definition": "Largest 8-connected alpha>127 component in each partition; threshold is measurement only and never changes image alpha",
+    "reference_body_height_px": 557,
+    "anchor_method": "Midpoint of body footprint in last 5 occupied rows, integer-rounded; y exclusive body bottom",
+    "coordinates": "Half-open xyxy; edge-coordinate pivots"
+  },
+  "detached_envelope": {
+    "frame": 2,
+    "source_alpha_gt127_bbox_xyxy": [
+      1292,
+      288,
+      1449,
+      408
+    ],
+    "source_strict_component_bbox_xyxy": [
+      1284,
+      284,
+      1451,
+      414
+    ],
+    "width_alpha_gt127_px": 157,
+    "strict_width_px": 167,
+    "assignment": "Entire component retained in frame 2; fully transparent 3-column gap between strict body and envelope components"
+  },
+  "frames": [
+    {
+      "index": 1,
+      "pose": "preparation holding envelope",
+      "path": "frames/01.png",
+      "sha256": "a283eb767dab9d8ddfb3ca93b19d357db370c1f1468cf435227055532349fad6",
+      "dimensions_px": [
+        896,
+        704
+      ],
+      "source_partition_xyxy": [
+        0,
+        0,
+        650,
+        724
+      ],
+      "source_crop_xyxy": [
+        0,
+        78,
+        632,
+        642
+      ],
+      "source_body_alpha_gt127_bbox_xyxy": [
+        58,
+        81,
+        586,
+        637
+      ],
+      "body_height_px": 556,
+      "source_anchor_xy": [
+        334,
+        637
+      ],
+      "crop_offset_in_output_xy": [
+        114,
+        81
+      ],
+      "source_to_output_translation_xy": [
+        114,
+        3
+      ],
+      "scale": 1,
+      "pivot": [
+        448,
+        640
+      ],
+      "alpha": {
+        "nonzero_pixels": 202468,
+        "partial_pixels": 202143,
+        "opaque_pixels": 325,
+        "strict_output_bbox": [
+          114,
+          81,
+          746,
+          645
+        ],
+        "components_8connected": 34,
+        "components_at_most_4_pixels": 32
+      }
+    },
+    {
+      "index": 2,
+      "pose": "release with detached envelope",
+      "path": "frames/02.png",
+      "sha256": "06f43edf628d983db8da1b8ae0c9d76b6b7e65bdadd3dd8c5185a54a4475ee45",
+      "dimensions_px": [
+        896,
+        704
+      ],
+      "source_partition_xyxy": [
+        650,
+        0,
+        1500,
+        724
+      ],
+      "source_crop_xyxy": [
+        669,
+        39,
+        1451,
+        684
+      ],
+      "source_body_alpha_gt127_bbox_xyxy": [
+        745,
+        80,
+        1277,
+        637
+      ],
+      "body_height_px": 557,
+      "source_anchor_xy": [
+        1022,
+        637
+      ],
+      "crop_offset_in_output_xy": [
+        95,
+        42
+      ],
+      "source_to_output_translation_xy": [
+        -574,
+        3
+      ],
+      "scale": 1,
+      "pivot": [
+        448,
+        640
+      ],
+      "alpha": {
+        "nonzero_pixels": 223444,
+        "partial_pixels": 223008,
+        "opaque_pixels": 436,
+        "strict_output_bbox": [
+          95,
+          42,
+          877,
+          687
+        ],
+        "components_8connected": 59,
+        "components_at_most_4_pixels": 55
+      }
+    },
+    {
+      "index": 3,
+      "pose": "recovery",
+      "path": "frames/03.png",
+      "sha256": "f8fd54ca78e9320aa0b0449a27493460aeac729d28993e6c8c743e1e8bdddf41",
+      "dimensions_px": [
+        896,
+        704
+      ],
+      "source_partition_xyxy": [
+        1500,
+        0,
+        2172,
+        724
+      ],
+      "source_crop_xyxy": [
+        1548,
+        77,
+        2100,
+        650
+      ],
+      "source_body_alpha_gt127_bbox_xyxy": [
+        1553,
+        80,
+        2083,
+        637
+      ],
+      "body_height_px": 557,
+      "source_anchor_xy": [
+        1832,
+        637
+      ],
+      "crop_offset_in_output_xy": [
+        164,
+        80
+      ],
+      "source_to_output_translation_xy": [
+        -1384,
+        3
+      ],
+      "scale": 1,
+      "pivot": [
+        448,
+        640
+      ],
+      "alpha": {
+        "nonzero_pixels": 200545,
+        "partial_pixels": 200231,
+        "opaque_pixels": 314,
+        "strict_output_bbox": [
+          164,
+          80,
+          716,
+          653
+        ],
+        "components_8connected": 27,
+        "components_at_most_4_pixels": 26
+      }
+    }
+  ],
+  "previews": [
+    {
+      "body_target_px": 44,
+      "background": "#fff7e8",
+      "uniform_scale": 0.07899461400359066,
+      "preview_sampling_phase_y_output_px": 0.25,
+      "canvas_px": [
+        71,
+        56
+      ],
+      "measured_raster_body_heights_px": [
+        44,
+        44,
+        44
+      ],
+      "detached_envelope_width_px": 12.402154398563734
+    },
+    {
+      "body_target_px": 56,
+      "background": "#fff7e8",
+      "uniform_scale": 0.10053859964093358,
+      "preview_sampling_phase_y_output_px": 0.25,
+      "canvas_px": [
+        91,
+        71
+      ],
+      "measured_raster_body_heights_px": [
+        56,
+        56,
+        56
+      ],
+      "detached_envelope_width_px": 15.784560143626571
+    },
+    {
+      "body_target_px": 44,
+      "background": "#d8eee3",
+      "uniform_scale": 0.07899461400359066,
+      "preview_sampling_phase_y_output_px": 0.25,
+      "canvas_px": [
+        71,
+        56
+      ],
+      "measured_raster_body_heights_px": [
+        44,
+        44,
+        44
+      ],
+      "detached_envelope_width_px": 12.402154398563734
+    },
+    {
+      "body_target_px": 56,
+      "background": "#d8eee3",
+      "uniform_scale": 0.10053859964093358,
+      "preview_sampling_phase_y_output_px": 0.25,
+      "canvas_px": [
+        91,
+        71
+      ],
+      "measured_raster_body_heights_px": [
+        56,
+        56,
+        56
+      ],
+      "detached_envelope_width_px": 15.784560143626571
+    }
+  ],
+  "contact_sheet": {
+    "path": "contact-sheet.png",
+    "sha256": "844311bfae43ae9ca26c01a4439dcc6b8536999ca1a743d8a37c2db6264b4cd7",
+    "dimensions_px": [
+      900,
+      470
+    ]
+  },
+  "provenance": {
+    "generator": "Built-in image generation for Kiki; raw copied without re-encoding",
+    "reference_url": "https://github.com/mrkimkim/infinite-gacha-defense/blob/eb95229d0ba9176c6f4bd396ae8acb34f717d3a8/docs/reference/characters/popo/sheet.png",
+    "reference_sha256": "324d5a44059328ec6e8219bb19f0f059275675c7a73a4c25fd7a01e7ea1be11b",
+    "prompt": "Exact prompt is preserved in prompt.txt",
+    "prompt_file": {
+      "path": "prompt.txt",
+      "sha256": "4e72ea74192fe6eeadb55940b0a255a00b2a0bf67276833f7fcacea0b23e073c"
+    }
+  },
+  "rights": "Project-owner-authorized candidate preparation; no new license claim",
+  "approval": {
+    "status": "candidate_only_not_production_ready",
+    "independent_review": "pending"
+  },
+  "tile_seams": "Not a tiling asset",
+  "limitations": [
+    "Three keyposes, not a fully smooth cycle.",
+    "Head and face are visually more consistent than v1, but green apron top/strap changes in release pose remain.",
+    "Detached envelope is baked into frame 2; a separate engine projectile is future work only, not implemented.",
+    "Faint alpha fringe and isolated pixels are preserved, including remote frame-1 outliers.",
+    "Preview scale is common to all poses, based on measured maximum body height557; no individual body resizing."
+  ],
+  "integrity": {
+    "status": "PASS",
+    "checks": [
+      "all nonzero pixels preserved once",
+      "all source alpha reconstructed exactly",
+      "all nontransparent RGBA reconstructed exactly",
+      "no seam intersects nonzero alpha",
+      "no frame clipping",
+      "raw copy unchanged"
+    ]
+  },
+  "animated_preview": {
+    "path": "preview.gif",
+    "sha256": "04f08fe8dc68be51c728d7a0545a8c19468a7033aab11da6774237ee000704ae",
+    "dimensions_px": [
+      740,
+      290
+    ],
+    "frames": 3,
+    "frame_order": [
+      1,
+      2,
+      3
+    ],
+    "duration_each_ms": 250,
+    "loop": "infinite inspection loop",
+    "format_warning": "Flattened lossy palette GIF presentation only; not source art or approved action timing"
+  },
+  "viewer": {
+    "path": "viewer.html",
+    "sha256": "b1d96ae3680b866afba90edd40244a07d6e67c1c2fd3f6adfd557633bf5bc45a",
+    "method": "Embeds six uniformly scaled preview PNGs, selects actual pose images; source native PNGs remain untouched",
+    "browser_validation": "Live browser verification pending"
+  }
+}

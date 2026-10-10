@@ -1,0 +1,19 @@
+{
+  "type": "Node VM minimal DOM control test, not browser rendering",
+  "status": "PASS",
+  "checks": [
+    "initial frame",
+    "next/previous",
+    "image source changes",
+    "wraparound",
+    "play timer",
+    "pause",
+    "slider selection",
+    "44px size",
+    "mint background"
+  ],
+  "browser_rendering": {
+    "status": "BLOCKED",
+    "reason": "Playwright bundled Chromium absent; system Chromium launch fails socket() Operation not permitted in sandbox. No screenshot or browser playback success claimed."
+  }
+}
