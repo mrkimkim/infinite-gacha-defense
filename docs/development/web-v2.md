@@ -4,9 +4,9 @@ Issue #24 · 키키 · assignment generation 2 · base `a9273ea3597fbfb9730ca3bd
 
 ## Checkpoint status
 
-The schema3 API/data checkpoint `b753dbf6c37078fbe4eb17dd7ac96c25c3ddbad9` was independently reviewed by both consumers. It supersedes the schema2 XP/books/manual-merge model. This branch provides a typed injected-runtime session/controller/renderer but intentionally does not route a live v2 game until the real core engine is available. No fake successful purchase/combat fallback exists. Default URL still runs unchanged v1; `?screen=v2-layout` mounts only a disabled shell.
+The schema3 API `b753dbf6c37078fbe4eb17dd7ac96c25c3ddbad9` and actual runtime `e2d11aad22ff2e63c4d05c431ac4f5a753bc03a0` are exact dependency parents/checkpoints. The web layer does not edit their engine implementation or profile data. `?screen=v2` loads the actual schema3 runtime and typed session/controller/renderer. `?screen=v2-layout` remains the disabled shell; the default URL still loads unchanged v1.
 
-Local compile/test consumption uses that exact core checkpoint without modifying core files. The adapter commits contain only the allowed web files. Integration must include the reviewed core API before typechecking; the API is a dependency, not a web-owned implementation.
+The opt-in technical experiment uses explicit fixture rules `playable-v2-gen2-fixture1-count40` and seed1 unless query parameters `rules` and `seed` specify another registered fixture and valid seed. Invalid inputs show a startup error, never a substitute game. The header explicitly labels temporary pieces and unfinished balance. Runtime results do not approve final roster, rarity odds, economics or production art.
 
 ## Screen acceptance targets
 
@@ -50,4 +50,8 @@ Issue #21 contains the current proposals: no independent deployed-unit headcount
 - The controller reuses the tested stable-owner scheduler. Hidden tabs and pause freeze progression; terminal outcomes announce once. Fatal core/render errors stop progression without recursively observing a broken engine.
 - Restart archives the old replay/hash before replacing its owner. Browser SHA work uses an invalidated latest-request gate so old successes/errors cannot overwrite a new snapshot or restarted match.
 
-Adapter unit tests use explicitly injected mock APIs to test wiring only. They do not establish engine gameplay correctness. Current-SHA actual browser layout, runtime purchase/upgrade/attack behavior, browser–Node parity and human play remain unverified until integration.
+Adapter unit tests use explicitly injected mock APIs to test wiring only. They do not establish engine gameplay correctness. Actual browser layout, runtime attack presentation, browser–Node UI trace parity and human play remain unverified for this checkpoint. Node session integration tests below are distinct from browser control.
+
+## Actual runtime session integration
+
+The session integration suite injects the unchanged e2d11aa core, uses only real commands and public observations, and never fabricates game state or success responses. Seed3/count40 reaches wave20 win/tick6378, naturally upgrades through stars2/3, and verifies final selection against committed event IDs. Archived replay and repeated same-seed session have hash `5d20cdf6f4d82ff43d901ac8530ed927d9cf0a98a76c6126b0ae8d6f69f45bd9`. Seed1 reaches finalTimeout at wave20/tick6730, hash `cc9048f84ca9d43e54bf2d9270a08c29a494eea9e6b8ee10e77e21a4b07cce7d`. Rejected/duplicate purchases preserve state; retired match inputs cannot affect the restarted match. These automated session traces do not measure human fun or prove actual browser controls/layout.

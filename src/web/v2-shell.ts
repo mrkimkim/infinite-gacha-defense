@@ -53,7 +53,7 @@ export interface V2ShellRefs {
 /**
  * Mount an inert v2 screen. No session is created and no game action is simulated.
  * The caller owns event listeners, state projection and enabling legal actions.
- * Reveal selectionPanel only for a selected unit; clear it when selection ends.
+ * Reveal selectionPanel only for a selected unit or offer; clear it when selection ends.
  * Arena world bounds are -1000..5000 on each axis; board bounds are 0..4000.
  * A second mount replaces this host's children; keep only the latest returned refs.
  */
@@ -61,7 +61,7 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
   root.classList.add('v2-shell');
   root.innerHTML = `
     <header class="v2-header">
-      <div><p class="v2-kicker">작은 상점, 끝없는 방어</p><h1>무한의 가챠 디펜스</h1></div>
+      <div><p class="v2-kicker">기술 실험 · 임시 기물 · 밸런스 미확정</p><h1>무한의 가챠 디펜스</h1></div>
       <span class="v2-phase" data-v2="phase">연결 대기</span>
     </header>
     <dl class="v2-resources" aria-label="게임 현황">

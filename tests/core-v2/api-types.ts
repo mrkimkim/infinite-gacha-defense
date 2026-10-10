@@ -44,3 +44,6 @@ export function compileOnly(api: CoreApi, state: MatchState, observed: Observati
   state.units.push({});
   void [oldSchema, bench, merge, leak, invalid];
 }
+
+import * as runtime from '../../src/core-v2/index.ts';
+export const implementedApi: CoreApi = runtime;
