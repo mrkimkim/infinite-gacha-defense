@@ -1,0 +1,37 @@
+{
+  "candidate_commit": "1dd70826a5c05fe0283a96af8fdd59d4931a9036",
+  "candidate_pr": 45,
+  "source": "assets/candidates/popo-motion/momo/v6/",
+  "body": "body-attempt-2; original RGBA files copied without edits",
+  "approval": "candidate only; final art and production fixture mapping not approved",
+  "files": [
+    {
+      "file": "anchors.json",
+      "sha256": "fd3a9cebaba06ce9912b0ca3b7d667b4d87a58259041ba2666e491ab8abc9a58"
+    },
+    {
+      "file": "anticipation.png",
+      "sha256": "e1083fa0054818ca9ffe6793751a2ce94232c13417d50d506f989eab6eefe038"
+    },
+    {
+      "file": "idle.png",
+      "sha256": "dc16905b09e907b53700e9fb35d74ae2a6d7fde4085758a02431ad93506300ec"
+    },
+    {
+      "file": "letter.png",
+      "sha256": "57037e5217d589d67da57366143e871938bbe06ed202a2a934c1fd1e6f6bef9c"
+    },
+    {
+      "file": "original.png",
+      "sha256": "f8a54a21fa4402faf82a5843bb0057d5bc2a22b386b82904878d9fb0c39d32d5"
+    },
+    {
+      "file": "recovery.png",
+      "sha256": "e9560c839bdc6aec5b98709559bf32509a4fa960436746e159a104268de2ee16"
+    },
+    {
+      "file": "release.png",
+      "sha256": "7224558d1c86895d84c5a55114649c859287123cc986d0a09d6dfd0ad061fbbe"
+    }
+  ]
+}
