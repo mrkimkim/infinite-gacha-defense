@@ -1,0 +1,45 @@
+{
+  "decodes": [
+    {
+      "file": "mint-corner-path-v2.png",
+      "decoded": true,
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "mint-straight-path.png",
+      "decoded": true,
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "cream-deployment.png",
+      "decoded": true,
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "file": "capsule-guardian.png",
+      "decoded": true,
+      "width": 1254,
+      "height": 1254
+    }
+  ],
+  "boards": [
+    {
+      "id": "board-864",
+      "width": 864,
+      "height": 864,
+      "floors": 36,
+      "units": 4
+    },
+    {
+      "id": "board-360",
+      "width": 360,
+      "height": 360,
+      "floors": 36,
+      "units": 4
+    }
+  ],
+  "status": "Browser decode succeeded. Full PNG integrity and peer visual review still required."
+}

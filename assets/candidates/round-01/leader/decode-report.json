@@ -1,0 +1,57 @@
+{
+  "method": "Pillow verify and load; no tolerant truncation enabled",
+  "files": [
+    {
+      "file": "capsule-guardian.png",
+      "byte_count": 786444,
+      "sha256": "e9473308d279a90f616d36857cbbee44aa6b2726f7aed9c4405c6cbf81ce1924",
+      "git_blob_sha": "5be009f87e3a53836a7c334e6747f90da7884e31",
+      "header_size": [
+        1254,
+        1254
+      ],
+      "header_mode": "RGBA",
+      "decode": "failed",
+      "error": "Truncated File Read"
+    },
+    {
+      "file": "cream-deployment.png",
+      "byte_count": 786444,
+      "sha256": "ae232e85d6bd877657b046b69810aeb54a878754b9b3f2e98ecf93f9489cb197",
+      "git_blob_sha": "757ba115c2c993323e2d31440298dd0f45b6f5be",
+      "header_size": [
+        1254,
+        1254
+      ],
+      "header_mode": "RGB",
+      "decode": "failed",
+      "error": "Truncated File Read"
+    },
+    {
+      "file": "mint-corner-path-v2.png",
+      "byte_count": 786444,
+      "sha256": "7db7dfe1aa64a2fc49308789df18873dfdfc1e88c491ac658f6461f929e167db",
+      "git_blob_sha": "99746d848b82c9a69e4d7ff539d98dc2c295380c",
+      "header_size": [
+        1254,
+        1254
+      ],
+      "header_mode": "RGB",
+      "decode": "failed",
+      "error": "Truncated File Read"
+    },
+    {
+      "file": "mint-straight-path.png",
+      "byte_count": 786445,
+      "sha256": "dfea1568c5f227d76e2b022482510ea8c755043aad1c3d64b7c50159f57485e3",
+      "git_blob_sha": "e1c5e214653cc529f7ed028523dc1c7edd95b889",
+      "header_size": [
+        1254,
+        1254
+      ],
+      "header_mode": "RGB",
+      "decode": "failed",
+      "error": "Truncated File Read"
+    }
+  ]
+}

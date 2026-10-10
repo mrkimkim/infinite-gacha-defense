@@ -1,0 +1,225 @@
+{
+  "status": "BLOCKED: mounted GitHub PNGs are truncated; creator source inspection is not verification of mounted bytes",
+  "created_utc": "2026-10-10T03:26:00Z",
+  "generation_method": "Built-in imagegen only. PNG originals copied byte-for-byte, not resized/cropped/color-corrected or edited by Python.",
+  "reference": "docs/reference/front-square-4x4.png (known decode blocker reported in Issue #4)",
+  "selected_files": [
+    "cream-deployment.png",
+    "mint-straight-path.png",
+    "mint-corner-path-v2.png",
+    "capsule-guardian.png"
+  ],
+  "assets": [
+    {
+      "filename": "cream-deployment.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "source_bytes_unmodified": "Not confirmed: mounted bytes are truncated versus creator source metadata",
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha": "none; deliberately opaque full-bleed floor tile",
+      "proposed_pivot_px": [
+        627,
+        627
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.5
+      ],
+      "display_canvas_px": {
+        "tile_144": [
+          144,
+          144
+        ],
+        "tile_60": [
+          60,
+          60
+        ]
+      },
+      "center_half_mean_rgb": [
+        246.46582165141723,
+        229.34858786810437,
+        197.6320240938725
+      ],
+      "limitations": [
+        "Footprint is a full-bleed actual square with no transparent margins.",
+        "Directional bevel highlights remain subtly visible; 90-degree rotation is not perfectly lighting-invariant.",
+        "Adjacent copies have visible intended grout; color/texture continuity is not mathematically seamless."
+      ],
+      "creator_reported_source_sha256": "55cbf7b299ad38043476c10565c132a1714f175881cbf07a279fd9663eb155d0",
+      "creator_reported_source_byte_count": 1996790
+    },
+    {
+      "filename": "mint-straight-path.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "source_bytes_unmodified": "Not confirmed: mounted bytes are truncated versus creator source metadata",
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha": "none; deliberately opaque full-bleed floor tile",
+      "proposed_pivot_px": [
+        627,
+        627
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.5
+      ],
+      "display_canvas_px": {
+        "tile_144": [
+          144,
+          144
+        ],
+        "tile_60": [
+          60,
+          60
+        ]
+      },
+      "center_half_mean_rgb": [
+        202.71123982204315,
+        226.0760564598389,
+        190.68815325249471
+      ],
+      "limitations": [
+        "Footprint is a full-bleed actual square with no transparent margins.",
+        "Directional bevel highlights remain subtly visible; 90-degree rotation is not perfectly lighting-invariant.",
+        "Adjacent copies have visible intended grout; color/texture continuity is not mathematically seamless."
+      ],
+      "creator_reported_source_sha256": "ab78d36bde12cfd87d8c6b36c7fa0c81c2051b1733ae3e51444db4bdafb4d45e",
+      "creator_reported_source_byte_count": 2443656
+    },
+    {
+      "filename": "mint-corner-path-v2.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "source_bytes_unmodified": "Not confirmed: mounted bytes are truncated versus creator source metadata",
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha": "none; deliberately opaque full-bleed floor tile",
+      "proposed_pivot_px": [
+        627,
+        627
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.5
+      ],
+      "display_canvas_px": {
+        "tile_144": [
+          144,
+          144
+        ],
+        "tile_60": [
+          60,
+          60
+        ]
+      },
+      "center_half_mean_rgb": [
+        202.30237148620427,
+        226.63293473643512,
+        188.8029883320742
+      ],
+      "limitations": [
+        "Footprint is a full-bleed actual square with no transparent margins.",
+        "Directional bevel highlights remain subtly visible; 90-degree rotation is not perfectly lighting-invariant.",
+        "Adjacent copies have visible intended grout; color/texture continuity is not mathematically seamless.",
+        "Selected improved corner: color closer to straight and seam flat/faint; curve endpoints are approximate, not exact numeric geometry."
+      ],
+      "creator_reported_source_sha256": "d2003de0d74d959c7e276004ee87081a7410ca3c73071f4b4410a616ac2e7a56",
+      "creator_reported_source_byte_count": 2206393
+    },
+    {
+      "filename": "capsule-guardian.png",
+      "selected_candidate": true,
+      "actual_dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_bytes_unmodified": "Not confirmed: mounted bytes are truncated versus creator source metadata",
+      "imagegen_output_not_guaranteed_size": "Requested square; measured 1254 \u00d7 1254. No exact size was promised.",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_nonzero_bbox_px_exclusive": [
+        0,
+        17,
+        1202,
+        1254
+      ],
+      "alpha_ge_16_bbox_px_exclusive": [
+        112,
+        57,
+        1140,
+        1183
+      ],
+      "alpha_pixel_counts": {
+        "transparent": 910770,
+        "partial": 661015,
+        "opaque": 731
+      },
+      "dominant_interior_alpha": 253,
+      "proposed_pivot_px": [
+        627,
+        1183
+      ],
+      "proposed_pivot_normalized": [
+        0.5,
+        0.9433811802232854
+      ],
+      "pivot_description": "Bottom center of substantially visible feet at alpha >= 16; a proposed placement pivot, not a generated metadata field.",
+      "display_canvas_px": {
+        "tile_144": [
+          116,
+          116
+        ],
+        "tile_60": [
+          48,
+          48
+        ]
+      },
+      "estimated_visible_size_at_canvas116_px": [
+        95.09409888357257,
+        104.15948963317385
+      ],
+      "alternate_canvas_width_for_visible_width116_px": 141.50194552529183,
+      "limitations": [
+        "Actual alpha is present. Most interior alpha is 253/255, so it is slightly translucent.",
+        "Very faint alpha (<8) noise reaches canvas edges, so use substantial bounds for placement; no cleanup was performed.",
+        "116px image canvas yields about 95px visible silhouette width, not 116px visible width.",
+        "Neutral placeholder original capsule guardian; no claim of approved character identity or IP clearance."
+      ],
+      "creator_reported_source_sha256": "91a6e794253673b71cf5921d1f6a246b344aac23878fa701bfea7e71bdfc9fc1",
+      "creator_reported_source_byte_count": 1188762
+    }
+  ],
+  "qa": {
+    "mounted_png_decode": "failed: Truncated File Read for all four files",
+    "assembled_visual_review": "blocked",
+    "independent_peer_approval": false,
+    "actual_browser_render": "Chromium localhost at DPR1, 864x864 and 360x360; source pixels visibly missing",
+    "screenshots_inspected": true,
+    "visual_result": "FAIL: incomplete source renders; decode() false-positive versus PNG verify"
+  },
+  "assembly_handoff": "Replace truncated blobs with complete originals; rerun PNG decode/hash and preview before visual approval.",
+  "creator_reported_qa": {
+    "inspected_original_pixels": true,
+    "actual_dimensions_and_alpha_verified": true,
+    "square_footprints": true,
+    "no_baked_text_arrows_numbers_stars_observed": true,
+    "rotation_invariant_lighting": false,
+    "assembled_test_board_created_in_this_worker": false,
+    "actual_render_at144_and60_verified": false,
+    "target_scale_texture_readability": "Unknown pending actual assembly; visibly texture-heavy in original pixels."
+  }
+}
