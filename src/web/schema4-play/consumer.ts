@@ -9,11 +9,18 @@ function compareStamp(a:Observation,b:Observation){
  return 0;
 }
 export function createConsumer(){
- let owner:object|null=null,latest:Observation|null=null;
+ let owner:object|null=null,latest:Observation|null=null,commandRevision=-1;
  let completed=new Set<number>(),seen=new Set<number>(),forecast=new Map<number,number>();
  let aftermath:Extract<CombatEvent,{type:'attackImpacted'}>[]=[],shownAlpha=0,eventFloor=-1;
  return{
-  bind(next:object){owner=next;latest=null;completed=new Set();seen=new Set();forecast=new Map();aftermath=[];shownAlpha=0;eventFloor=-1;},
+  bind(next:object){owner=next;latest=null;commandRevision=-1;completed=new Set();seen=new Set();forecast=new Map();aftermath=[];shownAlpha=0;eventFloor=-1;},
+  // Only the synchronous successful-command path may replace a preparation
+  // snapshot at the same clock stamp. Keep terminal events and display cursors.
+  acceptPreparation(from:object,o:Observation,revision:number){
+   if(owner!==from||o.phase!=='preparation'||!Number.isSafeInteger(revision)||revision<=commandRevision)return false;
+   if(latest&&compareStamp(o,latest)!==0)return false;
+   latest=o;commandRevision=revision;return true;
+  },
   present(from:object,o:Observation,events:readonly CombatEvent[],alpha:number){
    if(owner!==from||!Number.isFinite(alpha))return null;
    const order=latest?compareStamp(o,latest):1;

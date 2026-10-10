@@ -1,12 +1,12 @@
 {
   "base": "2d9870a29c2cd769f85bd018c4377b2b1ad2ee05",
   "typescriptTests": {
-    "passed": 438,
+    "passed": 440,
     "failed": 0,
     "includes": {
       "baseline": 365,
       "importedTimingCore": 63,
-      "newIntegration": 10
+      "newIntegration": 12
     }
   },
   "explicitMjsTests": {
@@ -79,5 +79,22 @@
     "PR50",
     "PR51"
   ],
-  "library": "No retry attempted; prior outage remains"
+  "library": "No retry attempted; prior outage remains",
+  "preparationCorrection": {
+    "regressionBase": "82be2fe76a758fd80f357fc8d8a1a26055c1633e",
+    "reproduction": {
+      "coreBoardCount": 1,
+      "canvasViewUnits": 0
+    },
+    "browserStagesPassed": 24,
+    "widths": [
+      390,
+      1165
+    ],
+    "actualCanvasRGBA": true,
+    "script": "tests/schema4-play/preparation-browser.mjs",
+    "evidenceDirectory": "schema4-preparation-fix-evidence",
+    "historicalCaptureCaveat": "normalBrowser evidence predates the correction and did not prove preparation canvas units",
+    "artifactTransferAttempted": false
+  }
 }

@@ -13,7 +13,7 @@ const assets={
 };
 function makeButton(text:string,run:()=>void,disabled=false,selected=false){const b=document.createElement('button');b.textContent=text;b.disabled=disabled;b.setAttribute('aria-pressed',String(selected));const owner=session.match;b.onclick=()=>{if(owner===session.match)run();};return b;}
 function message(text:string){$('#message').textContent=text;}
-function changed(result:{ok:boolean;code?:string;events?:readonly CommandEvent[]}){if(!result.ok){message('명령 거절: '+result.code);return;}const recruit=result.events?.find(e=>e.type==='recruited');message(recruit?`${name(recruit.result.definitionId)} 영입${recruit.upgrades.length?' · 자동승급 '+recruit.upgrades.length+'회':''} · 선택 #${recruit.result.id}`:'');scheduler.sync();paint(session.match);}
+function changed(result:{ok:boolean;code?:string;events?:readonly CommandEvent[]}){if(!result.ok){message('명령 거절: '+result.code);return;}const recruit=result.events?.find(e=>e.type==='recruited');message(recruit?`${name(recruit.result.definitionId)} 영입${recruit.upgrades.length?' · 자동승급 '+recruit.upgrades.length+'회':''} · 선택 #${recruit.result.id}`:'');if(result.events?.length)presentation.acceptPreparation(session.match,session.observe(),session.match.state.acceptedLog.length);scheduler.sync();paint(session.match);}
 function place(to:Location){changed(session.selectLocation(to));}
 function ui(){const o=latest,select=session.selection,editable=ready&&o.phase==='preparation';
  $('#status').textContent=`${o.phase==='combat'?'전투':o.phase==='result'?'종료':'준비'} · ${o.wave}/${o.rules.waveCount} 웨이브 · ${o.gold}G · 잔존 ${o.remainingCount}/${o.countLimit}${paused?' · 일시정지':''}`;

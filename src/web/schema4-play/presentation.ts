@@ -5,7 +5,7 @@ import {surfaceContact,contactVisible,type IncomingSample,type SurfaceContact} f
 export function createPresentation(){
  const consumer=createConsumer(),ledger=createLedger();let owner:object|null=null,incoming=new Map<number,IncomingSample>(),surfaces=new Map<string,SurfaceContact|null>();
  function bind(token:object,o:Observation){owner=token;consumer.bind(token);ledger.reset(o);incoming=new Map();surfaces=new Map();}
- return{bind,clear:bind,present(token:object,o:Observation,events:readonly CombatEvent[],alpha:number){
+ return{bind,clear:bind,acceptPreparation:consumer.acceptPreparation,present(token:object,o:Observation,events:readonly CombatEvent[],alpha:number){
   if(token!==owner)return null;const v=consumer.present(token,o,events,alpha);if(!v)return null;o=v.observation;ledger.accept(o,events);
   const history=ledger.view(),recent=history.impacts.filter(a=>o.tick-a.shownTick<=8),hits=recent.flatMap(a=>a.hits.map(h=>({...h,attackId:a.attackId,unitId:a.unitId,shownTick:a.shownTick,aoe:a.aoe})));
   const latestHit=new Map(hits.map(h=>[h.enemyId,h]));const enemies=o.enemies.map(e=>{const h=latestHit.get(e.id);return{id:e.id,position:h&&o.tick===h.shownTick?point(h.position):point(e.position),hp:e.hp,maxHp:e.maxHp,dead:false,hit:!!h&&o.tick-h.shownTick<=2};});
