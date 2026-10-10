@@ -221,7 +221,27 @@
     "actual_browser_render": "Chromium151.0.7922.173, localhost, DPR1, viewport960x1600",
     "screenshots_inspected": true,
     "visual_result": "Complete source rendering. Texture/grout prominent at60px; directional bevel rotation remains; no production approval.",
-    "independent_peer_approval": false
+    "independent_peer_approval": false,
+    "exact_png_dimensions": {
+      "comparison-864.png": [
+        864,
+        864
+      ],
+      "comparison-360.png": [
+        360,
+        360
+      ],
+      "comparison-360-silhouette80.png": [
+        360,
+        360
+      ]
+    },
+    "capture_method": "integer-origin exact page clip, no raster edits",
+    "additional_visual_limits": [
+      "Guardian contrast against pale floors is low",
+      "Mint/cream color separation weak",
+      "Texture/grout stronger than desired quiet reference"
+    ]
   },
   "assembly_handoff": "See preview.html and actual screenshots; peer comparison pending. Prior incomplete-source images are historical failure diagnostics only.",
   "creator_reported_qa": {

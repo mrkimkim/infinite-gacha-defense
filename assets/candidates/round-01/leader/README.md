@@ -18,3 +18,7 @@ Chromium151.0.7922.173, localhost, viewport960×1600, DPR1에서 실행하고 co
 정적 HTTP 서버로 preview.html을 열면 외부 CDN 없이 실행됩니다. capture-preview.cjs는 설치된 Playwright/Chromium으로 캡처를 재현합니다(CHROMIUM_PATH 선택 가능). PNG를 코드로 생성하거나 편집하지 않습니다.
 generation-prompts.json은 제작자가 전달한 imagegen 프롬프트이며 executor 절대경로는 제거했습니다. corner는 v2만 게시하고 최초 corner는 생성 이력에만 남깁니다. 사용자 승인된 AI 원본 후보의 프로젝트 공개 검토이며 최종 IP/일반 재배포 라이선스 승인을 주장하지 않습니다.
 main의 참고 PNG 복구는 별도 담당 사항으로 이 브랜치에서 수정하지 않았습니다.
+
+## 정확한 캡처 크기 보정
+기존 element screenshot은 소수점 배치 좌표 반올림으로360×361이 될 수 있었습니다. 보드를 정수 좌표(0,0)에 고정한 실제 브라우저 화면을 정확한 clip으로 다시 캡처했습니다. 현재 PNG는864×864 및360×360이며 Pillow 전체 decode와 실제 치수를 검사했습니다. 원본 에셋 픽셀은 변경하지 않았습니다.
+추가 비교 한계: 옅은 바닥과 수호자 사이 대비가 낮고 민트/크림의 색 분리가 약합니다. 질감/줄눈이 시선을 끌며 전투가 들어가면 가독성 위험이 있습니다. 이 후보의 약점으로 기록하며 production 승인이 아닙니다. 이 크기 보정 SHA에서 동료 검토를 기다립니다.
