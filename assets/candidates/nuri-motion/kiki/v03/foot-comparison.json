@@ -1,0 +1,104 @@
+{
+  "method": "Alpha>=128 sole runs eight rows above each bottom boundary. Compare centers after midpoint alignment, one common625px-idle-height scale. This is geometric measurement, not browser observation.",
+  "frames": [
+    {
+      "pose": "idle",
+      "measurement_y": 663,
+      "sole_runs": [
+        [
+          194,
+          286
+        ],
+        [
+          422,
+          516
+        ]
+      ],
+      "sole_centers_source_px": [
+        240,
+        469
+      ],
+      "sole_midpoint_source_px": 354.5,
+      "sole_centers_relative_to_midpoint_px": [
+        -114.5,
+        114.5
+      ],
+      "sole_center_separation_px": 229,
+      "raw_foot_baseline": 671,
+      "per_foot_shift_from_idle_at36_px": [
+        0,
+        0
+      ],
+      "per_foot_shift_from_idle_at32_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "pose": "attack",
+      "measurement_y": 665,
+      "sole_runs": [
+        [
+          884,
+          966
+        ],
+        [
+          1131,
+          1223
+        ]
+      ],
+      "sole_centers_source_px": [
+        925,
+        1177
+      ],
+      "sole_midpoint_source_px": 1051,
+      "sole_centers_relative_to_midpoint_px": [
+        -126,
+        126
+      ],
+      "sole_center_separation_px": 252,
+      "raw_foot_baseline": 673,
+      "per_foot_shift_from_idle_at36_px": [
+        -0.6624,
+        0.6624
+      ],
+      "per_foot_shift_from_idle_at32_px": [
+        -0.5888,
+        0.5888
+      ]
+    },
+    {
+      "pose": "recovery",
+      "measurement_y": 665,
+      "sole_runs": [
+        [
+          1602,
+          1687
+        ],
+        [
+          1849,
+          1944
+        ]
+      ],
+      "sole_centers_source_px": [
+        1644.5,
+        1896.5
+      ],
+      "sole_midpoint_source_px": 1770.5,
+      "sole_centers_relative_to_midpoint_px": [
+        -126,
+        126
+      ],
+      "sole_center_separation_px": 252,
+      "raw_foot_baseline": 673,
+      "per_foot_shift_from_idle_at36_px": [
+        -0.6624,
+        0.6624
+      ],
+      "per_foot_shift_from_idle_at32_px": [
+        -0.5888,
+        0.5888
+      ]
+    }
+  ]
+}
