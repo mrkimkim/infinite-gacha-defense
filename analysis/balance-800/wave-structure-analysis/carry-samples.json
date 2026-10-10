@@ -1,0 +1,311 @@
+[
+  {
+    "finalOutcome": "loss",
+    "finalReason": "finalTimeout",
+    "finalEnemies": [
+      {
+        "type": "sturdy",
+        "hp": 68,
+        "distance": 16826
+      },
+      {
+        "type": "sturdy",
+        "hp": 67,
+        "distance": 14730
+      },
+      {
+        "type": "sturdy",
+        "hp": 175,
+        "distance": 14580
+      }
+    ],
+    "cohort": "balance-baseline-400",
+    "policy": "normal",
+    "seed": 1,
+    "entryBeforeWave20": 121,
+    "carryCount": 6,
+    "carryHp": 968,
+    "carryEnemies": [
+      {
+        "id": 355,
+        "type": "sturdy",
+        "hp": 61,
+        "distance": 8578,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 4999
+        }
+      },
+      {
+        "id": 358,
+        "type": "sturdy",
+        "hp": 242,
+        "distance": 8820,
+        "slow": null
+      },
+      {
+        "id": 361,
+        "type": "sturdy",
+        "hp": 211,
+        "distance": 6080,
+        "slow": null
+      },
+      {
+        "id": 362,
+        "type": "basic",
+        "hp": 103,
+        "distance": 9520,
+        "slow": null
+      },
+      {
+        "id": 364,
+        "type": "sturdy",
+        "hp": 259,
+        "distance": 5580,
+        "slow": null
+      },
+      {
+        "id": 365,
+        "type": "basic",
+        "hp": 92,
+        "distance": 6580,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 5019
+        }
+      }
+    ],
+    "wave19EndTick": 4998
+  },
+  {
+    "finalOutcome": "loss",
+    "finalReason": "finalTimeout",
+    "finalEnemies": [
+      {
+        "type": "sturdy",
+        "hp": 40,
+        "distance": 15640
+      },
+      {
+        "type": "sturdy",
+        "hp": 74,
+        "distance": 13740
+      }
+    ],
+    "cohort": "balance-baseline-400",
+    "policy": "expert",
+    "seed": 1,
+    "entryBeforeWave20": 117,
+    "carryCount": 6,
+    "carryHp": 863,
+    "carryEnemies": [
+      {
+        "id": 346,
+        "type": "sturdy",
+        "hp": 104,
+        "distance": 9320,
+        "slow": null
+      },
+      {
+        "id": 349,
+        "type": "sturdy",
+        "hp": 156,
+        "distance": 8260,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 5111
+        }
+      },
+      {
+        "id": 352,
+        "type": "sturdy",
+        "hp": 197,
+        "distance": 7200,
+        "slow": null
+      },
+      {
+        "id": 353,
+        "type": "basic",
+        "hp": 78,
+        "distance": 10360,
+        "slow": null
+      },
+      {
+        "id": 355,
+        "type": "sturdy",
+        "hp": 226,
+        "distance": 5580,
+        "slow": null
+      },
+      {
+        "id": 356,
+        "type": "basic",
+        "hp": 102,
+        "distance": 7420,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 5131
+        }
+      }
+    ],
+    "wave19EndTick": 5110
+  },
+  {
+    "finalOutcome": "loss",
+    "finalReason": "finalTimeout",
+    "finalEnemies": [
+      {
+        "type": "sturdy",
+        "hp": 34,
+        "distance": 20220
+      },
+      {
+        "type": "sturdy",
+        "hp": 59,
+        "distance": 19062
+      },
+      {
+        "type": "sturdy",
+        "hp": 214,
+        "distance": 17722
+      },
+      {
+        "type": "sturdy",
+        "hp": 233,
+        "distance": 16200
+      },
+      {
+        "type": "sturdy",
+        "hp": 222,
+        "distance": 14580
+      }
+    ],
+    "cohort": "balance-revision-101-200",
+    "policy": "normal",
+    "seed": 101,
+    "entryBeforeWave20": 122,
+    "carryCount": 8,
+    "carryHp": 1165,
+    "carryEnemies": [
+      {
+        "id": 358,
+        "type": "sturdy",
+        "hp": 113,
+        "distance": 10100,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 4794
+        }
+      },
+      {
+        "id": 361,
+        "type": "sturdy",
+        "hp": 105,
+        "distance": 8760,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 4814
+        }
+      },
+      {
+        "id": 364,
+        "type": "sturdy",
+        "hp": 212,
+        "distance": 8260,
+        "slow": null
+      },
+      {
+        "id": 365,
+        "type": "basic",
+        "hp": 80,
+        "distance": 12040,
+        "slow": null
+      },
+      {
+        "id": 367,
+        "type": "sturdy",
+        "hp": 195,
+        "distance": 5520,
+        "slow": null
+      },
+      {
+        "id": 368,
+        "type": "basic",
+        "hp": 98,
+        "distance": 9100,
+        "slow": null
+      },
+      {
+        "id": 370,
+        "type": "sturdy",
+        "hp": 243,
+        "distance": 5580,
+        "slow": null
+      },
+      {
+        "id": 371,
+        "type": "basic",
+        "hp": 119,
+        "distance": 7000,
+        "slow": null
+      }
+    ],
+    "wave19EndTick": 4793
+  },
+  {
+    "finalOutcome": "win",
+    "finalReason": "cleared",
+    "finalEnemies": [],
+    "cohort": "balance-revision-101-200",
+    "policy": "expert",
+    "seed": 101,
+    "entryBeforeWave20": 123,
+    "carryCount": 4,
+    "carryHp": 641,
+    "carryEnemies": [
+      {
+        "id": 361,
+        "type": "sturdy",
+        "hp": 68,
+        "distance": 8036,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 4846
+        }
+      },
+      {
+        "id": 364,
+        "type": "sturdy",
+        "hp": 227,
+        "distance": 6640,
+        "slow": null
+      },
+      {
+        "id": 367,
+        "type": "sturdy",
+        "hp": 225,
+        "distance": 4740,
+        "slow": {
+          "type": "slow",
+          "percent": 30,
+          "expireAt": 4811
+        }
+      },
+      {
+        "id": 368,
+        "type": "basic",
+        "hp": 121,
+        "distance": 7840,
+        "slow": null
+      }
+    ],
+    "wave19EndTick": 4810
+  }
+]

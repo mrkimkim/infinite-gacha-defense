@@ -1,0 +1,1074 @@
+{
+  "runs": 800,
+  "wins": 318,
+  "failures": {
+    "20:finalTimeout": 482
+  },
+  "maximumObserved": 25,
+  "groups": [
+    {
+      "cohort": "balance-baseline-400",
+      "profile": "playable-v2-gen2-fixture1-count40",
+      "policy": "normal",
+      "runs": 100,
+      "wins": 48,
+      "failures": {
+        "20:finalTimeout": 52
+      },
+      "peakObserved": 23,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 97,
+          "atDuration": 3,
+          "meanTicks": 117.14
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 107.23
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 124.14
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 135.07
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 202.29
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 164.02
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 176.42
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 188.2
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 213.92
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 292.4
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 247.44
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 276.67
+        },
+        "13": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 301.79
+        },
+        "14": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 329.34
+        },
+        "15": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 423.15
+        },
+        "16": {
+          "n": 100,
+          "early": 63,
+          "atDuration": 37,
+          "meanTicks": 381.22
+        },
+        "17": {
+          "n": 100,
+          "early": 31,
+          "atDuration": 69,
+          "meanTicks": 394.58
+        },
+        "18": {
+          "n": 100,
+          "early": 3,
+          "atDuration": 97,
+          "meanTicks": 399.44
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 47,
+          "atDuration": 53,
+          "meanTicks": 585.18
+        }
+      }
+    },
+    {
+      "cohort": "balance-baseline-400",
+      "profile": "playable-v2-gen2-fixture1-count40",
+      "policy": "expert",
+      "runs": 100,
+      "wins": 2,
+      "failures": {
+        "20:finalTimeout": 98
+      },
+      "peakObserved": 25,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 97,
+          "atDuration": 3,
+          "meanTicks": 118.11
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 107.2
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 124.43
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 135.05
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 194.57
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 167.25
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 181.8
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 195.45
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 223.19
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 302.06
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 270.81
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 300.7
+        },
+        "13": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 335
+        },
+        "14": {
+          "n": 100,
+          "early": 98,
+          "atDuration": 2,
+          "meanTicks": 358.2
+        },
+        "15": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 433.31
+        },
+        "16": {
+          "n": 100,
+          "early": 15,
+          "atDuration": 85,
+          "meanTicks": 398.1
+        },
+        "17": {
+          "n": 100,
+          "early": 2,
+          "atDuration": 98,
+          "meanTicks": 399.88
+        },
+        "18": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 2,
+          "atDuration": 98,
+          "meanTicks": 599.91
+        }
+      }
+    },
+    {
+      "cohort": "balance-baseline-400",
+      "profile": "playable-v2-gen2-fixture1-count80",
+      "policy": "normal",
+      "runs": 100,
+      "wins": 48,
+      "failures": {
+        "20:finalTimeout": 52
+      },
+      "peakObserved": 23,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 97,
+          "atDuration": 3,
+          "meanTicks": 117.14
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 107.23
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 124.14
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 135.07
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 202.29
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 164.02
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 176.42
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 188.2
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 213.92
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 292.4
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 247.44
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 276.67
+        },
+        "13": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 301.79
+        },
+        "14": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 329.34
+        },
+        "15": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 423.15
+        },
+        "16": {
+          "n": 100,
+          "early": 63,
+          "atDuration": 37,
+          "meanTicks": 381.22
+        },
+        "17": {
+          "n": 100,
+          "early": 31,
+          "atDuration": 69,
+          "meanTicks": 394.58
+        },
+        "18": {
+          "n": 100,
+          "early": 3,
+          "atDuration": 97,
+          "meanTicks": 399.44
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 47,
+          "atDuration": 53,
+          "meanTicks": 585.18
+        }
+      }
+    },
+    {
+      "cohort": "balance-baseline-400",
+      "profile": "playable-v2-gen2-fixture1-count80",
+      "policy": "expert",
+      "runs": 100,
+      "wins": 2,
+      "failures": {
+        "20:finalTimeout": 98
+      },
+      "peakObserved": 25,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 97,
+          "atDuration": 3,
+          "meanTicks": 118.11
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 107.2
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 124.43
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 135.05
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 194.57
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 167.25
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 181.8
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 195.45
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 223.19
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 302.06
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 270.81
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 300.7
+        },
+        "13": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 335
+        },
+        "14": {
+          "n": 100,
+          "early": 98,
+          "atDuration": 2,
+          "meanTicks": 358.2
+        },
+        "15": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 433.31
+        },
+        "16": {
+          "n": 100,
+          "early": 15,
+          "atDuration": 85,
+          "meanTicks": 398.1
+        },
+        "17": {
+          "n": 100,
+          "early": 2,
+          "atDuration": 98,
+          "meanTicks": 399.88
+        },
+        "18": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 2,
+          "atDuration": 98,
+          "meanTicks": 599.91
+        }
+      }
+    },
+    {
+      "cohort": "balance-revision-101-200",
+      "profile": "playable-v2-gen2-fixture1-count40",
+      "policy": "normal",
+      "runs": 100,
+      "wins": 49,
+      "failures": {
+        "20:finalTimeout": 51
+      },
+      "peakObserved": 24,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 111.58
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 107.61
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 123.86
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 133.11
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 197.36
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 164.38
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 174.9
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 183.78
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 210.72
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 290.05
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 242.94
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 272.92
+        },
+        "13": {
+          "n": 100,
+          "early": 99,
+          "atDuration": 1,
+          "meanTicks": 299.37
+        },
+        "14": {
+          "n": 100,
+          "early": 97,
+          "atDuration": 3,
+          "meanTicks": 329.21
+        },
+        "15": {
+          "n": 100,
+          "early": 99,
+          "atDuration": 1,
+          "meanTicks": 420.35
+        },
+        "16": {
+          "n": 100,
+          "early": 68,
+          "atDuration": 32,
+          "meanTicks": 381.5
+        },
+        "17": {
+          "n": 100,
+          "early": 39,
+          "atDuration": 61,
+          "meanTicks": 393.76
+        },
+        "18": {
+          "n": 100,
+          "early": 7,
+          "atDuration": 93,
+          "meanTicks": 399.17
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 48,
+          "atDuration": 52,
+          "meanTicks": 583.45
+        }
+      }
+    },
+    {
+      "cohort": "balance-revision-101-200",
+      "profile": "playable-v2-gen2-fixture1-count40",
+      "policy": "expert",
+      "runs": 100,
+      "wins": 60,
+      "failures": {
+        "20:finalTimeout": 40
+      },
+      "peakObserved": 22,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 110.12
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 104.53
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 123.22
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 133.95
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 191.76
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 164.17
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 174.73
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 185.31
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 211
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 285.7
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 244.65
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 274.93
+        },
+        "13": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 302.28
+        },
+        "14": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 328.05
+        },
+        "15": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 407.4
+        },
+        "16": {
+          "n": 100,
+          "early": 66,
+          "atDuration": 34,
+          "meanTicks": 381
+        },
+        "17": {
+          "n": 100,
+          "early": 37,
+          "atDuration": 63,
+          "meanTicks": 393.66
+        },
+        "18": {
+          "n": 100,
+          "early": 4,
+          "atDuration": 96,
+          "meanTicks": 399.72
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 60,
+          "atDuration": 40,
+          "meanTicks": 576.47
+        }
+      }
+    },
+    {
+      "cohort": "balance-revision-101-200",
+      "profile": "playable-v2-gen2-fixture1-count80",
+      "policy": "normal",
+      "runs": 100,
+      "wins": 49,
+      "failures": {
+        "20:finalTimeout": 51
+      },
+      "peakObserved": 24,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 111.58
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 107.61
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 123.86
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 133.11
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 197.36
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 164.38
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 174.9
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 183.78
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 210.72
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 290.05
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 242.94
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 272.92
+        },
+        "13": {
+          "n": 100,
+          "early": 99,
+          "atDuration": 1,
+          "meanTicks": 299.37
+        },
+        "14": {
+          "n": 100,
+          "early": 97,
+          "atDuration": 3,
+          "meanTicks": 329.21
+        },
+        "15": {
+          "n": 100,
+          "early": 99,
+          "atDuration": 1,
+          "meanTicks": 420.35
+        },
+        "16": {
+          "n": 100,
+          "early": 68,
+          "atDuration": 32,
+          "meanTicks": 381.5
+        },
+        "17": {
+          "n": 100,
+          "early": 39,
+          "atDuration": 61,
+          "meanTicks": 393.76
+        },
+        "18": {
+          "n": 100,
+          "early": 7,
+          "atDuration": 93,
+          "meanTicks": 399.17
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 48,
+          "atDuration": 52,
+          "meanTicks": 583.45
+        }
+      }
+    },
+    {
+      "cohort": "balance-revision-101-200",
+      "profile": "playable-v2-gen2-fixture1-count80",
+      "policy": "expert",
+      "runs": 100,
+      "wins": 60,
+      "failures": {
+        "20:finalTimeout": 40
+      },
+      "peakObserved": 22,
+      "waves": {
+        "1": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 110.12
+        },
+        "2": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 104.53
+        },
+        "3": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 123.22
+        },
+        "4": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 133.95
+        },
+        "5": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 191.76
+        },
+        "6": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 164.17
+        },
+        "7": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 174.73
+        },
+        "8": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 185.31
+        },
+        "9": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 211
+        },
+        "10": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 285.7
+        },
+        "11": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 244.65
+        },
+        "12": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 274.93
+        },
+        "13": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 302.28
+        },
+        "14": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 328.05
+        },
+        "15": {
+          "n": 100,
+          "early": 100,
+          "atDuration": 0,
+          "meanTicks": 407.4
+        },
+        "16": {
+          "n": 100,
+          "early": 66,
+          "atDuration": 34,
+          "meanTicks": 381
+        },
+        "17": {
+          "n": 100,
+          "early": 37,
+          "atDuration": 63,
+          "meanTicks": 393.66
+        },
+        "18": {
+          "n": 100,
+          "early": 4,
+          "atDuration": 96,
+          "meanTicks": 399.72
+        },
+        "19": {
+          "n": 100,
+          "early": 0,
+          "atDuration": 100,
+          "meanTicks": 400
+        },
+        "20": {
+          "n": 100,
+          "early": 60,
+          "atDuration": 40,
+          "meanTicks": 576.47
+        }
+      }
+    }
+  ]
+}

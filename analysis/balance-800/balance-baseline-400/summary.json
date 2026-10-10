@@ -1,0 +1,503 @@
+{
+  "groups": [
+    {
+      "profile": "playable-v2-gen2-fixture1-count40",
+      "policy": "normal",
+      "games": 100,
+      "wins": 48,
+      "winRate": 0.48,
+      "wilson95": [
+        0.38464384320080547,
+        0.5768359490982345
+      ],
+      "failures": {
+        "wave20:finalTimeout": 52
+      },
+      "first2": {
+        "achieved": 100,
+        "missing": 0,
+        "stats": {
+          "mean": 2.58,
+          "median": 3.0,
+          "minimum": 1,
+          "maximum": 6
+        },
+        "waveDistribution": {
+          "1": 21,
+          "2": 24,
+          "3": 35,
+          "4": 17,
+          "5": 2,
+          "6": 1
+        }
+      },
+      "first3": {
+        "achieved": 100,
+        "missing": 0,
+        "stats": {
+          "mean": 10.18,
+          "median": 10.0,
+          "minimum": 5,
+          "maximum": 18
+        },
+        "waveDistribution": {
+          "5": 1,
+          "6": 5,
+          "7": 11,
+          "8": 10,
+          "9": 13,
+          "10": 16,
+          "11": 17,
+          "12": 10,
+          "13": 7,
+          "14": 4,
+          "15": 3,
+          "16": 2,
+          "18": 1
+        }
+      },
+      "purchases": {
+        "mean": 47.53,
+        "median": 47.0,
+        "minimum": 43,
+        "maximum": 53
+      },
+      "rerolls": {
+        "mean": 2.74,
+        "median": 3.0,
+        "minimum": 0,
+        "maximum": 6
+      },
+      "sales": {
+        "mean": 0.01,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 1
+      },
+      "moves": {
+        "mean": 33.31,
+        "median": 33.0,
+        "minimum": 30,
+        "maximum": 37
+      },
+      "swaps": {
+        "mean": 0.21,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 2
+      },
+      "upgrades": {
+        "mean": 16.54,
+        "median": 16.0,
+        "minimum": 14,
+        "maximum": 20
+      },
+      "maxBench": {
+        "mean": 1.1,
+        "median": 1.0,
+        "minimum": 1,
+        "maximum": 3
+      },
+      "benchFullStarts": {
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "maxPressure": {
+        "mean": 18.47,
+        "median": 19.0,
+        "minimum": 12,
+        "maximum": 23
+      },
+      "seconds": {
+        "mean": 272.982,
+        "median": 271.675,
+        "minimum": 249.8,
+        "maximum": 324.65
+      },
+      "gamesWithSale": 1,
+      "gamesBenchEverFull": 0,
+      "idleGoldAtStart": {
+        "mean": 0.833,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 2
+      }
+    },
+    {
+      "profile": "playable-v2-gen2-fixture1-count40",
+      "policy": "expert",
+      "games": 100,
+      "wins": 2,
+      "winRate": 0.02,
+      "wilson95": [
+        0.005501852234968185,
+        0.07001316294199365
+      ],
+      "failures": {
+        "wave20:finalTimeout": 98
+      },
+      "first2": {
+        "achieved": 100,
+        "missing": 0,
+        "stats": {
+          "mean": 3.01,
+          "median": 3.0,
+          "minimum": 1,
+          "maximum": 8
+        },
+        "waveDistribution": {
+          "1": 14,
+          "2": 23,
+          "3": 33,
+          "4": 21,
+          "5": 3,
+          "6": 1,
+          "7": 3,
+          "8": 2
+        }
+      },
+      "first3": {
+        "achieved": 3,
+        "missing": 97,
+        "stats": {
+          "mean": 6,
+          "median": 6,
+          "minimum": 5,
+          "maximum": 7
+        },
+        "waveDistribution": {
+          "5": 1,
+          "6": 1,
+          "7": 1
+        }
+      },
+      "purchases": {
+        "mean": 39.66,
+        "median": 40.0,
+        "minimum": 36,
+        "maximum": 45
+      },
+      "rerolls": {
+        "mean": 8.41,
+        "median": 8.0,
+        "minimum": 2,
+        "maximum": 25
+      },
+      "sales": {
+        "mean": 0.5,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 3
+      },
+      "moves": {
+        "mean": 25.24,
+        "median": 25.0,
+        "minimum": 22,
+        "maximum": 30
+      },
+      "swaps": {
+        "mean": 5.64,
+        "median": 6.0,
+        "minimum": 1,
+        "maximum": 9
+      },
+      "upgrades": {
+        "mean": 9.78,
+        "median": 10.0,
+        "minimum": 8,
+        "maximum": 13
+      },
+      "maxBench": {
+        "mean": 4.17,
+        "median": 4.0,
+        "minimum": 2,
+        "maximum": 7
+      },
+      "benchFullStarts": {
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "maxPressure": {
+        "mean": 20.43,
+        "median": 20.0,
+        "minimum": 18,
+        "maximum": 25
+      },
+      "seconds": {
+        "mean": 282.251,
+        "median": 281.1,
+        "minimum": 257.6,
+        "maximum": 321.55
+      },
+      "gamesWithSale": 43,
+      "gamesBenchEverFull": 0,
+      "idleGoldAtStart": {
+        "mean": 1.731,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 4
+      }
+    },
+    {
+      "profile": "playable-v2-gen2-fixture1-count80",
+      "policy": "normal",
+      "games": 100,
+      "wins": 48,
+      "winRate": 0.48,
+      "wilson95": [
+        0.38464384320080547,
+        0.5768359490982345
+      ],
+      "failures": {
+        "wave20:finalTimeout": 52
+      },
+      "first2": {
+        "achieved": 100,
+        "missing": 0,
+        "stats": {
+          "mean": 2.58,
+          "median": 3.0,
+          "minimum": 1,
+          "maximum": 6
+        },
+        "waveDistribution": {
+          "1": 21,
+          "2": 24,
+          "3": 35,
+          "4": 17,
+          "5": 2,
+          "6": 1
+        }
+      },
+      "first3": {
+        "achieved": 100,
+        "missing": 0,
+        "stats": {
+          "mean": 10.18,
+          "median": 10.0,
+          "minimum": 5,
+          "maximum": 18
+        },
+        "waveDistribution": {
+          "5": 1,
+          "6": 5,
+          "7": 11,
+          "8": 10,
+          "9": 13,
+          "10": 16,
+          "11": 17,
+          "12": 10,
+          "13": 7,
+          "14": 4,
+          "15": 3,
+          "16": 2,
+          "18": 1
+        }
+      },
+      "purchases": {
+        "mean": 47.53,
+        "median": 47.0,
+        "minimum": 43,
+        "maximum": 53
+      },
+      "rerolls": {
+        "mean": 2.74,
+        "median": 3.0,
+        "minimum": 0,
+        "maximum": 6
+      },
+      "sales": {
+        "mean": 0.01,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 1
+      },
+      "moves": {
+        "mean": 33.31,
+        "median": 33.0,
+        "minimum": 30,
+        "maximum": 37
+      },
+      "swaps": {
+        "mean": 0.21,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 2
+      },
+      "upgrades": {
+        "mean": 16.54,
+        "median": 16.0,
+        "minimum": 14,
+        "maximum": 20
+      },
+      "maxBench": {
+        "mean": 1.1,
+        "median": 1.0,
+        "minimum": 1,
+        "maximum": 3
+      },
+      "benchFullStarts": {
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "maxPressure": {
+        "mean": 18.47,
+        "median": 19.0,
+        "minimum": 12,
+        "maximum": 23
+      },
+      "seconds": {
+        "mean": 272.982,
+        "median": 271.675,
+        "minimum": 249.8,
+        "maximum": 324.65
+      },
+      "gamesWithSale": 1,
+      "gamesBenchEverFull": 0,
+      "idleGoldAtStart": {
+        "mean": 0.833,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 2
+      }
+    },
+    {
+      "profile": "playable-v2-gen2-fixture1-count80",
+      "policy": "expert",
+      "games": 100,
+      "wins": 2,
+      "winRate": 0.02,
+      "wilson95": [
+        0.005501852234968185,
+        0.07001316294199365
+      ],
+      "failures": {
+        "wave20:finalTimeout": 98
+      },
+      "first2": {
+        "achieved": 100,
+        "missing": 0,
+        "stats": {
+          "mean": 3.01,
+          "median": 3.0,
+          "minimum": 1,
+          "maximum": 8
+        },
+        "waveDistribution": {
+          "1": 14,
+          "2": 23,
+          "3": 33,
+          "4": 21,
+          "5": 3,
+          "6": 1,
+          "7": 3,
+          "8": 2
+        }
+      },
+      "first3": {
+        "achieved": 3,
+        "missing": 97,
+        "stats": {
+          "mean": 6,
+          "median": 6,
+          "minimum": 5,
+          "maximum": 7
+        },
+        "waveDistribution": {
+          "5": 1,
+          "6": 1,
+          "7": 1
+        }
+      },
+      "purchases": {
+        "mean": 39.66,
+        "median": 40.0,
+        "minimum": 36,
+        "maximum": 45
+      },
+      "rerolls": {
+        "mean": 8.41,
+        "median": 8.0,
+        "minimum": 2,
+        "maximum": 25
+      },
+      "sales": {
+        "mean": 0.5,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 3
+      },
+      "moves": {
+        "mean": 25.24,
+        "median": 25.0,
+        "minimum": 22,
+        "maximum": 30
+      },
+      "swaps": {
+        "mean": 5.64,
+        "median": 6.0,
+        "minimum": 1,
+        "maximum": 9
+      },
+      "upgrades": {
+        "mean": 9.78,
+        "median": 10.0,
+        "minimum": 8,
+        "maximum": 13
+      },
+      "maxBench": {
+        "mean": 4.17,
+        "median": 4.0,
+        "minimum": 2,
+        "maximum": 7
+      },
+      "benchFullStarts": {
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "maxPressure": {
+        "mean": 20.43,
+        "median": 20.0,
+        "minimum": 18,
+        "maximum": 25
+      },
+      "seconds": {
+        "mean": 282.251,
+        "median": 281.1,
+        "minimum": 257.6,
+        "maximum": 321.55
+      },
+      "gamesWithSale": 43,
+      "gamesBenchEverFull": 0,
+      "idleGoldAtStart": {
+        "mean": 1.731,
+        "median": 2.0,
+        "minimum": 0,
+        "maximum": 4
+      }
+    }
+  ],
+  "paired": {
+    "playable-v2-gen2-fixture1-count40": {
+      "normalLoss/expertLoss": 51,
+      "normalWin/expertLoss": 47,
+      "normalWin/expertWin": 1,
+      "normalLoss/expertWin": 1
+    },
+    "playable-v2-gen2-fixture1-count80": {
+      "normalLoss/expertLoss": 51,
+      "normalWin/expertLoss": 47,
+      "normalWin/expertWin": 1,
+      "normalLoss/expertWin": 1
+    }
+  },
+  "profileBehaviorDifferences": []
+}
