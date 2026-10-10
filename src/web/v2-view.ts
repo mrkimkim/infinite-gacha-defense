@@ -1,8 +1,13 @@
 import type {
   CombatEvent, CoreApi, Observation, ObservedUnit, Point, PublicRules,
-  DefinitionId, RarityId, RecruitPreview, PlanRef, Location, CharacterDefinition, Phase,
+  DefinitionId, RecruitPreview, CharacterDefinition, Phase,
 } from '../core-v2/index.ts';
 import type { V2ShellRefs, V2SlotRefs } from './v2-shell.ts';
+import {
+  definitionLabel, rarityLabel, locationLabel, planRefLabel, RECRUIT_ERRORS,
+  unitRole, unitStatsDisplay, recruitPreviewDetails,
+} from './v2-unit-display.ts';
+export { definitionLabel, rarityLabel, locationLabel, planRefLabel } from './v2-unit-display.ts';
 
 export interface V2RenderUi {
   readonly unitId?: number | null;
@@ -13,10 +18,6 @@ export interface V2RenderUi {
   readonly fatal?: boolean;
 }
 
-const ROLES = {
-  single: ['●', '단일 공격'], splash: ['◎', '범위 공격'], multi: ['Ⅱ', '두 대상 공격'],
-  slow: ['❄', '둔화'], support: ['＋', '인접 지원'], bossFirst: ['◆', '보스 우선'],
-} as const;
 const TAG_NAMES = { focus: '집중', cooperation: '협동' } as const;
 const ENEMY_NAMES = { basic: '일반', swift: '신속', sturdy: '튼튼', boss: '보스' } as const;
 const OUTCOME_NAMES = {
@@ -34,29 +35,10 @@ export function activeAttackEffects<T extends { shownAt: number }>(effects: read
   return phase === 'combat' ? effects.filter(effect => tick - effect.shownAt < EFFECT_LIFETIME_TICKS) : [];
 }
 
-/** Pure copy projection, including deliberately symbolic transaction-local refs. */
-export function definitionLabel(rules: Pick<PublicRules, 'characters'>, id: DefinitionId): string {
-  return rules.characters.find(definition => definition.id === id)?.label ?? id;
-}
-export function rarityLabel(rules: Pick<PublicRules, 'rarities'>, id: RarityId): string {
-  return rules.rarities.find(rarity => rarity.id === id)?.label ?? id;
-}
 export function unitAccessibleLabel(unit: Pick<ObservedUnit, 'definitionId' | 'rarityId' | 'star'>, rules: Pick<PublicRules, 'characters' | 'rarities'>): string {
   return `${definitionLabel(rules, unit.definitionId)}, 희귀도 ${rarityLabel(rules, unit.rarityId)}, ${unit.star}성`;
 }
-export function locationLabel(location: Location): string {
-  return location.kind === 'board' ? `${location.row + 1}행 ${location.col + 1}열`
-    : `대기석 ${location.slot + 1}`;
-}
-export function planRefLabel(ref: PlanRef): string {
-  return ref.kind === 'existing' ? `기존 #${ref.unitId}` : `생성 예정 기물 ${ref.creationIndex + 1}`;
-}
-const RECRUIT_ERRORS = {
-  BAD_FORMAT: '영입 요청 형식 오류', BAD_PHASE: '준비 단계에서 영입할 수 있습니다',
-  BAD_SLOT: '잘못된 후보', OFFER_EMPTY: '이미 영입한 후보',
-  INSUFFICIENT_GOLD: '코인이 부족합니다', NO_RECRUIT_SPACE: '자동 승급 후에도 대기석 공간이 부족합니다',
-  INTEGER_OVERFLOW: '수치 한계를 초과해 영입할 수 없습니다',
-} as const;
+/** Symbolic diagnostic projection retained for callers without observed material units. */
 export function recruitPreviewLabel(preview: RecruitPreview, rules: Pick<PublicRules, 'characters' | 'benchCapacity'>): string {
   if (!preview.ok) return RECRUIT_ERRORS[preview.error.code];
   const steps = preview.upgrades.map((upgrade, index) =>
@@ -75,6 +57,12 @@ export function ticksLabel(ticks: number | null, tickMs: number): string {
 /** Pure projection of observations and event snapshots; owns no simulation clock. */
 export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
   const document = shell.root.ownerDocument;
+  const statNote = document.createElement('p');
+  statNote.className = 'v2-message';
+  statNote.dataset.v2 = 'unit-stat-note';
+  shell.selectedStats.after(statNote);
+  // The displayed distance is a center-to-target radius, not a diameter.
+  if (shell.range.previousElementSibling) shell.range.previousElementSibling.textContent = '사거리 반경';
   let observation: Observation | null = null;
   let currentUi: V2RenderUi = {};
   let effects: AttackEffect[] = [];
@@ -116,7 +104,7 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
       slot.button.title = `${location}, 빈칸`;
       return;
     }
-    const role = ROLES[definition(unit.definitionId)?.behavior ?? 'single'];
+    const role = unitRole(definition(unit.definitionId));
     slot.button.dataset.unitId = String(unit.id);
     slot.button.dataset.definitionId = unit.definitionId;
     slot.button.dataset.rarity = unit.rarityId;
@@ -257,11 +245,12 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
       selected(slot, ui.offerSlot === index);
       // A rejected preview remains inspectable, including full-bench failures.
       slot.button.disabled = !id || !canPrepare;
-      slot.token.textContent = id ? ROLES[definition(id)?.behavior ?? 'single'][0] : '·';
+      const stats = id ? unitStatsDisplay(o.rules, id) : null;
+      slot.token.textContent = id ? unitRole(definition(id))[0] : '·';
       slot.label.textContent = id ? definitionLabel(o.rules, id) : '영입 완료';
-      slot.detail.textContent = id && offer ? `${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'} · 1★ · ${offer.price ?? '—'}코인` : '';
+      slot.detail.textContent = id && offer ? `${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'} · 1★ · ${offer.price ?? '—'}코인 · ${stats?.role}` : '';
       slot.button.setAttribute('aria-label', id && offer
-        ? `후보 ${index + 1}, ${definitionLabel(o.rules, id)}, 희귀도 ${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'}, 1성, ${offer.price ?? '—'}코인, ${offer.recruitPreview.ok ? '영입 가능' : RECRUIT_ERRORS[offer.recruitPreview.error.code]}`
+        ? `후보 ${index + 1}, ${definitionLabel(o.rules, id)}, 희귀도 ${offer.rarityId ? rarityLabel(o.rules, offer.rarityId) : '—'}, 1성, ${offer.price ?? '—'}코인, ${stats?.role}, 1성 기본 공격력 ${stats?.attack}, 공격 주기 ${stats?.attackInterval}, 사거리 반경 ${stats?.range}, ${offer.recruitPreview.ok ? '영입 가능' : RECRUIT_ERRORS[offer.recruitPreview.error.code]}`
         : `후보 ${index + 1}, 비어 있음`);
       slot.button.title = slot.button.getAttribute('aria-label') ?? '';
       if (id) slot.button.dataset.definitionId = id;
@@ -269,16 +258,20 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
       if (offer?.rarityId) slot.button.dataset.rarity = offer.rarityId;
       else delete slot.button.dataset.rarity;
     }
+    const stats = chosen ? unitStatsDisplay(o.rules, chosen.definitionId, chosen, o.synergies)
+      : chosenOffer?.definitionId ? unitStatsDisplay(o.rules, chosenOffer.definitionId) : null;
     shell.selectionPanel.hidden = !chosen && !chosenOffer;
-    shell.selectedStats.hidden = !chosen;
+    shell.selectedStats.hidden = !stats;
     shell.selectedName.textContent = chosen ? definitionLabel(o.rules, chosen.definitionId)
       : chosenOffer?.definitionId ? definitionLabel(o.rules, chosenOffer.definitionId) : '수호자를 선택하세요';
     shell.selectedDetail.textContent = chosen
-      ? `희귀도 ${rarityLabel(o.rules, chosen.rarityId)} · ${chosen.star}★ · ${locationLabel(chosen.location)}${chosen.supportActive ? ` · 지원 #${chosen.supportSourceIds.join(', #')}` : ''}`
-      : chosenOffer?.rarityId ? `희귀도 ${rarityLabel(o.rules, chosenOffer.rarityId)} · 1★ · ${chosenOffer.price ?? '—'}코인` : '';
-    shell.attack.textContent = chosen ? `${chosen.damage} / 보스 ${chosen.bossDamage}` : '—';
-    shell.attackSpeed.textContent = chosen ? `${ticksLabel(chosen.nextAttackCooldown, o.rules.tickMs)}/회` : '—';
-    shell.range.textContent = chosen ? String(chosen.range) : '—';
+      ? `희귀도 ${rarityLabel(o.rules, chosen.rarityId)} · ${chosen.star}★ · ${locationLabel(chosen.location)} · ${stats?.role} · ${stats?.basis}`
+      : chosenOffer?.rarityId ? `희귀도 ${rarityLabel(o.rules, chosenOffer.rarityId)} · 1★ · ${chosenOffer.price ?? '—'}코인 · ${stats?.role} · ${stats?.basis}` : '';
+    shell.attack.textContent = stats?.attack ?? '—';
+    shell.attackSpeed.textContent = stats?.attackInterval ?? '—';
+    shell.range.textContent = stats?.range ?? '—';
+    statNote.hidden = !stats;
+    statNote.textContent = stats?.note ?? '';
     shell.sellButton.hidden = !chosen;
     shell.sellButton.textContent = chosen ? `판매 ${chosen.sellGold}코인` : '판매';
     shell.sellButton.disabled = !canPrepare || !chosen;
@@ -286,7 +279,7 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
     shell.recruitButton.disabled = !canPrepare || !chosenOffer?.recruitPreview.ok;
     shell.recruitButton.textContent = chosenOffer ? `영입 ${chosenOffer.price ?? '—'}코인` : '영입';
     shell.recruitPreview.hidden = !chosenOffer;
-    shell.recruitPreview.textContent = chosenOffer ? recruitPreviewLabel(chosenOffer.recruitPreview, o.rules) : '';
+    shell.recruitPreview.textContent = chosenOffer ? recruitPreviewDetails(chosenOffer.recruitPreview, o.rules, o.units) : '';
     shell.cancelButton.disabled = !chosen && !chosenOffer;
     shell.synergyCount.textContent = String(o.synergies.filter(synergy => synergy.tier > 0).length);
     shell.synergyList.replaceChildren(...o.synergies.map(synergy => {
@@ -316,7 +309,7 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
     renderScene();
   }
   function clearEffects() { effects = []; renderScene(); }
-  function reset() { effects = []; observation = null; currentUi = {}; shell.enemyLayer.replaceChildren(); }
-  function dispose() { reset(); disposed = true; }
+  function reset() { effects = []; observation = null; currentUi = {}; shell.enemyLayer.replaceChildren(); statNote.textContent = ''; }
+  function dispose() { reset(); statNote.remove(); disposed = true; }
   return { render, consume, reset, dispose, showEvents: consume, clearEffects };
 }
