@@ -44,3 +44,15 @@ test('pixel guard uses letter bounds + stroked silhouette +2px; reserves36px for
 test('hand offset is continuous at tick boundaries and reaches zero at arrival, independent of target distance',()=>{
  const f=core.observe(scenario(126)).flights[0],pos={x:4000,y:650};assert.deepEqual(anchoredPosition(pos,f,126,1,36),anchoredPosition(pos,f,127,0,36));assert.deepEqual(anchoredPosition(pos,f,128,0,36),point(pos));
 });
+
+test('effect strong width independent of body; release strong left one pixel beyond rounded fingertip',async()=>{
+ const {effects,effectOrigin,maximumEffectRadius}=await import('../../src/web/popo-timing/effects.ts');
+ const f=core.observe(scenario(126)).flights[0];
+ for(const size of [32,36])for(const width of [8,10,12] as const){
+  const p=anchoredPosition(f.position,f,126,0,size,width),origin=effectOrigin(p,width),b=effects[width].strong;
+  assert.equal(origin.x+b[0],Math.round(point(f.sourcePosition).x+(688-360)*size/563)+1);
+  assert.equal(letterDimensions(size,width).width,width);
+  assert(clearanceRadius(size)>=11.75+maximumEffectRadius+Math.SQRT1_2+2);
+ }
+ assert.equal(clearanceRadius(32),clearanceRadius(36));
+});

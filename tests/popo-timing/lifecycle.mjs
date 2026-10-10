@@ -49,9 +49,14 @@ for(const viewport of [{width:390,height:844},{width:1165,height:747}]){
  });
  const position=paused.audit.at(-1).flightPixels;assert.equal(position.length,1);await capture('paused-before-resize-36');let resizeIndex=0;
  for(const size of ['32','36','32']){await page.selectOption('#size',size);const after=await page.evaluate(()=>window.popoReview.snapshot());assert.deepEqual(after.audit.at(-1).flightPixels,position);assert.equal(after.hash,paused.hash);for(const f of after.audit.at(-1).rasterFlights)if(f.raster?.bodyGapPx!=null)assert(f.raster.bodyGapPx>=2);await capture('paused-after-resize-'+(++resizeIndex)+'-'+size);}
+ for(const width of ['12','10','8','0','12']){await page.selectOption('#effect',width);const after=await page.evaluate(()=>window.popoReview.snapshot());assert.deepEqual(after.audit.at(-1).flightPixels,position);assert.equal(after.hash,paused.hash);for(const f of after.audit.at(-1).rasterFlights)if(f.raster?.bodyGapPx!=null)assert(f.raster.bodyGapPx>=2);await capture('paused-effect-'+width);}
  await page.waitForTimeout(120);assert.deepEqual((await page.evaluate(()=>window.popoReview.snapshot())).audit.at(-1).flightPixels,position);
  await page.screenshot({path:`${root}/${viewport.width}-paused-resize.png`});
  await page.evaluate(()=>window.popoReview.resume());await page.waitForFunction(()=>window.popoReview.snapshot().tick===136);
+ // Resize effects at the actual pre-contact guard, not only midway through flight.
+ const guarded=await page.evaluate(async()=>{window.popoReview.configure(32,0,8);await window.popoReview.reset(122,true);return new Promise((resolve,reject)=>{function inspect(){const s=window.popoReview.snapshot(),a=s.audit.at(-1),f=a.flightPixels[0],t=a.enemyPixels.find(e=>e.id===5);if(s.tick===127&&f&&t&&Math.hypot(f.position.x-t.position.x,f.position.y-t.position.y)<=a.clearance+.001){window.popoReview.pause();resolve(s);}else if(s.tick>=128)reject(Error('missed guard RAF'));else requestAnimationFrame(inspect);}requestAnimationFrame(inspect);});});
+ await capture('guard-before-effect-resize');
+ for(const width of ['12','10','8','0','12']){await page.selectOption('#effect',width);const s=await page.evaluate(()=>window.popoReview.snapshot());assert.equal(s.hash,guarded.hash);assert.deepEqual(s.audit.at(-1).flightPixels,guarded.audit.at(-1).flightPixels);for(const f of s.audit.at(-1).rasterFlights)if(f.raster?.bodyGapPx!=null)assert(f.raster.bodyGapPx>=2);await capture('guard-effect-'+width);}
  assert.equal(errors.length,0);results.push({viewport,initialReject:true,retry:true,paintedSceneReject:true,lateReject:true,lateSuccessAfterNewReject:true,pauseResizePosition:position,callbackProbe,noUnhandledErrors:true});await page.close();
 }
 await fs.writeFile(`${root}/captures.json`,JSON.stringify(captures,null,2));
