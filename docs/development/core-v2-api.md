@@ -1,380 +1,376 @@
-# playable-v2 first API / data checkpoint
+# Generation2 API/data checkpoint: schema3 automatic upgrades
 
-Issue [#23](https://github.com/mrkimkim/infinite-gacha-defense/issues/23), owner 모모,
-assignment_generation 1; base `a9273ea3597fbfb9730ca3bd653fdf5241b27f28`.
-Contract reviewed as input: PR #22 head `a174fa7b3caa624b2b5a23d6f47fbd0a1067e283`.
+Owner 모모, Issue #23 assignment_generation2; base
+`361ed54339daab180cd8dfc1cc2526fee479eded`. Input contract: PR #36
+`19c4dac` (full contract read from the leader's generation2 checkpoint).
+Assignment: [6094839654](https://github.com/mrkimkim/infinite-gacha-defense/issues/23#issuecomment-6094839654);
+resume: [6095709433](https://github.com/mrkimkim/infinite-gacha-defense/issues/23#issuecomment-6095709433).
 
-**Review proposal, not an engine implementation or a playable release.**
-The sole TypeScript type source is `src/core-v2/types.ts`. `CoreApi` declares the
-exact planned synchronous function signatures. `src/core-v2/index.ts` currently
-exports types and proposal constants only. There is deliberately no runtime
-`createMatch`, `dispatch`, `advance`, `observe`, `getRules`, `replay`, coordinate
-helper, or hashing function. Adapters may review/import types; they cannot run a
-v2 game yet. No throwing stub is presented as a working implementation.
+**API/data review only. No schema3 engine, purchase planner, replay implementation
+or throwing stub is exported.** `CoreApi` in `src/core-v2/types.ts` is the exact
+planned synchronous interface. `index.ts` exports types and fixed fixture data
+only. Adapters must wait for both independent DOTs' exact-SHA API review before
+implementing against it. Previous schema2 approvals do not approve this model.
 
-Both independent DOTs must review the exact checkpoint SHA before implementation.
-This document closes API ambiguities as proposals; it does not turn unreviewed
-spawn/balance hypotheses into final design. Existing `src/core` API, schema1,
-canonical17 keys, fixtures, bytes, hashes and replay interpretation are untouched.
-All new core source passes an ES2022-only, `types: []` portability compilation.
+Generation1's unmerged implementation is not part of this checkpoint. This clean
+branch removes XP, levels, books, manual merge, XP participants and the eight-unit
+deployment cap. It introduces schema3 and wholly new rules IDs. Historical v1
+`src/core/index.ts`, schema1 canonical17, bytes/hashes and replay remain unchanged.
+The new engine will explicitly reject schema2 with UNSUPPORTED_SCHEMA. Old
+proposal1 rules IDs are not registered and must not be reinterpreted under schema3.
 
-## 1. Entry point, data identities, and ownership
+## 1. Fixed data and unfinished content decisions
 
-Use `src/core-v2/index.ts`, never substitute it for the v1 entry point. Engine
-creation requires an explicit rules ID. `EXPERIMENT_RULES_ID` is the A/count40
-functional-wiring experiment, not a production default. Profiles cannot accept
-arbitrary overrides or caller-supplied data/digests. `RULES_PROPOSALS` and
-`RULES_DIGESTS` are deeply frozen data, not a registry mutation API.
+The TypeScript model uses data-defined `DefinitionId` strings, not an enum fixing
+the roster to six characters. Eight **neutral technical definitions**, fixture-01
+through fixture-08, exercise six behavior roles and all five user-approved rarity
+names: 일반/common, 고급/uncommon, 희귀/rare, 영웅/epic, 전설/legendary.
+This is neither a final IP roster nor approved rarity assignments/art/content.
 
-| Fixed proposal ID | SHA-256 rules digest |
+| Fixture ID | Full-data SHA-256 digest |
 |---|---|
-| playable-v2-proposal1-economyA-count40 | 6ce864fd07b9b3892e3c2026dd8cdb6cb67cfbb49cb45518ee6aaeb9293fe4c9 |
-| playable-v2-proposal1-economyA-count80 | db62325b9c2d19ea1c7a92fa90ba59c00d77b41bb168ed888696d215e54dacaa |
-| playable-v2-proposal1-economyB-count40 | 694afd3527e21b283994b4659b9de2f997edaef7d1e59ded840d552cc5973a4e |
-| playable-v2-proposal1-economyB-count80 | 0513956e1bd5bf2ae48b082d7ff640a821c037bcf644d0b7fd88debe2ff5c557 |
+| playable-v2-gen2-fixture1-count40 | 83462afeda2fe1756f130669f4b77af45c518390c04248d1d006909fb911c886 |
+| playable-v2-gen2-fixture1-count80 | f4f82d384a0a0774eefb75b9b7428cee45564749d815f0df3d3964ba64ba63d2 |
 
-Each digest hashes UTF-8 canonical JSON of the **entire corresponding RuleData**,
-including rulesId, all 20 expanded waves, PRNG, semantic revision and proposal
-status; the digest itself is not in its preimage. Every object key is sorted by
-ordinal UTF-16 code unit (all schema keys are ASCII); arrays retain their defined
-order. No whitespace, safe integer decimal numbers, negative zero encoded as 0.
-Strings use JSON escaping. Output is 64 lowercase hexadecimal characters.
-Changing any gameplay data/semantics requires a new rules ID, semantic revision,
-digest and review. Hashed status stays `review-proposal` even after approval; approval is external review metadata, never an in-place status mutation. Never rewrite the meaning of an ID used by a saved replay.
+`EXPERIMENT_RULES_ID` names count40 for explicit test wiring only. createMatch
+requires a rules ID; no production default exists. Only registry-owned profiles
+are accepted, with no runtime data overrides. `status: 'unapproved-fixture'` is
+hashed immutable metadata: review approval must not mutate it under an existing
+ID. Future data, semantic or footprint changes require new IDs/digests.
 
-Engine-owned state is readonly and cannot be constructed/mutated by adapters.
-`dispatch` and `advance` take only a valid state produced by this v2 engine;
-untrusted saved state is not an import format. Use replay for untrusted input.
-State exposed for diagnostics must never become policy input. `observe` and
-`getRules` return detached deeply readonly snapshots with no aliased state arrays.
+The digest is SHA-256 of UTF-8 canonical JSON of the entire RuleData (including
+schema, ID, status, five rarity entries, public odds, all character definitions,
+expanded wave schedules, footprint, autoUpgrade, PRNG and semantic revision).
+The digest itself is not in the preimage. Sort object keys ordinal UTF-16 (schema
+keys ASCII), retain array order, no whitespace, safe integer decimal numbers,
+JSON-escaped strings, negative zero encoded as0, lowercase64 hexadecimal output.
+All exported profile trees and digest maps are deeply frozen.
 
-All IDs are positive safe integers. Units, enemies and books share one monotonic
-`nextEntityId`, initially 1. IDs never recycle. Creating a match starts in
-preparation/wave1, tick0, waveTick0, spawnCursor0, empty units/books/enemies and
-participants, gold12, outcome/reason null. Exactly one free full shop draw occurs.
-Recruit creates a 1-star, XP0, cooldown0 unit. Merge allocates one new unit ID,
-removes all three inputs, sums their XP, increments star and takes the maximum
-input cooldown. Books are allocated only when recovered XP > 0.
+Explicitly unapproved fixture choices:
+- Starting12 coins, reroll1, successful-wave reward6; count40/warning32 or80/64.
+- Rarity weights500/250/150/75/25 (total1000), prices2/3/4/5/6. Sell values by
+  star: common/uncommon1/3/9; rare/epic2/6/18; legendary3/9/27.
+- Eight neutral definitions reuse six previous role parameter sets; fixture-07
+  repeats single and fixture-08 splash. Rarity alone adds no hidden damage factor.
+- Star damage100/220/484%; synergy5/10%; one cell for every star; bench8.
+- 20 waves, bosses5/10/15/20, ordinary400 ticks/boss600 ticks at50ms. This is a
+  comparison schedule, not final content length or difficulty.
+- Ordinary count6+w; basicHP12+4w+floor(w²/4). Cycle basic/swift/sturdy; swift HP70%
+  floored and speed110, sturdy HP160% floored and speed45, basic speed70.
+  Ordinary spawn i at waveTick1+12i. Boss at tick1 before the ordinary tie spawn,
+  additional to ordinary count, HP120+40w, speed55. No spawn RNG.
+- Geometry: board tile1000, centers(500+1000col,500+1000row); clockwise path
+  (-500,-500)→(4500,-500)→(4500,4500)→(-500,4500)→start, length20000.
 
-## 2. Strict input and error precedence
+All these choices remain fixtures, not inherited economic/balance approvals.
+Both profiles share all data except identity and count/warning threshold.
+3-star2×2 is **not supported or decided** by this checkpoint. It requires a new
+footprint/anchor/collision/placement contract, not a runtime flag flip.
 
-No coercion, defaults inside commands, ignored keys, partial successes or hidden
-properties. All external structures must be acyclic JSON-data trees: plain
-objects (Object.prototype or null prototype), exact enumerable own string keys,
-data properties only; dense normal arrays with exact length/index keys. Reject
-symbols, accessors without invoking them, sparse arrays, extra array properties,
-non-plain prototypes, undefined, functions, bigint, NaN/infinity and unsafe
-numbers. Hostile proxy/trap failures are caught as BAD_FORMAT; executing arbitrary
-proxy behavior is outside the JSON-input contract. Canonical generation only
-accepts valid engine state.
+## 2. Purchase plan and symbolic preview
 
-Command shape keys are exactly those in the discriminated union. `ids` has length
-3. ID fields must be positive safe integers; slots/coordinates safe integers
-(negative or out-of-range values reach the semantic slot/location checks).
-Unknown string command type returns UNSUPPORTED_COMMAND once the data-tree check
-passes, before checking variant-specific keys. Missing/non-string type is
-BAD_FORMAT. `-0` is accepted as coordinate/slot0, never as a positive ID.
+`recruit` has exactly type and offerSlot. No destination, keepId or merge command.
+The same pure internal planner must produce `previewRecruit(state, offerSlot)`
+and dispatch's checked purchase plan. observe includes its result on each shop
+slot as `ObservedOffer.recruitPreview`; empty slots still exist with null
+rarityId/price and OFFER_EMPTY in preparation. There is no preview implementation
+in this checkpoint; the following is the reviewable planner contract.
 
-For `createMatch`, order is: non-string rulesId → BAD_FORMAT; unregistered string
-→ UNKNOWN_RULES; seed not a safe integer in [1,4294967295] → BAD_SEED. No state is
-returned on failure. `getRules` returns null for all unrecognized/non-string IDs.
-Coordinate helpers return null for invalid integers/out-of-domain inputs, and do
-not throw. `pathPosition` accepts every nonnegative safe totalDistance and applies
-modulo; `boardPosition` requires col,row in 0..3.
+Plan references:
+- `{kind:'existing',unitId}` refers only to an already public existing unit ID.
+- `{kind:'created',creationIndex}` is transaction-local, zero-based.0 is the fresh
+  arrival,1 is the first upgrade output,2 the next. These are symbols, not real
+  IDs, not offsets disclosed to the policy, and never valid command targets.
+- Order existing refs by unitId, then all created refs by creationIndex. All
+  existing IDs predate every created ref. This matches eventual allocation order
+  without revealing nextEntityId, RNG, seed or future random candidates.
 
-For `dispatch`, run data-tree/type/shape validation first, then require
-preparation (BAD_PHASE), then the command-specific list below **left to right**.
-If several failures coexist, only the first error is returned.
+The arrival has star1, cooldown0, **location:null always**, including when a free
+bench slot exists. It is a planner-only transient, never a persistent Unit. Do
+not provisionally give it an empty bench slot before checking upgrades: an
+unrelated lower empty slot must not change the preserved material location.
 
-| Command | Semantic error priority after shape and phase |
+For valid stabilized input, add the arrival and repeatedly:
+1. Select same-definition/same-star triples across board and bench, using the
+   three oldest live identities. Exhaust star1 upgrades before star2, never
+   upgrade star3. Normal input has no existing eligible triple; therefore only
+   the purchased definition can change, with at most two upgrade steps.
+2. If any material is on board, use the oldest **board** material's location
+   (even if an older overall material is on bench). Otherwise preserve the
+   minimum occupied bench slot among the materials. Exclude null arrival from
+   location candidates. Remove all three materials before placing the result.
+3. Create a new identity at that location, star+1, maximum immediate-material
+   remaining cooldown. Every step reevaluates placement independently; the
+   second step can move the purchased lineage to another material's location.
+4. If no upgrade consumed arrival, place it at the lowest empty bench. Never
+   place it on board, displace another unit or leave it in temporary storage.
+5. Validate final locations/collisions, safe arithmetic/identity allocation and
+   stabilized inventory. Any failed plan rejects the complete purchase.
+
+No extra board-cap8 check exists. The one-cell fixture can physically occupy all
+16 cells. Bench remains8 slots. Full bench is not itself an error: if arrival is
+consumed and the result occupies a freed material location, purchase succeeds.
+With stable one-cell input, every upgrade inherits a freed material location;
+there is no invented late 2×2 placement behavior. Keep defensive final checks.
+
+Preview success contains price, goldAfter, arrival, upgrades, result, finalUnits,
+boardCountAfter and benchCountAfter. Each upgrade exposes ordered consumed refs
+and a full placed result. Consumed refs must be distinct and currently live;
+  a step cannot consume its own output, a future creationIndex or an earlier
+  consumed ref. `finalUnits` means **all surviving post-purchase units**,
+including unchanged ones, ordered by reference order; it has no null locations
+or consumed refs. `result` is the full surviving purchased-lineage unit and equals
+its finalUnits entry. UI does not reconstruct placement, affordability or chains.
+Failure contains only error, no partial chain or stale successful result.
+Repeated previews must be identical and mutate/allocate/draw/log nothing.
+
+Preview is an ephemeral view of the current state, not a reservable authorization
+or input token. dispatch recomputes the same planner on its actual state; after
+any intervening action a caller must refresh preview. IDs/costs/selection cannot
+be injected from an earlier preview.
+
+### Examples to pin material order and placement
+
+- Full bench + no matching pair: NO_RECRUIT_SPACE, even if the board is empty.
+- Two matching bench units at slots4 and6, lowest empty bench slot0: an upgrade
+  still appears at slot4; arrival never claims slot0 first.
+- Full bench + matching board IDs7 at(3,3),11 at(0,0): arrival created0 is consumed
+  with7/11, created1 appears at(3,3), cooldown max(materials), unrelated bench
+  units remain untouched.
+- A ★1 step creates created1 at board(3,3). Existing ★2 IDs3 at board(0,1) and9
+  at bench2 then combine with created1: created2/★3 appears at(0,1), inheriting
+  max(ID3,ID9,created1 cooldown). Both steps remain visible in the plan/event.
+- Same rarity/label/behavior is insufficient: definitionId and star must both
+  match. Different definitions never upgrade together.
+
+## 3. Commit and event shapes
+
+Only after a complete valid plan does dispatch atomically deduct price, empty
+one shop slot, allocate arrival and intermediate IDs, apply all replacements and
+append one accepted command log entry. Purchase consumes zero RNG. IDs are
+positive safe integers from one shared unit/enemy allocator, initially1; allocate
+arrival first and every upgrade output next, even when those identities are
+consumed before the transaction finishes. Preview never exposes that allocator.
+
+One `recruited` command event contains the complete atomic trace: offerSlot,
+goldDelta, committed arrival (real ID, location:null), ordered upgrades (three
+actual consumed IDs plus the full new Unit/location/cooldown) and final result.
+Nested upgrades are not independent commands or partially committed states.
+Only the final returned state is observable. The final result uses the arrival
+ID if there was no upgrade, or the last output ID otherwise. All consumed tuples
+are numerically ascending. This aggregate event avoids an orphan null-location
+unit or a forward-reference event that an adapter might treat as persistent.
+
+All other commands emit one event: rerolled, moved, swapped, sold or waveStarted.
+waveStarted contains only its stamp, no XP-era participant list. Sold removes the
+unit and credits coins; it does not stabilize unrelated groups, draw RNG or make
+books. Rerolled replaces all three slots in slot order. No kill coins.
+
+Combat event sequence retains effectExpired → enemySpawned → per-unit attack and
+its effects/deaths → outcome/transition. Attack includes sourcePosition, primary
+center and each actual hit's position/damage, frozen before enemy movement;
+killed targets can be rendered without reconstructing missing observation data.
+On success emit waveCompleted (positive goldDelta, sorted carriedEnemyIds), then
+shopRefreshed or final matchEnded(win,cleared). No XP or level events. Final win
+gets exactly one coin reward and no refresh. Failure emits matchEnded with no
+reward/refresh. All events in a transition, including shopRefreshed, are stamped
+with the completed wave/global tick/waveTick; returned preparation state has the
+upcoming wave. Command waveStarted uses newly reset waveTick0.
+
+## 4. Input validation and exact error precedence
+
+No coercion or hidden defaults. External structures must be acyclic JSON-data
+objects (Object.prototype or null), enumerable own string data properties only,
+exact keys, dense ordinary arrays, no extras/accessors/symbols/unsafe numbers/
+NaN/infinity/undefined/functions/bigint/exotic prototypes. Reject accessors without
+calling them. Catch hostile trap failures as BAD_FORMAT; arbitrary changing proxy
+behavior is outside the JSON-data contract. IDs positive safe integers; command
+slots/coordinates safe signed integers before semantic bounds. Unknown string
+type gives UNSUPPORTED_COMMAND after whole-tree checking; missing/non-string type
+or malformed known union gives BAD_FORMAT. Removed merge/useBook are unsupported,
+not aliases. `recruit{offerSlot,benchSlot}` fails BAD_FORMAT due to extra keys.
+
+createMatch: non-string rulesId BAD_FORMAT → unregistered ID UNKNOWN_RULES → seed
+outside integer1..4294967295 BAD_SEED. No state on failure. getRules returns null
+for unrecognized/non-string IDs. No arbitrary registration or data injection API.
+
+previewRecruit validates offerSlot as a safe signed integer (otherwise BAD_FORMAT),
+then uses the exact shared semantic ordering below. dispatch validates whole
+command shape first, then uses the same plan and ordering:
+
+| Command | Ordered semantic checks after shape |
 |---|---|
-| recruit | offerSlot 0..2 (BAD_SLOT); benchSlot 0..7 (BAD_LOCATION); OFFER_EMPTY; LOCATION_OCCUPIED; CAPACITY_REACHED; INSUFFICIENT_GOLD; INTEGER_OVERFLOW |
-| reroll | INSUFFICIENT_GOLD; INTEGER_OVERFLOW |
-| move | UNIT_NOT_FOUND; destination bounds (BAD_LOCATION); SAME_LOCATION; LOCATION_OCCUPIED; destination capacity (CAPACITY_REACHED); INTEGER_OVERFLOW |
-| swap | DUPLICATE_ID for aId=bId; UNIT_NOT_FOUND checking aId then bId; SAME_LOCATION; INTEGER_OVERFLOW |
-| merge | DUPLICATE_ID; KEEP_ID_NOT_INCLUDED; UNIT_NOT_FOUND in input tuple order; MERGE_MISMATCH for character/star mismatch; MAX_STAR; INTEGER_OVERFLOW |
-| sell | UNIT_NOT_FOUND; INTEGER_OVERFLOW |
-| useBook | BOOK_NOT_FOUND; UNIT_NOT_FOUND; INTEGER_OVERFLOW |
-| startWave | NO_BOARD_UNITS; INTEGER_OVERFLOW |
+| recruit / previewRecruit | BAD_PHASE → BAD_SLOT(0..2) → OFFER_EMPTY → INSUFFICIENT_GOLD → NO_RECRUIT_SPACE → INTEGER_OVERFLOW |
+| reroll | BAD_PHASE → INSUFFICIENT_GOLD → INTEGER_OVERFLOW |
+| move | BAD_PHASE → UNIT_NOT_FOUND → BAD_LOCATION → SAME_LOCATION → LOCATION_OCCUPIED → INTEGER_OVERFLOW |
+| swap | BAD_PHASE → DUPLICATE_ID → UNIT_NOT_FOUND(aId then bId) → SAME_LOCATION → INTEGER_OVERFLOW |
+| sell | BAD_PHASE → UNIT_NOT_FOUND → INTEGER_OVERFLOW |
+| startWave | BAD_PHASE → NO_BOARD_UNITS → INTEGER_OVERFLOW |
 
-Location kind must be board or bench with its exact variant keys, otherwise
-BAD_FORMAT. Capacity counts units, never star/level. Board/bench exchanges keep
-both counts unchanged. Move to an occupied slot never implicitly swaps.
-Recruits require the specified empty bench slot even if a merge would be possible.
-Same-state guard checks such as capacity are defensive for engine invariants.
+All commands require preparation. Destination board bounds0..3 and bench bounds
+0..7 apply only after valid location union shape. Moving into a free physical
+cell succeeds regardless of already having8 units on board. No implicit swap.
+Swaps exchange occupied positions; existing collision/footprint constraints still
+apply. current fixture has a single-cell footprint for every star.
 
-Every mutation is staged and checked before publication. All integer products,
-sums, clock/distance/ID increments, XP and coins must stay safe integers. Unsafe
-computed intermediates return INTEGER_OVERFLOW even if later division could
-reduce them. Command rejection returns the **identical input state reference**, no
-events/log append, no ID/gold/book/RNG consumption. No sequence number is spent.
+Reject returns the identical input state reference, no events/log append, and
+unchanged coins/slots/units/IDs/RNG. Checked arithmetic includes every intermediate
+integer product/sum and ID increment, even if later division would reduce it.
+A completed plan that would overflow rolls back the whole purchase, never draws
+RNG or allocates an ID speculatively into authoritative state.
 
-`advance` validates count first: only safe integers >=1; otherwise BAD_COUNT,
-including zero, fractions, strings and omitted count. Then BAD_PHASE outside
-combat. A valid count has no artificial batch maximum; execution stops at the
-first transition to preparation/result, returning executedTicks <= count. Tick
-work is staged for the entire call: overflow at any later tick rolls back the
-whole call, returns the original state and executedTicks0 without events/logs.
-No advance in preparation or result, no implicit next-wave start, no partial
-progress on error. Wall time, pause/restart, rendering and animations are absent
-from this API; restart creates a separate match.
+advance: count must be a safe integer>=1, else BAD_COUNT before phase validation;
+then require combat, else BAD_PHASE. No arbitrary batch cap, but stop at the first
+preparation/result transition. Return actual executedTicks; never auto-start a
+wave. Overflow on any later tick rolls back the entire call to the original state,
+executedTicks0, no events/log entries. Pause/restart/wall time are adapter concerns.
+createMatch makes a new match; no restart command.
 
-## 3. Observation meaning
+## 5. State, observation and deterministic combat
 
-`Observation` contains the current units (location distinguishes board/bench),
-three stable shop slots including null purchased slots, all books, all living
-remaining enemies/effects (also during preparation/result), gold, clocks and
-outcome. IDs describe current public entities, never future IDs. It excludes
-seed, rngState, nextEntityId, acceptedLog and future random offers. `PublicRules`
-excludes PRNG internals; fixed wave schedules are deliberately public information
-for both policies. No hidden schedule advantage for either policy.
+Initial state: schema3, registered ID/digest, seed/RNG, nextEntityId1, tick0,
+preparation/wave1/waveTick0/spawnCursor0, gold from fixture, empty units/enemies,
+null outcome/reason, exactly one free full shop. Shop always contains three slots;
+purchase empties one definitionId to null and does not refill it.
 
-Unit fields are core-derived: cumulative xp, level1..10, nextXpThreshold and xpToNext (both null at
-level10), levelCapped, normal damage, bossDamage, effective range, nextAttackCooldown
-(the period that would be set after the next attack), supportActive, plannedXp,
-sellGold and recoverableXp. No cumulative XP is discarded at the level cap.
-Bench damage/range are intrinsic star/level values without board-only synergy or
-aura. Board units use current active tag synergy and orthogonal support; bench
-plannedXp is always0. Merge reports its new full Unit; the subsequent observation
-provides its new derived level.
+Persistent units hold only ID/definitionId/star/location/cooldown. Rarity is
+immutable definition data; observation adds rarityId for display. It also adds
+effective damage/bossDamage/range/nextAttackCooldown, supportActive/supportSourceIds,
+sellGold, active synergies with affectedUnitIds and distinctDefinitions, inventory
+counts, warning/limit, separate segment/boss timing and per-offer purchase preview.
+No XP/level/book/merge-button fields remain. Policies receive only detached readonly
+Observation, excluding seed, rngState, nextEntityId, acceptedLog or future offers.
+PublicRules intentionally exposes fixed schedules, roster, prices and the complete
+public rarity/conditional draw table; neither policy gets private RNG information.
 
-Synergies list focus then cooperation, with distinctCharacters in the profile's
-character order. Tier is 0/2/3; percent is 0/5/10. Only distinct board characters
-with that tag contribute, and only board units of that tag receive its effect.
-Focus boosts damage; cooperation boosts range. Aura excludes self and bench,
-uses four orthogonal cells, and does not stack across multiple Momo units.
-Each ObservedUnit exposes sorted supportSourceIds; supportActive is whether that
-list is nonempty. Each Synergy exposes sorted affectedUnitIds (empty at tier0).
-mergeGroups includes every character/star1-or2 group with at least3 units across
-board and bench, sorted by profile character order then star, with unitIds
-ascending. Any3 distinct listed IDs may be merged, with any one as keepId.
-Groups remain informational during combat; all preparation commands stay locked.
-The UI never reconstructs adjacency, tag eligibility or merge eligibility.
+In preparation wave identifies the upcoming wave, while waveTick/spawnCursor keep
+the completed wave's values until startWave resets both to0. Global tick never
+resets. segmentRemainingTicks is upcoming duration in preparation, duration minus
+waveTick in combat,0 in result. bossDeadlineWaveTick is upcoming/active deadline
+or null; bossRemainingTicks is full upcoming deadline in preparation, remaining
+time while the scheduled/active boss remains in combat, null after defeat/result.
+nextWave means upcoming in preparation, following the active one in combat,
+otherwise null. canStartWave is preparation plus at least one board unit.
 
-In preparation, plannedXp uses the current board IDs; in combat, the frozen
-waveParticipants; in result it is0. Integer budget divides equally, leftovers to
-ascending unit IDs. A defensive empty participant list discards the budget.
-remainingCount includes bosses; warning is count >= warningCount, even in result.
+Clock/combat order: increment tick and waveTick → expire effects with expireAt<=tick
+→ scheduled spawns → ascending board-unit ID cooldown/attacks, immediate deaths
+→ surviving enemy movement → count>=limit loss → boss/final deadline loss → success.
+Only board units tick cooldown/attack; bench cooldown freezes even during combat.
+Returning to board resumes remainder. New arrival cooldown0; every upgrade carries
+max material cooldown. Preparation/move/swap never reset it. Decrement to minimum0
+before attacking; reset once after attack to the applicable period. No target
+keeps0. Period12 attacking at tick1 next attacks tick13. Support affects only a
+newly set cooldown, never existing remainder.
 
-State wave is the upcoming wave in preparation and the active/last wave in
-combat/result. On success to preparation it increases by1; waveTick, spawnCursor
-and waveParticipants retain the completed wave's values until startWave resets
-waveTick/cursor to0 and captures the new participants. No preparation tick occurs.
-Observation segmentRemainingTicks is the upcoming full duration in preparation,
-max(0,duration-waveTick) in combat, and0 in result. bossDeadlineWaveTick is600 for
-an upcoming/active boss wave, otherwise null (always null in result).
-bossRemainingTicks is600 in preparation before a boss wave, remaining time in
-combat while its scheduled/alive boss has not been defeated, and null otherwise.
-nextWave is the upcoming wave in preparation, the wave after the active one in
-combat, and null in result or after wave20. canStartWave is preparation plus at
-least one board unit. UI does not duplicate formulas or grant itself transitions.
+Target order is descending totalDistance then ascending ID, independent of path
+modulo. Boss-first behavior partitions in-range bosses first. Range/splash use
+inclusive checked Euclidean squared distance. Multi targets up to2 distinct
+in-range enemies. Splash freezes the primary target position then includes all
+enemies within radius, even outside attacker's range, sorted by general target
+priority. Each attack freezes its target/hit snapshot immediately before applying
+it; later units see deaths immediately removed.
 
-## 4. Exact combat and integer geometry proposal
+Damage: floor(base × starPercent × (100+focusPercent) × bossPercent /100³), minimum1,
+with no intermediate flooring; clamp actual hits to remainingHP. Rarity does not
+multiply damage implicitly. Range floor(baseRange×(100+cooperationPercent)/100).
+Star only affects damage. Distinct board definitions give tier0 below2, tier2 at2,
+tier3 at3 **or more**; duplicate/star/bench adds no distinct count. Apply bonuses
+only to board units of that tag. Support targets orthogonal board neighbors,
+excluding self/bench, no stacking; identify support by behavior, never fixture ID.
+New period max(1,floor(basePeriod×supportPeriodPercent/100)).
 
-Each processed tick increments both clocks first. First ever processing is tick1;
-first processing of every wave is waveTick1. Effects expire by global tick;
-spawns/durations/boss deadlines use waveTick. Processing order is expire → spawn
-→ cooldown/attacks with immediate deaths → movement → count loss → deadline loss
-→ success/rewards. Unit order is ascending unit ID. Every existing cooldown is
-first reduced by1, floored at0. No target means it remains0. An attack resets it
-to the currently applicable period once; no second decrement/attack that tick.
-Period12 at tick1 therefore attacks next at tick13. Preparation never modifies
-cooldown, enemy position, effects or clocks. Moving/swapping/books do not reset it.
+Slow applies only to surviving targets; general and boss strength30%/40ticks in
+this fixture. max(oldExpiry,tick+duration), no stacking. Movement speed is floored
+base×70/100. A hit at globalT slows movesT..T+39, expires before T+40 attacks/move;
+preparation freezes both movement and expiry. totalDistance keeps increasing;
+pathPosition applies modulo only for display/geometry. Board/path helper inputs
+are unknown, require safe integers and valid bounds, else null.
 
-Proposed geometry: tile1000, board centers (500+1000col,500+1000row), clockwise
-square path (-500,-500)→(4500,-500)→(4500,4500)→(-500,4500)→start, length20000.
-All spawns start at totalDistance0. Integer movement increases unbounded safe
-cumulative distance; visible position uses modulo20000. Corners belong to the
-outgoing segment; totalDistance20000 maps exactly to the starting point.
-This explicitly proposes geometry matching v1; no v1 rule is imported implicitly.
+Count loss wins all same-tick ties. At boss-wave600 the tick's attacks/deaths/move
+happen first; living boss loses bossTimeout. At final600, dead boss but remaining
+ordinary enemies loses finalTimeout. All scheduled spawns consumed plus no living
+enemies permits early success. Otherwise ordinary400 can carry survivors; boss
+5/10/15 at600 can carry only ordinary survivors if boss died. Final requires all
+ordinary/bosses cleared. No future spawn may be skipped for early success.
 
-All squared-distance comparisons are inclusive (distanceSquared <= radius²),
-using visible positions, with checked integer intermediates. General target order
-is totalDistance descending then enemy ID ascending. Tori partitions in-range
-bosses ahead of other enemies, retaining that order within each group. For Ruru,
-take the first up to2 **distinct** in-range enemies. For Nuri, select its primary
-in-range target, freeze that visible center, then include every living enemy in
-radius1100 of that center, even outside Nuri's own range. Splash hits are sorted
-by the same general target priority. Attack sourcePosition (board center), center (primary target position), and each
-hit.position (that enemy’s visible position) freeze immediately
-before that unit attacks; the primary dying never changes center or hit order.
-The next unit sees immediate removals and cannot target a dead enemy.
+## 6. Canonical state and replay
 
-Damage uses one floor after the entire rational product:
-base × starPercent × (100+8×(level−1)) × (100+focusPercent) × bossPercent / 100⁴,
-minimum1. Non-boss targets use bossPercent100; only Tori has bossPercent200.
-Check intermediate integer products. Hit damage is min(calculated, remainingHP).
-Range is floor(baseRange×(100+cooperationPercent)/100); neither star nor level
-changes range, slow or aura strength. Supported next period is
-max(1,floor(basePeriod×90/100)); existing cooldown is never rescaled.
+Schema3 has exactly17 canonical keys (not the schema1 set despite equal count):
+enemies, gold, nextEntityId, offers, outcome, outcomeReason, phase, rngState,
+rulesDigest, rulesId, schemaVersion, seed, spawnCursor, tick, units, wave, waveTick.
+Exported CANONICAL_STATE_KEYS pins them. Exclude acceptedLog so batching granularity
+does not affect state hashes. No preview symbols, rarity copies or derived combat
+values persist in state. Sort units/enemies by numeric ID, offers by slot; nested
+keys sort canonically. Include every lasting cooldown/effect/expireAt/distance.
+Synchronous stateHash is SHA-256 of canonical UTF-8 bytes, lowercase hex64.
 
-Dodo applies slow only to surviving hit targets. Slow expires at attack global
-tick+40; refresh uses max(old,new expireAt), never adds strength. Both normal and
-boss speed become floor(baseSpeed×70/100). Applied at tickT, it affects movement
-at T..T+39 and expires before attacks/movement at T+40. A killed enemy has no
-remaining slow to emit/apply. Effects persist frozen across preparation.
+ReplayHeader exactly schemaVersion/rulesId/rulesDigest/seed. ReplayDocument is
+{header,entries,finalHash}; adapter calls replay(header,entries,finalHash). Entries
+record command/seq/atTick/events, or advance/seq/startTick/actual executedTicks.
+Sequence starts1, contiguous. Each accepted call appends once; rejected calls and
+previews append nothing. Recompute the planner/events on replay, never trust
+recorded created IDs or consumedIds. Combat events are regenerated output, not
+accepted replay input. Different batching can have different logs but must match
+canonical/hash and concatenated combat events at equivalent progression boundaries.
 
-Count >= limit after movement loses immediately, before other outcomes. At
-waveTick600 a still-living scheduled boss loses with bossTimeout; on wave20,
-if the boss is dead but any ordinary enemy remains, finalTimeout. BossTimeout
-wins that tie. The tick600 attack/death processing can avoid either timeout.
-Future spawns must all be exhausted before early success. Otherwise ordinary
-waves succeed at400 with remaining ordinary enemies carried; boss waves5/10/15
-succeed at600 only if their boss is dead, carrying ordinary enemies. Wave20
-requires all scheduled spawns exhausted and all enemies dead; no boss is carried.
+Replay precedence:
+1. Header whole-tree/exact shape (schema integer, ID/digest strings) BAD_FORMAT.
+2. Any schema other than3, including1/2, UNSUPPORTED_SCHEMA. Caller must route
+   schema1 to unchanged v1; schema2 explicitly has no decoder here.
+3. Unknown ID UNKNOWN_RULES; mismatched digest RULES_DIGEST_MISMATCH; invalid seed
+   BAD_SEED. Supplied expected final hash must be lowercase hex64, else BAD_FORMAT.
+4. Validate whole dense entries array and every entry/known command/event shape,
+   scanning indices ascending; malformed entry BAD_FORMAT at that index. Numeric
+   IDs/seq/executedTicks positive; clocks/cooldowns nonnegative; star1..3;
+   goldDelta and coordinates signed safe. Definition strings nonempty. An unknown
+   but nonempty definitionId in a recorded arrival/result is structurally valid
+   and fails EVENT_MISMATCH against regenerated events, never an obsolete fixed
+   character enum. SlowEffect.percent has structural integer range0..100; a
+   profile-inconsistent value in regenerated-output comparisons is a semantic
+   mismatch. Combat slow events are output-only and not valid replay entries. Removed/unknown command
+   union is BAD_FORMAT in replay, even though direct dispatch says unsupported.
+   Command coordinate/slot bounds remain semantic, so out-of-range safe integers
+   reach COMMAND_REJECTED; event location bounds are structural. Invalid array/
+   tuple lengths and nullable/enum shapes are structural. Incorrect but structurally
+   valid upgrade traces (including wrong order or IDs) reach EVENT_MISMATCH.
+5. After complete structural preflight, validate all seq=index+1 → BAD_SEQUENCE.
+6. Execute in order: wrong atTick/startTick TICK_MISMATCH; refused command
+   COMMAND_REJECTED; regenerated command events differ canonically EVENT_MISMATCH;
+   failed advance or different actual tick count ADVANCE_MISMATCH.
+7. Final expected hash mismatch FINAL_HASH_MISMATCH.
 
-## 5. Events and replay ordering
+No partial state on replay failure; error has code and entryIndex (null for header,
+whole-array or final-hash errors). A malformed later entry outranks an earlier
+sequence or execution error. All success values/events are detached readonly.
 
-All event stamps are global tick, wave and waveTick. Command stamps use the
-current clock; waveStarted uses the newly reset waveTick0. Events from an entire
-success transition use the **completed wave's stamp**, including shopRefreshed;
-the returned preparation state already identifies the next wave. No event clock
-is renderer-local. Each event is a detached readonly object.
+## 7. Weighted draw proposal and fixture verification
 
-Dispatch emits exactly one primary event (recruited/rerolled/moved/swapped/merged/
-sold/bookUsed/waveStarted). Only bookUsed may be followed by one levelChanged,
-when the existing target level actually changes; merges create a new identity
-and report its full XP in merged, without a fictitious prior level. consumedIds
-and participants are sorted numerically, independently of input tuple ordering.
-Sold reports the positive coin delta, new book or null, and xpLost = oldXP-bookXP.
-No zero-XP book. Recruited/rerolled goldDelta is negative. Purchase RNG cost0;
-paid reroll refreshes all3. Move/swap/merge/start cost0 and draw no random values.
+Rarity weights are public fixture data, not approvals. For each slot0→1→2:
+1. Draw uniformly from integer[0,weightTotal−1], select rarity by cumulative weight
+   in rarityOrder, intervals left-inclusive/right-exclusive.
+2. Draw uniformly from that rarity's definitions in profile-character order;
+   consume a second draw even for a singleton pool. Independent with replacement,
+   so duplicates are allowed at first and later shops.
 
-Combat event order within a tick:
-1. effectExpired in enemy-ID order, before all spawns.
-2. enemySpawned in profile schedule order (tie order retained).
-3. For each ascending unit ID: attack first, then per hit in hit-array order,
-   enemyDefeated for lethal hits or effectApplied for a surviving slow target.
-   Death is already removed before the next unit. Attack hits contain actual
-   clamped damage and attack-time positions, including enemies already removed from
-   the returned observation. These snapshots precede enemy movement in that tick.
-   No speculative projectile impacts or overkill.
-4. On loss: matchEnded only, no reward, free shop refresh or waveCompleted.
-5. On success: xpGranted (allocations sorted IDs, sum exactly budget unless n0),
-   levelChanged for changed participant IDs in ascending order, waveCompleted
-   (one positive goldDelta and sorted carriedEnemyIds), then shopRefreshed if
-   entering preparation, or matchEnded(win,cleared) if final. XP/gold are applied
-   once, including final success. No kill coins. Final never refreshes the shop.
+Each uniform draw uses xorshift32 shifts13,17,5 on nonzero state1..4294967295. For
+pool sizeN, accept raw x <= floor(4294967295/N)×N, then choose(x−1)%N; otherwise
+advance again. Do not assume the stream contains zero. Weighted pool sizes and
+weights must be positive safe integers, totals bounded to the nonzero domain,
+and every positive-weight rarity must have a nonempty pool. No wall-time RNG.
+Buying draws nothing; free/paid refresh consumes complete three-slot sequences.
 
-No movement event is necessary: observation exposes authoritative positions.
-Initial free shop is visible in created state; it is not a command/log entry.
-No separate support/synergy event: observation derives them after commands.
+Review fixtures/tests verify deep freezing, full-data digest, five rarity entries,
+eight definition data rows, public weighted table consistency, sell-price sanity,
+no obsolete growth/cap fields, schedule validity, canonical17 and type-level
+negative capabilities. These are not planner/engine correctness tests.
 
-Accepted log seq starts1 with no gaps. Command entries contain exact accepted
-command plus authoritative events; merge input tuple order is preserved in the
-command. Advance entries record startTick and **actual executedTicks**, not the
-requested count or combat events. One successful API call appends one entry.
-Different legal batching may produce different logs but identical canonical
-state/hash and concatenated combat events at matching progression boundaries.
+Commands: `node --test tests/core-v2/*.test.ts`,
+`node_modules/.bin/tsc --noEmit -p tsconfig.core-v2.json`, `npm run check`,
+`npm run typecheck:core`, `npm run build`. The lockfile equals the previous verified
+install; ignored local dependency links reuse it without package edits.
 
-ReplayHeader has exactly schemaVersion/rulesId/rulesDigest/seed. ReplayDocument
-is a portable envelope with exactly header/entries/finalHash; adapters pass those
-to CoreApi.replay. The engine does not accept a caller-supplied state or events as
-authority. It regenerates command events and all combat from header and entries.
-
-Replay precedence is fixed:
-- Header data-tree and exact shape (schemaVersion safe integer, rulesId/digest
-  strings; seed value then checked below) → BAD_FORMAT.
-- Unsupported schema → UNSUPPORTED_SCHEMA; unknown rules ID → UNKNOWN_RULES;
-  nonmatching digest → RULES_DIGEST_MISMATCH; invalid seed → BAD_SEED.
-- Supplied expectedFinalHash must be lowercase hex64; else BAD_FORMAT.
-- Validate the entire dense entries array and every exact entry/command/event
-  structural shape, scanning entryIndex ascending, before executing anything.
-  Any malformed entry → BAD_FORMAT with its index. All numbers must be safe
-  integers: seq/executedTicks/IDs positive; clocks, counts, HP, XP and cooldown
-  nonnegative; coordinates and goldDelta signed (recruit/reroll deltas negative).
-  Event variant literals, slot/location bounds and nullable fields follow the
-  types. Command slots/coordinates remain unrestricted safe integers at preflight,
-  as in dispatch; out-of-range command values therefore reach COMMAND_REJECTED.
-  Duplicate merge IDs/keep membership and other command semantic checks likewise
-  remain execution-time. Replay requires a known Command union variant: an unknown
-  command type is BAD_FORMAT here, rather than dispatch’s UNSUPPORTED_COMMAND.
-  Events with structurally valid but incorrect values reach EVENT_MISMATCH.
-- Then check every seq equals index+1 → BAD_SEQUENCE at first mismatch.
-- Replay entries in order. atTick/startTick mismatch → TICK_MISMATCH; rejected
-  command → COMMAND_REJECTED; generated command events not canonically equal to
-  recorded events → EVENT_MISMATCH; unsuccessful advance or executed count
-  mismatch → ADVANCE_MISMATCH.
-- Finally expected hash mismatch → FINAL_HASH_MISMATCH.
-
-Failure returns only {ok:false,error:{code,entryIndex}}, never partial state.
-Header/whole-array/hash errors have entryIndex null; per-entry errors identify
-that index. A malformed later entry outranks an earlier sequence/execution error
-because structural preflight finishes before either pass. Replay never trusts
-recorded ID creation or XP changes without reproducing the command.
-
-## 6. Canonical state and hashing
-
-Exactly19 top-level keys, exported as CANONICAL_STATE_KEYS:
-books, enemies, gold, nextEntityId, offers, outcome, outcomeReason, phase,
-rngState, rulesDigest, rulesId, schemaVersion, seed, spawnCursor, tick, units,
-wave, waveParticipants, waveTick.
-
-acceptedLog is excluded, enabling batching-equivalent hashes. No derived level,
-synergy, modulo position or UI state is persisted. Every lasting effect is inside
-enemy.slow (including expireAt); cooldown, cumulativeXP, totalDistance, spawnTick,
-maxHp, and participants are persisted. Enemy type boss implies boss status;
-there is no independently writable contradictory boss flag.
-
-Before canonical serialization, offers sort by slot; units/books/enemies by
-numeric ID; waveParticipants ascending. Nested Unit/Enemy/Book/Offer fields are
-exactly their type definitions, null fields retained. Other keys sort as in the
-rules preimage; no optional fields, undefined or extra keys. stateHash is the
-same synchronous pure SHA-256/UTF-8 lowercase encoding. Canonical/hash operations
-are specifications only in this checkpoint, not implemented or tested engines.
-
-## 7. Explicit unresolved hypotheses for joint review
-
-The agreed costs, capacity, roles, growth, synergy, slow and timing rules are copied
-exactly from the contract. The following are **new, unbalanced hypotheses**:
-
-- Ordinary count6+w; basicHP12+4w+floor(w²/4), adopting the leader's candidate as an
-  experiment rather than a finalized difficulty decision.
-- Spawn ordinary index i at waveTick1+12i. Cycle basic,swift,sturdy from index0.
-  Swift HP floor(70% basic), speed110; sturdy HP floor(160% basic), speed45;
-  basic speed70, all coordinate units per tick. No extra random spawn stream.
-- Boss at tick1, inserted before the ordinary tick1 spawn; HP120+40w, speed55,
-  at waves5/10/15/20. No boss resistance. Boss count is additional to6+w.
-- Explicit square geometry above. Max ordinary spawn tick301 at wave20, leaving
-  a finite cleanup window. Speeds span roughly one lap every182..445 ticks.
-  Boss5 HP320 and boss20 HP920 are hypotheses, not proof of achievable deadlines.
-- PRNG xorshift32 (13,17,5), seed1..4294967295. Each next state x is nonzero;
-  reject x>4294967292, otherwise select (x−1)%6 in character order
-  popo,nuri,ruru,dodo,momo,tori. Draw slot0→1→2 independently with replacement.
-  This rejection mapping is unbiased over the nonzero32-bit cycle; do not use
-  raw x%6 and call it uniform. A draw may consume more than one PRNG step;
-  purchase consumes none. All rejected command draws roll back.
-- Inclusive geometry/splash ordering, transition stamps, error precedence and
-  observation meanings above require actual SHA review alongside the types.
-
-All four profiles share spawn/role/geometry/RNG data; only economic costs/reward,
-count/warning thresholds and identity differ. Changing several spawn values
-across economic comparison profiles would confound the intended comparison.
-PRNG proposal reference vectors (not engine execution): seed1 produces outputs
-270369,67634689,2647435461,307599695,2398689233,745495504 and indices
-2,0,2,4,4,3. Thus the initial shop is ruru,popo,ruru with rngState2647435461;
-the next paid refresh is momo,momo,dodo with rngState745495504 (three steps each).
-Seed1584200935 first produces4294967295, which is rejected, then253983, accepted
-as index2/ruru; one offer consumed two steps. The highest accepted raw output is
-4294967292 (index5);4294967293..4294967295 are rejected. The focused test validates
-these reference equations. Future engine tests must assert rejected commands
-leave the pre-command RNG unchanged (including when a staged refresh traverses
-this rejection), while an accepted refresh retains its final consumed state.
-
-Neither a balance simulation, engine correctness test, browser replay check nor
-human fun evaluation has been performed by this checkpoint. Required next work:
-resolve review decisions; implement engine/validation/canonical/replay; test
-atomicity, strict malicious shapes, deadlines, XP conservation, targeting,
-cooldowns, profile/hash/batching parity and v1 regressions; then integrate adapters.
-
-## 8. Reproducible checkpoint verification
-
-- `node --test tests/core-v2/profiles.test.ts`: proposal-data/digest checks only.
-- `node_modules/.bin/tsc --noEmit -p tsconfig.core-v2.json`: ES2022/no DOM/Node
-  source and compile-only positive/negative API tests.
-- `npm run check`, `npm run typecheck:core`, `npm run build`: existing regression
-  suites/build plus automatically discovered proposal tests; no v2 gameplay.
-
-The supplied lockfile matches the existing verification install byte-for-byte;
-local ignored node_modules links reuse it without package/lock changes. These
-checks cannot establish implemented v2 gameplay, replay correctness or balance.
+Remaining reviews: this exact schema/API/events/placement/error contract and
+fixture choices; then implementation with preview/commit parity, automatic
+chains, full-bench success/rejection, board16, ID/RNG rollback, strict replay and
+combat regression tests. Final roster/rarity assignments/odds/prices/schedule,
+2×2 design, balance runs, integrated browser checks and human play remain open.

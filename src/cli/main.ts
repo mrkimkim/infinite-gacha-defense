@@ -13,7 +13,7 @@ try {
   let input: unknown;
   try { input = JSON.parse(text); } catch { throw new CliError("INVALID_JSON", 2); }
   const routed = routeInput(args[0], input);
-  if (routed.schema === 2) {
+  if (routed.schema === 3) {
     const module = await import("../core-v2/index.ts");
     console.log(JSON.stringify(executeV2(requireV2Core(module), args[0], routed.data)));
   } else {

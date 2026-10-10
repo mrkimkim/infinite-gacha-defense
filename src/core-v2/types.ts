@@ -1,12 +1,10 @@
-/** Schema 2 review checkpoint. Engine operations below are TYPES ONLY. */
+/** Generation2/schema3 API review checkpoint. Engine operations are TYPES ONLY. */
 export type DeepReadonly<T> = T extends object
   ? { readonly [K in keyof T]: DeepReadonly<T[K]> } : T;
-export type RulesId =
-  | 'playable-v2-proposal1-economyA-count40'
-  | 'playable-v2-proposal1-economyA-count80'
-  | 'playable-v2-proposal1-economyB-count40'
-  | 'playable-v2-proposal1-economyB-count80';
-export type CharacterId = 'popo' | 'nuri' | 'ruru' | 'dodo' | 'momo' | 'tori';
+export type RulesId = 'playable-v2-gen2-fixture1-count40' | 'playable-v2-gen2-fixture1-count80';
+/** Registry data defines the roster; this is deliberately not a six-character union. */
+export type DefinitionId = string;
+export type RarityId = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
 export type EnemyTypeId = 'basic' | 'swift' | 'sturdy' | 'boss';
 export type SynergyTag = 'focus' | 'cooperation';
 export type Phase = 'preparation' | 'combat' | 'result';
@@ -17,39 +15,61 @@ export type Location =
   | Readonly<{ kind: 'board'; col: number; row: number }>
   | Readonly<{ kind: 'bench'; slot: number }>;
 export type Command = DeepReadonly<
-  | { type: 'recruit'; offerSlot: number; benchSlot: number }
+  | { type: 'recruit'; offerSlot: number }
   | { type: 'reroll' }
   | { type: 'move'; unitId: number; to: Location }
   | { type: 'swap'; aId: number; bId: number }
-  | { type: 'merge'; ids: [number, number, number]; keepId: number }
   | { type: 'sell'; unitId: number }
-  | { type: 'useBook'; bookId: number; unitId: number }
   | { type: 'startWave' }
 >;
 export type Unit = DeepReadonly<{
-  id: number; characterId: CharacterId; star: 1 | 2 | 3; xp: number;
-  location: Location; cooldown: number;
+  id: number; definitionId: DefinitionId; star: 1 | 2 | 3; location: Location; cooldown: number;
 }>;
-export type Book = Readonly<{ id: number; xp: number }>;
-export type Offer = Readonly<{ slot: number; characterId: CharacterId | null }>;
-export type SlowEffect = Readonly<{ type: 'slow'; percent: 30; expireAt: number }>;
+export type Offer = Readonly<{ slot: number; definitionId: DefinitionId | null }>;
+export type SlowEffect = Readonly<{ type: 'slow'; percent: number; expireAt: number }>;
 export type Enemy = DeepReadonly<{
   id: number; typeId: EnemyTypeId; hp: number; maxHp: number;
   totalDistance: number; spawnTick: number; slow: SlowEffect | null;
 }>;
 export type Stamp = Readonly<{ tick: number; wave: number; waveTick: number }>;
-export type XpAllocation = Readonly<{ unitId: number; xpDelta: number }>;
-export type LevelChange = Readonly<{ unitId: number; before: number; after: number }>;
+/** Existing public IDs or transaction-local symbols, NEVER future allocated IDs. */
+export type PlanRef =
+  | Readonly<{ kind: 'existing'; unitId: number }>
+  | Readonly<{ kind: 'created'; creationIndex: number }>;
+export type PlannedUnit = DeepReadonly<{
+  ref: PlanRef; definitionId: DefinitionId; star: 1 | 2 | 3; location: Location; cooldown: number;
+}>;
+/** The fresh purchase has no physical slot until stabilization determines it. */
+export type PlannedArrival = Readonly<{
+  ref: Readonly<{ kind: 'created'; creationIndex: 0 }>;
+  definitionId: DefinitionId; star: 1; cooldown: 0; location: null;
+}>;
+export type PlannedUpgrade = DeepReadonly<{
+  consumed: [PlanRef, PlanRef, PlanRef]; result: PlannedUnit;
+}>;
+export type RecruitErrorCode = 'BAD_FORMAT' | 'BAD_PHASE' | 'BAD_SLOT' | 'OFFER_EMPTY'
+  | 'INSUFFICIENT_GOLD' | 'NO_RECRUIT_SPACE' | 'INTEGER_OVERFLOW';
+export type RecruitPreview = DeepReadonly<
+  | { ok: true; offerSlot: number; price: number; goldAfter: number;
+      arrival: PlannedArrival; upgrades: PlannedUpgrade[]; result: PlannedUnit;
+      finalUnits: PlannedUnit[]; boardCountAfter: number; benchCountAfter: number }
+  | { ok: false; error: { code: RecruitErrorCode } }
+>;
+export type CommittedArrival = Readonly<{
+  id: number; definitionId: DefinitionId; star: 1; cooldown: 0; location: null;
+}>;
+export type CommittedUpgrade = DeepReadonly<{
+  consumedIds: [number, number, number]; result: Unit;
+}>;
+/** One atomic recruited event contains every intermediate upgrade in order. */
 export type CommandEvent = DeepReadonly<Stamp & (
-  | { type: 'recruited'; unit: Unit; offerSlot: number; goldDelta: number }
+  | { type: 'recruited'; offerSlot: number; goldDelta: number; arrival: CommittedArrival;
+      upgrades: CommittedUpgrade[]; result: Unit }
   | { type: 'rerolled'; offers: Offer[]; goldDelta: number }
   | { type: 'moved'; unitId: number; from: Location; to: Location }
   | { type: 'swapped'; aId: number; bId: number; aFrom: Location; bFrom: Location }
-  | { type: 'merged'; consumedIds: [number, number, number]; newUnit: Unit }
-  | { type: 'sold'; unitId: number; goldDelta: number; book: Book | null; xpLost: number }
-  | { type: 'bookUsed'; bookId: number; unitId: number; xpDelta: number }
-  | { type: 'levelChanged'; change: LevelChange }
-  | { type: 'waveStarted'; participants: number[] }
+  | { type: 'sold'; unitId: number; goldDelta: number }
+  | { type: 'waveStarted' }
 )>;
 export type Hit = Readonly<{ enemyId: number; damage: number; position: Point }>;
 export type CombatEvent = DeepReadonly<Stamp & (
@@ -58,14 +78,12 @@ export type CombatEvent = DeepReadonly<Stamp & (
   | { type: 'attack'; unitId: number; targetId: number; sourcePosition: Point; center: Point; hits: Hit[] }
   | { type: 'effectApplied'; enemyId: number; effect: SlowEffect }
   | { type: 'enemyDefeated'; enemyId: number }
-  | { type: 'xpGranted'; budget: number; allocations: XpAllocation[] }
-  | { type: 'levelChanged'; change: LevelChange }
   | { type: 'waveCompleted'; goldDelta: number; carriedEnemyIds: number[] }
   | { type: 'shopRefreshed'; offers: Offer[] }
   | { type: 'matchEnded'; outcome: 'win' | 'loss'; reason: Exclude<OutcomeReason, null> }
 )>;
 export type ReplayHeader = Readonly<{
-  schemaVersion: 2; rulesId: RulesId; rulesDigest: string; seed: number;
+  schemaVersion: 3; rulesId: RulesId; rulesDigest: string; seed: number;
 }>;
 export type ReplayEntry = DeepReadonly<
   | { type: 'command'; seq: number; atTick: number; command: Command; events: CommandEvent[] }
@@ -74,77 +92,76 @@ export type ReplayEntry = DeepReadonly<
 export type ReplayDocument = DeepReadonly<{
   header: ReplayHeader; entries: ReplayEntry[]; finalHash: string;
 }>;
-/** Engine-owned values only. Public shape is for diagnostics, never policy input. */
+/** Engine-owned diagnostic state, never policy input or an external import format. */
 export type MatchState = DeepReadonly<{
-  schemaVersion: 2; rulesId: RulesId; rulesDigest: string; seed: number;
+  schemaVersion: 3; rulesId: RulesId; rulesDigest: string; seed: number;
   rngState: number; nextEntityId: number; tick: number; phase: Phase;
   outcome: Outcome; outcomeReason: OutcomeReason; wave: number; waveTick: number;
-  spawnCursor: number; gold: number; offers: Offer[]; units: Unit[]; books: Book[];
-  enemies: Enemy[]; waveParticipants: number[]; acceptedLog: ReplayEntry[];
+  spawnCursor: number; gold: number; offers: Offer[]; units: Unit[];
+  enemies: Enemy[]; acceptedLog: ReplayEntry[];
+}>;
+export type RarityDefinition = DeepReadonly<{
+  id: RarityId; label: string; offerWeight: number; recruitPrice: number;
+  sellGoldByStar: [number, number, number];
 }>;
 export type CharacterDefinition = Readonly<{
-  tag: SynergyTag; damage: number; cooldownTicks: number; range: number;
+  id: DefinitionId; label: string; rarityId: RarityId; tag: SynergyTag;
+  damage: number; cooldownTicks: number; range: number;
   behavior: 'single' | 'splash' | 'multi' | 'slow' | 'support' | 'bossFirst';
   maxTargets: number | null; splashRadius: number; bossDamagePercent: number;
 }>;
 export type Spawn = Readonly<{ atWaveTick: number; typeId: EnemyTypeId; hp: number }>;
 export type WaveDefinition = DeepReadonly<{
-  wave: number; durationTicks: number; bossDeadlineWaveTick: number | null;
-  xpBudget: number; spawns: Spawn[];
+  wave: number; durationTicks: number; bossDeadlineWaveTick: number | null; spawns: Spawn[];
 }>;
 export type RuleData = DeepReadonly<{
-  schemaVersion: 2; rulesId: RulesId; status: 'review-proposal';
-  tickMs: 50; waveCount: 20; startingGold: 12;
-  recruitCost: number; rerollCost: number; waveReward: number;
-  offerCount: 3; board: { columns: 4; rows: 4; tileSize: 1000; capacity: 8 };
-  benchCapacity: 8; countLimit: 40 | 80; warningCount: 32 | 64;
-  sellGoldByStar: [1, 3, 9]; xpRecoveryPercent: 80;
-  starDamagePercent: [100, 220, 484]; levelDamageStepPercent: 8;
-  xpThresholds: [0, 8, 24, 48, 80, 120, 168, 224, 288, 360];
-  synergyPercentByDistinctCount: [0, 0, 5, 10];
-  slow: { percent: 30; durationTicks: 40 }; supportPeriodPercent: 90;
-  path: { length: number; vertices: Point[] };
-  characters: Record<CharacterId, CharacterDefinition>;
-  enemySpeed: Record<EnemyTypeId, number>; waves: WaveDefinition[];
+  schemaVersion: 3; rulesId: RulesId; status: 'unapproved-fixture';
+  tickMs: 50; waveCount: number; startingGold: number; rerollCost: number; waveReward: number;
+  offerCount: 3; board: { columns: 4; rows: 4; tileSize: 1000 };
+  benchCapacity: number; footprintByStar: [{ width: 1; height: 1 }, { width: 1; height: 1 }, { width: 1; height: 1 }];
+  countLimit: number; warningCount: number;
+  rarities: RarityDefinition[]; characters: CharacterDefinition[];
+  starDamagePercent: [number, number, number]; synergyPercentByDistinctCount: [0, 0, number, number];
+  slow: { percent: number; durationTicks: number }; supportPeriodPercent: number;
+  path: { length: number; vertices: Point[] }; enemySpeed: Record<EnemyTypeId, number>; waves: WaveDefinition[];
+  shopSampling: { algorithm: 'rarity-weight-then-uniform-definition'; weightTotal: number;
+    rarityOrder: RarityId[]; withinRarityOrder: 'profile-character-order'; drawsForSingleton: true };
+  autoUpgrade: { materialCount: 3; maxStar: 3; starOrder: [1, 2];
+    materialOrder: 'ascending-identity'; placement: 'oldest-board-else-lowest-material-bench';
+    newRecruitPlacement: 'transient-until-stable'; loneRecruitPlacement: 'lowest-empty-bench';
+    cooldown: 'max-material-remainder' };
   prng: { algorithm: 'xorshift32'; shifts: [13, 17, 5]; seedMin: 1;
-    seedMax: 4294967295; offerMapping: CharacterId[]; sampling: 'rejection-uniform' };
+    seedMax: 4294967295; sampling: 'nonzero-domain-rejection-uniform' };
   semantics: { revision: string; tickOrder: string[]; targetOrder: string[];
     hitOrder: string; rangeBoundary: string; slowRounding: string };
 }>;
-/** Full fixed data, but no PRNG machinery. Fixed wave schedules are public. */
+/** Public odds and complete fixed roster/schedules; no PRNG machinery/state. */
 export type PublicRules = DeepReadonly<Omit<RuleData, 'prng'> & { rulesDigest: string }>;
 export type Synergy = DeepReadonly<{
-  tag: SynergyTag; distinctCharacters: CharacterId[]; affectedUnitIds: number[]; tier: 0 | 2 | 3; percent: 0 | 5 | 10;
+  tag: SynergyTag; distinctDefinitions: DefinitionId[]; affectedUnitIds: number[];
+  tier: 0 | 2 | 3; percent: number;
 }>;
 export type ObservedUnit = DeepReadonly<Unit & {
-  level: number; nextXpThreshold: number | null; xpToNext: number | null; levelCapped: boolean;
-  damage: number; bossDamage: number; range: number; nextAttackCooldown: number;
-  supportActive: boolean; supportSourceIds: number[]; plannedXp: number; sellGold: number; recoverableXp: number;
+  rarityId: RarityId; damage: number; bossDamage: number; range: number; nextAttackCooldown: number;
+  supportActive: boolean; supportSourceIds: number[]; sellGold: number;
 }>;
-export type ObservedEnemy = DeepReadonly<Enemy & {
-  boss: boolean; position: Point; speed: number;
+export type ObservedOffer = DeepReadonly<Offer & {
+  rarityId: RarityId | null; price: number | null; recruitPreview: RecruitPreview;
 }>;
-export type MergeGroup = DeepReadonly<{
-  characterId: CharacterId; star: 1 | 2; unitIds: number[];
-}>;
-/** Detached, deeply readonly. Deliberately excludes seed/RNG/IDs-to-allocate/log. */
+export type ObservedEnemy = DeepReadonly<Enemy & { boss: boolean; position: Point; speed: number }>;
+/** Detached readonly policy/UI snapshot: no seed/RNG/nextID/future offers/log. */
 export type Observation = DeepReadonly<{
   rules: PublicRules; tick: number; phase: Phase; outcome: Outcome;
   outcomeReason: OutcomeReason; wave: number; waveTick: number; gold: number;
-  offers: Offer[]; units: ObservedUnit[]; books: Book[]; enemies: ObservedEnemy[];
-  synergies: Synergy[]; mergeGroups: MergeGroup[]; boardCount: number; benchCount: number;
+  offers: ObservedOffer[]; units: ObservedUnit[]; enemies: ObservedEnemy[];
+  synergies: Synergy[]; boardCount: number; benchCount: number;
   remainingCount: number; countLimit: number; warningCount: number; warning: boolean;
   segmentRemainingTicks: number; bossDeadlineWaveTick: number | null;
-  bossRemainingTicks: number | null; plannedXpBudget: number;
-  nextWave: WaveDefinition | null; canStartWave: boolean;
+  bossRemainingTicks: number | null; nextWave: WaveDefinition | null; canStartWave: boolean;
 }>;
-export type CoreErrorCode =
-  | 'BAD_FORMAT' | 'BAD_SEED' | 'UNKNOWN_RULES' | 'UNSUPPORTED_COMMAND'
-  | 'BAD_PHASE' | 'BAD_LOCATION' | 'BAD_SLOT' | 'OFFER_EMPTY'
-  | 'UNIT_NOT_FOUND' | 'BOOK_NOT_FOUND' | 'DUPLICATE_ID' | 'KEEP_ID_NOT_INCLUDED'
-  | 'MERGE_MISMATCH' | 'MAX_STAR' | 'SAME_LOCATION' | 'LOCATION_OCCUPIED'
-  | 'CAPACITY_REACHED' | 'INSUFFICIENT_GOLD' | 'NO_BOARD_UNITS'
-  | 'BAD_COUNT' | 'INTEGER_OVERFLOW';
+export type CoreErrorCode = RecruitErrorCode | 'BAD_SEED' | 'UNKNOWN_RULES' | 'UNSUPPORTED_COMMAND'
+  | 'BAD_LOCATION' | 'UNIT_NOT_FOUND' | 'DUPLICATE_ID' | 'SAME_LOCATION' | 'LOCATION_OCCUPIED'
+  | 'NO_BOARD_UNITS' | 'BAD_COUNT';
 export type CoreError = Readonly<{ code: CoreErrorCode }>;
 export type CreateMatchResult =
   | Readonly<{ ok: true; state: MatchState }>
@@ -155,16 +172,16 @@ export type DispatchResult =
 export type AdvanceResult =
   | Readonly<{ ok: true; state: MatchState; events: readonly CombatEvent[]; executedTicks: number }>
   | Readonly<{ ok: false; state: MatchState; error: CoreError; executedTicks: 0 }>;
-export type ReplayErrorCode =
-  | 'BAD_FORMAT' | 'UNSUPPORTED_SCHEMA' | 'UNKNOWN_RULES' | 'RULES_DIGEST_MISMATCH'
+export type ReplayErrorCode = 'BAD_FORMAT' | 'UNSUPPORTED_SCHEMA' | 'UNKNOWN_RULES' | 'RULES_DIGEST_MISMATCH'
   | 'BAD_SEED' | 'BAD_SEQUENCE' | 'TICK_MISMATCH' | 'COMMAND_REJECTED'
   | 'ADVANCE_MISMATCH' | 'EVENT_MISMATCH' | 'FINAL_HASH_MISMATCH';
 export type ReplayResult =
   | Readonly<{ ok: true; state: MatchState }>
   | Readonly<{ ok: false; error: Readonly<{ code: ReplayErrorCode; entryIndex: number | null }> }>;
-/** Planned synchronous contract; no implementation value is exported yet. */
+/** Planned synchronous contract only; runtime engine functions are NOT exported yet. */
 export interface CoreApi {
   createMatch(seed: unknown, rulesId: unknown): CreateMatchResult;
+  previewRecruit(state: MatchState, offerSlot: unknown): RecruitPreview;
   dispatch(state: MatchState, command: unknown): DispatchResult;
   advance(state: MatchState, count: unknown): AdvanceResult;
   observe(state: MatchState): Observation;
