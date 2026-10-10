@@ -113,7 +113,9 @@ export function createV2Session(seed: number, rulesId: RulesId, api: CoreApi) {
     },
     restart(target: V2MatchContainer = current): V2InputResult {
       if (stale(target)) return { ok: false, code: 'STALE_INPUT' };
-      if (api.observe(current.state).phase !== 'result') return { ok: false, code: 'BAD_PHASE' };
+      const phase = api.observe(current.state).phase;
+      if (phase === 'combat' || (phase === 'preparation' && current.state.acceptedLog.length === 0))
+        return { ok: false, code: 'BAD_PHASE' };
       const next = api.createMatch(seed, rulesId);
       if (!next.ok) return { ok: false, code: next.error.code };
       const nextState = next.state;

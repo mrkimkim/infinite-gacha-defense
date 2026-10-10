@@ -31,6 +31,7 @@ export function mountV2Game(root: HTMLElement, api: CoreApi, seed: number, rules
   const extra = root.ownerDocument.createElement('div');
   extra.className = 'v2-extra';
   extra.innerHTML = `<section class="v2-result" hidden aria-labelledby="v2-result-title"><h2 id="v2-result-title"></h2><p data-extra="result-detail"></p><button type="button" class="v2-button v2-primary" data-extra="restart">같은 seed로 다시 도전</button></section>
+    <button type="button" class="v2-button" data-extra="preparation-restart">경기 다시 시작</button><div class="v2-confirm-panel" data-extra="restart-confirm" hidden></div>
     <details class="v2-diagnostics"><summary>규칙과 재현 기록</summary><p>단독 영입은 대기석으로, 같은 정의·같은 별 3명은 자동승급합니다. 전투 중 편성은 잠기며 탭을 숨기면 멈춥니다. 희귀도와 별 성급은 별개입니다. 확률·가격·기물은 미확정 기술 실험값입니다. 원형·선·기호는 아직 임시 그래픽입니다.</p><p data-extra="identity"></p><p data-extra="hash">상태 해시: 아직 기록하지 않음</p><div class="v2-diagnostic-actions"><button type="button" class="v2-button" data-extra="snapshot">현재 상태 기록</button><button type="button" class="v2-button" data-extra="export">현재 리플레이 저장</button><button type="button" class="v2-button" data-extra="previous" disabled>이전 경기 저장</button></div><p data-extra="archives"></p><textarea data-extra="evidence" readonly rows="4" aria-label="v2 경기 재현 데이터"></textarea></details>`;
   root.append(extra);
   function ref<T extends Element = HTMLElement>(key: string): T {
@@ -42,11 +43,13 @@ export function mountV2Game(root: HTMLElement, api: CoreApi, seed: number, rules
   const resultTitle = extra.querySelector<HTMLElement>('#v2-result-title')!;
   const restart = ref<HTMLButtonElement>('restart');
   const evidence = ref<HTMLTextAreaElement>('evidence');
+  const preparationRestart = ref<HTMLButtonElement>('preparation-restart');
+  const restartConfirm = ref('restart-confirm');
   const picker = root.ownerDocument.createElement('section');
   picker.className = 'v2-confirm-panel'; picker.hidden = true;
   shell.selectionPanel.append(picker);
   let closePending: (() => void) | null = null;
-  function closeChoice() { picker.replaceChildren(); picker.hidden = true; closePending = null; }
+  function closeChoice() { picker.replaceChildren(); picker.hidden = true; restartConfirm.replaceChildren(); restartConfirm.hidden = true; closePending = null; }
   function stopWithError(error: unknown) {
     fatal = true;
     message = `경기를 중단했습니다: ${error instanceof Error ? error.message : String(error)}. 기록을 저장할 수 있습니다.`;
@@ -73,6 +76,8 @@ export function mountV2Game(root: HTMLElement, api: CoreApi, seed: number, rules
     const reasons = { accumulation: '몬스터가 한계 수에 도달했습니다.', bossTimeout: '보스 제한시간이 끝났습니다.', finalTimeout: '마지막 적을 시간 안에 정리하지 못했습니다.', cleared: '모든 웨이브를 막았습니다.' };
     ref('result-detail').textContent = `${observed.wave} / ${rules!.waveCount} 웨이브 · ${observed.outcomeReason ? reasons[observed.outcomeReason] : ''}`;
     restart.disabled = fatal || observed.phase !== 'result';
+    preparationRestart.hidden = observed.phase !== 'preparation';
+    preparationRestart.disabled = fatal || session.match.state.acceptedLog.length === 0;
     ref('identity').textContent = `seed ${seed} · ${rulesId} · ${rules!.rulesDigest}`;
     ref('archives').textContent = `보존된 이전 경기: ${session.archives.length} · 현재 페이지 세션에서만 유지됩니다.`;
     ref<HTMLButtonElement>('previous').disabled = session.archives.length === 0;
@@ -157,11 +162,29 @@ export function mountV2Game(root: HTMLElement, api: CoreApi, seed: number, rules
     picker.append(prompt, choiceButton('판매 확정', () => action(() => session.sell(unit.id, owner))), choiceButton('취소', () => { closeChoice(); render(); }));
     closePending = () => closeChoice();
   });
-  on(restart, 'click', () => action(() => {
-    const response = session.restart();
-    if (response.ok) { hashGate.invalidate(); evidence.value = ''; ref('hash').textContent = '상태 해시: 아직 기록하지 않음'; view.clearEffects(); shell.root.scrollIntoView({ block: 'start' }); }
-    return response;
-  }));
+  function restartMatch(owner = session.match) {
+    action(() => {
+      const response = session.restart(owner);
+      if (response.ok) {
+        hashGate.invalidate(); evidence.value = ''; ref('hash').textContent = '상태 해시: 아직 기록하지 않음';
+        view.clearEffects(); scheduler.setPaused(false); shell.root.scrollIntoView({ block: 'start' });
+      }
+      return response;
+    });
+    if (owner !== session.match) shell.offerSlots[0]!.button.focus();
+  }
+  on(restart, 'click', () => restartMatch());
+  on(preparationRestart, 'click', () => {
+    if (fatal || session.observe().phase !== 'preparation') return;
+    const owner = session.match;
+    closeChoice(); restartConfirm.hidden = false;
+    const prompt = root.ownerDocument.createElement('p');
+    prompt.textContent = '현재 경기 기록을 보관하고 같은 조건으로 새 경기를 시작할까요?';
+    const confirm = choiceButton('새 경기 시작', () => restartMatch(owner));
+    const cancel = () => { closeChoice(); preparationRestart.focus(); };
+    restartConfirm.append(prompt, confirm, choiceButton('취소', cancel));
+    closePending = cancel; confirm.focus();
+  });
   on(document, 'visibilitychange', () => { scheduler.setHidden(document.hidden); render(); });
   on(window, 'pagehide', () => { scheduler.setHidden(true); render(); });
   on(window, 'pageshow', () => { scheduler.setHidden(document.hidden); render(); });
