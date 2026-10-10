@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "type": "commonjs",
+  "description": "Candidate-only offline review helpers. Uses pngjs and @napi-rs/canvas supplied by the review environment; no runtime integration or dependency installation."
+}

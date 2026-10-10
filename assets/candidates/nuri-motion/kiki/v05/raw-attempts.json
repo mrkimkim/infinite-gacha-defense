@@ -1,0 +1,44 @@
+[
+  {
+    "file": "nuri-gap-correction-raw-v05.png",
+    "prompt": "prompt-release-gap.txt",
+    "status": "rejected high arm",
+    "dimensions_px": [
+      2171,
+      724
+    ],
+    "bytes": 1336907,
+    "sha256": "4a77c125a3aba97410710bb544938305cc769aa98ddd1d92247c10fa510da34f",
+    "raw_preservation_verified": true,
+    "tool": "image_gen.imagegen builtin",
+    "provenance_note": "Built-in imagegen output copied unchanged; preserved file and SHA-256 identify the bytes. Private executor path omitted."
+  },
+  {
+    "file": "nuri-direction-correction-raw-v05.png",
+    "prompt": "prompt-release-direction.txt",
+    "status": "selected candidate",
+    "dimensions_px": [
+      2172,
+      724
+    ],
+    "bytes": 1373020,
+    "sha256": "9e89cce33db28c8eda5bd66b81804a9c506941c1ec46ece829a57f1de59c736d",
+    "raw_preservation_verified": true,
+    "tool": "image_gen.imagegen builtin",
+    "provenance_note": "Built-in imagegen output copied unchanged; preserved file and SHA-256 identify the bytes. Private executor path omitted."
+  },
+  {
+    "file": "flight-bubble-raw-v05.png",
+    "prompt": "prompt-flight-bubble.txt",
+    "status": "selected standalone flight asset",
+    "dimensions_px": [
+      1254,
+      1254
+    ],
+    "bytes": 517610,
+    "sha256": "db8f367946be1d83b2c6b27a0ad7396ee745a33dcc22979a4c103a1556b4b684",
+    "raw_preservation_verified": true,
+    "tool": "image_gen.imagegen builtin",
+    "provenance_note": "Built-in imagegen output copied unchanged; preserved file and SHA-256 identify the bytes. Private executor path omitted."
+  }
+]

@@ -1,0 +1,402 @@
+{
+  "assets": {
+    "character": {
+      "file": "nuri-five-poses-final-raw-v04.png",
+      "dimensions_px": [
+        2172,
+        724
+      ],
+      "bytes": 1314793,
+      "sha256": "2c65e3deeabf77145e99fcdd813a68fc999678aca5beb8213efa3643f94a7e32",
+      "bounds_alpha8": [
+        19,
+        135,
+        2152,
+        613
+      ],
+      "bounds_alpha128": [
+        19,
+        136,
+        2150,
+        612
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 886508,
+      "low_alpha_1_to_7": 16009,
+      "center_rgba": [
+        5,
+        34,
+        63,
+        253
+      ]
+    },
+    "bubble": {
+      "file": "bubble-emission-raw-v04.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "bytes": 257745,
+      "sha256": "f04454fbb306837d1f9e396bc54eeb759ad90e7b24820b4b7dad9afcb5e7a9a9",
+      "bounds_alpha8": [
+        354,
+        374,
+        919,
+        879
+      ],
+      "bounds_alpha128": [
+        355,
+        375,
+        918,
+        877
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1451046,
+      "low_alpha_1_to_7": 4214,
+      "center_rgba": [
+        60,
+        184,
+        218,
+        253
+      ]
+    },
+    "impact": {
+      "file": "water-impact-simple-raw-v04.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "bytes": 195629,
+      "sha256": "5765e53597267abd72a3ab147cb2f37e6e32b4f4d6d3c6e7cf1729041959f863",
+      "bounds_alpha8": [
+        89,
+        102,
+        1164,
+        1150
+      ],
+      "bounds_alpha128": [
+        91,
+        103,
+        1163,
+        1149
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1477525,
+      "low_alpha_1_to_7": 4122,
+      "center_rgba": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "ripple": {
+      "file": "ground-ripple-raw-v04.png",
+      "dimensions_px": [
+        2172,
+        724
+      ],
+      "bytes": 403886,
+      "sha256": "3eefc591750cc58ba0d16f73dd8c9cba15b45e8392abc6d7d32208477425fdb3",
+      "bounds_alpha8": [
+        221,
+        227,
+        1951,
+        493
+      ],
+      "bounds_alpha128": [
+        222,
+        229,
+        1950,
+        490
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1386585,
+      "low_alpha_1_to_7": 88894,
+      "center_rgba": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "frames": [
+    {
+      "name": "idle",
+      "source_rect": [
+        17,
+        133,
+        389,
+        615
+      ],
+      "bounds_alpha128": [
+        19,
+        136,
+        386,
+        612
+      ],
+      "pivot_source": [
+        182.25,
+        612
+      ],
+      "launch_anchor_source": [
+        254,
+        331
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 604,
+      "sole_runs": [
+        [
+          57,
+          132
+        ],
+        [
+          230,
+          310
+        ]
+      ],
+      "sole_centers": [
+        94.5,
+        270
+      ],
+      "sole_separation": 175.5,
+      "per_foot_shift_at32": 0,
+      "per_foot_shift_at36": 0,
+      "body_height_source": 476,
+      "height_at32": 32,
+      "height_at36": 36
+    },
+    {
+      "name": "preparation",
+      "source_rect": [
+        446,
+        133,
+        805,
+        615
+      ],
+      "bounds_alpha128": [
+        449,
+        136,
+        802,
+        612
+      ],
+      "pivot_source": [
+        599.25,
+        612
+      ],
+      "launch_anchor_source": [
+        597,
+        320
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 604,
+      "sole_runs": [
+        [
+          474,
+          548
+        ],
+        [
+          648,
+          727
+        ]
+      ],
+      "sole_centers": [
+        511,
+        687.5
+      ],
+      "sole_separation": 176.5,
+      "per_foot_shift_at32": 0.03361344537815126,
+      "per_foot_shift_at36": 0.037815126050420166,
+      "body_height_source": 476,
+      "height_at32": 32,
+      "height_at36": 36
+    },
+    {
+      "name": "release",
+      "source_rect": [
+        829,
+        135,
+        1365,
+        615
+      ],
+      "bounds_alpha128": [
+        832,
+        138,
+        1362,
+        612
+      ],
+      "pivot_source": [
+        1059.5,
+        612
+      ],
+      "launch_anchor_source": [
+        1351,
+        431
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 604,
+      "sole_runs": [
+        [
+          933,
+          1008
+        ],
+        [
+          1108,
+          1189
+        ]
+      ],
+      "sole_centers": [
+        970.5,
+        1148.5
+      ],
+      "sole_separation": 178,
+      "per_foot_shift_at32": 0.08403361344537816,
+      "per_foot_shift_at36": 0.09453781512605042,
+      "body_height_source": 474,
+      "height_at32": 31.865546218487395,
+      "height_at36": 35.84873949579832
+    },
+    {
+      "name": "recoil",
+      "source_rect": [
+        1391,
+        133,
+        1752,
+        615
+      ],
+      "bounds_alpha128": [
+        1394,
+        136,
+        1749,
+        612
+      ],
+      "pivot_source": [
+        1542.5,
+        612
+      ],
+      "launch_anchor_source": [
+        1618,
+        328
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 604,
+      "sole_runs": [
+        [
+          1417,
+          1491
+        ],
+        [
+          1591,
+          1671
+        ]
+      ],
+      "sole_centers": [
+        1454,
+        1631
+      ],
+      "sole_separation": 177,
+      "per_foot_shift_at32": 0.05042016806722689,
+      "per_foot_shift_at36": 0.05672268907563025,
+      "body_height_source": 476,
+      "height_at32": 32,
+      "height_at36": 36
+    },
+    {
+      "name": "recovery",
+      "source_rect": [
+        1796,
+        136,
+        2154,
+        615
+      ],
+      "bounds_alpha128": [
+        1799,
+        139,
+        2150,
+        612
+      ],
+      "pivot_source": [
+        1955,
+        612
+      ],
+      "launch_anchor_source": [
+        2051,
+        332
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 604,
+      "sole_runs": [
+        [
+          1831,
+          1906
+        ],
+        [
+          2002,
+          2081
+        ]
+      ],
+      "sole_centers": [
+        1868.5,
+        2041.5
+      ],
+      "sole_separation": 173,
+      "per_foot_shift_at32": -0.08403361344537816,
+      "per_foot_shift_at36": -0.09453781512605042,
+      "body_height_source": 473,
+      "height_at32": 31.798319327731093,
+      "height_at36": 35.773109243697476
+    }
+  ],
+  "commonHeight": 476,
+  "fixture": {
+    "kind": "synthetic_art_presentation_only",
+    "direction": "down-right",
+    "character_ground": [
+      54,
+      60
+    ],
+    "hit_position_far": [
+      142,
+      87
+    ],
+    "hit_position_near": [
+      103,
+      87
+    ],
+    "enemy_ground_far": [
+      142,
+      95
+    ],
+    "enemy_ground_near": [
+      103,
+      95
+    ],
+    "scene_dimensions": [
+      240,
+      124
+    ],
+    "hit_semantics": "First displayed committed-hit sample shows release, emission, instantaneous dotted trace, impact, hit tint and proxy HP change together; no projectile travel. Preparation exists only in separate art-pose preview, not committed-hit playback.",
+    "aoe": "Decorative ripple only; no approved multi-hit fixture, area center or radius contract.",
+    "holds_ms": {
+      "idle": 500,
+      "release": 180,
+      "recoil": 180,
+      "recovery": 230,
+      "settled_idle": 500
+    },
+    "preparation_preview_only_ms": 350
+  }
+}

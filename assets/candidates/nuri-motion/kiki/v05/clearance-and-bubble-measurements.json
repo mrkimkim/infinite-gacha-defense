@@ -1,0 +1,1604 @@
+{
+  "rendered_summary": [
+    {
+      "height": 32,
+      "positions": 16,
+      "min_pixel_square_gap_alpha8": 1,
+      "min_pixel_square_gap_alpha128": 1
+    },
+    {
+      "height": 36,
+      "positions": 16,
+      "min_pixel_square_gap_alpha8": 1.4142135623730951,
+      "min_pixel_square_gap_alpha128": 1.4142135623730951
+    }
+  ],
+  "method": "Source-alpha threshold and native-Canvas common-scale rendering, manually inspected disjoint shell/tail ROIs. Closest pixel centers and pixel-square boundary gap are both reported. No browser playback or whole-character semantic segmentation.",
+  "source_rois": {
+    "shell": [
+      1240,
+      360,
+      1360,
+      488
+    ],
+    "exposed_tail": [
+      1200,
+      500,
+      1276,
+      587
+    ]
+  },
+  "source_alpha128": {
+    "pair": [
+      [
+        1270,
+        476
+      ],
+      [
+        1256,
+        506
+      ]
+    ],
+    "center_distance": 33.1058907144937,
+    "square_edge_gap": 31.780497164141405
+  },
+  "rendered": [
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          84,
+          80
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        51,
+        16
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          84,
+          80
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        48,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        53,
+        16
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        52,
+        16
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          84,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.23606797749979,
+      "square_edge_gap": 1,
+      "counts": [
+        53,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          84,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.23606797749979,
+      "square_edge_gap": 1,
+      "counts": [
+        53,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          84,
+          81
+        ],
+        [
+          82,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        53,
+        16
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          84,
+          81
+        ],
+        [
+          83,
+          84
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        52,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          84,
+          80
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        47,
+        16
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          84,
+          80
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        46,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        49,
+        17
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        48,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        49,
+        17
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        49,
+        17
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          84,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.23606797749979,
+      "square_edge_gap": 1,
+      "counts": [
+        48,
+        16
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.25,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          84,
+          81
+        ],
+        [
+          83,
+          84
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        46,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          84,
+          80
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        49,
+        19
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          84,
+          80
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        46,
+        17
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        49,
+        17
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          84,
+          80
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        48,
+        17
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        52,
+        18
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        49,
+        18
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          84,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.23606797749979,
+      "square_edge_gap": 1,
+      "counts": [
+        52,
+        19
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.5,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          84
+        ]
+      ],
+      "center_distance": 3.605551275463989,
+      "square_edge_gap": 2.23606797749979,
+      "counts": [
+        47,
+        15
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          80
+        ],
+        [
+          84,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        48,
+        21
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          80
+        ],
+        [
+          84,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        46,
+        20
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          81
+        ],
+        [
+          84,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        52,
+        20
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          81
+        ],
+        [
+          84,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        50,
+        20
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        52,
+        19
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        50,
+        18
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        53,
+        20
+      ]
+    },
+    {
+      "height": 32,
+      "ground": [
+        70.75,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          81
+        ],
+        [
+          83,
+          83
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        51,
+        18
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        61,
+        21
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        59,
+        20
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          85,
+          79
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        64,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 3.605551275463989,
+      "square_edge_gap": 2.23606797749979,
+      "counts": [
+        60,
+        20
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          80
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        65,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          85,
+          79
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        63,
+        21
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          80
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        64,
+        23
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          80
+        ],
+        [
+          85,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        61,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        65,
+        20
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        61,
+        20
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        64,
+        24
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        60,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 3.605551275463989,
+      "square_edge_gap": 2.23606797749979,
+      "counts": [
+        64,
+        23
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 3.605551275463989,
+      "square_edge_gap": 2.23606797749979,
+      "counts": [
+        62,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          80
+        ],
+        [
+          84,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        67,
+        23
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.25,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          80
+        ],
+        [
+          85,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        64,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        67,
+        23
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        64,
+        21
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        67,
+        24
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        64,
+        23
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        68,
+        24
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        66,
+        24
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          80
+        ],
+        [
+          85,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        68,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.5,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          83
+        ]
+      ],
+      "center_distance": 3.605551275463989,
+      "square_edge_gap": 2.23606797749979,
+      "counts": [
+        66,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        60,
+        19
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        59,
+        19
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90.25
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        62,
+        20
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90.25
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          86,
+          79
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        61,
+        19
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90.5
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        65,
+        22
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90.5
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          82
+        ]
+      ],
+      "center_distance": 2.8284271247461903,
+      "square_edge_gap": 1.4142135623730951,
+      "counts": [
+        60,
+        19
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90.75
+      ],
+      "alpha_threshold": 8,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          86,
+          83
+        ]
+      ],
+      "center_distance": 3.1622776601683795,
+      "square_edge_gap": 2,
+      "counts": [
+        62,
+        21
+      ]
+    },
+    {
+      "height": 36,
+      "ground": [
+        70.75,
+        90.75
+      ],
+      "alpha_threshold": 128,
+      "pair": [
+        [
+          87,
+          80
+        ],
+        [
+          85,
+          83
+        ]
+      ],
+      "center_distance": 3.605551275463989,
+      "square_edge_gap": 2.23606797749979,
+      "counts": [
+        61,
+        19
+      ]
+    }
+  ],
+  "bubble": [
+    {
+      "character_height": 32,
+      "nominal_unrotated_width": 8,
+      "measurement_pose": "standalone unrotated sprite at integer origin; not exact rotated-flight coverage",
+      "pixels_alpha8": 38,
+      "pixels_alpha128": 38
+    },
+    {
+      "character_height": 36,
+      "nominal_unrotated_width": 9,
+      "measurement_pose": "standalone unrotated sprite at integer origin; not exact rotated-flight coverage",
+      "pixels_alpha8": 46,
+      "pixels_alpha128": 46
+    }
+  ],
+  "limitations": [
+    "ROI result covers the exposed release shell/tail gap only. Other pose/appendage intersections are not measured.",
+    "Pixel-grid clearance depends on fractional placement and resampling; tested placements are ground(70,90) plus all quarter-pixel x/y offsets,16 positions per size. Independent dark/light scene review remains required.",
+    "These measurements do not establish engine correctness, artistic acceptance, emitter orientation, or face continuity."
+  ]
+}

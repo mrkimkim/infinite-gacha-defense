@@ -1,0 +1,432 @@
+{
+  "file": "nuri-bubble-candidate-v04-20261010/nuri-five-poses-refined-raw-v04.png",
+  "width": 2172,
+  "height": 724,
+  "bytes": 1298406,
+  "sha256": "2f16238860d967e625dee4dbf5bdc6d141acd13935aa3def13aefb307398a9ec",
+  "alpha": {
+    "extrema": [
+      0,
+      255
+    ],
+    "strict_nonzero_bounds": [
+      17,
+      39,
+      2172,
+      684
+    ],
+    "alpha8_bounds": [
+      19,
+      136,
+      2169,
+      609
+    ],
+    "transparent_pixels": 891787,
+    "opaque_pixels": 1430,
+    "partially_transparent_pixels": 679311,
+    "low_alpha_1_to_7_pixels": 17327,
+    "dominant_nonzero_alpha": 253,
+    "dominant_nonzero_count": 561278
+  },
+  "allAlpha8ColumnRuns": [
+    [
+      19,
+      389
+    ],
+    [
+      448,
+      803
+    ],
+    [
+      831,
+      1362
+    ],
+    [
+      1394,
+      1751
+    ],
+    [
+      1819,
+      2169
+    ]
+  ],
+  "frames": [
+    {
+      "name": "idle",
+      "alpha8_column_run": [
+        19,
+        389
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          19,
+          136,
+          389,
+          609
+        ],
+        "128": [
+          20,
+          137,
+          388,
+          608
+        ],
+        "250": [
+          21,
+          138,
+          387,
+          607
+        ]
+      },
+      "feet_measurement_y": 600,
+      "feet_alpha128_runs": [
+        [
+          57,
+          134
+        ],
+        [
+          229,
+          311
+        ]
+      ],
+      "proposed_render_pivot": [
+        182.75,
+        608
+      ],
+      "body_height_alpha128": 471
+    },
+    {
+      "name": "preparation",
+      "alpha8_column_run": [
+        448,
+        803
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          448,
+          136,
+          803,
+          609
+        ],
+        "128": [
+          449,
+          137,
+          802,
+          608
+        ],
+        "250": [
+          450,
+          138,
+          802,
+          607
+        ]
+      },
+      "feet_measurement_y": 600,
+      "feet_alpha128_runs": [
+        [
+          474,
+          550
+        ],
+        [
+          646,
+          727
+        ]
+      ],
+      "proposed_render_pivot": [
+        599.25,
+        608
+      ],
+      "body_height_alpha128": 471
+    },
+    {
+      "name": "release",
+      "alpha8_column_run": [
+        831,
+        1362
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          831,
+          139,
+          1362,
+          609
+        ],
+        "128": [
+          832,
+          140,
+          1361,
+          608
+        ],
+        "250": [
+          833,
+          142,
+          1360,
+          607
+        ]
+      },
+      "feet_measurement_y": 600,
+      "feet_alpha128_runs": [
+        [
+          931,
+          1008
+        ],
+        [
+          1106,
+          1189
+        ]
+      ],
+      "proposed_render_pivot": [
+        1058.5,
+        608
+      ],
+      "body_height_alpha128": 468
+    },
+    {
+      "name": "recoil",
+      "alpha8_column_run": [
+        1394,
+        1751
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          1394,
+          136,
+          1751,
+          609
+        ],
+        "128": [
+          1395,
+          138,
+          1750,
+          608
+        ],
+        "250": [
+          1398,
+          138,
+          1749,
+          607
+        ]
+      },
+      "feet_measurement_y": 600,
+      "feet_alpha128_runs": [
+        [
+          1416,
+          1493
+        ],
+        [
+          1589,
+          1671
+        ]
+      ],
+      "proposed_render_pivot": [
+        1542.25,
+        608
+      ],
+      "body_height_alpha128": 470
+    },
+    {
+      "name": "recovery",
+      "alpha8_column_run": [
+        1819,
+        2169
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          1819,
+          139,
+          2169,
+          609
+        ],
+        "128": [
+          1820,
+          140,
+          2168,
+          608
+        ],
+        "250": [
+          1821,
+          141,
+          2166,
+          607
+        ]
+      },
+      "feet_measurement_y": 600,
+      "feet_alpha128_runs": [
+        [
+          1851,
+          1928
+        ],
+        [
+          2021,
+          2103
+        ]
+      ],
+      "proposed_render_pivot": [
+        1975.75,
+        608
+      ],
+      "body_height_alpha128": 468
+    }
+  ],
+  "interiorSamples": {
+    "idle": [
+      {
+        "x": 183,
+        "y": 217,
+        "rgba": [
+          216,
+          159,
+          104,
+          253
+        ]
+      },
+      {
+        "x": 183,
+        "y": 317,
+        "rgba": [
+          253,
+          238,
+          221,
+          253
+        ]
+      },
+      {
+        "x": 183,
+        "y": 458,
+        "rgba": [
+          116,
+          154,
+          97,
+          254
+        ]
+      }
+    ],
+    "preparation": [
+      {
+        "x": 599,
+        "y": 217,
+        "rgba": [
+          213,
+          155,
+          102,
+          253
+        ]
+      },
+      {
+        "x": 599,
+        "y": 317,
+        "rgba": [
+          72,
+          28,
+          5,
+          253
+        ]
+      },
+      {
+        "x": 599,
+        "y": 458,
+        "rgba": [
+          202,
+          216,
+          182,
+          253
+        ]
+      }
+    ],
+    "release": [
+      {
+        "x": 1059,
+        "y": 220,
+        "rgba": [
+          215,
+          160,
+          107,
+          253
+        ]
+      },
+      {
+        "x": 1059,
+        "y": 320,
+        "rgba": [
+          255,
+          240,
+          224,
+          253
+        ]
+      },
+      {
+        "x": 1059,
+        "y": 458,
+        "rgba": [
+          138,
+          172,
+          121,
+          253
+        ]
+      }
+    ],
+    "recoil": [
+      {
+        "x": 1542,
+        "y": 218,
+        "rgba": [
+          211,
+          153,
+          100,
+          253
+        ]
+      },
+      {
+        "x": 1542,
+        "y": 318,
+        "rgba": [
+          253,
+          239,
+          223,
+          253
+        ]
+      },
+      {
+        "x": 1542,
+        "y": 458,
+        "rgba": [
+          157,
+          188,
+          141,
+          253
+        ]
+      }
+    ],
+    "recovery": [
+      {
+        "x": 1976,
+        "y": 220,
+        "rgba": [
+          214,
+          155,
+          101,
+          253
+        ]
+      },
+      {
+        "x": 1976,
+        "y": 320,
+        "rgba": [
+          253,
+          237,
+          221,
+          253
+        ]
+      },
+      {
+        "x": 1976,
+        "y": 458,
+        "rgba": [
+          186,
+          204,
+          164,
+          253
+        ]
+      }
+    ]
+  }
+}

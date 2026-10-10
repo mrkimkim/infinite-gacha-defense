@@ -1,0 +1,99 @@
+{
+  "file": "nuri-v03-portable-playback-review.html",
+  "html_bytes": 1813421,
+  "html_sha256": "a413ab9233fc4d6dbbf11f0a31371e9a365f65e8356f1e368c7d5e92bba6b713",
+  "embedded_png_sha256": "c53d340bcb53386dfd0a2424a0d24a853b32ba12b732e6c5434c52969599727f",
+  "check_count": 21,
+  "results": [
+    {
+      "name": "Embedded PNG is byte-for-byte original v03",
+      "status": "pass"
+    },
+    {
+      "name": "Embedded PNG hash and complete decode match measurements",
+      "status": "pass"
+    },
+    {
+      "name": "No unresolved template marker or external resources",
+      "status": "pass"
+    },
+    {
+      "name": "Inline model and UI JavaScript compile",
+      "status": "pass"
+    },
+    {
+      "name": "Four phases map exactly to idle, attack, arm recovery, unchanged idle",
+      "status": "pass"
+    },
+    {
+      "name": "Nonloop sequence finishes after settlement hold",
+      "status": "pass"
+    },
+    {
+      "name": "Pause preserves elapsed hold; resume continues it",
+      "status": "pass"
+    },
+    {
+      "name": "Step pauses and cycles phases independently of loop",
+      "status": "pass"
+    },
+    {
+      "name": "Loop wraps, handles multiple cycles, and can be disabled",
+      "status": "pass"
+    },
+    {
+      "name": "Duration edits are bounded, pause and restart current hold",
+      "status": "pass"
+    },
+    {
+      "name": "Play after a completed pass restarts at original idle",
+      "status": "pass"
+    },
+    {
+      "name": "All poses share exact scale and fixed measured foot anchor",
+      "status": "pass"
+    },
+    {
+      "name": "Measured common-scale geometry is preserved without per-pose height normalization",
+      "status": "pass"
+    },
+    {
+      "name": "Display windows are measured bounds plus four pixels and stay in source",
+      "status": "pass"
+    },
+    {
+      "name": "Canvas CSS preserves content dimensions despite borders",
+      "status": "pass"
+    },
+    {
+      "name": "Unique element IDs and all requested controls exist",
+      "status": "pass"
+    },
+    {
+      "name": "UI initialization and embedded-image callback run in a mocked DOM",
+      "status": "pass"
+    },
+    {
+      "name": "Mocked controls play, pause, step, reset and change review timing",
+      "status": "pass"
+    },
+    {
+      "name": "Mocked light background and 32px option render with one scale",
+      "status": "pass"
+    },
+    {
+      "name": "Mocked settlement and initial idle draw identical source pixels",
+      "status": "pass"
+    },
+    {
+      "name": "Mocked hidden-tab event pauses instead of advancing unseen playback",
+      "status": "pass"
+    }
+  ],
+  "limitations": [
+    "Structural checks and JavaScript model/controller execution only.",
+    "UI event tests use a mocked DOM, Image decode callback and canvas methods; they are not browser rendering or visual QA.",
+    "No browser rendering, screenshot, target-size readability approval, or production timing validation."
+  ],
+  "check_scope": "Standalone v03 candidate review artifact only; no game-runtime integration."
+}
