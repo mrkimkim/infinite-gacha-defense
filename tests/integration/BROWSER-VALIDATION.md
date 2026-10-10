@@ -21,3 +21,9 @@ Issue14 generation2. browser-verify.mjs는 환경에 이미 있는 Playwright/Ch
 ## 준비 실행 결과
 
 browser-preparation-evidence.json에 정확한 세 SHA와 수행 결과를 기록했습니다. source blob12개 일치, 타입/core타입 검사·두 번들 성공, 어댑터/도구62 PASS·실제코어1 BLOCKED skip입니다. 실제 Chromium151.0.7922.173에서 진단과 비활성 버튼만 검사한 뒤 하네스 exit2/BLOCKED로 종료했습니다. 준비된 게임 DOM/RAF/해시 분기는 아직 실행되지 않았으므로 하네스 자체도 그 분기의 성공을 주장하지 않습니다. 서버와 브라우저를 종료했습니다.
+
+## 실제 코어 실행 — 후속 검증
+
+정확한 core0918459aeb7684ab850da19627d3f4969f044517/web5e83f3e4e488848eb0e7e14e32712020dbe5e679/CLI c05e52dd80d1a4e4f92448ce35334af5f7e58cd6 결합에서 source21blob 일치,104 PASS/0 SKIP,타입/core타입/도구 및 브라우저 build PASS입니다. 실제 Chromium151에서 준비·이동·교환·거부·시간경계·pause/hidden·staleRAF·지연crypto·패배1152tick/승리960tick·각재시작을 검사했습니다.11개 snapshot의 canonical bytes/hash/acceptedLog를 Node CLI replay와 대조했습니다. 결과 JSON과 직접 열어 본390px 승패 화면은 evidence/에 있습니다.
+
+첫 실행은 접힌 재현 패널을 열지 않은 하네스 결함으로 실패했고 UI 패널을 여는 조작을 추가해 수정했습니다. 제어RAF 검사에서는 Playwright 안정화 대기를 피하기 위해 force click을 사용했습니다. 별도의 원래RAF 실행에서 강제하지 않은 후보클릭/칸doubleclick/Escape/전투/pause 및350ms tick불변을 확인했습니다. 제어 document.hidden 검사는 실제 OS 탭 전환과 다릅니다. 승리 배치는 seed1의 합법 중앙 배치를 오프라인 탐색해 정한 회귀fixture로, 일반/숙련 봇이나 재미 검증이 아닙니다. 전체tick별 브라우저대조·실제OS숨김·사람플레이는 여전히 미실시입니다. core/web 소스는 수정하지 않았습니다.

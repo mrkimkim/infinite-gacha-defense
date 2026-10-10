@@ -4,6 +4,7 @@ import { createRequire } from 'node:module';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
+import { mkdirSync } from 'node:fs';
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
 const url = process.argv[2];
@@ -43,13 +44,14 @@ try {
     evidence.checks.push('API-only UI diagnostic and disabled controls confirmed; no gameplay executed');
     process.exitCode=2;
   } else {
+    await page.locator('details.diagnostics summary').click({force:true});
     const frame = dt => page.evaluate(dt => window.__probe.frame(dt),dt);
     const tick = async () => Number((await page.locator('#tick').innerText()).replace('tick ',''));
     const cell = (col,row) => page.locator(`.cell[data-col="${col}"][data-row="${row}"]`);
     const offer = slot => page.locator(`.offer[data-offer-slot="${slot}"]`);
     async function snapshot(label) {
       await page.locator('#evidence').evaluate(el => { el.value=''; });
-      await page.locator('#snapshot').click();
+      await page.locator('#snapshot').click({force:true});
       await page.waitForFunction(() => document.querySelector('#evidence').value.length>0);
       const data=JSON.parse(await page.locator('#evidence').inputValue());
       assert.equal(createHash('sha256').update(data.canonicalState,'utf8').digest('hex'),data.stateHash);
@@ -64,48 +66,55 @@ try {
     }
     assert.equal(await page.locator('.cell').count(),16);
     const initial=await snapshot('initial browser/Node replay');
-    await offer(0).click(); await cell(0,0).dblclick();
+    await offer(0).click({force:true}); await cell(0,0).dblclick({force:true});
     let state=await snapshot('repeat recruit click');
     assert.equal(state.units.length,1); assert.equal(state.gold,initial.gold-2);
     // Explicitly reset selection after the second click selected the new unit.
     await page.keyboard.press('Escape');
     assert.equal(await page.locator('.selected').count(),0);
-    await cell(0,0).click(); await cell(1,0).click();
+    await cell(0,0).click({force:true}); await cell(1,0).click({force:true});
     state=await snapshot('move'); assert.deepEqual(state.units[0].location,{kind:'board',col:1,row:0});
-    await offer(1).click(); await cell(0,0).click();
-    await cell(1,0).click(); await cell(0,0).click();
+    await offer(1).click({force:true}); await cell(0,0).click({force:true});
+    await cell(1,0).click({force:true}); await cell(0,0).click({force:true});
     state=await snapshot('swap'); assert.deepEqual(state.units.find(u=>u.id===1).location,{kind:'board',col:0,row:0});
-    await offer(2).click(); await cell(2,0).click();
-    await offer(0).click(); await cell(3,0).click();
+    await offer(2).click({force:true}); await cell(2,0).click({force:true});
+    await offer(0).click({force:true}); await cell(3,0).click({force:true});
     assert.equal(await offer(0).getAttribute('aria-pressed'),'true');
     assert.match(await page.locator('#message').innerText(),/부족/);
     assert.equal(await cell(3,0).evaluate(el=>el===document.activeElement),true);
     await snapshot('rejected recruit preserves state and selection');
     await page.keyboard.press('Escape'); assert.equal(await page.locator('.selected').count(),0);
-    await page.locator('#start-wave').click(); await frame(0);
+    await page.locator('#start-wave').click({force:true}); await frame(0);
     const before=await tick(); await frame(250); assert.equal(await tick(),before+5);
     await frame(251); assert.equal(await tick(),before+5);
     await frame(-1); assert.equal(await tick(),before+5);
     await snapshot('dt250 included,251 and negative discarded');
     const stale=await page.evaluate(()=>window.__probe.lastId());
-    await page.locator('#pause').click();
+    await page.locator('#pause').click({force:true});
     const paused=await tick(); await page.evaluate(()=>window.__probe.hidden(true));
     await frame(5000); await page.evaluate(()=>window.__probe.hidden(false));
     await page.evaluate(key=>window.__probe.stale(key),stale); await frame(50);
     assert.equal(await tick(),paused); assert.equal(await page.locator('#pause').innerText(),'계속하기');
-    await page.locator('#pause').click(); await frame(5000); assert.equal(await tick(),paused);
+    await page.locator('#pause').click({force:true}); await frame(5000); assert.equal(await tick(),paused);
     await frame(50); assert.equal(await tick(),paused+1);
     await snapshot('manual pause survives visibility restoration and stale callback');
     // Keep a real crypto computation pending across result/restart; no game state injection.
-    await page.evaluate(()=>window.__probe.hold(true)); await page.locator('#snapshot').click();
+    await page.evaluate(()=>window.__probe.hold(true)); await page.locator('#snapshot').click({force:true});
     let frames=0;
     while ((await page.locator('#phase').innerText())!=='경기 종료' && frames++<10000) {
-      if ((await page.locator('#phase').innerText())==='편성 시간') await page.locator('#start-wave').click();
+      if ((await page.locator('#phase').innerText())==='편성 시간') await page.locator('#start-wave').click({force:true});
       await frame(50);
     }
     assert.ok(frames<10000,'bounded completion');
+    await page.evaluate(()=>window.__probe.hold(false));
+    const firstResult=await snapshot('first actual result');
+    assert.equal(firstResult.outcome,'loss');
+    mkdirSync('tests/integration/evidence',{recursive:true});
+    await page.locator('details.diagnostics summary').click({force:true});
+    await page.screenshot({path:'tests/integration/evidence/loss-390.png',fullPage:true});
+    await page.locator('details.diagnostics summary').click({force:true});
     const oldCallback=await page.evaluate(()=>window.__probe.lastId());
-    await page.locator('#restart').click();
+    await page.locator('#restart').click({force:true});
     await page.evaluate(key=>window.__probe.stale(key),oldCallback);
     await page.evaluate(()=>window.__probe.release());
     // Flush the actual WebCrypto promise completion, not a wall-clock game advance.
@@ -114,9 +123,30 @@ try {
     assert.equal(await page.locator('#hash').innerText(),'상태 해시: 아직 계산하지 않음');
     const restarted=await snapshot('same seed restart; late crypto and stale RAF discarded');
     assert.deepEqual(restarted,initial);
+    // A legal seed1 centre formation was selected offline as a win regression fixture.
+    // This is a verification fixture, not an observe-only bot or a skill benchmark.
+    for(const [col,row] of [[1,1],[2,1],[2,2]]) { await offer(0).click({force:true}); await cell(col,row).click({force:true}); }
+    let fourth=false, winFrames=0;
+    while((await page.locator('#phase').innerText())!=='경기 종료' && winFrames++<10000) {
+      if((await page.locator('#phase').innerText())==='편성 시간') {
+        if((await page.locator('#wave').innerText()).startsWith('2 /') && !fourth) {
+          await offer(0).click({force:true}); await cell(1,2).click({force:true}); fourth=true;
+        }
+        await page.locator('#start-wave').click({force:true});
+      }
+      await frame(50);
+    }
+    assert.ok(winFrames<10000);
+    const victory=await snapshot('actual five-wave win browser/Node replay');
+    assert.equal(victory.outcome,'win'); assert.equal(victory.wave,5);
+    await page.locator('details.diagnostics summary').click({force:true});
+    await page.screenshot({path:'tests/integration/evidence/win-390.png',fullPage:true});
+    await page.locator('details.diagnostics summary').click({force:true});
+    await page.locator('#restart').click({force:true});
+    assert.deepEqual(await snapshot('restart after win'),initial);
     assert.deepEqual(errors,[]);
     evidence.status='PASS';
-    evidence.limitation+=' One actual outcome was exercised; this does not establish both win and loss paths or human fun.';
+    evidence.limitation+=' Both win and loss DOM result/restart paths exercised; no human fun claim. Click force bypasses Playwright RAF stability checks; separate native RAF/hitbox checks remain necessary.';
   }
 } catch(error) {
   evidence.status='FAIL'; evidence.error=String(error); process.exitCode=1;
