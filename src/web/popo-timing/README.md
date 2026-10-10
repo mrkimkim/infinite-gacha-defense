@@ -14,7 +14,7 @@ Both scenes use seed1, recruit offer0, move unit1 to board3,0, startWave and adv
 - Death:attach122, start123, release126, impact128, attack10/target5 HP4→0, stop136.
 - Nonlethal:attach146, start147, release150, impact152, attack12/target4 HP19→13, stop160.
 
-50ms/tick:150ms windup +100ms flight. Held windup letter is an attached prop, never a pending projectile. Actual impact alone authorizes contact letter/ring/damage/death. Contact imagery stays at committed hit coordinates for up to two presented ticks; aftermath remains8 simulation ticks and freezes when the review scene stops. Live enemies resume their observed position after the first contact frame. No damage or simulation tick is delayed for appearance.
+50ms/tick:150ms windup +100ms flight. Held windup letter is an attached prop, never a pending projectile. Actual impact alone authorizes contact/damage/death. The current surface-contact experiment replaces the centered contact letter/full ring with a one-presented-tick outer arc. Its visual anchor is separate from the unchanged committed hit coordinates; aftermath remains8 simulation ticks and freezes when the review scene stops. Live enemies resume their observed position after the first contact frame. No damage or simulation tick is delayed for appearance.
 
 ## One-tick forward presentation
 
@@ -26,7 +26,7 @@ First observed release always starts current even if incoming alpha is high; lat
 
 The hand offset decays with `(T-releaseTick+displayFraction)/(arrivalTick-releaseTick)`, not a changing target-distance denominator. Its endpoint is continuous across adjacent ticks and zero at arrival.
 
-Projection cannot imply speculative contact. After applying the hand offset, the segment stops at its first intersection with any actually drawn enemy body's safety circle. The current radius reserves the maximum full alpha>0 corner radius of all effect options about their strong-bounds center (and the legacy36px body-scaled extent), plus11px body +0.75px stroke +sqrt(0.5) integer-placement allowance +1px filtering allowance +2px gap. The circle is rotation-invariant; actual rendering applies no rotation. All options reserve this same radius so paused body/effect resizing keeps the same safe center. This is conservative relative to the actual ellipse. If the current start already overlaps the safety region, suppress the pending letter rather than teleporting it outward or showing a false contact. Actual impact may then show contact at the committed center. A small terminal center jump is intentional; zero-jump is not promised.
+Projection cannot imply speculative contact. After applying the hand offset, the segment stops at its first intersection with any actually drawn enemy body's safety circle. The current radius reserves the maximum full alpha>0 corner radius of all effect options about their strong-bounds center (and the legacy36px body-scaled extent), plus11px body +0.75px stroke +sqrt(0.5) integer-placement allowance +1px filtering allowance +2px gap. The circle is rotation-invariant; actual rendering applies no rotation. All options reserve this same radius so paused body/effect resizing keeps the same safe center. This is conservative relative to the actual ellipse. If the current start already overlaps the safety region, suppress the pending letter rather than teleporting it outward or showing a false contact. The historical adapter then showed contact at the committed center; this follow-up keeps that core coordinate and uses a separate surface cue. A small terminal center jump is intentional; zero-jump is not promised.
 
 ## Lifecycle and evidence
 
@@ -47,7 +47,7 @@ Eight normal-RAF combinations (two viewports ×two sizes ×two scenes) were comp
 All24 playback cases preserved prior final core hashes.150/250ms may omit flight entirely and are reported separately; no normal-speed improvement claim is inferred from their omitted frames. Evidence comparison player uses original captured frames/timestamps from both SHAs, and comparison.json distinguishes old recorded-center distance from new actual raster measurements.
 
 
-## Independent effect width comparison (PR45 ab00e389)
+## Historical independent effect width comparison (c5ae023 / PR45 ab00e389)
 
 Source:ab00e389296cec5116710468a22657cb93f68454, v7-letter/effects/v6-baseline-{8,10,12}px.png. Copied original v6 variants byte-for-byte with source measurements, comparison images and provenance hashes. The two newly generated alternatives are not loaded/adopted. Original raw letter/body/anchors and previous comparison commits remain preserved. The select retains the earlier body-scaled renderer as `기존 몸체 연동` and defaults to the independent8px baseline, not to a final approved choice.
 
@@ -64,3 +64,16 @@ The reserved guard is26.5589px from enemy center for all choices. This deliberat
 All72 normal/delayed lethal/nonlethal cases keep the same core hashes and actual100ms flight/impact ticks. Browser lifecycle checks include first attach, stale reset/decode/RAF, body resize and effect8/10/12/legacy changes both mid-flight and at the pre-contact guard; anchors/hash stay fixed and pixel clearance remains safe. Low-frame skips remain a separate limitation.
 
 Recommendation for the next independent art review:12px first,10px as the less prominent alternative. Native normal-speed captured flight/contact frames show the12px cream envelope/flap and seal separating better than8px;10px improves the outline but remains subtler in100ms.12px also occupies more of the small character's visual space and contact marker. This is an implementer's comparison recommendation, not a final art/readability approval or human-play result. No new generated image is adopted and no core timing is changed. The larger reserved contact gap is an explicit tradeoff, not a zero-jump claim.
+
+
+## Surface-contact follow-up on c5ae023
+
+See [failure cases, geometry and acceptance gates](SURFACE-CONTACT.md). A committed impact now produces a short cream1.5px arc with a dark3.5px outline on the incoming side of a14×15px outer ellipse, for the first presented impact tick only. No letter is stamped over the face and no full ring is drawn. Target tint, HP, defeat and original core-hit position remain unchanged. This procedural cue needs no new raster asset.
+
+Only an actual previous-tick displayed flight with the same target supplies incoming direction. If it was never displayed (150/250ms/late attach), the event source→hit snapshot supplies the fallback. Missing events never fabricate contact. The geometry is frozen on acceptance and cleared by reset. Conservative body/HP occlusion checks suppress a hidden cue rather than moving it around overlapping enemies. The right-facing cone remains the same.
+
+Audit `contacts` still means committed core hit positions. `surfaceContacts` separately records `coreHit`, visual `anchor`, direction source, visibility and protected-pixel count. `rasterContacts` now measures the arc rather than an envelope. `record.mjs` retains `centerJumpPx` to the unchanged core hit and adds `visualAnchorJumpPx`; these quantities must not be conflated. `surface-lifecycle.mjs` checks all RGBA changes, including below the ordinary RGB8 measurement threshold, against protected body/eyes/HP regions.
+
+Validation:449 Node tests pass, typecheck and separate adapter build pass. Actual Chromium72 cases cover390×844/1165×747 ×body32/36 ×effect8/10/12 ×normal/150/250ms ×lethal/nonlethal. All final hashes equal c5ae023. Normal last-flight-center→surface-anchor12.2869–12.5586px versus unchanged-core-hit26.5589px; changed-raster-center→cue12.6194–14.0089px versus baseline26.5189–27.7849px. Pre-impact minimum changed-pixel/body gap remains6.0453px. Strict all-alpha protected-region delta is0 in the four normal lethal/nonlethal viewport probes. Lifecycle tests cover late attach without event, event-source fallback, fixed contact during paused size/effect changes, reset, stale RAF/decode races, rejection/retry and guard resizing. Cancellation uses a clearly identified Node diagnostic (same-tick earlier lethal); no fabricated browser cancellation scene is claimed.
+
+The remaining12px-scale transition is shorter, not zero. A brief arc is quieter than the earlier full ring; normal eye/X-eye visibility improves, while tightly overlapping live enemies can still obscure one another. Low-frame flight omission, unsupported directions and original body-pose drift remain. Flight12px remains preferred for comparison; final art approval and production adoption remain pending. No core/Nuri/default route/asset modifications, merge or deployment.

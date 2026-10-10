@@ -2,6 +2,7 @@ import './style.css';
 import * as core from '../../core-timing/index.ts';
 import type {CombatEvent,Observation,Point} from '../../core-timing/types.ts';
 import {createConsumer} from './consumer.ts';
+import {surfaceContact,contactVisible,protectedEnemyPixel,type IncomingSample,type SurfaceContact} from './contact.ts';
 import {effects,effectOrigin,validateEffectImage,type EffectWidth} from './effects.ts';
 import {scenario,supported} from './scenario.ts';
 import {point,anchoredPosition,stopBeforeEnemies,letterDimensions,clearanceRadius} from './projection.ts';
@@ -13,6 +14,7 @@ let observation=core.observe(state),events:readonly CombatEvent[]=[],generation=
 let assets:Record<string,HTMLImageElement>={},ready=false;
 let presentationAlpha=0,effect:EffectWidth=8;
 let flightPixels=new Map<number,Point>();
+let incoming=new Map<number,IncomingSample>();
 let effectMeasurements:Record<string,ReturnType<typeof validateEffectImage>>={};
 let retryScene={tick:122,autoplay:false};
 function loadingStatus(failed=false){
@@ -24,9 +26,9 @@ function loadingStatus(failed=false){
  document.querySelectorAll('.steps span').forEach(e=>e.classList.remove('active'));
  $('#retry').hidden=!failed;$<HTMLButtonElement>('#pause').disabled=true;
 }
-let impacts=new Map<number,{event:Extract<CombatEvent,{type:'attackImpacted'}>;shown:number;before:number;after:number}>();
+let impacts=new Map<number,{event:Extract<CombatEvent,{type:'attackImpacted'}>;shown:number;before:number;after:number;surfaces:Map<number,SurfaceContact>}>();
 const assetRoot='/assets/popo-timing/';
-const audit:{wall:number;tick:number;phase:string;flights:number[];hp:readonly (readonly number[])[];pose:string;impact:number[];flightPixels:{attackId:number;position:Point}[];fraction:number;effect:EffectWidth;letterSize:{width:number;height:number};clearance:number;enemyPixels:{id:number;position:Point}[];contacts:{attackId:number;position:Point}[];rasterFlights:{attackId:number;raster:Raster|null}[];rasterContacts:{attackId:number;raster:Raster|null}[]}[]=[];
+const audit:{wall:number;tick:number;phase:string;flights:number[];hp:readonly (readonly number[])[];pose:string;impact:number[];flightPixels:{attackId:number;position:Point}[];fraction:number;effect:EffectWidth;letterSize:{width:number;height:number};clearance:number;enemyPixels:{id:number;position:Point}[];contacts:{attackId:number;position:Point}[];rasterFlights:{attackId:number;raster:Raster|null}[];rasterContacts:{attackId:number;raster:Raster|null}[];surfaceContacts:{attackId:number;enemyId:number;coreHit:Point;anchor:Point;direction:string;visible:boolean;protectedChanges:number}[]}[]=[];
 type Raster={x:number;y:number;width:number;height:number;changedPixels:number;maxContrast:number;bodyGapPx:number|null};
 function letter(p:{x:number;y:number},scale:number,measure=false,obstacles:readonly Point[]=[]):Raster|null{
  const spec=effect?effects[effect]:null,origin=effect?effectOrigin(p,effect):null;
@@ -43,6 +45,15 @@ function letter(p:{x:number;y:number},scale:number,measure=false,obstacles:reado
   if(delta>=8){minX=Math.min(minX,i);minY=Math.min(minY,j);maxX=Math.max(maxX,i);maxY=Math.max(maxY,j);count++;contrast=Math.max(contrast,delta);for(const enemy of obstacles)gap=Math.min(gap,Math.hypot(x+i+.5-enemy.x,y+j+.5-enemy.y)-11.75-Math.SQRT1_2);}}
  return count?{x:x+minX,y:y+minY,width:maxX-minX+1,height:maxY-minY+1,changedPixels:count,maxContrast:contrast,bodyGapPx:Number.isFinite(gap)?gap:null}:null;
 }
+function contactCue(c:SurfaceContact,enemies:readonly Point[]):{raster:Raster|null;protectedChanges:number}{
+ const before=ctx.getImageData(0,0,canvas.width,canvas.height);
+ ctx.save();ctx.strokeStyle='#6d5637';ctx.lineWidth=3.5;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();
+ c.points.forEach((p,i)=>{if(i===0)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);});ctx.stroke();ctx.strokeStyle='#fff4cd';ctx.lineWidth=1.5;ctx.stroke();ctx.restore();
+ const after=ctx.getImageData(0,0,canvas.width,canvas.height);let minX=canvas.width,minY=canvas.height,maxX=-1,maxY=-1,count=0,maxContrast=0,protectedChanges=0;
+ for(let y=0;y<canvas.height;y++)for(let x=0;x<canvas.width;x++){const offset=(y*canvas.width+x)*4;let delta=0;for(let k=0;k<4;k++)delta=Math.max(delta,Math.abs(after.data[offset+k]-before.data[offset+k]));
+  if(delta>=8){minX=Math.min(minX,x);minY=Math.min(minY,y);maxX=Math.max(maxX,x);maxY=Math.max(maxY,y);count++;maxContrast=Math.max(maxContrast,delta);if(enemies.some(e=>protectedEnemyPixel({x:x+.5,y:y+.5},e)))protectedChanges++;}}
+ return{raster:count?{x:minX,y:minY,width:maxX-minX+1,height:maxY-minY+1,changedPixels:count,maxContrast,bodyGapPx:null}:null,protectedChanges};
+}
 function body(p:Point,pose:string){const s=size/563;ctx.drawImage(assets[pose],p.x-360*s,p.y-640*s,960*s,768*s);}
 function enemy(p:Point,hp:number,maxHp:number,hit=false,dead=false,opacity=1){
  ctx.save();ctx.globalAlpha=opacity;ctx.fillStyle=dead?'#a09086':hit?'#ffd58d':'#647962';ctx.strokeStyle='#344932';ctx.lineWidth=1.5;
@@ -54,10 +65,16 @@ function paint(from:object,o:Observation,ev:readonly CombatEvent[],alpha:number,
  const view=consumer.present(from,o,ev,alpha);if(!view||!ready)return null;
  o=view.observation;presentationAlpha=alpha;
  const drawnFlights:{attackId:number;position:Point}[]=[];
+ const surfaceContacts:{attackId:number;enemyId:number;coreHit:Point;anchor:Point;direction:string;visible:boolean;protectedChanges:number}[]=[];
  const rasterFlights:{attackId:number;raster:Raster|null}[]=[],rasterContacts:{attackId:number;raster:Raster|null}[]=[];
  for(const a of view.aftermath)if(!impacts.has(a.attackId)){
   const hit=a.hits[0],after=o.enemies.find(e=>e.id===hit.enemyId)?.hp??0;
-  impacts.set(a.attackId,{event:a,shown:o.tick,before:after+hit.damage,after});
+  const surfaces=new Map<number,SurfaceContact>();
+  const caster=o.units.find(u=>u.id===a.unitId);
+  if(caster?.definitionId==='fixture-01')for(const h of a.hits)if(supported(a.sourcePosition,h.position)){
+   const c=surfaceContact(point(h.position),point(a.sourcePosition),h.enemyId,a.tick,incoming.get(a.attackId));if(c)surfaces.set(h.enemyId,c);
+  }
+  impacts.set(a.attackId,{event:a,shown:o.tick,before:after+hit.damage,after,surfaces});
  }
  const active=[...impacts.values()].filter(a=>o.tick-a.shown<=8).slice(-1)[0];
  ctx.clearRect(0,0,360,260);ctx.fillStyle='#c4bea0';ctx.fillRect(194,0,32,260);ctx.strokeStyle='#a3a180';ctx.lineWidth=1;
@@ -80,12 +97,18 @@ function paint(from:object,o:Observation,ev:readonly CombatEvent[],alpha:number,
   const wanted=anchoredPosition(f.position,original,o.tick,f.fraction,size,effect);
   const guarded=stopBeforeEnemies(start,wanted,enemyPixels.map(e=>e.position),size);
   const pixel=cosmetic&&flightPixels.has(f.attackId)?flightPixels.get(f.attackId)!:guarded;
-  if(pixel){rasterFlights.push({attackId:f.attackId,raster:letter(pixel,size/563,true,enemyPixels.map(e=>e.position))});drawnFlights.push({attackId:f.attackId,position:pixel});}
+  if(pixel){rasterFlights.push({attackId:f.attackId,raster:letter(pixel,size/563,true,enemyPixels.map(e=>e.position))});drawnFlights.push({attackId:f.attackId,position:pixel});incoming.set(f.attackId,{position:pixel,targetId:original.targetId,tick:o.tick});}
 
  }
  if(active){for(const h of active.event.hits){const p=point(h.position),dead=!o.enemies.some(e=>e.id===h.enemyId);if(dead)enemy(p,0,active.before,true,true,Math.max(.35,1-(o.tick-active.shown)/12));
-  // Contact mark is stationary at the core hit position, never another flight.
-  if(o.tick-active.shown<=1){rasterContacts.push({attackId:active.event.attackId,raster:letter(p,size/563,true)});ctx.strokeStyle='#fff4cd';ctx.lineWidth=2;ctx.beginPath();ctx.arc(p.x,p.y,15,0,Math.PI*2);ctx.stroke();}
+  // The core hit snapshot stays p. Only the visual cue uses the incoming surface.
+  const surface=active.surfaces.get(h.enemyId);
+  if(surface&&o.tick===active.shown){
+   const obstacles=enemyPixels.map(e=>e.position),visible=contactVisible(surface,obstacles);
+   const drawn=visible?contactCue(surface,obstacles):{raster:null,protectedChanges:0};
+   surfaceContacts.push({attackId:active.event.attackId,enemyId:h.enemyId,coreHit:p,anchor:surface.anchor,direction:surface.direction,visible,protectedChanges:drawn.protectedChanges});
+   if(drawn.raster)rasterContacts.push({attackId:active.event.attackId,raster:drawn.raster});
+  }
   ctx.fillStyle='#713d26';ctx.font='bold 12px system-ui';ctx.fillText(dead?'처치':'−'+h.damage,p.x+17,p.y-4);
  }}
  const phase=active?'접촉·피해':windup?'준비':flight?(o.tick===flight.releaseTick?'방출':'비행'):'대기';
@@ -93,7 +116,8 @@ function paint(from:object,o:Observation,ev:readonly CombatEvent[],alpha:number,
  $('#ledger').textContent=active?`적 #${active.event.targetId} · HP ${active.before} → ${active.after} · 실제 피해 ${active.event.hits[0].damage}${active.after===0?' · 처치':''}`:'피해는 편지가 도착할 때 코어에서 확정됩니다.';
  document.querySelectorAll('.steps span').forEach(e=>e.classList.toggle('active',e.textContent===phase));
  flightPixels=new Map(drawnFlights.map(f=>[f.attackId,f.position]));
- audit.push({wall:performance.now(),tick:view.tick,phase,flights:view.flights.map(f=>f.attackId),hp:view.hp,pose,impact:active?[active.event.attackId]:[],flightPixels:drawnFlights,fraction:alpha,effect,letterSize:letterDimensions(size,effect),clearance:clearanceRadius(size),enemyPixels,contacts:active?active.event.hits.map(h=>({attackId:active.event.attackId,position:point(h.position)})):[],rasterFlights,rasterContacts});if(audit.length>4000)audit.shift();
+ incoming=new Map([...incoming].filter(([id])=>o.flights.some(f=>f.attackId===id)));
+ audit.push({wall:performance.now(),tick:view.tick,phase,flights:view.flights.map(f=>f.attackId),hp:view.hp,pose,impact:active?[active.event.attackId]:[],flightPixels:drawnFlights,fraction:alpha,effect,letterSize:letterDimensions(size,effect),clearance:clearanceRadius(size),enemyPixels,contacts:active?active.event.hits.map(h=>({attackId:active.event.attackId,position:point(h.position)})):[],rasterFlights,rasterContacts,surfaceContacts});if(audit.length>4000)audit.shift();
  return view;
 }
 function schedule(token:object){requestAnimationFrame(now=>{
@@ -111,7 +135,7 @@ function schedule(token:object){requestAnimationFrame(now=>{
 });}
 async function reset(tick=122,autoplay=true){
  owner={};const token=owner,currentGeneration=++generation;consumer.bind(owner);state=scenario(tick);observation=core.observe(state);events=[];impacts=new Map();audit.length=0;endTick=tick<140?136:160;accumulator=0;lastTime=0;lastPaint=0;paused=true;ready=false;
- retryScene={tick,autoplay};presentationAlpha=0;flightPixels=new Map();assets={};loadingStatus();
+ retryScene={tick,autoplay};presentationAlpha=0;flightPixels=new Map();incoming=new Map();assets={};loadingStatus();
  const loaded:Record<string,HTMLImageElement>={},measured:typeof effectMeasurements={};
  try {await Promise.all(['idle','anticipation','release','recovery','letter','letter8','letter10','letter12'].map(async name=>{const img=new Image();img.src=assetRoot+(name.startsWith('letter')&&name!=='letter'?'v7-letter/effects/v6-baseline-'+name.slice(6)+'px.png':name+'.png');await img.decode();if(name.startsWith('letter')&&name!=='letter')measured[name]=validateEffectImage(img,Number(name.slice(6)) as 8|10|12);loaded[name]=img;}));
  }catch{
