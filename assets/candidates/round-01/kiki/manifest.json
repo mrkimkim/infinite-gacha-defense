@@ -1,0 +1,3074 @@
+{
+  "schema_version": 1,
+  "task": "https://github.com/mrkimkim/infinite-gacha-defense/issues/4",
+  "dot": "키키",
+  "variant": "round-01",
+  "assignment_generation": 2,
+  "base_commit": "5848b28eb711dd0ee0dbca9fc973d519eea52ddf",
+  "assignment_url": "https://github.com/mrkimkim/infinite-gacha-defense/issues/4#issuecomment-6093797788",
+  "approval": {
+    "status": "pending",
+    "independent_reviews": [],
+    "production_selected": false
+  },
+  "rights_and_provenance": {
+    "basis": "New neutral capsule-guardian concept and tiles generated with OpenAI image_gen.imagegen; user-provided reference used for style/layout direction.",
+    "license": "No separate exclusive-rights or third-party-IP clearance assertion; candidate approval and rights review remain pending.",
+    "prompt_record": "PROMPTS.md",
+    "no_legacy_asset_import": true,
+    "reference_pixels_copied_into_package": false
+  },
+  "reference": {
+    "user_original_sha256": "aaa262539399848781ea841597c70d74e59a3ff3532447fb416bfd4a2de3ff95",
+    "user_original_dimensions_px": [
+      941,
+      1672
+    ],
+    "user_original_mode": "RGBA",
+    "user_original_byte_count": 2734243,
+    "source_verification": "Generating session visually inspected supplied original; assembly uses generated pieces only.",
+    "assigned_repo_path": "docs/reference/front-square-4x4.png",
+    "repo_reference_at_assigned_base": {
+      "sha256": "0014783902d050eff49e762b7da7e09a5c94144cc92c9d027171a9113ac9af63",
+      "dimensions_px": [
+        941,
+        1672
+      ],
+      "mode": "RGB",
+      "byte_count": 2398176,
+      "source": "docs/reference/README.md at assigned base; separate reference-repair task, not this package.",
+      "same_pixels_as_user_rgba_version": "not established"
+    },
+    "historical_initial_base": {
+      "commit": "62ca8d0fddb6b51fef596f91d6ad668c83cd3176",
+      "sha256": "8b7a13cba742638198a3ba06598d9161d636970b7be8a34167323e3aa83293fa",
+      "byte_count": 786445,
+      "decode_status": "Pillow.verify raised OSError: Truncated File Read; never used as decoded pixels in this package."
+    }
+  },
+  "assembly": {
+    "script": "assemble.py",
+    "pillow_version": "12.3.0",
+    "artwork_created_by_code": false,
+    "operations": [
+      "byte-for-byte copy originals",
+      "display-only crop",
+      "LANCZOS resize",
+      "right-angle rotate",
+      "alpha composite"
+    ],
+    "tile_display_sizes_px": [
+      144,
+      60
+    ],
+    "guardian_max_tile_fraction": 0.8,
+    "cell_foot_anchor_normalized": [
+      0.5,
+      0.9
+    ],
+    "guardian_cells_row_col": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "clockwise_perimeter_cells_row_col": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "clockwise_direction_note": "20-cell intended ordering recorded here; no arrows baked in and no runtime pathfinding/gameplay implied."
+  },
+  "originals": [
+    {
+      "path": "originals/cream-tile.png",
+      "format": "PNG",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          1254,
+          1254
+        ]
+      },
+      "byte_count": 1410348,
+      "sha256": "3f91420f324cb3eb754e455582977501807d8d76bebf4815b1960a0fa95e3857",
+      "asset_id": "kiki-round01-cream",
+      "variant": "cream-tile",
+      "provenance": {
+        "type": "AI-generated raster",
+        "tool": "image_gen.imagegen",
+        "generation_output_filename": "exec-10cd2ccc-7b6f-4576-8339-da85061b9731.png",
+        "original_bytes_preserved": true,
+        "prompt_record": "See PROMPTS.md when supplied by generating session."
+      },
+      "approval": "pending independent reviews and team selection",
+      "pivot": {
+        "source_px": [
+          627.0,
+          627.0
+        ],
+        "normalized": [
+          0.5,
+          0.5
+        ],
+        "purpose": "geometric tile center; not a measured foot"
+      },
+      "recommended_display": [
+        {
+          "tile_px": 144,
+          "dimensions_px": [
+            144,
+            144
+          ]
+        },
+        {
+          "tile_px": 60,
+          "dimensions_px": [
+            60,
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "path": "originals/mint-straight.png",
+      "format": "PNG",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          1254,
+          1254
+        ]
+      },
+      "byte_count": 1466594,
+      "sha256": "7b7d80e1ab5c4f501190ffffc8f959760fc6f86fb3703d98e7b9ed8e55f0da2d",
+      "asset_id": "kiki-round01-straight",
+      "variant": "mint-straight",
+      "provenance": {
+        "type": "AI-generated raster",
+        "tool": "image_gen.imagegen",
+        "generation_output_filename": "exec-1c7164eb-289f-486c-a535-eb49f2f281df.png",
+        "original_bytes_preserved": true,
+        "prompt_record": "See PROMPTS.md when supplied by generating session."
+      },
+      "approval": "pending independent reviews and team selection",
+      "pivot": {
+        "source_px": [
+          627.0,
+          627.0
+        ],
+        "normalized": [
+          0.5,
+          0.5
+        ],
+        "purpose": "geometric tile center; not a measured foot"
+      },
+      "recommended_display": [
+        {
+          "tile_px": 144,
+          "dimensions_px": [
+            144,
+            144
+          ]
+        },
+        {
+          "tile_px": 60,
+          "dimensions_px": [
+            60,
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "path": "originals/mint-corner-v3.png",
+      "format": "PNG",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          1254,
+          1254
+        ]
+      },
+      "byte_count": 1488897,
+      "sha256": "3d07b47d8123483423dbae62e0064addcde043319300a5acc162caf883b7f88c",
+      "asset_id": "kiki-round01-corner",
+      "variant": "mint-corner-v3",
+      "provenance": {
+        "type": "AI-generated raster",
+        "tool": "image_gen.imagegen",
+        "generation_output_filename": "exec-b362ae91-1d19-4326-8d03-1837516280f4.png",
+        "original_bytes_preserved": true,
+        "prompt_record": "See PROMPTS.md when supplied by generating session."
+      },
+      "approval": "pending independent reviews and team selection",
+      "pivot": {
+        "source_px": [
+          627.0,
+          627.0
+        ],
+        "normalized": [
+          0.5,
+          0.5
+        ],
+        "purpose": "geometric tile center; not a measured foot"
+      },
+      "recommended_display": [
+        {
+          "tile_px": 144,
+          "dimensions_px": [
+            144,
+            144
+          ]
+        },
+        {
+          "tile_px": 60,
+          "dimensions_px": [
+            60,
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "path": "originals/capsule-guardian-v2.png",
+      "format": "PNG",
+      "dimensions_px": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "present": true,
+        "extrema": [
+          0,
+          255
+        ],
+        "effective_extrema": [
+          0,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          47,
+          1166,
+          1278
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          112,
+          323,
+          1163,
+          1166
+        ],
+        "pixel_count_alpha_1": 3307
+      },
+      "byte_count": 916668,
+      "sha256": "36494b2a88a786a478d5dc8033df6524b816f345bc0ffd9545083d1d71f5ba56",
+      "asset_id": "kiki-round01-guardian",
+      "variant": "capsule-guardian-v2",
+      "provenance": {
+        "type": "AI-generated raster",
+        "tool": "image_gen.imagegen",
+        "generation_output_filename": "exec-f1737964-998b-433a-a551-3462b83f67bd.png",
+        "original_bytes_preserved": true,
+        "prompt_record": "See PROMPTS.md when supplied by generating session."
+      },
+      "approval": "pending independent reviews and team selection",
+      "recommended_display": [
+        {
+          "tile_px": 144,
+          "dimensions_px": [
+            115,
+            92
+          ]
+        },
+        {
+          "tile_px": 60,
+          "dimensions_px": [
+            48,
+            39
+          ]
+        }
+      ],
+      "pivot": {
+        "coordinate_system": "pixel-edge coordinates; pixel centers add 0.5",
+        "method": "Midpoint of the two alpha>=128 segments on the lowest visible row; visually checked as boots.",
+        "alpha_min": 128,
+        "contact_pixel_row": 1164,
+        "foot_contact_inclusive_x_ranges": [
+          [
+            401,
+            442
+          ],
+          [
+            799,
+            847
+          ]
+        ],
+        "source_px": [
+          622.75,
+          1164.5
+        ],
+        "source_normalized": [
+          0.5063008130081301,
+          0.911189358372457
+        ],
+        "display_crop_px": [
+          510.75,
+          841.5
+        ],
+        "display_crop_normalized": [
+          0.48596574690770694,
+          0.998220640569395
+        ]
+      },
+      "display_crop": {
+        "alpha_min_for_bbox_only": 8,
+        "bbox_xyxy": [
+          112,
+          323,
+          1163,
+          1166
+        ],
+        "dimensions_px": [
+          1051,
+          843
+        ],
+        "alpha_pixels_inside_unchanged_before_resize": true,
+        "warning": "Near-transparent stray pixels outside the visible bbox are omitted in display copies only. Original bytes and full alpha remain intact."
+      }
+    }
+  ],
+  "display_derivatives": [
+    {
+      "path": "display/144/cream.png",
+      "format": "PNG",
+      "dimensions_px": [
+        144,
+        144
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          144,
+          144
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          144,
+          144
+        ]
+      },
+      "byte_count": 16657,
+      "sha256": "26e326c0b865598ad1db66f408a2149ab4127226342f203474114fdc00e207e5",
+      "source_asset_id": "kiki-round01-cream",
+      "operations": [
+        "resize LANCZOS"
+      ],
+      "pivot_px": [
+        72.0,
+        72.0
+      ]
+    },
+    {
+      "path": "display/144/straight.png",
+      "format": "PNG",
+      "dimensions_px": [
+        144,
+        144
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          144,
+          144
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          144,
+          144
+        ]
+      },
+      "byte_count": 21124,
+      "sha256": "d152abef5f7441af57119643aabba2288edfe8bea767aee228574e518d589abd",
+      "source_asset_id": "kiki-round01-straight",
+      "operations": [
+        "resize LANCZOS"
+      ],
+      "pivot_px": [
+        72.0,
+        72.0
+      ]
+    },
+    {
+      "path": "display/144/corner.png",
+      "format": "PNG",
+      "dimensions_px": [
+        144,
+        144
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          144,
+          144
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          144,
+          144
+        ]
+      },
+      "byte_count": 24801,
+      "sha256": "ffde9aeff7988387b8d72b4115bf108ce691dd40d26d358088089a7d64279368",
+      "source_asset_id": "kiki-round01-corner",
+      "operations": [
+        "resize LANCZOS"
+      ],
+      "pivot_px": [
+        72.0,
+        72.0
+      ]
+    },
+    {
+      "path": "display/144/guardian.png",
+      "format": "PNG",
+      "dimensions_px": [
+        115,
+        92
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "present": true,
+        "extrema": [
+          0,
+          255
+        ],
+        "effective_extrema": [
+          0,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          115,
+          92
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          115,
+          92
+        ]
+      },
+      "byte_count": 19081,
+      "sha256": "b7eac8bb7f0b22a010c6b7b0d8b610368f7eeb6ec93b01da72921e1933619e67",
+      "source_asset_id": "kiki-round01-guardian",
+      "operations": [
+        "crop visible-alpha>=8 bbox for display only",
+        "aspect-preserving LANCZOS thumbnail"
+      ],
+      "pivot_px": [
+        55.8860608943863,
+        91.83629893238434
+      ],
+      "max_allowed_side_px": 115,
+      "aspect_ratio_rounding": "Integer raster dimensions are rounded by Pillow.thumbnail; no intentional stretch."
+    },
+    {
+      "path": "display/60/cream.png",
+      "format": "PNG",
+      "dimensions_px": [
+        60,
+        60
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          60,
+          60
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          60,
+          60
+        ]
+      },
+      "byte_count": 3228,
+      "sha256": "1622aae19036808791738e3f3df3b2bfe89a97f07d48eb067151e6c9302d6450",
+      "source_asset_id": "kiki-round01-cream",
+      "operations": [
+        "resize LANCZOS"
+      ],
+      "pivot_px": [
+        30.0,
+        30.0
+      ]
+    },
+    {
+      "path": "display/60/straight.png",
+      "format": "PNG",
+      "dimensions_px": [
+        60,
+        60
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          60,
+          60
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          60,
+          60
+        ]
+      },
+      "byte_count": 4505,
+      "sha256": "4ff87c3fe78029afe5c72ba1019e68fed20bdc0a8a640a334de793f893119a73",
+      "source_asset_id": "kiki-round01-straight",
+      "operations": [
+        "resize LANCZOS"
+      ],
+      "pivot_px": [
+        30.0,
+        30.0
+      ]
+    },
+    {
+      "path": "display/60/corner.png",
+      "format": "PNG",
+      "dimensions_px": [
+        60,
+        60
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          60,
+          60
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          60,
+          60
+        ]
+      },
+      "byte_count": 5058,
+      "sha256": "3440fb4ca03f340490d5a6c62131f58280f29630ef364edf77bf219baa4038a1",
+      "source_asset_id": "kiki-round01-corner",
+      "operations": [
+        "resize LANCZOS"
+      ],
+      "pivot_px": [
+        30.0,
+        30.0
+      ]
+    },
+    {
+      "path": "display/60/guardian.png",
+      "format": "PNG",
+      "dimensions_px": [
+        48,
+        39
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "present": true,
+        "extrema": [
+          0,
+          255
+        ],
+        "effective_extrema": [
+          0,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          48,
+          39
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          48,
+          39
+        ]
+      },
+      "byte_count": 4751,
+      "sha256": "81d47ccc4db60b0bc6ee2bd547d3af56ee9f47a0d91e4465e6593c167241e02e",
+      "source_asset_id": "kiki-round01-guardian",
+      "operations": [
+        "crop visible-alpha>=8 bbox for display only",
+        "aspect-preserving LANCZOS thumbnail"
+      ],
+      "pivot_px": [
+        23.326355851569932,
+        38.930604982206404
+      ],
+      "max_allowed_side_px": 48,
+      "aspect_ratio_rounding": "Integer raster dimensions are rounded by Pillow.thumbnail; no intentional stretch."
+    }
+  ],
+  "comparison_boards": [
+    {
+      "path": "comparison/board-864.png",
+      "format": "PNG",
+      "dimensions_px": [
+        864,
+        864
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          864,
+          864
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          864,
+          864
+        ]
+      },
+      "byte_count": 388992,
+      "sha256": "de781654ea88467c50b6aa5f0b36a3e9d194fb5af54856914270376eaadbce04",
+      "tile_display_px": 144,
+      "grid": [
+        6,
+        6
+      ],
+      "central_cream_grid": [
+        4,
+        4
+      ],
+      "cells": [
+        {
+          "row": 0,
+          "col": 0,
+          "source": "corner",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "source": "corner",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "source": "corner",
+          "rotation_clockwise_degrees": 270
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "source": "corner",
+          "rotation_clockwise_degrees": 180
+        }
+      ],
+      "guardian_placements": [
+        {
+          "row": 1,
+          "col": 1,
+          "display_dimensions_px": [
+            115,
+            92
+          ],
+          "top_left_px": [
+            160,
+            182
+          ],
+          "target_foot_px": [
+            216.0,
+            273.59999999999997
+          ],
+          "actual_foot_px": [
+            215.8860608943863,
+            273.83629893238435
+          ]
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "display_dimensions_px": [
+            115,
+            92
+          ],
+          "top_left_px": [
+            448,
+            326
+          ],
+          "target_foot_px": [
+            504.0,
+            417.59999999999997
+          ],
+          "actual_foot_px": [
+            503.8860608943863,
+            417.83629893238435
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "display_dimensions_px": [
+            115,
+            92
+          ],
+          "top_left_px": [
+            304,
+            470
+          ],
+          "target_foot_px": [
+            360.0,
+            561.6
+          ],
+          "actual_foot_px": [
+            359.8860608943863,
+            561.8362989323844
+          ]
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "display_dimensions_px": [
+            115,
+            92
+          ],
+          "top_left_px": [
+            592,
+            614
+          ],
+          "target_foot_px": [
+            648.0,
+            705.6
+          ],
+          "actual_foot_px": [
+            647.8860608943863,
+            705.8362989323844
+          ]
+        }
+      ],
+      "tile_seams": {
+        "status": "not seamless; observed curb and corner junction mismatch",
+        "metric": "RGB edge mean absolute difference, no pass/fail threshold; imagery only, not collision/path topology",
+        "all_60_adjacencies": [
+          {
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.4954
+          },
+          {
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.6273
+          },
+          {
+            "cells": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 87.5278
+          },
+          {
+            "cells": [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 87.5278
+          },
+          {
+            "cells": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 87.5278
+          },
+          {
+            "cells": [
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 31.2569
+          },
+          {
+            "cells": [
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 87.5278
+          },
+          {
+            "cells": [
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.4954
+          },
+          {
+            "cells": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 32.4977
+          },
+          {
+            "cells": [
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 28.9861
+          },
+          {
+            "cells": [
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 32.4977
+          },
+          {
+            "cells": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 28.9861
+          },
+          {
+            "cells": [
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                3,
+                0
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 32.4977
+          },
+          {
+            "cells": [
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                3,
+                1
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                3,
+                3
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 28.9861
+          },
+          {
+            "cells": [
+              [
+                3,
+                4
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 63.8542
+          },
+          {
+            "cells": [
+              [
+                3,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                4,
+                0
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 32.4977
+          },
+          {
+            "cells": [
+              [
+                4,
+                0
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 28.7407
+          },
+          {
+            "cells": [
+              [
+                4,
+                1
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 57.0301
+          },
+          {
+            "cells": [
+              [
+                4,
+                2
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                4,
+                2
+              ],
+              [
+                5,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 57.0301
+          },
+          {
+            "cells": [
+              [
+                4,
+                3
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 33.3403
+          },
+          {
+            "cells": [
+              [
+                4,
+                3
+              ],
+              [
+                5,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 57.0301
+          },
+          {
+            "cells": [
+              [
+                4,
+                4
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 28.9861
+          },
+          {
+            "cells": [
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 57.0301
+          },
+          {
+            "cells": [
+              [
+                4,
+                5
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 31.2569
+          },
+          {
+            "cells": [
+              [
+                5,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.6273
+          },
+          {
+            "cells": [
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                5,
+                2
+              ],
+              [
+                5,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                5,
+                3
+              ],
+              [
+                5,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 3.3565
+          },
+          {
+            "cells": [
+              [
+                5,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 28.7407
+          }
+        ]
+      }
+    },
+    {
+      "path": "comparison/board-360.png",
+      "format": "PNG",
+      "dimensions_px": [
+        360,
+        360
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "present": false,
+        "extrema": null,
+        "effective_extrema": [
+          255,
+          255
+        ],
+        "nonzero_bbox_xyxy": [
+          0,
+          0,
+          360,
+          360
+        ],
+        "bbox_alpha_ge_8_xyxy": [
+          0,
+          0,
+          360,
+          360
+        ]
+      },
+      "byte_count": 82019,
+      "sha256": "2f8617f06f3a7fa7d163512c6442df79dc4187e710a6b2ba05419ba1dbc922e4",
+      "tile_display_px": 60,
+      "grid": [
+        6,
+        6
+      ],
+      "central_cream_grid": [
+        4,
+        4
+      ],
+      "cells": [
+        {
+          "row": 0,
+          "col": 0,
+          "source": "corner",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "source": "corner",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "source": "cream",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "source": "straight",
+          "rotation_clockwise_degrees": 90
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "source": "corner",
+          "rotation_clockwise_degrees": 270
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "source": "straight",
+          "rotation_clockwise_degrees": 0
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "source": "corner",
+          "rotation_clockwise_degrees": 180
+        }
+      ],
+      "guardian_placements": [
+        {
+          "row": 1,
+          "col": 1,
+          "display_dimensions_px": [
+            48,
+            39
+          ],
+          "top_left_px": [
+            67,
+            75
+          ],
+          "target_foot_px": [
+            90.0,
+            114.0
+          ],
+          "actual_foot_px": [
+            90.32635585156993,
+            113.9306049822064
+          ]
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "display_dimensions_px": [
+            48,
+            39
+          ],
+          "top_left_px": [
+            187,
+            135
+          ],
+          "target_foot_px": [
+            210.0,
+            174.0
+          ],
+          "actual_foot_px": [
+            210.32635585156993,
+            173.9306049822064
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "display_dimensions_px": [
+            48,
+            39
+          ],
+          "top_left_px": [
+            127,
+            195
+          ],
+          "target_foot_px": [
+            150.0,
+            234.0
+          ],
+          "actual_foot_px": [
+            150.32635585156993,
+            233.9306049822064
+          ]
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "display_dimensions_px": [
+            48,
+            39
+          ],
+          "top_left_px": [
+            247,
+            255
+          ],
+          "target_foot_px": [
+            270.0,
+            294.0
+          ],
+          "actual_foot_px": [
+            270.32635585156993,
+            293.93060498220643
+          ]
+        }
+      ],
+      "tile_seams": {
+        "status": "not seamless; observed curb and corner junction mismatch",
+        "metric": "RGB edge mean absolute difference, no pass/fail threshold; imagery only, not collision/path topology",
+        "all_60_adjacencies": [
+          {
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 32.0167
+          },
+          {
+            "cells": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 27.9778
+          },
+          {
+            "cells": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 91.4889
+          },
+          {
+            "cells": [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 91.4889
+          },
+          {
+            "cells": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 91.4889
+          },
+          {
+            "cells": [
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 31.25
+          },
+          {
+            "cells": [
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 91.4889
+          },
+          {
+            "cells": [
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 32.0167
+          },
+          {
+            "cells": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 21.2222
+          },
+          {
+            "cells": [
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 56.6389
+          },
+          {
+            "cells": [
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 21.2222
+          },
+          {
+            "cells": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 56.6389
+          },
+          {
+            "cells": [
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                3,
+                0
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 21.2222
+          },
+          {
+            "cells": [
+              [
+                3,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                3,
+                1
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                3,
+                3
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 56.6389
+          },
+          {
+            "cells": [
+              [
+                3,
+                4
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 38.6111
+          },
+          {
+            "cells": [
+              [
+                3,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                4,
+                0
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 21.2222
+          },
+          {
+            "cells": [
+              [
+                4,
+                0
+              ],
+              [
+                5,
+                0
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 27.0333
+          },
+          {
+            "cells": [
+              [
+                4,
+                1
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 46.5889
+          },
+          {
+            "cells": [
+              [
+                4,
+                2
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                4,
+                2
+              ],
+              [
+                5,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 46.5889
+          },
+          {
+            "cells": [
+              [
+                4,
+                3
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 26.55
+          },
+          {
+            "cells": [
+              [
+                4,
+                3
+              ],
+              [
+                5,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 46.5889
+          },
+          {
+            "cells": [
+              [
+                4,
+                4
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 56.6389
+          },
+          {
+            "cells": [
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 46.5889
+          },
+          {
+            "cells": [
+              [
+                4,
+                5
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 31.25
+          },
+          {
+            "cells": [
+              [
+                5,
+                0
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 27.9778
+          },
+          {
+            "cells": [
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                2
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                5,
+                2
+              ],
+              [
+                5,
+                3
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                5,
+                3
+              ],
+              [
+                5,
+                4
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 4.1722
+          },
+          {
+            "cells": [
+              [
+                5,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "rgb_edge_mean_absolute_difference_0_255": 27.0333
+          }
+        ]
+      }
+    }
+  ],
+  "known_limitations": [
+    "Generated RGB tiles are opaque, including dark corner pixels; no false alpha claim.",
+    "Straight/corner curbs do not meet perfectly; visual seam and band-width mismatch remains.",
+    "Rotating baked highlights/shadows rotates the light direction; no global lighting consistency claim.",
+    "Guardian alpha=1 speckles enlarge the strict bbox; visible-alpha display crop hides padding but does not clean original alpha.",
+    "All display copies use one neutral temporary guardian; no role/rarity/UI/gameplay validation.",
+    "No browser gameplay, simulation, human playtest, peer approval, production adoption, commit, or publication performed by assembly."
+  ],
+  "visual_qa_record": "README.md; manual inspection must be repeated if inputs or assembly change."
+}
