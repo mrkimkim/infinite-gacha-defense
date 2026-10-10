@@ -1,5 +1,7 @@
 import type { CoreApi, CommandEvent, Location, RulesId } from '../core-v2/index.ts';
 import './v2-art.css';
+import './v2-board-skin.css';
+import { boardSkinReviewOption } from './v2-board-skin.ts';
 import { createV2Session } from './v2-session.ts';
 import { createV2Shell } from './v2-shell.ts';
 import { createV2Renderer } from './v2-view.ts';
@@ -22,7 +24,9 @@ export function mountV2Game(root: HTMLElement, api: CoreApi, seed: number, rules
   if (!rules) throw new Error('UNKNOWN_RULES');
   const session = createV2Session(seed, rulesId, api);
   const shell = createV2Shell(root);
-  const view = createV2Renderer(shell, api);
+  const view = createV2Renderer(shell, api, {
+    boardSkin: boardSkinReviewOption(root.ownerDocument.defaultView?.location.search ?? ''),
+  });
   const abort = new AbortController();
   let disposed = false;
   let fatal = false;
