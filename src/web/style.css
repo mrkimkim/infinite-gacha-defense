@@ -393,3 +393,9 @@ footer {
 }
 
 }
+
+/* Keep primary labels legible when the generic hover surface changes. */
+button.primary:hover:not(:disabled) {
+  background: #17483c;
+  color: #fff9e9;
+}

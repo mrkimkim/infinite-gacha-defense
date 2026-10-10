@@ -253,7 +253,8 @@ export function createView({ onCell, onOffer }: ViewCallbacks): {
       ? observation.units.find(unit => unit.id === selection.id) : undefined;
     const selectedOffer = selection?.kind === 'offer'
       ? observation.offers.find(offer => offer.slot === selection.slot) : undefined;
-    setText(selectionLabel, locked ? '편성 잠금 · 전투가 끝나면 다시 배치할 수 있습니다.' :
+    setText(selectionLabel, observation.phase === 'result' ? '경기 종료 · 같은 seed로 다시 도전할 수 있습니다.' :
+      locked ? '편성 잠금 · 전투가 끝나면 다시 배치할 수 있습니다.' :
       selectedOffer ? `${roleNames[selectedOffer.typeId]} 후보 선택 · 빈칸을 누르면 영입합니다.` :
       selectedUnit ? `${roleNames[selectedUnit.typeId]} 수호자 선택 · 빈칸은 이동, 다른 수호자는 교환합니다.` :
       '후보를 고르고 빈칸을 누르세요. 배치된 수호자를 누르면 이동·교환할 수 있습니다.');
