@@ -1,0 +1,35 @@
+{
+  "source_commit": "ab00e389296cec5116710468a22657cb93f68454",
+  "source_directory": "assets/candidates/popo-motion/momo/v7-letter",
+  "source_letter": "unchanged v6 original; no generated alternatives adopted",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "93d54d3052c5fd3aad35155ce6cc99668e8ccf2dee5c29b0f00dc1bf5c4ec4c6"
+    },
+    {
+      "file": "comparison-8-10-12.png",
+      "sha256": "c9ea6721c82361699509be37fbc559a9c388d5422b096eba38f487832652d9f7"
+    },
+    {
+      "file": "detached-flight-comparison.png",
+      "sha256": "224a268af65aa77a69d440aff81fd390fa6f0d48d57a815d9f0ce0b63a1ebb2b"
+    },
+    {
+      "file": "effects/v6-baseline-10px.png",
+      "sha256": "c3089e08695d50191b26350bc34f4cc1f3a3ae4e5d5097ed792fb852cb0e2ea1"
+    },
+    {
+      "file": "effects/v6-baseline-12px.png",
+      "sha256": "ae2696edf1a1544d9596b96c0eac423caacf37cb93bbbd5688aa33d2f143b154"
+    },
+    {
+      "file": "effects/v6-baseline-8px.png",
+      "sha256": "17f8fdf20fc1fe90dbf544088e82de7efaefdf23519084847ccf224d461fe8e4"
+    },
+    {
+      "file": "measurements.json",
+      "sha256": "6e79debbcb7cc56f0cf5743dfdb8a4f15f1d113fe49c05b1f21cfb8d50daa5db"
+    }
+  ]
+}
