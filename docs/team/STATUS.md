@@ -1,45 +1,44 @@
 # 현재 상태
-기준일: 2026-10-10 UTC
-단계: 승인된 문서 초기화. 게임 구현 없음. 실제 게시 커밋은 GitHub 기록으로 확인합니다.
+
+관찰 시각: 2026-10-10 03:15:35 UTC. Issue #1/#2 본문과 댓글을 직접 조회한 시점의 요약입니다. 이후 변경은 최신 Issue를 우선합니다.
 
 ## 시작 게이트
-| 게이트 | 상태 | 근거/다음 행동 |
+| 게이트 | 상태 | 근거 |
 |---|---|---|
-| G1 저장소·공개·접근 확인 | partial | 소유자 생성 공개 저장소 확인. 각 동료의 접근 체크인은 미완료. ACCESS_CHECK.md 참조 |
-| G2 두 동료 온보딩 | pending | 모모·키키 실제 체크인 없음 |
-| G3 소유자 게시·병합 승인 | approved | 2026-10-10 공개 게시·팀 소통·Issue/브랜치/PR·MVP까지 리뷰/테스트 후 리더 병합 승인. 초기 문서 게시 예외만 적용 |
+| G1 공개 저장소·팀 소통 접근 | confirmed | 세 닷의 저장소 읽기/댓글 쓰기 확인. 각 실행·브라우저·이미지 생성 능력은 체크인에 적힌 실제 범위만 인정 |
+| G2 두 동료 온보딩 왕복 | confirmed | 모모·키키 capability와 리더 회신 및 동료 반환 확인을 아래 링크로 확인 |
+| G3 공개 게시·리더 운영/병합 승인 | approved | 2026-10-10 소유자 승인. 프로젝트 공개·팀 소통·Issue/브랜치/PR·MVP까지 리뷰/테스트 후 리더 병합. 배포·권한 확대는 제외 |
 
-저장소: https://github.com/mrkimkim/infinite-gacha-defense (공개). 소유자가 생성했으며 연결 조회로 확인됨.
-저장소 ID: 1412687708. 보고된 기본 브랜치: main. 조회 시 size: 0; 초기 커밋 SHA: cd3af3b63b64047497ff94aeb278eebbe3b507f1 (README만 있는 Initial commit 확인).
-검증된 온보딩 Issue: https://github.com/mrkimkim/infinite-gacha-defense/issues/1 (리더 생성).
-참고 이미지: 리더에게 실제 자료가 지정됨. 이 초기화 실행에서는 이미지 파일 접근이 완료되지 않아 시각 검토·저장소 이미지 게시 미실시. 리더가 이어서 처리.
+게이트 확인은 설계 합의·작업 배정·구현 승인·게임 검증 완료와 다릅니다. 설계·아트 의견은 셋이 동등하며 리더의 추가 권한은 조율·배정·일정뿐입니다.
 
-## 작업 원장 요약
-| 작업 | 상태 | owner | generation | base | 범위 |
-|---|---|---|---|---|---|
-| 초기 프로토콜 게시 | integrated | 리더 위임 초기화 실행 | n/a: 초기화 예외 | cd3af3b63b64047497ff94aeb278eebbe3b507f1 | AGENTS·docs/team·GitHub 템플릿 |
-| 리더 독립 제안 | proposed | 미배정 | 0 | 미정 | 미정 |
-| 모모 독립 제안 | proposed | 미배정 | 0 | 미정 | 미정 |
-| 키키 독립 제안 | proposed | 미배정 | 0 | 미정 | 미정 |
+## 실제 연결 증거
+- [온보딩 #1](https://github.com/mrkimkim/infinite-gacha-defense/issues/1)
+- 모모: [capability/KICKOFF-001](https://github.com/mrkimkim/infinite-gacha-defense/issues/1#issuecomment-6093178628) → [리더 수신 확인](https://github.com/mrkimkim/infinite-gacha-defense/issues/1#issuecomment-6093186548) → [리더 회신 재확인](https://github.com/mrkimkim/infinite-gacha-defense/issues/1#issuecomment-6093196057).
+- 키키: [capability](https://github.com/mrkimkim/infinite-gacha-defense/issues/1#issuecomment-6093155915) → [리더 LEADER-KIKI-001](https://github.com/mrkimkim/infinite-gacha-defense/issues/1#issuecomment-6093168192) → [실제 반환 ACK](https://github.com/mrkimkim/infinite-gacha-defense/issues/1#issuecomment-6093196802).
+- 모모의 첫 제안은 비블라인드입니다. 타안을 읽었다고 공개했으며 리더가 첫 라운드 예외로 수용했습니다. 독립 판단을 요구하되 블라인드 출처를 꾸미지 않습니다.
 
-위의 준비 세션은 모모/키키를 대행하지 않습니다. 구현 소유권은 존재하지 않습니다.
-다음 단계: 승인된 초기 문서/온보딩 Issue 게시 → 동료 접근 확인과 실제 이미지 전달 → 독립 제안·교차 검토 → 최소 슬라이스 결정. 온보딩 Issue 생성은 리더가 담당하며 이 문서 준비 실행은 중복 생성하지 않음.
-기획 Issue 초안은 docs/team/issue-drafts/에 있으며 아직 Issue로 게시하지 않음. 온보딩 초안은 기존 #1 참고용이며 중복 생성하지 않음.
-체크포인트: 초기 문서 14개를 커밋 9e76521037c09ee2ae5027efa1edec1d6fbab4a4에서 게시·본문 일치 확인. 게임 구현 없음. 기존 저장소 미수정. 서브에이전트 온보딩, 실제 동료 리뷰, 브라우저 플레이, 사람 플레이는 실시하지 않음.
+## 킥오프와 참여
+[실제 킥오프 #2](https://github.com/mrkimkim/infinite-gacha-defense/issues/2)는 진행 중입니다. 초안 파일은 기록/참고용이며 Issue를 중복 생성하지 않습니다.
 
-## MVP 전체 참여 증거
-| 닷 | 독립 기획 제안 | 실제 에셋 후보 | 브라우저 플레이 | 동료 리뷰 |
-|---|---|---|---|---|
-| 리더 | pending | pending | pending | pending |
-| 모모 | pending | pending | pending | pending |
-| 키키 | pending | pending | pending | pending |
+| 닷 | 본인 제안 | 동료 문서 리뷰 | 제작용 후보 / 실제 게임 플레이 |
+|---|---|---|---|
+| 리더 | [제안](https://github.com/mrkimkim/infinite-gacha-defense/issues/2#issuecomment-6093164637) | [키키안](https://github.com/mrkimkim/infinite-gacha-defense/issues/2#issuecomment-6093171649), [모모안](https://github.com/mrkimkim/infinite-gacha-defense/issues/2#issuecomment-6093200011) | 미확인 / 미실시 |
+| 모모 | [비블라인드 본인 제안](https://github.com/mrkimkim/infinite-gacha-defense/issues/2#issuecomment-6093187173) | [두 동료안](https://github.com/mrkimkim/infinite-gacha-defense/issues/2#issuecomment-6093192569) | 미확인 / 미실시 |
+| 키키 | [고정 제안](https://github.com/mrkimkim/infinite-gacha-defense/issues/1#issuecomment-6093163784) | [두 동료안](https://github.com/mrkimkim/infinite-gacha-defense/issues/2#issuecomment-6093202375) | 기능 점검 이미지는 제작용 후보가 아님 / 미실시 |
 
-최종 통합 SHA / verified 증거: 없음.
-처리한 message-id 원장: 아직 없음. 재개 시 중복 ID를 재적용하지 않음.
+세 제안과 실제 교차 리뷰가 존재합니다. 전체 킥오프 합의 완료로 선언하지 않습니다. 가역 실험 기본안의 공통점과 합성·제3역할·배치/대기석 상한 등 남은 논점을 리더가 최신 댓글에 따라 정리해야 합니다. 최종 규칙·수치 및 파일 범위/세대가 있는 구현 배정은 이 상태표에서 새로 확정하지 않습니다.
 
-## 사용자 소통
-사용자는 리더와만 소통합니다. 동료의 배정·질문·확인·리뷰·진행·차단 보고는 GitHub의 검증된 Issue/PR에서 리더를 통해 처리합니다. 모모·키키는 사용자에게 메시지 중계나 자료 전달을 요구하지 않습니다. 리더가 사용자 판단 사항을 모아 질문하고 답을 GitHub에 전달합니다. 최초 접속 자체가 불가능하면 연결 차단으로 기록하며 동료가 연결되었다고 가정하지 않습니다.
-실제 모모·키키 연결: 미확인. capability 체크인과 리더 ACK 왕복이 있어야 연결 완료. 실제 참고 자료: 지정됨. 파일 게시·각 닷의 시각 검토는 대기.
+## 게시된 자료
+- 저장소: https://github.com/mrkimkim/infinite-gacha-defense (public).
+- 초기 문서 14개 및 동등 권한 수정 검증 커밋: 4957bb2dd76e840ba2e7f80444feb97d4cd9c89a.
+- 원본 참고 PNG와 메타데이터 게시 커밋: eff5457e548ed953d0fe7c415a3de0f18153fdac.
+- [공통 참고 PNG](../reference/front-square-4x4.png), [출처/검증 범위](../reference/README.md). UI 수치는 예시이며 확정 규칙이 아닙니다.
+- 두 실제 동료는 원본 이미지 확인을 보고했습니다. 이 문서 초기화 실행 환경은 픽셀을 열지 못했고 지정 blob의 원격 연결만 검증했습니다.
+- 초기화 예외는 문서/참고 자료 게시에만 적용했습니다. 동료 설계 리뷰와 게임 구현 리뷰를 혼동하지 않습니다.
+- 게임 구현·실제 게임 브라우저 조작·사람 플레이·최종 게임 verified는 아직 미실시. 기존 infinite-gacha는 수정하지 않음.
 
-## 동등한 설계 권한
-리더·모모·키키의 설계·아트 의견과 토론 권한은 동등합니다. 리더의 추가 권한은 조율·배정·일정 운영뿐이며, 자신의 제안에 우선권을 주거나 설계를 단독 결정하지 않습니다. 일정 결정을 빌려 콘텐츠를 결정하지 않습니다. 합의한 비교 기준과 실험으로 이견을 다루고, 중요한 미해결 사안은 리더가 사용자에게 모아 전달합니다. 팀이 명시적으로 동의한 되돌릴 수 있는 실험 기본안을 사용할 수 있으며, 끝없는 만장일치를 강제하거나 침묵을 동의로 간주하지 않습니다.
+## 활성 협업과 복구
+사용자 승인하에 킥오프/MVP 작업이 활성 상태입니다. 실제 동료 간 연락·질문·리뷰·차단은 GitHub에서 리더를 통하며 사용자는 리더와만 소통합니다.
+승인된 활성 세션에서 필요한 후속 확인은 계속합니다. 회의/응답 대기 중 2–3분, 독립 작업 중 5–10분 확인을 운영 제안으로 둡니다. 이는 새 영구 서비스나 무기한 실행 보장이 아닙니다.
+계속 실행할 수 없는 닷은 제한과 체크포인트를 명시하고, 재개 시 최신 Issue/main/배정 세대를 확인합니다. 글 한 번 게시했다는 이유만으로 승인된 유한 목표가 끝난 것으로 처리하지 않습니다.
+상태 반영 시 message-id를 중복 적용하지 않습니다. 위 링크의 실제 메시지를 근거로 사용하며 원장과 다른 세대는 리더에게 확인합니다.
