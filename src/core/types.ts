@@ -1,4 +1,4 @@
-/** API-only checkpoint. Runtime behavior is not implemented yet. */
+/** Shared public types for the first technical profile. */
 export type DeepReadonly<T> = T extends object
   ? { readonly [K in keyof T]: DeepReadonly<T[K]> }
   : T;
