@@ -8,7 +8,7 @@ Issue: [#3](https://github.com/mrkimkim/infinite-gacha-defense/issues/3) · owne
 
 ## 1. 범위와 단일 원본 — 제안 P1
 
-첫 프로필은 단일/범위 두 역할, 5웨이브, 한 바퀴 누수, 배치 최대4입니다. 다음 growth 프로필만 동일1성3→2성 합성과 대기석3을 엽니다. 첫 프로필 대기석0은 새 제안입니다. 둔화/지원 A/B는 이후 별도 계약으로 분리합니다.
+첫 프로필은 단일/범위 두 역할, 5웨이브, 한 바퀴 누수, 배치 최대4입니다. 다음 growth 프로필만 동일1성3→2성 합성과 대기석3을 엽니다. 첫 프로필 대기석0은 기술 프로필에 한정한 제안입니다. 벤치0·판매 없음으로 배치4가 차면 추가 영입/편성 전환이 막히므로 이 프로필을 경제·가챠·전환 재미의 검증 근거로 사용하지 않습니다. 두 동료의 조건부 수용이며 전체 계약 승인은 아닙니다. 둔화/지원 A/B는 이후 별도 계약으로 분리합니다.
 
 순수 TypeScript 코어 하나가 상태·명령 타입, 데이터, 좌표/경로, 검증, PRNG, tick, 직렬화를 소유합니다. 브라우저/Node CLI/봇은 같은 exports를 import합니다. 이번 문서는 실제 파일 구조·패키지·생산 코드를 만들지 않습니다. ECS·플러그인 프레임워크는 필요 없습니다.
 
@@ -32,7 +32,7 @@ UI는 입력→명령 변환과 그리기, CLI는 실행·파일 입출력만 �
 - 모든 수치·좌표·HP·cooldown·tick은 안전한 정수. tick은 50ms, 즉 20Hz 제안. 부동소수 물리와 벽시계 사용 금지.
 - 전역 nextEntityId는 1부터 시작해 유닛/적 생성 때 하나씩 증가. ID 재사용 없음. 초기화/새 경기만 reset. 타입 ID는 single / splash / basic처럼 고정 ASCII.
 - seed는 1..4294967295 정수만 허용. 잘못된 seed는 경기 생성 실패; 임의 보정 없음.
-- PRNG 제안: uint32 xorshift32. x ^= x << 13; x ^= x >>> 17; x ^= x << 5; 매 추출 후 x >>> 0. 상태는 rngState 하나. 초기값은 seed. 모집 후보 한 개당 한 번 추출해 값 % 2로 single/splash 선택. 전투에는 난수 없음. 이는 편향이 없는 2종 동일 확률 실험이며 가중 가챠의 최종 설계가 아닙니다.
+- PRNG 제안: uint32 xorshift32. x ^= x << 13; x ^= x >>> 17; x ^= x << 5; 매 추출 후 x >>> 0. 상태는 rngState 하나. 초기값은 seed. 모집 후보 한 개당 한 번 추출해 값 % 2로 single/splash 선택. 전투에는 난수 없음. 0을 제외한 홀수 길이 주기에 따른 극미한 %2 편향을 첫 기술 실험에서 허용하는 제안이며 엄밀한 무편향·제품 확률 보장이나 최종 가중 가챠 설계가 아닙니다.
 - PRNG 구현·테스트 벡터는 코어 단일 원본. Math.random·Date.now·호스트 순회 순서로 결과를 정하지 않습니다.
 
 ## 3. 명령과 원자적 거부 — 제안 P3
@@ -48,8 +48,32 @@ UI는 입력→명령 변환과 그리기, CLI는 실행·파일 입출력만 �
 | startWave {} | preparation, 보드 유닛1개 이상. combat, waveTick=0, spawnCursor=0, 모든 배치 유닛 cooldown=0 |
 | merge {ids:[a,b,c],keepId} | growth의 preparation에서만. §7 적용. 첫 프로필에서는 거부 |
 
+
+
+정확한 JSON shape 제안(따옴표는 JSON의 큰따옴표, 각 variant에 적힌 키만 허용):
+```text
+Location =
+  {"kind":"board","col":integer(0..3),"row":integer(0..3)}
+  | {"kind":"bench","slot":integer(0..2)}
+Command =
+  {"type":"recruit","offerSlot":integer(0..2),"to":Location}
+  | {"type":"move","unitId":positiveSafeInteger,"to":Location}
+  | {"type":"swap","aId":positiveSafeInteger,"bId":positiveSafeInteger}
+  | {"type":"startWave"}
+  | {"type":"merge","ids":[positiveSafeInteger,positiveSafeInteger,positiveSafeInteger],
+     "keepId":positiveSafeInteger}
+```
+merge.ids는 정확히3개이며 중복 불가, keepId는 그중 하나입니다. bench shape가 유효해도 벤치0 프로필에서는 목적지 거부입니다. ID는 문자열이 아닌 양의 안전한 정수입니다. null/배열/누락 키/추가 키를 object variant 대신 받지 않습니다. startWave의 정확한 표현은 {"type":"startWave"}이며 {}는 표의 인자 없음 표기입니다.
+
 보관 이동은 move의 목적지를 bench로 지정합니다. 별도 place는 recruit의 board 목적지 또는 bench→board move를 뜻하며 중복 명령을 만들지 않습니다. 판매·리롤·전투 중 편성·수동 공격 명령은 이번 계약에 없습니다.
-pause는 어댑터가 advance 호출을 멈추는 행위입니다. 재시작은 result에서 새 seed 또는 같은 seed로 createMatch를 호출하는 새 경기이며 이전 리플레이를 먼저 보존합니다. 진행 중 재시작/저장 복구는 후속 범위입니다.
+pause는 어댑터가 advance 호출을 멈추는 행위입니다. **숨김 탭도 자동 일시정지**로 취급합니다. 사용자 pause와 hidden flag를 따로 유지하고 둘 중 하나라도 참이면 진행하지 않습니다.
+- pause/hidden 진입과 재개 경계에서 accumulator=0, lastTimestamp=null, schedulerEpoch를 증가시키고 예약된 callback을 취소합니다.
+- callback은 예약 당시 epoch와 match 인스턴스 식별자를 캡처합니다. 현재 값과 다르거나 paused/hidden/result이면 advance·명령 dispatch 전에 즉시 폐기합니다.
+- 재개 후 첫 callback은 timestamp만 저장하고 tick을 실행하지 않습니다. 이전 벽시계 시간은 따라잡지 않습니다. visible 복귀도 사용자가 수동 pause 중이면 자동 재개하지 않습니다.
+- 이후 정상 dt만 accumulator에 쌓고 고정50ms 단위로 advance합니다. dt<0 또는 dt>250ms는 긴 중단으로 간주해 accumulator를 버리고 timestamp를 새로 잡으며 해당 callback은 tick0입니다(250ms 임계값은 새 운영 제안). 보이지 않던 동안의 전투·스폰을 몰아서 실행하지 않습니다.
+- 웨이브 종료/결과/새 경기 경계도 accumulator를 비우고 epoch를 갱신합니다. 남은 tick을 다음 준비 구간에 넘기지 않습니다. CLI는 벽시계 없이 명시한 tick만 진행합니다.
+
+재시작은 result에서 새 seed 또는 같은 seed로 createMatch를 호출하는 새 경기이며 이전 리플레이를 먼저 보존합니다. 진행 중 재시작/저장 복구는 후속 범위입니다.
 
 ## 4. 실제 닫힌 정사각형 경로 — 제안 P4
 
@@ -115,8 +139,17 @@ same-star3→2의 기술 계약 뒤에만 성장 실험을 켭니다. 성장 프
 - 거부된 명령은 authoritative log에 넣지 않습니다. 관측용 오류 기록은 별도.
 - 재생은 현재 tick=atTick/startTick 확인 후 동일 코어 호출. 생성 이벤트를 재계산해 기록과 비교; 로그가 ID를 강제로 삽입하지 않음.
 
-canonicalState는 acceptedLog와 저장된 digest 자체를 제외한 모든 결정 상태를 포함합니다. 문자열 키를 ASCII 오름차순 정렬한 JSON, 공백 없음, UTF-8; 숫자는 안전한 정수, 배열은 offers는 slot순, units/enemies는 numeric id순, 선택 필드는 null로 명시하고 undefined 금지. phase/result는 고정 enum. 상태 해시는 이 bytes의 SHA-256 소문자 hex. SHA-256은 tick 로직 밖에서 계산하고 브라우저/CLI가 같은 canonicalState bytes를 사용합니다.
-규칙 digest도 같은 canonical JSON 규칙으로 계산합니다. 상태해시와 acceptedLog 일치 검증은 별도이며 해시 하나가 로그 출처를 증명하지 않습니다.
+canonicalState의 루트 키는 정확히 schemaVersion, rulesId, **rulesDigest**, seed, rngState, nextEntityId, tick, phase, outcome, wave, waveTick, spawnCursor, lives, gold, offers, units, enemies입니다. 이 키들의 모든 중첩 데이터도 포함합니다. schemaVersion/rulesId/rulesDigest는 제외하지 않습니다.
+제외는 acceptedLog 및 코어 밖 진단/뷰/어댑터 값뿐입니다. stateHash는 계산 결과로 반환하는 envelope 값이며 코어 상태에 저장하지 않습니다(자기참조 없음). 미래 상태 필드는 스키마 버전과 이 명시적 투영을 함께 갱신해야 하며 임의 누락할 수 없습니다. 문자열 키를 ASCII 오름차순 정렬한 JSON, 공백 없음, UTF-8; 숫자는 안전한 정수, 배열은 offers는 slot순, units/enemies는 numeric id순, 선택 필드는 null로 명시하고 undefined 금지. phase/result는 고정 enum. 상태 해시는 이 bytes의 SHA-256 소문자 hex. SHA-256은 tick 로직 밖에서 계산하고 브라우저/CLI가 같은 canonicalState bytes를 사용합니다.
+규칙 digest는 schemaVersion, rulesId와 실제 모집·유닛·적·웨이브·경로·상한·시간·PRNG 정의 데이터 전체를 같은 canonical JSON 규칙으로 직렬화한 SHA-256입니다. rulesDigest 필드 자체, 주석·표시 전용 메타데이터만 제외합니다. 배열 순서는 의미 있는 규칙 데이터 순서를 유지하며 객체 키만 정렬합니다. 상태해시와 acceptedLog 일치 검증은 별도이며 해시 하나가 로그 출처를 증명하지 않습니다.
+
+**batching 동등성:** 같은 초기 seed/규칙에서 같은 simulation tick에 같은 순서의 논리 command를 적용하고 같은 tick까지 진행하면 canonicalState/상태 해시/엔티티 ID/게임 결과는 같아야 합니다. advance(100)과 advance(1)×100은 이 상태 동등성 대상이지만 acceptedLog의 seq·entry 수는 달라질 수 있습니다. 원문 로그 바이트 일치는 동일 advance batching까지 제공했을 때만 요구합니다. command의 atTick과 command들 사이 상대 순서는 같아야 하며 raw seq는 batching 간 비교하지 않습니다. 준비/결과 전환으로 조기 종료되면 동일한 실제 종료 tick에서 비교합니다. 로그 정규화 프레임워크는 이번 계약에 추가하지 않습니다.
+
+**replay 실패 계약:** replay는 현재 경기 객체를 받거나 수정하지 않고 임시 경기에서 실행합니다.
+1. 경기 생성 전에 header의 정확한 shape {schemaVersion,rulesId,rulesDigest,seed}, 지원 schemaVersion, 등록된 rulesId, 로컬 규칙 digest의 일치, seed와 모든 entry shape/seq 연속성을 검증합니다. 실패 시 createMatch/명령 적용/난수 추출을 시작하지 않습니다.
+2. entry 적용 전 atTick/startTick이 임시 경기 tick과 같은지 확인합니다. command 거부, 실행 tick 수 차이, 생성/소모 ID 이벤트 불일치는 즉시 실패입니다. 이벤트는 코어가 계산하고 로그는 이를 덮어쓰지 않습니다.
+3. 성공은 {ok:true,state}이며 선택적인 expectedFinalHash 검증을 요청했다면 해시 일치 후에만 반환합니다. 실패는 {ok:false,error:{code,entryIndex|null}}만 반환하고 임시 경기·로그를 폐기합니다. 부분 재생 상태나 RNG를 정상 경기로 반환하지 않습니다. 기존 UI 경기는 성공 시에만 교체합니다.
+4. 오류 code: BAD_FORMAT, UNSUPPORTED_SCHEMA, UNKNOWN_RULES, RULES_DIGEST_MISMATCH, BAD_SEED, BAD_SEQUENCE, TICK_MISMATCH, COMMAND_REJECTED, ADVANCE_MISMATCH, EVENT_MISMATCH, FINAL_HASH_MISMATCH. header 오류의 entryIndex는 null, entry 오류는0부터 시작하는 인덱스입니다. 오류 메시지/관측용 진단은 상태 해시에 포함하지 않습니다.
 
 observe는 현재 보드/벤치/적/후보/재화/phase/tick/공개 규칙만 반환합니다. 봇에 seed, rngState, 미래 후보열, 코어 상태 참조나 replay header를 주지 않습니다. 봇은 observe와 합법 명령 인터페이스로만 행동합니다. 봇 자체 난수는 게임 PRNG와 분리된 botSeed를 사용하고 미래 가챠 결과를 엿보는 평가를 금지합니다. 로컬 게임의 정보 경계이며 악의적인 클라이언트 보안 보장은 아닙니다.
 
@@ -135,3 +168,6 @@ observe는 현재 보드/벤치/적/후보/재화/phase/tick/공개 규칙만 �
 - 실제 브라우저 시작→구매/배치→5웨이브 결과→재시작과 패배 경로. 봇 승리를 재미 증거로 쓰지 않음.
 
 최종 게임 분량·메타 성장·제3역할·누적 패배 규칙·정식 상한은 이 계약 밖의 후속 공동 판단입니다.
+
+## 변경 검토 요청
+모모 [6093284745](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093284745), 키키 [6093324107](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093324107)의 실제 changes_requested를 반영한 문서 수정 제안입니다. batching 동등성, JSON shape, 리플레이의 사전 검증/원자적 실패, digest 투영, pause/hidden/stale callback 규칙을 새 SHA에서 재검토해야 합니다. 첫 기술 프로필은 편성·경제 재미 검증이 아닙니다. 이전 SHA의 조건부 동의를 현재 SHA 전체 승인으로 승계하지 않습니다.

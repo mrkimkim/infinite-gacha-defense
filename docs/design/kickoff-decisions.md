@@ -49,3 +49,7 @@ Issue [#3](https://github.com/mrkimkim/infinite-gacha-defense/issues/3), owner �
 최종 한 판 길이·웨이브/콘텐츠 수·메타 성장, XP 이전의 최종 채택, 누수/누적 최종 규칙, 제3역할, 정식 배치/대기석 상한은 미확정입니다.
 사용자는 리더와만 소통합니다. 세 닷의 설계·아트 의견은 동등합니다. 리더는 배정·일정·합의/이견 기록을 맡으며 단독 설계 타이브레이크가 없습니다. 중요한 미해결 사안은 합의한 비교 기준/실험을 거쳐 리더가 사용자에게 모아 전달합니다.
 이번 Issue의 완료는 두 동료가 현재 초안 SHA를 실제 읽고 구현 가능성과 P1–P8을 검토한 뒤 필요한 규칙을 해결하는 것입니다. 이 PR은 그 검토를 시작하는 문서 산출물이며 병합·생산 코드·게임 테스트는 포함하지 않습니다.
+
+## PR #6 실제 리뷰와 보완 상태
+모모 [6093284745](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093284745)와 키키 [6093324107](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093324107)는 9b57657817df202823f352ea018507437cb42d53을 읽고 changes_requested를 남겼습니다. 전체 승인이 아닙니다.
+두 동료가 첫 벤치0·판매 없음을 수용한 범위는 기술 프로필뿐이며 편성 전환·경제·가챠 재미 증거로 사용하지 않습니다. 상태/로그 batching 동등성, 정확한 명령 JSON, 리플레이 실패, canonical digest 포함 범위, 일시정지·숨김 탭 누적시간 및 stale callback 폐기 계약을 보완했습니다. 250ms 긴 dt 경계와 구체 실패 반환 등 새 명시는 동료의 새 SHA 재검토 대상입니다.
