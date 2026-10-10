@@ -2,53 +2,10 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import * as core from '../../src/core-v2/index.ts';
 import type { MatchState, Observation, ObservedUnit } from '../../src/core-v2/index.ts';
-import type { V2ShellRefs } from '../../src/web/v2-shell.ts';
 import { createV2Renderer } from '../../src/web/v2-view.ts';
 
-/** Small DOM sink for projection regression only; no layout or browser claims. */
-class ElementSink {
-  textContent = '';
-  hidden = false;
-  disabled = false;
-  title = '';
-  className = '';
-  dataset: Record<string, string> = {};
-  attributes = new Map<string, string>();
-  children: ElementSink[] = [];
-  previousElementSibling: ElementSink | null = null;
-  following: ElementSink | null = null;
-  removed = false;
-  classList = { toggle: (_name: string, _force: boolean) => {} };
-  ownerDocument = {
-    createElement: (_tag: string) => new ElementSink(),
-    createElementNS: (_namespace: string, _tag: string) => new ElementSink(),
-    createDocumentFragment: () => new ElementSink(),
-  };
-  setAttribute(name: string, value: string) { this.attributes.set(name, value); }
-  getAttribute(name: string) { return this.attributes.get(name) ?? null; }
-  querySelector(_selector: string) { return null; }
-  append(...nodes: ElementSink[]) { this.children.push(...nodes); }
-  replaceChildren(...nodes: ElementSink[]) { this.children = nodes; }
-  after(node: ElementSink) { this.following = node; }
-  remove() { this.removed = true; }
-}
-function shellSink() {
-  const elements = Object.fromEntries([
-    'root', 'phase', 'wave', 'gold', 'enemyPressure', 'capacity', 'enemyCount', 'bossTime', 'segmentTime',
-    'wavePreview', 'arena', 'board', 'enemyLayer', 'bench', 'benchCount', 'offers', 'rerollButton', 'rerollCost',
-    'selectionPanel', 'selectedName', 'selectedDetail', 'selectedStats', 'attack', 'attackSpeed', 'range',
-    'recruitButton', 'recruitPreview', 'sellButton', 'cancelButton', 'synergies', 'synergyList', 'synergyCount',
-    'startButton', 'pauseButton', 'message',
-  ].map(key => [key, new ElementSink()]));
-  elements.attackSpeed.previousElementSibling = new ElementSink();
-  elements.attackSpeed.previousElementSibling.textContent = '공격 간격';
-  elements.range.previousElementSibling = new ElementSink();
-  const slots = (count: number) => Array.from({ length: count }, () => ({
-    button: new ElementSink(), token: new ElementSink(), label: new ElementSink(), detail: new ElementSink(),
-  }));
-  const sink = { ...elements, boardCells: slots(16), benchSlots: slots(8), offerSlots: slots(3) };
-  return { elements, sink, shell: sink as unknown as V2ShellRefs };
-}
+import { shellSink } from './v2-render-harness.ts';
+
 function initial() {
   const result = core.createMatch(1, core.EXPERIMENT_RULES_ID);
   assert.ok(result.ok);

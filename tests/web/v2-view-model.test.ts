@@ -92,8 +92,9 @@ test('v2 formats board and bench locations for people', () => {
 
 test('v2 time copy distinguishes an absent deadline from zero remaining', () => {
   assert.equal(ticksLabel(null, 50), '—');
-  assert.equal(ticksLabel(0, 50), '0.0초');
-  assert.equal(ticksLabel(31, 50), '1.6초');
+  assert.equal(ticksLabel(0, 50), '0초');
+  assert.equal(ticksLabel(9, 50), '0.45초');
+  assert.equal(ticksLabel(31, 50), '1.55초');
 });
 
 // Presentation history is deliberately separate from immutable core/replay events.
