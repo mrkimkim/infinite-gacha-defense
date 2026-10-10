@@ -1,57 +1,63 @@
 {
-  "method": "Pillow verify and load; no tolerant truncation enabled",
+  "method": "Fresh clone; exact creator byte count and SHA256; Pillow verify and full load",
   "files": [
     {
-      "file": "capsule-guardian.png",
-      "byte_count": 786444,
-      "sha256": "e9473308d279a90f616d36857cbbee44aa6b2726f7aed9c4405c6cbf81ce1924",
-      "git_blob_sha": "5be009f87e3a53836a7c334e6747f90da7884e31",
-      "header_size": [
-        1254,
-        1254
-      ],
-      "header_mode": "RGBA",
-      "decode": "failed",
-      "error": "Truncated File Read"
-    },
-    {
       "file": "cream-deployment.png",
-      "byte_count": 786444,
-      "sha256": "ae232e85d6bd877657b046b69810aeb54a878754b9b3f2e98ecf93f9489cb197",
-      "git_blob_sha": "757ba115c2c993323e2d31440298dd0f45b6f5be",
-      "header_size": [
+      "bytes": 1996790,
+      "sha256": "55cbf7b299ad38043476c10565c132a1714f175881cbf07a279fd9663eb155d0",
+      "size": [
         1254,
         1254
       ],
-      "header_mode": "RGB",
-      "decode": "failed",
-      "error": "Truncated File Read"
-    },
-    {
-      "file": "mint-corner-path-v2.png",
-      "byte_count": 786444,
-      "sha256": "7db7dfe1aa64a2fc49308789df18873dfdfc1e88c491ac658f6461f929e167db",
-      "git_blob_sha": "99746d848b82c9a69e4d7ff539d98dc2c295380c",
-      "header_size": [
-        1254,
-        1254
-      ],
-      "header_mode": "RGB",
-      "decode": "failed",
-      "error": "Truncated File Read"
+      "mode": "RGB",
+      "decode": "pass",
+      "git_blob_sha": "3d6b3e4a687bd699e5aff43cd2797b1d3328808d"
     },
     {
       "file": "mint-straight-path.png",
-      "byte_count": 786445,
-      "sha256": "dfea1568c5f227d76e2b022482510ea8c755043aad1c3d64b7c50159f57485e3",
-      "git_blob_sha": "e1c5e214653cc529f7ed028523dc1c7edd95b889",
-      "header_size": [
+      "bytes": 2443656,
+      "sha256": "ab78d36bde12cfd87d8c6b36c7fa0c81c2051b1733ae3e51444db4bdafb4d45e",
+      "size": [
         1254,
         1254
       ],
-      "header_mode": "RGB",
-      "decode": "failed",
-      "error": "Truncated File Read"
+      "mode": "RGB",
+      "decode": "pass",
+      "git_blob_sha": "ae59ca50aa2670765a6aaddd3780ba7f2fac922a"
+    },
+    {
+      "file": "mint-corner-path-v2.png",
+      "bytes": 2206393,
+      "sha256": "d2003de0d74d959c7e276004ee87081a7410ca3c73071f4b4410a616ac2e7a56",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "decode": "pass",
+      "git_blob_sha": "9eb27c5a11e347f231b458258ea9e0f0ae55e49c"
+    },
+    {
+      "file": "capsule-guardian.png",
+      "bytes": 1188762,
+      "sha256": "91a6e794253673b71cf5921d1f6a246b344aac23878fa701bfea7e71bdfc9fc1",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "decode": "pass",
+      "git_blob_sha": "95582159ada32e4f437b1a475131bc67e80172fb",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_ge16_bbox": [
+        112,
+        57,
+        1140,
+        1183
+      ]
     }
   ]
 }
