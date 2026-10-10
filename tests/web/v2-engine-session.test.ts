@@ -175,3 +175,35 @@ test('actual seed 1 session reaches natural wave 20 finalTimeout loss and replay
   t.diagnostic(JSON.stringify({ seed: 1, rulesId, outcome: 'loss', reason: 'finalTimeout',
     tick: session.observe().tick, finalHash: hash }));
 });
+
+for (const rulesId of ['playable-v2-gen2-fixture1-count40', 'playable-v2-gen2-fixture1-count80'] as const) {
+  test(`${rulesId}: exhausted preparation restarts with exact replay archive and stale-owner protection`, () => {
+    const session = createV2Session(1, rulesId, core);
+    for (let i = 0; i < 12; i++) assert.ok(session.reroll().ok);
+    assert.equal(session.observe().gold, 0);
+    assert.equal(session.observe().units.length, 0);
+    assert.deepEqual(session.start(), { ok: false, code: 'NO_BOARD_UNITS' });
+    assert.ok(session.observe().offers.every(o => !o.recruitPreview.ok));
+    session.selectOffer(0);
+    const oldOwner = session.match;
+    const record = session.record();
+    assert.ok(session.restart(oldOwner).ok);
+    assert.deepEqual(session.archives, [record]);
+    assert.ok(core.replay(record.header, record.entries, record.finalHash).ok);
+    assert.equal(session.observe().gold, 12);
+    assert.equal(session.observe().wave, 1);
+    assert.equal(session.match.state.tick, 0);
+    assert.equal(session.selection, null);
+    assert.equal(session.record().entries.length, 0);
+    assert.deepEqual(session.restart(oldOwner), { ok: false, code: 'STALE_INPUT' });
+    assert.deepEqual(session.reroll(oldOwner), { ok: false, code: 'STALE_INPUT' });
+    assert.equal(session.advance(oldOwner, 1), undefined);
+    assert.deepEqual(session.restart(), { ok: false, code: 'BAD_PHASE' });
+    assert.equal(session.archives.length, 1);
+    assert.ok(session.selectOffer(0).ok);
+    assert.ok(session.recruitSelected().ok);
+    assert.ok(session.selectLocation({ kind: 'board', col: 0, row: 0 }).ok);
+    assert.ok(session.start().ok);
+    assert.deepEqual(session.restart(), { ok: false, code: 'BAD_PHASE' });
+  });
+}
