@@ -3,7 +3,7 @@
 상태: 도구 골격. 게임 코어·브라우저 UI·CLI 게임·게임 테스트는 아직 구현하지 않습니다. owner 리더, generation1, base77fdb8e715304b264b89dbdc437687377c6d9ad1.
 
 ## 설치
-Node24.19.0 / npm11.9.0 기준. Node24 계열 >=24.19.0을 사용합니다. 공식 npm registry에서 확인한 TypeScript7.0.2, Vite8.3.4, @types/node24.19.2를 exact version과 lockfile v3로 고정합니다. 런타임 의존성과 UI 프레임워크는 없습니다.
+Node24.19.0 / 로컬 npm11.9.0 기준. PR #10 CI 실측 npm은11.17.0입니다. packageManager 필드는 CI npm을 강제하지 않습니다. [실측 정정](https://github.com/mrkimkim/infinite-gacha-defense/pull/10#issuecomment-6093627289)과 [모모 독립 재설치 리뷰](https://github.com/mrkimkim/infinite-gacha-defense/pull/10#issuecomment-6093791023)를 근거로 두 환경을 구분하며 새 npm 설치/강제고정은 하지 않습니다. Node24 계열 >=24.19.0을 사용합니다. 공식 npm registry에서 확인한 TypeScript7.0.2, Vite8.3.4, @types/node24.19.2를 exact version과 lockfile v3로 고정합니다. 런타임 의존성과 UI 프레임워크는 없습니다.
 ```sh
 npm ci --ignore-scripts
 npm run check
@@ -14,7 +14,8 @@ npm cache 경로가 쓰기 불가능한 제한 환경에서는 명령에 --cache
 | 명령 | 현재 의미 |
 |---|---|
 | npm run typecheck | tools/tests 및 Vite 설정의 strict/unused 검사. 향후 src/**/*.ts도 포함 |
-| npm test | tests/tooling/*.test.ts만 Node 내장 runner로 실행. 게임 테스트 아님 |
+| npm test | tools/run-tests.ts가 tests/**/*.test.ts를 발견해 Node 내장 runner로 실행. 각 suite의 파일 수와 부재 시 NOT_RUN 출력 |
+| npm run typecheck:core | 게시된 tsconfig.core.json으로 별도 코어 타입 경계 검사. 현재 파일 부재 시 실행 실패하며 CI는 명시적 NOT_RUN |
 | npm run build:tooling | tools/tooling-probe.ts만 브라우저용 ES 모듈로 번들링. .tooling-dist 출력 |
 | npm run check | 위 세 명령을 순차 실행 |
 | npm run dev | 로컬127.0.0.1 Vite 서버. 현재 /tools/tooling-probe.ts 변환 확인 가능; 게임 화면 없음 |
@@ -43,3 +44,6 @@ npm run build는 Cannot resolve entry module index.html로 실패했습니다. �
 - [Vite 시작 및 빌드](https://vite.dev/guide/)
 - [actions/checkout](https://github.com/actions/checkout), [actions/setup-node](https://github.com/actions/setup-node)
 버전은2026-10-10 공식 registry npm view 및 공식 Git 태그 조회로 확인했습니다.
+
+## Issue #14 연결 준비 — generation2
+현재 base ee2fa330b148dffe1e1b8f1c59b86aaeeb6a37e1에는 코어/API·게임 진입점이 없습니다. src/cli/README.md는 미구현 CLI 규격이며 tests/integration/fixtures는 명세 기반 입력/기대값 준비입니다. npm test는 모든 하위 suite를 발견하도록 확장했지만 없는 게임 테스트를 통과로 세지 않습니다. 코어 전용 tsconfig는 Issue #12 소유이며 CI는 파일이 게시되면 별도 검사합니다. 전체 check/build와 실제 Node/브라우저 게임 해시 대조는 API 연결 후 수행합니다. 앞 절의 tooling3개 검증 기록은 과거 도구 검증으로 보존합니다.

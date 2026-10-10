@@ -1,7 +1,7 @@
 # 킥오프 결정 기록 — 첫 가역 실험
 
 Issue [#3](https://github.com/mrkimkim/infinite-gacha-defense/issues/3), owner 리더, assignment-generation 1.  
-기준 base: 62ca8d0fddb6b51fef596f91d6ad668c83cd3176. 문서 초안이며 새로운 수치/인터페이스의 단독 승인 기록이 아닙니다.
+기준 base: 62ca8d0fddb6b51fef596f91d6ad668c83cd3176. PR #6 head `7a11833733f8e45039beca85201af80743cd2155`의 두 동료 승인 후 통합된 기록입니다. 아래 제안/승인 대기 표현은 당시 이력이며 최신 승인 상태는 마지막 절을 따릅니다.
 
 ## 실제 근거
 
@@ -53,3 +53,7 @@ Issue [#3](https://github.com/mrkimkim/infinite-gacha-defense/issues/3), owner �
 ## PR #6 실제 리뷰와 보완 상태
 모모 [6093284745](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093284745)와 키키 [6093324107](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093324107)는 9b57657817df202823f352ea018507437cb42d53을 읽고 changes_requested를 남겼습니다. 전체 승인이 아닙니다.
 두 동료가 첫 벤치0·판매 없음을 수용한 범위는 기술 프로필뿐이며 편성 전환·경제·가챠 재미 증거로 사용하지 않습니다. 상태/로그 batching 동등성, 정확한 명령 JSON, 리플레이 실패, canonical digest 포함 범위, 일시정지·숨김 탭 누적시간 및 stale callback 폐기 계약을 보완했습니다. 250ms 긴 dt 경계와 구체 실패 반환 등 새 명시는 동료의 새 SHA 재검토 대상입니다.
+
+## 승인 상태 갱신 — Issue #14
+
+[모모6093406424](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093406424)와 [키키6093779594](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093779594)가 동일 head `7a11833733f8e45039beca85201af80743cd2155`의 수정 diff를 읽고 첫 기술 계약을 승인했습니다. PR #6은 main에 통합됐으며 Issue #12/#13/#14가 첫 프로필 구현을 배정합니다. 250ms는 포함, 초과는 폐기하는 가역 어댑터 값에 동의했습니다. 규칙 본문을 수정하거나 growth 구현·최종 밸런스·사람 재미를 승인한 기록이 아닙니다. 실제 구현/통합 SHA의 테스트와 동료 리뷰는 별도로 필요합니다.

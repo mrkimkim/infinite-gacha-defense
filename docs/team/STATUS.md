@@ -1,5 +1,23 @@
 # 현재 상태
 
+## 최신 갱신 — Issue #14, 2026-10-10
+
+기준 main `ee2fa330b148dffe1e1b8f1c59b86aaeeb6a37e1`. 아래 03:15 기록은 과거 스냅샷이며 이 절과 최신 Issue가 우선합니다.
+
+- [PR #11](https://github.com/mrkimkim/infinite-gacha-defense/pull/11): 완전한 기준 RGB PNG와 메타데이터 복구 통합. 초기 blob 연결 확인은 전체 decode 증거가 아니었으며 현재 출처/해시는 docs/reference/README.md를 따릅니다.
+- [PR #6](https://github.com/mrkimkim/infinite-gacha-defense/pull/6): 양쪽 실제 DOT가 head7a11833733f8e45039beca85201af80743cd2155 승인 후 기술 계약 통합. 게임 검증 아님.
+- [PR #8](https://github.com/mrkimkim/infinite-gacha-defense/pull/8): 검증 계획 통합. 계획의 과거 계약 차단 기록은 실제 구현 검증 결과가 아닙니다.
+- [PR #10](https://github.com/mrkimkim/infinite-gacha-defense/pull/10): 모모 독립 실행 리뷰 후 도구 통합. npm 로컬11.9.0/CI11.17.0 구분.
+
+| 작업 | generation / 담당 | 독점 범위 / 현재 단계 |
+|---|---|---|
+| [#12](https://github.com/mrkimkim/infinite-gacha-defense/issues/12) | 1 / 모모 | src/core, tests/core, tsconfig.core.json, core-api.md / 공개 API 게시 대기 |
+| [#13](https://github.com/mrkimkim/infinite-gacha-defense/issues/13) | 1 / 키키 | index.html, src/web, tests/web, browser-slice.md / API 의존 브라우저 작업 배정 |
+| [#14](https://github.com/mrkimkim/infinite-gacha-defense/issues/14) | 2 / 리더 | src/cli, tests/integration, tools, package/lock/tsconfig/CI, RUNNING, 이 STATUS, 계약 승인 근거만 / 독립 fixture·실행 규격 준비 |
+
+Issue #14의 STATUS 경로 정정으로 generation2가 되었으며 owner/branch/base 및 나머지 범위는 같습니다. 공통 base는 위 main이며 별도 브랜치를 사용합니다. API를 임의 확정하거나 코어를 복제하지 않습니다. 실제 게임 실행·Node/브라우저 해시 대조·게임 UI 조작·사람 플레이는 아직 미실시입니다. 봇 smoke는 일반/숙련 게이머나 재미 증거가 아닙니다. 아트 production 채택도 별도 실제 리뷰·결정 대상입니다.
+
+
 관찰 시각: 2026-10-10 03:15:35 UTC. Issue #1/#2 본문과 댓글을 직접 조회한 시점의 요약입니다. 이후 변경은 최신 Issue를 우선합니다.
 
 ## 시작 게이트

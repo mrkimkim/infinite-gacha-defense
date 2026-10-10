@@ -29,7 +29,13 @@ jobs:
       - run: npm ci --ignore-scripts
       - name: Type and unused-code checks
         run: npm run typecheck
-      - name: Tooling smoke tests (not gameplay)
+      - name: Core-only type boundary
+        if: ${{ hashFiles('tsconfig.core.json') != '' }}
+        run: npm run typecheck:core
+      - name: Missing core boundary
+        if: ${{ hashFiles('tsconfig.core.json') == '' }}
+        run: echo "::notice::Core type boundary NOT_RUN; tsconfig.core.json has not been published."
+      - name: Discover tooling, core, web and integration tests
         run: npm test
       - name: Portable tooling specimen build (not game build)
         run: npm run build:tooling
