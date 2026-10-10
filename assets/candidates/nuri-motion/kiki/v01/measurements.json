@@ -1,0 +1,284 @@
+{
+  "file": "raw.png",
+  "width": 2172,
+  "height": 724,
+  "bytes": 1348750,
+  "sha256": "63f143c338173802f59352c63df69170d2b03364dd0245c08d09e129aedc848d",
+  "alpha": {
+    "extrema": [
+      0,
+      255
+    ],
+    "strict_nonzero_bounds": [
+      0,
+      23,
+      2148,
+      724
+    ],
+    "alpha8_bounds": [
+      141,
+      50,
+      2065,
+      681
+    ],
+    "transparent_pixels": 820284,
+    "opaque_pixels": 1481,
+    "partially_transparent_pixels": 750763,
+    "low_alpha_1_to_7_pixels": 13796,
+    "dominant_nonzero_alpha": 253,
+    "dominant_nonzero_count": 614034
+  },
+  "allAlpha8ColumnRuns": [
+    [
+      141,
+      631
+    ],
+    [
+      772,
+      1410
+    ],
+    [
+      1585,
+      2065
+    ]
+  ],
+  "frames": [
+    {
+      "name": "idle",
+      "alpha8_column_run": [
+        141,
+        631
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          141,
+          50,
+          631,
+          679
+        ],
+        "128": [
+          142,
+          50,
+          630,
+          678
+        ],
+        "250": [
+          144,
+          51,
+          629,
+          677
+        ]
+      },
+      "feet_measurement_y": 670,
+      "feet_alpha128_runs": [
+        [
+          195,
+          296
+        ],
+        [
+          424,
+          524
+        ]
+      ],
+      "proposed_render_pivot": [
+        359.75,
+        678
+      ],
+      "body_height_alpha128": 628
+    },
+    {
+      "name": "attack",
+      "alpha8_column_run": [
+        772,
+        1410
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          772,
+          57,
+          1410,
+          679
+        ],
+        "128": [
+          772,
+          58,
+          1409,
+          679
+        ],
+        "250": [
+          773,
+          59,
+          1408,
+          678
+        ]
+      },
+      "feet_measurement_y": 671,
+      "feet_alpha128_runs": [
+        [
+          867,
+          960
+        ],
+        [
+          1127,
+          1229
+        ]
+      ],
+      "proposed_render_pivot": [
+        1045.75,
+        679
+      ],
+      "body_height_alpha128": 621
+    },
+    {
+      "name": "recovery",
+      "alpha8_column_run": [
+        1585,
+        2065
+      ],
+      "bounds_by_minimum_alpha": {
+        "8": [
+          1585,
+          61,
+          2065,
+          681
+        ],
+        "128": [
+          1586,
+          62,
+          2064,
+          679
+        ],
+        "250": [
+          1589,
+          63,
+          2063,
+          677
+        ]
+      },
+      "feet_measurement_y": 671,
+      "feet_alpha128_runs": [
+        [
+          1634,
+          1731
+        ],
+        [
+          1863,
+          1959
+        ]
+      ],
+      "proposed_render_pivot": [
+        1796.75,
+        679
+      ],
+      "body_height_alpha128": 617
+    }
+  ],
+  "interiorSamples": {
+    "idle": [
+      {
+        "x": 360,
+        "y": 130,
+        "rgba": [
+          221,
+          165,
+          116,
+          253
+        ]
+      },
+      {
+        "x": 360,
+        "y": 230,
+        "rgba": [
+          97,
+          54,
+          29,
+          253
+        ]
+      },
+      {
+        "x": 360,
+        "y": 528,
+        "rgba": [
+          185,
+          210,
+          160,
+          253
+        ]
+      }
+    ],
+    "attack": [
+      {
+        "x": 1046,
+        "y": 138,
+        "rgba": [
+          223,
+          165,
+          119,
+          254
+        ]
+      },
+      {
+        "x": 1046,
+        "y": 238,
+        "rgba": [
+          247,
+          231,
+          203,
+          253
+        ]
+      },
+      {
+        "x": 1046,
+        "y": 529,
+        "rgba": [
+          182,
+          208,
+          157,
+          253
+        ]
+      }
+    ],
+    "recovery": [
+      {
+        "x": 1797,
+        "y": 142,
+        "rgba": [
+          217,
+          160,
+          114,
+          253
+        ]
+      },
+      {
+        "x": 1797,
+        "y": 242,
+        "rgba": [
+          126,
+          72,
+          50,
+          253
+        ]
+      },
+      {
+        "x": 1797,
+        "y": 529,
+        "rgba": [
+          179,
+          206,
+          152,
+          253
+        ]
+      }
+    ]
+  },
+  "measurement_status": "candidate_only_not_a_runtime_manifest",
+  "coordinate_convention": "x0,y0 inclusive; x1,y1 exclusive. Coordinates and pivots refer to the unmodified whole raw PNG.",
+  "frame_detection": "Columns containing alpha>=8, with runs separated by at most four empty columns grouped together; bounds are measured within each resulting group. No regular grid is assumed.",
+  "pivot_method": "Average centers of the two alpha>=128 sole runs at y=alpha128_bottom_exclusive-8; vertical pivot is alpha128_bottom_exclusive. Proposed display anchors, not validated production animation anchors.",
+  "regular_grid_assumed": false,
+  "raster_postprocessing": false,
+  "target_size_visual_qa_performed": false,
+  "animation_timing_qa_performed": false,
+  "independent_peer_review_completed": false,
+  "production_approved": false
+}
