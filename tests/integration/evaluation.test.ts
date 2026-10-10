@@ -39,3 +39,41 @@ test('neutral census tracks stars and composition without XP, books, IDs or boar
   m.observe({...first,wave:3,formation:[{character:'b',star:1}]},true);
   assert.equal(m.value.formationChanges,1);assert.equal(m.value.formationDiversity,2);assert.equal(m.value.idleGoldAtStart.length,3);
 });
+
+test('public snapshot rejects sparse/extended/nonstandard arrays and hidden properties without exposing them',()=>{
+  const extra=Object.assign([1],{extra:2});
+  const unusual=[1];Object.setPrototypeOf(unusual,{});
+  const hidden=Object.defineProperty({},'value',{value:5,enumerable:false});
+  const hiddenIndex=Object.defineProperty([1],'0',{value:1,enumerable:false});
+  for(const value of [new Array(2),[1,,3],extra,unusual,hidden,hiddenIndex]) {
+    assert.throws(()=>publicSnapshot({nested:value}),/NON_PUBLIC_POLICY_INPUT/);
+  }
+  const dense=[null,{value:5},[]];const copied=publicSnapshot(dense);
+  assert.deepEqual(copied,dense);assert.equal(copied.length,3);
+  assert.notEqual(copied[1],dense[1]);assert.ok(Object.isFrozen(copied));
+});
+
+test('action budget accepts terminal on last advance/dispatch and rejects unfinished execution',()=>{
+  // Minimal control-flow fixture only; no gameplay rules, policy score or real game outcome.
+  type State={phase:'preparation'|'combat'|'result';tick:number;wave:number;outcome:'win'|null;reason:null};
+  const job=evaluationPlan(['control-flow-only'],[{id:'test',cohort:'stress'}],[1],[2])[0];
+  for(const initial of ['combat','preparation'] as const) {
+    for(const terminalAfter of [1,2]) {
+      let actions=0,finishes=0,accepted=0;
+      const step=(s:State)=>{actions++;return {state:{...s,tick:s.tick+1,
+        phase:actions===terminalAfter?'result' as const:s.phase,outcome:actions===terminalAfter?'win' as const:null},events:[]};};
+      const engine:EnginePort<State,State,{},'step',never>={
+        create:()=>({phase:initial,tick:0,wave:1,outcome:null,reason:null}),publicRules:()=>({}),observe:s=>s,inspect:s=>s,
+        dispatch:step,advance:step,finish:()=>{finishes++;return {canonical:'control-flow-only',hash:'not-a-game-hash',replay:null};},
+      };
+      if(terminalAfter===1){
+        const result=runEvaluation(engine,()=>['step'],job,()=>{accepted++;},1);
+        assert.equal(result.tick,1);assert.equal(finishes,1);
+      } else {
+        assert.throws(()=>runEvaluation(engine,()=>['step'],job,()=>{accepted++;},1),/EVALUATION_STEP_LIMIT/);
+        assert.equal(finishes,0);
+      }
+      assert.equal(actions,1);assert.equal(accepted,1);
+    }
+  }
+});

@@ -12,14 +12,21 @@ export function publicSnapshot<T>(value:T):Readonly<T> {
     if(v===null||typeof v==='string'||typeof v==='boolean') return v;
     if(typeof v==='number'&&Number.isFinite(v)) return v;
     if(typeof v!=='object'||v===null||seen.has(v)) throw new Error('NON_PUBLIC_POLICY_INPUT');
-    const proto=Object.getPrototypeOf(v);
-    if(!Array.isArray(v)&&proto!==Object.prototype&&proto!==null) throw new Error('NON_PUBLIC_POLICY_INPUT');
+    const array=Array.isArray(v),proto=Object.getPrototypeOf(v);
+    if(array?proto!==Array.prototype:proto!==Object.prototype&&proto!==null) throw new Error('NON_PUBLIC_POLICY_INPUT');
     seen.add(v);
     const descriptors=Object.getOwnPropertyDescriptors(v);
+    if(array) {
+      const length=descriptors.length.value as number;
+      if(Object.keys(descriptors).length!==length+1) throw new Error('NON_PUBLIC_POLICY_INPUT');
+      for(let i=0;i<length;i++) {
+        if(!Object.hasOwn(descriptors,String(i))) throw new Error('NON_PUBLIC_POLICY_INPUT');
+      }
+    }
     const out:unknown[]|Record<string,unknown>=Array.isArray(v)?[]:{};
     for(const [key,d] of Object.entries(descriptors)) {
       if(Array.isArray(v)&&key==='length') continue;
-      if(privateKeys.has(key)||!('value' in d)||key==='__proto__') throw new Error('NON_PUBLIC_POLICY_INPUT');
+      if(!d.enumerable||privateKeys.has(key)||!('value' in d)||key==='__proto__') throw new Error('NON_PUBLIC_POLICY_INPUT');
       Object.defineProperty(out,key,{value:copy(d.value),enumerable:true,writable:false,configurable:false});
     }
     if(Object.getOwnPropertySymbols(v).length) throw new Error('NON_PUBLIC_POLICY_INPUT');
@@ -49,13 +56,15 @@ export function runEvaluation<S,O,R,C,E>(engine:EnginePort<S,O,R,C,E>, policy:Po
   onAccepted:(before:O,after:O,events:readonly E[])=>void=()=>{}, maxSteps=20000) {
   if(!Number.isSafeInteger(maxSteps)||maxSteps<1) throw new Error('BAD_STEP_LIMIT');
   let state=engine.create(job.seed,job.profile);
-  for(let step=0;step<maxSteps;step++) {
+  // maxSteps bounds accepted actions; terminal inspection does not spend an action.
+  for(let step=0;;step++) {
     const before=engine.observe(state),info=engine.inspect(before);
     if(info.phase==='result') {
       if(info.outcome===null) throw new Error('INVALID_TERMINAL_RESULT');
       return {...job,status:'engine-completed' as const,outcome:info.outcome,reason:info.reason,
         wave:info.wave,tick:info.tick,...engine.finish(state)};
     }
+    if(step>=maxSteps) throw new Error('EVALUATION_STEP_LIMIT');
     if(info.phase==='combat') {
       const next=engine.advance(state),after=engine.observe(next.state);
       if(engine.inspect(after).tick<=info.tick) throw new Error('ADVANCE_NO_PROGRESS');
@@ -68,8 +77,8 @@ export function runEvaluation<S,O,R,C,E>(engine:EnginePort<S,O,R,C,E>, policy:Po
       onAccepted(before,after,next.events);state=next.state;
     }
   }
-  throw new Error('EVALUATION_STEP_LIMIT');
 }
+
 export type CompletedRun = Job & {outcome:'win'|'loss';reason:string|null;wave:number;bossWavesStarted:readonly number[]};
 export function summarize(runs:readonly CompletedRun[]) {
   const groups=new Map<string,{games:number;wins:number;lossReasons:Record<string,number>;bossWalls:Record<string,{started:number;failed:number}>}>();
