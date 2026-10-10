@@ -3,6 +3,8 @@ import type {
   DefinitionId, RecruitPreview, CharacterDefinition, Phase,
 } from '../core-v2/index.ts';
 import type { V2ShellRefs, V2SlotRefs } from './v2-shell.ts';
+import { createBoardSkin } from './v2-board-skin.ts';
+import type { BoardSkinReviewOptions } from './v2-board-skin.ts';
 import { waveGuidance } from './v2-wave-guidance.ts';
 import { createArtLibrary, createSpritePlayer, loadArtImage, spriteLayout } from './v2-art.ts';
 import type { ArtLibrary, ArtLoader, ArtSprite, SpritePlayer } from './v2-art.ts';
@@ -22,6 +24,8 @@ export interface V2RenderUi {
 }
 
 export interface V2RendererOptions {
+  /** Explicit review only; never selects or maps character art. */
+  readonly boardSkin?: BoardSkinReviewOptions;
   /** Only an explicitly reviewed definition-to-asset mapping enables sprites. */
   readonly art?: {
     readonly mapping: Readonly<Record<DefinitionId, string>>;
@@ -74,6 +78,7 @@ export function ticksLabel(ticks: number | null, tickMs: number): string {
 /** Pure projection of observations and event snapshots; owns no simulation clock. */
 export function createV2Renderer(shell: V2ShellRefs, api: CoreApi, options: V2RendererOptions = {}) {
   const document = shell.root.ownerDocument;
+  const boardSkin = options.boardSkin ? createBoardSkin(shell, options.boardSkin) : null;
   const statNote = document.createElement('p');
   statNote.className = 'v2-message';
   statNote.dataset.v2 = 'unit-stat-note';
@@ -475,6 +480,6 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi, options: V2Re
   }
   function clearEffects() { effects = []; resetArt(true); renderScene(); }
   function reset() { effects = []; resetArt(true); observation = null; currentUi = {}; shell.enemyLayer.replaceChildren(); statNote.textContent = ''; }
-  function dispose() { reset(); statNote.remove(); disposed = true; artAbort.abort(); artLibrary?.dispose(); }
+  function dispose() { reset(); statNote.remove(); disposed = true; boardSkin?.dispose(); artAbort.abort(); artLibrary?.dispose(); }
   return { render, consume, reset, dispose, showEvents: consume, clearEffects };
 }
