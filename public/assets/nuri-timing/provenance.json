@@ -1,0 +1,50 @@
+{
+  "sourcePR": 43,
+  "sourceCommit": "3c3ec3d08573eabc1b75ba4ad12b1daa4e44db18",
+  "files": [
+    {
+      "file": "INDEPENDENT_REVIEW.md",
+      "sourcePath": "assets/candidates/nuri-motion/kiki/v05/INDEPENDENT_REVIEW.md",
+      "sha256": "d1a19229e03b63ec679e652b8e2e1d9622a9277ad5868600aaff09ed3958d30b",
+      "bytes": 7593
+    },
+    {
+      "file": "REVIEW.md",
+      "sourcePath": "assets/candidates/nuri-motion/kiki/v05/REVIEW.md",
+      "sha256": "329f94c471c0c28b1fa22283652ac66fd8554aa76c52b6ac8ce5265fe5204646",
+      "bytes": 9545
+    },
+    {
+      "file": "flight-bubble-raw-v05.png",
+      "sourcePath": "assets/candidates/nuri-motion/kiki/v05/flight-bubble-raw-v05.png",
+      "sha256": "db8f367946be1d83b2c6b27a0ad7396ee745a33dcc22979a4c103a1556b4b684",
+      "bytes": 517610
+    },
+    {
+      "file": "ground-ripple-reference-v04.png",
+      "sourcePath": "assets/candidates/nuri-motion/kiki/v05/ground-ripple-reference-v04.png",
+      "sha256": "3eefc591750cc58ba0d16f73dd8c9cba15b45e8392abc6d7d32208477425fdb3",
+      "bytes": 403886
+    },
+    {
+      "file": "nuri-direction-correction-raw-v05.png",
+      "sourcePath": "assets/candidates/nuri-motion/kiki/v05/nuri-direction-correction-raw-v05.png",
+      "sha256": "9e89cce33db28c8eda5bd66b81804a9c506941c1ec46ece829a57f1de59c736d",
+      "bytes": 1373020
+    },
+    {
+      "file": "viewer-data.json",
+      "sourcePath": "assets/candidates/nuri-motion/kiki/v05/viewer-data.json",
+      "sha256": "5b29f7ed45e804693e8edef43a60cc16038cef405066d0e8040eb89a6a60b6a6",
+      "bytes": 8458
+    },
+    {
+      "file": "water-impact-reference-v04.png",
+      "sourcePath": "assets/candidates/nuri-motion/kiki/v05/water-impact-reference-v04.png",
+      "sha256": "5765e53597267abd72a3ab147cb2f37e6e32b4f4d6d3c6e7cf1729041959f863",
+      "bytes": 195629
+    }
+  ],
+  "candidateHTMLExecuted": false,
+  "wholeCharacterFlip": false
+}
