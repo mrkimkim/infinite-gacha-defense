@@ -30,3 +30,6 @@ browser-preparation-evidence.json에 정확한 세 SHA와 수행 결과를 기�
 
 ## 최신 코드 재검사
 core6d85bf91708dd5344ac1a2bffdfe903b38309698의 merge shape/preflight 수정, web8ac4b7161258ecadf43cf51fd160f67b70a46798의 restart fatal경계/waveCount 및 실제core회귀 diff를 직접 읽었습니다. CLI/하네스426fe21ba846a4cd4dcc3c5018d8b5cd272718e7와 원본 그대로 결합해22blob을 검증했습니다.113PASS/0FAIL/0SKIP,fullcheck/coretype/build 및 실제브라우저승패·재시작·11snapshot Node대조를 재실행해 모두 통과했습니다. 검사후 두 원격head는 지정SHA와 동일했습니다. 새 증거는 evidence/final-browser-results.json, final-win-390.png, final-loss-390.png입니다. 원래RAF350ms smoke는 이전 실행 증거이며 이번 재실행으로 소급하지 않습니다. 두 실제DOT 최신SHA리뷰/root통합은 별도이며 병합하지 않았습니다.
+
+## Hover와 지연 crypto 검토 보완
+키키6094118434·모모6094129617의 PR15 실제 리뷰를 읽고 보완했습니다. web a3bd7af45b924611959d1989618f3c5f0a9860b2의 CSS6줄/view3줄 diff를 직접 확인했습니다. 승리/패배 결과안내와 실제 hover의rgb(255,249,233)/rgb(23,72,60),대비9.848:1을 검사하고 win-hover-390.png/loss-hover-390.png를 저장했습니다. result의held snapshot을restart직전에 새로 시작하고 중간snapshot없이release해 새경기 evidence/hash가 덮이지 않음을 확인했습니다. 재시작은epoch도갱신하므로match guard만 단독입증했다고 주장하지 않습니다. 역순snapshot완료/지연reject/fatalDOM은NOT_RUN입니다. 최신113PASS/0SKIP,fullcheck/coretype/build 및11snapshot Node대조 재통과. 출처22blob과검사JSON은evidence/hover-crypto-results.json입니다.

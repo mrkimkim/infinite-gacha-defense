@@ -36,7 +36,7 @@ try {
   await page.goto(url);
   await page.waitForFunction(() => document.querySelector('#phase')?.textContent?.trim());
   const phase = await page.locator('#phase').innerText();
-  if (phase === '코어 미연결') {
+  if (phase === '코어 미연결' || (phase === '초기화 중단' && (await page.locator('#message').innerText()).includes('CORE_NOT_IMPLEMENTED'))) {
     const message = await page.locator('#message').innerText();
     assert.match(message, /CORE_NOT_IMPLEMENTED/);
     for (const id of ['snapshot','export','start-wave','pause','restart']) assert.equal(await page.locator(`#${id}`).isDisabled(),true);
@@ -49,6 +49,18 @@ try {
     const tick = async () => Number((await page.locator('#tick').innerText()).replace('tick ',''));
     const cell = (col,row) => page.locator(`.cell[data-col="${col}"][data-row="${row}"]`);
     const offer = slot => page.locator(`.offer[data-offer-slot="${slot}"]`);
+    async function resultReadability(label) {
+      assert.equal(await page.locator('#selection').innerText(),'경기 종료 · 같은 seed로 다시 도전할 수 있습니다.');
+      await page.locator('#restart').hover({force:true});
+      const style=await page.locator('#restart').evaluate(el=>{
+        const css=getComputedStyle(el);return {foreground:css.color,background:css.backgroundColor,hover:el.matches(':hover'),label:el.textContent};
+      });
+      assert.equal(style.hover,true);
+      const luminance=color=>{const rgb=color.match(/\d+/g).slice(0,3).map(Number).map(v=>{v/=255;return v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4;});return rgb[0]*0.2126+rgb[1]*0.7152+rgb[2]*0.0722;};
+      const a=luminance(style.foreground),b=luminance(style.background),contrast=(Math.max(a,b)+0.05)/(Math.min(a,b)+0.05);
+      assert.ok(contrast>=4.5,`restart hover text contrast ${contrast}`);
+      evidence.checks.push({label,...style,contrast});
+    }
     async function snapshot(label) {
       await page.locator('#evidence').evaluate(el => { el.value=''; });
       await page.locator('#snapshot').click({force:true});
@@ -111,8 +123,12 @@ try {
     assert.equal(firstResult.outcome,'loss');
     mkdirSync('tests/integration/evidence',{recursive:true});
     await page.locator('details.diagnostics summary').click({force:true});
-    await page.screenshot({path:'tests/integration/evidence/loss-390.png',fullPage:true});
+    await resultReadability('loss result hover readability');
+    await page.screenshot({path:'tests/integration/evidence/loss-hover-390.png',fullPage:true});
     await page.locator('details.diagnostics summary').click({force:true});
+    // New held result request is NOT superseded by another snapshot before restart.
+    await page.evaluate(()=>window.__probe.hold(true));
+    await page.locator('#snapshot').click({force:true});
     const oldCallback=await page.evaluate(()=>window.__probe.lastId());
     await page.locator('#restart').click({force:true});
     await page.evaluate(key=>window.__probe.stale(key),oldCallback);
@@ -121,6 +137,7 @@ try {
     await page.evaluate(async()=>{await crypto.subtle.digest('SHA-256',new Uint8Array());});
     assert.equal(await page.locator('#evidence').inputValue(),'');
     assert.equal(await page.locator('#hash').innerText(),'상태 해시: 아직 계산하지 않음');
+    evidence.checks.push({label:'held result snapshot -> restart -> release, no intermediate snapshot',status:'PASS',scope:'restart protection; epoch and match checks are both active, not individually isolated'});
     const restarted=await snapshot('same seed restart; late crypto and stale RAF discarded');
     assert.deepEqual(restarted,initial);
     // A legal seed1 centre formation was selected offline as a win regression fixture.
@@ -140,7 +157,8 @@ try {
     const victory=await snapshot('actual five-wave win browser/Node replay');
     assert.equal(victory.outcome,'win'); assert.equal(victory.wave,5);
     await page.locator('details.diagnostics summary').click({force:true});
-    await page.screenshot({path:'tests/integration/evidence/win-390.png',fullPage:true});
+    await resultReadability('win result hover readability');
+    await page.screenshot({path:'tests/integration/evidence/win-hover-390.png',fullPage:true});
     await page.locator('details.diagnostics summary').click({force:true});
     await page.locator('#restart').click({force:true});
     assert.deepEqual(await snapshot('restart after win'),initial);

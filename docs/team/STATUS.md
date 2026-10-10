@@ -1,5 +1,8 @@
 # 현재 상태
 
+> 최신 검증: core6d85bf9 및 web8ac4b71 조합에서113PASS/0SKIP, 실제 브라우저 승패·재시작·11snapshot Node대조를 완료했습니다. 아래 stub/API대기 설명은 당시 체크포인트 이력이며 현재 기능 상태가 아닙니다. 후속 web a3bd7af의 hover·결과 안내와 지연crypto 보완 검증은 [통합 검증 기록](https://github.com/mrkimkim/infinite-gacha-defense/pull/15)을 따릅니다. 실제 main 통합 검증/사람플레이와 구분합니다.
+
+
 ## 최신 갱신 — Issue #14, 2026-10-10
 
 기준 main `ee2fa330b148dffe1e1b8f1c59b86aaeeb6a37e1`. 아래 03:15 기록은 과거 스냅샷이며 이 절과 최신 Issue가 우선합니다.

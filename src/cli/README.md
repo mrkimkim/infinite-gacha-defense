@@ -1,5 +1,8 @@
 # CLI 연결 규격 — Issue #14, generation 2
 
+> 최신 검증: core6d85bf9 및 web8ac4b71 조합에서113PASS/0SKIP, 실제 브라우저 승패·재시작·11snapshot Node대조를 완료했습니다. 아래 stub/API대기 설명은 당시 체크포인트 이력이며 현재 기능 상태가 아닙니다. 후속 web a3bd7af의 hover·결과 안내와 지연crypto 보완 검증은 [통합 검증 기록](https://github.com/mrkimkim/infinite-gacha-defense/pull/15)을 따릅니다. 실제 main 통합 검증/사람플레이와 구분합니다.
+
+
 상태: PR #17 head b6b38f9edcf0fc0181dfd461f677a28a37849192의 실제 동기 immutable API에 연결했습니다. npm script는 실행 가능하지만 core는 아직 CORE_NOT_IMPLEMENTED를 던집니다. 게임 성공 검증은 대기 중입니다. run 입력 shape는 {seed,rulesId?,steps:[{command}|{advance}]}이며 replay 입력은 {header,entries,expectedFinalHash?}입니다. 코어 없는 브랜치는 CORE_UNAVAILABLE/exit1, API stub은 CORE_NOT_IMPLEMENTED/exit1을 반환합니다.
 
 ## 사용자 입출력

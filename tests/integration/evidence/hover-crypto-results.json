@@ -1,0 +1,227 @@
+{
+  "status": "PASS",
+  "browser": "151.0.7922.173",
+  "checks": [
+    {
+      "label": "initial browser/Node replay",
+      "tick": 0,
+      "hash": "ba15e6ff12c45ae395217c928f47cd4b86dd60e4393e23cfa05479f53e055300"
+    },
+    {
+      "label": "repeat recruit click",
+      "tick": 0,
+      "hash": "9306da147195885f510016ab3f86d2f6e8ea0c15e8559de2796ae954cd0ee46e"
+    },
+    {
+      "label": "move",
+      "tick": 0,
+      "hash": "6bf9d5bf6cfbf846e8e005143c384471e8edf4482dbff6e3df66a5d51def1c0b"
+    },
+    {
+      "label": "swap",
+      "tick": 0,
+      "hash": "793623eed845ace6dadf9bcd8bfddaffd0ab92b8e0c091a63772ad13f2ed45c7"
+    },
+    {
+      "label": "rejected recruit preserves state and selection",
+      "tick": 0,
+      "hash": "693acfdb8d24c76b0670fdbf998bc2b7d96186720070eb8d3d25e3b64556b181"
+    },
+    {
+      "label": "dt250 included,251 and negative discarded",
+      "tick": 5,
+      "hash": "6cb0c2754930638fbe0fb4bf77f0b1ab2ffcedd4bd3a17cd25c3afa44e7a1510"
+    },
+    {
+      "label": "manual pause survives visibility restoration and stale callback",
+      "tick": 6,
+      "hash": "83a353d01312b75e121ac492539420a6adedcb736408045f27ac5cb6364f2df2"
+    },
+    {
+      "label": "first actual result",
+      "tick": 1152,
+      "hash": "61d5a070487e224e0611829a87819c873862642d3f241dbe3df62d1c88eddbdb"
+    },
+    {
+      "label": "같은 seed로 다시 시작",
+      "foreground": "rgb(255, 249, 233)",
+      "background": "rgb(23, 72, 60)",
+      "hover": true,
+      "contrast": 9.848491769045872
+    },
+    {
+      "label": "held result snapshot -> restart -> release, no intermediate snapshot",
+      "status": "PASS",
+      "scope": "restart protection; epoch and match checks are both active, not individually isolated"
+    },
+    {
+      "label": "same seed restart; late crypto and stale RAF discarded",
+      "tick": 0,
+      "hash": "ba15e6ff12c45ae395217c928f47cd4b86dd60e4393e23cfa05479f53e055300"
+    },
+    {
+      "label": "actual five-wave win browser/Node replay",
+      "tick": 960,
+      "hash": "1874e87b80d5052ebe139beac9d0b0fb62bce63a5274ae3141ac0747236e6c00"
+    },
+    {
+      "label": "같은 seed로 다시 시작",
+      "foreground": "rgb(255, 249, 233)",
+      "background": "rgb(23, 72, 60)",
+      "hover": true,
+      "contrast": 9.848491769045872
+    },
+    {
+      "label": "restart after win",
+      "tick": 0,
+      "hash": "ba15e6ff12c45ae395217c928f47cd4b86dd60e4393e23cfa05479f53e055300"
+    }
+  ],
+  "limitation": "Controlled RAF/visibility probes are not OS tab hiding or human play. Both win and loss DOM result/restart paths exercised; no human fun claim. Click force bypasses Playwright RAF stability checks; separate native RAF/hitbox checks remain necessary.",
+  "sourceCommits": {
+    "core": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+    "web": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+    "cli": "5bf1b13dfd7064de5999ed313e22a6bb2e0c27a1",
+    "harness": "browser-verify.mjs in this evidence commit"
+  },
+  "sourceBlobs": [
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/engine.ts",
+      "gitBlob": "de6ec6111d30f388edaa9310cf128af2d3136085"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/index.ts",
+      "gitBlob": "76cd815a36e5f47a0f42c0759b4c10c230e2fd0a"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/replay.ts",
+      "gitBlob": "cf120cf01cf98850c9245cb03cb62227e0d87a1f"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/rules.ts",
+      "gitBlob": "3ef085b60a155afc21415e502dfbae4c8bba3c53"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/serialization.ts",
+      "gitBlob": "8e9b5b53bd0727efe663df2f4554f86c7edb0dd7"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/types.ts",
+      "gitBlob": "6dac2b0a41f8e60568cbd08ca49773321af464fa"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/validation.ts",
+      "gitBlob": "93d2e5fa1a4aea898f2905957def8d8b75d343c1"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/batching-seeds.test.ts",
+      "gitBlob": "64be1720d278ef5236f5901a2f7e2881753c5b82"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/engine.test.ts",
+      "gitBlob": "b46de5e16e85167acc67aa411d4096f75acc8755"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/replay.test.ts",
+      "gitBlob": "972ced7bcb26301f4e1591c1f812a4abf526c516"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/serialization.test.ts",
+      "gitBlob": "41af7d8f647271ed4ff7fd1bd98fedfd9fabd468"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tsconfig.core.json",
+      "gitBlob": "9f4e2a8673510a674168f1a932ad251d439fc595"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "index.html",
+      "gitBlob": "405e075e05a8cf08c9081d14c9a91f0c959e1178"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "src/web/env.d.ts",
+      "gitBlob": "11f02fe2a0061d6e6e1f271b21da95423b448b32"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "src/web/main.ts",
+      "gitBlob": "5d5fbae82573c8daea67ecf0e9c3915609e4811e"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "src/web/scheduler.ts",
+      "gitBlob": "38ff6043137b7ae95dad3fb097436d6681226c58"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "src/web/session.ts",
+      "gitBlob": "c317e325c9664563fc85da710de964429b2e2ceb"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "src/web/style.css",
+      "gitBlob": "1045816e77fa2aa867dcea866ea667d55391140c"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "src/web/view.ts",
+      "gitBlob": "513d73974230386824188c9a2cddc2d8cd354516"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "tests/web/scheduler.test.ts",
+      "gitBlob": "183024f380c0b1d8f97cec4a094be91c72f2fbc8"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "tests/web/session-core.test.ts",
+      "gitBlob": "5821e9e94b1207ef521f3c5efe7162c601af4393"
+    },
+    {
+      "sourceCommit": "a3bd7af45b924611959d1989618f3c5f0a9860b2",
+      "path": "tests/web/session.test.ts",
+      "gitBlob": "abcf974d8d820cf6f051e6dc8d25c5367423d0d7"
+    }
+  ],
+  "validation": {
+    "passed": 113,
+    "failed": 0,
+    "skipped": 0,
+    "typecheck": "PASS",
+    "coreTypecheck": "PASS",
+    "build": "PASS"
+  },
+  "notRun": [
+    "snapshot reverse completion ordering",
+    "late crypto rejection",
+    "fatal-error DOM injection",
+    "actual OS visibility change",
+    "human play",
+    "per-tick browser/Node comparison"
+  ],
+  "screenshots": [
+    {
+      "path": "win-hover-390.png",
+      "bytes": 75000,
+      "sha256": "d439fc8d25c5e4d519196df4168b5eec198e34149e11e5d5fef643481131745e"
+    },
+    {
+      "path": "loss-hover-390.png",
+      "bytes": 81644,
+      "sha256": "08e804d77543a869eb92aef6767153b1ce69c8188e7260dca9ae747129ae6366"
+    }
+  ]
+}
