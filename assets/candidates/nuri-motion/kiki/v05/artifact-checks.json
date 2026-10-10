@@ -1,0 +1,67 @@
+{
+  "kind": "structural_and_read_only_pixel_checks",
+  "checks": [
+    {
+      "name": "five separately measurable poses",
+      "result": "pass"
+    },
+    {
+      "name": "raw PNG hashes match manifest",
+      "result": "pass"
+    },
+    {
+      "name": "PNG data embedded byte-for-byte",
+      "result": "pass"
+    },
+    {
+      "name": "no external dependencies or fetch",
+      "result": "pass"
+    },
+    {
+      "name": "inline scripts parse",
+      "result": "pass"
+    },
+    {
+      "name": "render code parses",
+      "result": "pass"
+    },
+    {
+      "name": "per-pose anchors fall inside own measured useful silhouette rectangle",
+      "result": "pass"
+    },
+    {
+      "name": "no useful character alpha clips canvas edge",
+      "result": "pass"
+    },
+    {
+      "name": "selected impact center truly transparent",
+      "result": "pass"
+    },
+    {
+      "name": "reported sole baselines match decoded measurements",
+      "result": "pass"
+    },
+    {
+      "name": "single common height is idle source height",
+      "result": "pass"
+    },
+    {
+      "name": "manifest and embedded viewer fixture agree",
+      "result": "pass"
+    },
+    {
+      "name": "renderer targets use the shared fixture",
+      "result": "pass"
+    },
+    {
+      "name": "one separate bubble in launch/flight, impact only on arrival phase",
+      "result": "pass"
+    }
+  ],
+  "passed": 14,
+  "failed": 0,
+  "browser_playback": "not_run",
+  "engine_tests": "not_run",
+  "production_quality": "not_approved",
+  "note": "Passing checks do not establish head/foot identity, pose readability, shell-tail gap, emitter anatomy or engine hit timing."
+}
