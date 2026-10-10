@@ -29,3 +29,22 @@ python3 analysis/balance-800/wave-structure-analysis/analyze.py
 2. wave20을 다음 고정 사이클로 넘어가는 보스 관문으로 만드는 별도 연속 생존 모드 실험. 이후 웨이브·경제·종료 기준부터 정의해야 하며 기존 유한20웨이브 승률과 직접 비교하면 안 됩니다.
 
 이800경기 자료에는 두 실험 구현이 없습니다. 후속 G 유예 실험은 별도 로컬 브랜치에서만 수행하며 이 분석 브랜치/배포에 포함하지 않습니다.
+
+## 누락 자료 보완 및 작은 재현 검사
+
+PR31 댓글6097244319의 누락을 수정했습니다. `balance-revision-101-200/traces.json`과 `trace-1/2/3-observation.json`은 당시 로컬 원본을 바이트 그대로 복구했습니다. `trace.mjs`와 `wave-structure-analysis/samples.mjs`는 당시 추출 스크립트의 경로만 저장소 상대경로로 바꿨습니다. 새로 추가한 `generate-reproduction-samples.mjs`는 고정된6개 실제 경기를 공개 정책으로 다시 실행하고 공개 압축JSON의 최종 해시·tick·outcome 및 replay를 확인한 다음 로그를 생성합니다. 결과를 맞추기 위해 관측이나 상태를 만들어 넣지 않습니다.
+
+깨끗한 checkout에서 Node24.19+로 다음을 실행하세요. 추가 패키지 설치는 필요 없습니다.
+
+```sh
+node analysis/balance-800/balance-revision-101-200/check.mjs
+node analysis/balance-800/generate-reproduction-samples.mjs
+node analysis/balance-800/balance-revision-101-200/trace.mjs
+node analysis/balance-800/balance-revision-101-200/check.mjs
+node analysis/balance-800/wave-structure-analysis/samples.mjs
+git diff --exit-code -- analysis/balance-800/balance-revision-101-200/traces.json analysis/balance-800/balance-revision-101-200/trace-1-observation.json analysis/balance-800/balance-revision-101-200/trace-2-observation.json analysis/balance-800/balance-revision-101-200/trace-3-observation.json analysis/balance-800/wave-structure-analysis/carry-samples.json
+```
+
+처음 check는 보존된3개 관측의 정책 회귀, 이후 trace/check는 새로 생성해 해시를 확인한 기존 seed1/2/3 경기로부터 같은 관측을 추출하는 검사입니다. samples는 기존 지정4사례를 재생합니다. 마지막 diff가 없으면 공개된 원자료와 재생성 결과가 바이트까지 같습니다. 생성 로그는 각 cohort의 replays/에 생깁니다.
+
+이 작은 절차는 **6경기의 재실행과 3관측/4사례 추출 검증**입니다. 원본800개 replay는 여전히 공개하지 않았습니다. 800최종hash·wave19 상한800/800의 독립 원시로그 재집계로 확대해서 표현하면 안 됩니다. 전체 재현이 필요하면 위의 두 전체 run 명령으로800경기를 생성한 뒤 analyze.py를 실행하고 공개 결과와 대조해야 합니다.

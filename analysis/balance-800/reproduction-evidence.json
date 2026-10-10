@@ -1,0 +1,27 @@
+{
+  "node": "v24.19.0",
+  "baseAnalysisCommit": "70e491d9e5e2eeec3ff2e375b5e9176b75c778fd",
+  "method": "Fresh local clone, no node_modules or original replay files; execute README small reproduction commands",
+  "generatedGames": 6,
+  "publishedFinalHashReplayTickOutcomeMatches": 6,
+  "regeneratedPolicyObservations": 3,
+  "regeneratedCarrySamples": 4,
+  "trackedDiffAfterRegeneration": "empty",
+  "originalTraceBytesRestored": true,
+  "sha256": {
+    "balance-revision-101-200/traces.json": "6eb3b5119783e3f45025195d62f67ed638e307d20c3a6cd8f7f38a7203a6c315",
+    "balance-revision-101-200/trace-1-observation.json": "1ad39cbd2661da1095544cfb645f5c8f597dd057ead5d36a54992b5d9df938e9",
+    "balance-revision-101-200/trace-2-observation.json": "3175841008a52806e04c7f0aeee4b7ed561fe33c4b2f8267120558cbe1dd7c91",
+    "balance-revision-101-200/trace-3-observation.json": "820c0b0230f958751d2cb0e9e9710589daaa97d6ac5f5321d26d50be2ab7478a",
+    "wave-structure-analysis/carry-samples.json": "afb149058e87246a235de89f3f7be36e4957abb11d0e138f33d0cc1a460b6621"
+  },
+  "generationOutput": [
+    "balance-baseline-400/normal/1: published hash + replay PASS 150e137f80a8684ead929dd3656f913ce5e6b98f1320bd7a696c8851a5093bc9",
+    "balance-baseline-400/expert/1: published hash + replay PASS 9f0410a5eb74b8fad3b322d6a8dbe1f1a83af4b9289a0592806167c9fe77b934",
+    "balance-baseline-400/expert/2: published hash + replay PASS 9365ba6ce4d8c2d30189e7cf2d684bbfc35c5600fb61ca4d7ed2d824ff865200",
+    "balance-baseline-400/expert/3: published hash + replay PASS 63acbb521ce473229177b45ac6aee8a1626acd082044365e0a620f7b116fdda3",
+    "balance-revision-101-200/normal/101: published hash + replay PASS 0c1040f7b44706f8b2fa6d11577afb8a22672eeab26e4f394f931cd389f06e25",
+    "balance-revision-101-200/expert/101: published hash + replay PASS dabb6f145e3bf91dc2a437caa087ea8abb3ecc0386f3d8fc17a384e82e9becf5"
+  ],
+  "limitation": "Original 800 replay files remain unpublished. This six-game check is not an independent replay/hash or wave-statistics audit of all 800 games."
+}

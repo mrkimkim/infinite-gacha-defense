@@ -1,0 +1,1274 @@
+[
+  {
+    "seed": 1,
+    "entryIndex": 41,
+    "wave": 7,
+    "tick": 843,
+    "gold": 4,
+    "boardCount": 11,
+    "benchCount": 0,
+    "actual": {
+      "type": "startWave"
+    },
+    "normal": {
+      "type": "recruit",
+      "offerSlot": 1
+    },
+    "offer": {
+      "slot": 1,
+      "definitionId": "fixture-01",
+      "price": 2
+    },
+    "upgrades": [
+      {
+        "star": 2,
+        "consumed": [
+          {
+            "kind": "existing",
+            "unitId": 1
+          },
+          {
+            "kind": "existing",
+            "unitId": 2
+          },
+          {
+            "kind": "created",
+            "creationIndex": 0
+          }
+        ],
+        "location": {
+          "kind": "board",
+          "col": 1,
+          "row": 1
+        }
+      }
+    ],
+    "boardDpsBefore": 73.83333333333334,
+    "boardDpsAfterBuyDeploy": 77.16666666666667,
+    "selectedMaterials": [
+      {
+        "id": 1,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "cooldown": 10,
+        "location": {
+          "kind": "board",
+          "col": 1,
+          "row": 1
+        },
+        "rarityId": "common",
+        "damage": 6,
+        "bossDamage": 6,
+        "range": 3200,
+        "nextAttackCooldown": 12,
+        "supportActive": false,
+        "supportSourceIds": [],
+        "sellGold": 1
+      },
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "cooldown": 2,
+        "location": {
+          "kind": "board",
+          "col": 2,
+          "row": 1
+        },
+        "rarityId": "common",
+        "damage": 6,
+        "bossDamage": 6,
+        "range": 3200,
+        "nextAttackCooldown": 12,
+        "supportActive": false,
+        "supportSourceIds": [],
+        "sellGold": 1
+      }
+    ],
+    "availableOffers": [
+      {
+        "slot": 0,
+        "definitionId": "fixture-02",
+        "rarityId": "rare",
+        "price": 4,
+        "recruitPreview": {
+          "ok": true,
+          "offerSlot": 0,
+          "price": 4,
+          "goldAfter": 0,
+          "arrival": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 0
+            },
+            "definitionId": "fixture-02",
+            "star": 1,
+            "cooldown": 0,
+            "location": null
+          },
+          "upgrades": [
+            {
+              "consumed": [
+                {
+                  "kind": "existing",
+                  "unitId": 35
+                },
+                {
+                  "kind": "existing",
+                  "unitId": 60
+                },
+                {
+                  "kind": "created",
+                  "creationIndex": 0
+                }
+              ],
+              "result": {
+                "ref": {
+                  "kind": "created",
+                  "creationIndex": 1
+                },
+                "definitionId": "fixture-02",
+                "star": 2,
+                "location": {
+                  "kind": "board",
+                  "col": 2,
+                  "row": 0
+                },
+                "cooldown": 23
+              }
+            }
+          ],
+          "result": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 1
+            },
+            "definitionId": "fixture-02",
+            "star": 2,
+            "location": {
+              "kind": "board",
+              "col": 2,
+              "row": 0
+            },
+            "cooldown": 23
+          },
+          "finalUnits": [
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 1
+              },
+              "definitionId": "fixture-01",
+              "star": 1,
+              "cooldown": 10,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 2
+              },
+              "definitionId": "fixture-01",
+              "star": 1,
+              "cooldown": 2,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 6
+              },
+              "definitionId": "fixture-04",
+              "star": 2,
+              "cooldown": 18,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 14
+              },
+              "definitionId": "fixture-08",
+              "star": 1,
+              "cooldown": 11,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 24
+              },
+              "definitionId": "fixture-03",
+              "star": 1,
+              "cooldown": 1,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 25
+              },
+              "definitionId": "fixture-03",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 47
+              },
+              "definitionId": "fixture-06",
+              "star": 1,
+              "cooldown": 30,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 62
+              },
+              "definitionId": "fixture-04",
+              "star": 2,
+              "cooldown": 14,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 75
+              },
+              "definitionId": "fixture-07",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "created",
+                "creationIndex": 1
+              },
+              "definitionId": "fixture-02",
+              "star": 2,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 0
+              },
+              "cooldown": 23
+            }
+          ],
+          "boardCountAfter": 10,
+          "benchCountAfter": 0
+        }
+      },
+      {
+        "slot": 1,
+        "definitionId": "fixture-01",
+        "rarityId": "common",
+        "price": 2,
+        "recruitPreview": {
+          "ok": true,
+          "offerSlot": 1,
+          "price": 2,
+          "goldAfter": 2,
+          "arrival": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 0
+            },
+            "definitionId": "fixture-01",
+            "star": 1,
+            "cooldown": 0,
+            "location": null
+          },
+          "upgrades": [
+            {
+              "consumed": [
+                {
+                  "kind": "existing",
+                  "unitId": 1
+                },
+                {
+                  "kind": "existing",
+                  "unitId": 2
+                },
+                {
+                  "kind": "created",
+                  "creationIndex": 0
+                }
+              ],
+              "result": {
+                "ref": {
+                  "kind": "created",
+                  "creationIndex": 1
+                },
+                "definitionId": "fixture-01",
+                "star": 2,
+                "location": {
+                  "kind": "board",
+                  "col": 1,
+                  "row": 1
+                },
+                "cooldown": 10
+              }
+            }
+          ],
+          "result": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 1
+            },
+            "definitionId": "fixture-01",
+            "star": 2,
+            "location": {
+              "kind": "board",
+              "col": 1,
+              "row": 1
+            },
+            "cooldown": 10
+          },
+          "finalUnits": [
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 6
+              },
+              "definitionId": "fixture-04",
+              "star": 2,
+              "cooldown": 18,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 14
+              },
+              "definitionId": "fixture-08",
+              "star": 1,
+              "cooldown": 11,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 24
+              },
+              "definitionId": "fixture-03",
+              "star": 1,
+              "cooldown": 1,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 25
+              },
+              "definitionId": "fixture-03",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 35
+              },
+              "definitionId": "fixture-02",
+              "star": 1,
+              "cooldown": 11,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 47
+              },
+              "definitionId": "fixture-06",
+              "star": 1,
+              "cooldown": 30,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 60
+              },
+              "definitionId": "fixture-02",
+              "star": 1,
+              "cooldown": 23,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 62
+              },
+              "definitionId": "fixture-04",
+              "star": 2,
+              "cooldown": 14,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 75
+              },
+              "definitionId": "fixture-07",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "created",
+                "creationIndex": 1
+              },
+              "definitionId": "fixture-01",
+              "star": 2,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 1
+              },
+              "cooldown": 10
+            }
+          ],
+          "boardCountAfter": 10,
+          "benchCountAfter": 0
+        }
+      },
+      {
+        "slot": 2,
+        "definitionId": null,
+        "rarityId": null,
+        "price": null,
+        "recruitPreview": {
+          "ok": false,
+          "error": {
+            "code": "OFFER_EMPTY"
+          }
+        }
+      }
+    ],
+    "scoreComponents": {
+      "inventoryDelta": 0.09999999999999964,
+      "pipelineDelta": -0.46669047558312116,
+      "oldOwnScore": -0.03917440456451457
+    },
+    "revised": {
+      "type": "recruit",
+      "offerSlot": 1
+    }
+  },
+  {
+    "seed": 2,
+    "entryIndex": 54,
+    "wave": 9,
+    "tick": 1114,
+    "gold": 4,
+    "boardCount": 13,
+    "benchCount": 0,
+    "actual": {
+      "type": "startWave"
+    },
+    "normal": {
+      "type": "recruit",
+      "offerSlot": 0
+    },
+    "offer": {
+      "slot": 0,
+      "definitionId": "fixture-03",
+      "price": 3
+    },
+    "upgrades": [
+      {
+        "star": 2,
+        "consumed": [
+          {
+            "kind": "existing",
+            "unitId": 1
+          },
+          {
+            "kind": "existing",
+            "unitId": 13
+          },
+          {
+            "kind": "created",
+            "creationIndex": 0
+          }
+        ],
+        "location": {
+          "kind": "board",
+          "col": 0,
+          "row": 0
+        }
+      }
+    ],
+    "boardDpsBefore": 120.5,
+    "boardDpsAfterBuyDeploy": 122.5,
+    "selectedMaterials": [
+      {
+        "id": 1,
+        "definitionId": "fixture-03",
+        "star": 1,
+        "cooldown": 7,
+        "location": {
+          "kind": "board",
+          "col": 0,
+          "row": 0
+        },
+        "rarityId": "uncommon",
+        "damage": 3,
+        "bossDamage": 3,
+        "range": 2200,
+        "nextAttackCooldown": 10,
+        "supportActive": false,
+        "supportSourceIds": [],
+        "sellGold": 1
+      },
+      {
+        "id": 13,
+        "definitionId": "fixture-03",
+        "star": 1,
+        "cooldown": 7,
+        "location": {
+          "kind": "board",
+          "col": 3,
+          "row": 0
+        },
+        "rarityId": "uncommon",
+        "damage": 3,
+        "bossDamage": 3,
+        "range": 2200,
+        "nextAttackCooldown": 10,
+        "supportActive": false,
+        "supportSourceIds": [],
+        "sellGold": 1
+      }
+    ],
+    "availableOffers": [
+      {
+        "slot": 0,
+        "definitionId": "fixture-03",
+        "rarityId": "uncommon",
+        "price": 3,
+        "recruitPreview": {
+          "ok": true,
+          "offerSlot": 0,
+          "price": 3,
+          "goldAfter": 1,
+          "arrival": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 0
+            },
+            "definitionId": "fixture-03",
+            "star": 1,
+            "cooldown": 0,
+            "location": null
+          },
+          "upgrades": [
+            {
+              "consumed": [
+                {
+                  "kind": "existing",
+                  "unitId": 1
+                },
+                {
+                  "kind": "existing",
+                  "unitId": 13
+                },
+                {
+                  "kind": "created",
+                  "creationIndex": 0
+                }
+              ],
+              "result": {
+                "ref": {
+                  "kind": "created",
+                  "creationIndex": 1
+                },
+                "definitionId": "fixture-03",
+                "star": 2,
+                "location": {
+                  "kind": "board",
+                  "col": 0,
+                  "row": 0
+                },
+                "cooldown": 7
+              }
+            }
+          ],
+          "result": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 1
+            },
+            "definitionId": "fixture-03",
+            "star": 2,
+            "location": {
+              "kind": "board",
+              "col": 0,
+              "row": 0
+            },
+            "cooldown": 7
+          },
+          "finalUnits": [
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 2
+              },
+              "definitionId": "fixture-07",
+              "star": 1,
+              "cooldown": 3,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 3
+              },
+              "definitionId": "fixture-08",
+              "star": 1,
+              "cooldown": 16,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 23
+              },
+              "definitionId": "fixture-07",
+              "star": 1,
+              "cooldown": 7,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 33
+              },
+              "definitionId": "fixture-08",
+              "star": 1,
+              "cooldown": 20,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 35
+              },
+              "definitionId": "fixture-01",
+              "star": 2,
+              "cooldown": 2,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 47
+              },
+              "definitionId": "fixture-02",
+              "star": 1,
+              "cooldown": 9,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 61
+              },
+              "definitionId": "fixture-06",
+              "star": 1,
+              "cooldown": 30,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 3
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 76
+              },
+              "definitionId": "fixture-01",
+              "star": 2,
+              "cooldown": 2,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 90
+              },
+              "definitionId": "fixture-01",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 92
+              },
+              "definitionId": "fixture-04",
+              "star": 2,
+              "cooldown": 14,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 110
+              },
+              "definitionId": "fixture-04",
+              "star": 2,
+              "cooldown": 1,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "created",
+                "creationIndex": 1
+              },
+              "definitionId": "fixture-03",
+              "star": 2,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 0
+              },
+              "cooldown": 7
+            }
+          ],
+          "boardCountAfter": 12,
+          "benchCountAfter": 0
+        }
+      },
+      {
+        "slot": 1,
+        "definitionId": null,
+        "rarityId": null,
+        "price": null,
+        "recruitPreview": {
+          "ok": false,
+          "error": {
+            "code": "OFFER_EMPTY"
+          }
+        }
+      },
+      {
+        "slot": 2,
+        "definitionId": null,
+        "rarityId": null,
+        "price": null,
+        "recruitPreview": {
+          "ok": false,
+          "error": {
+            "code": "OFFER_EMPTY"
+          }
+        }
+      }
+    ],
+    "scoreComponents": {
+      "inventoryDelta": 0.10199999999999854,
+      "pipelineDelta": -0.3365999999999998,
+      "oldOwnScore": 0.003569999999999555
+    },
+    "revised": {
+      "type": "recruit",
+      "offerSlot": 0
+    }
+  },
+  {
+    "seed": 3,
+    "entryIndex": 50,
+    "wave": 8,
+    "tick": 964,
+    "gold": 3,
+    "boardCount": 14,
+    "benchCount": 0,
+    "actual": {
+      "type": "startWave"
+    },
+    "normal": {
+      "type": "recruit",
+      "offerSlot": 2
+    },
+    "offer": {
+      "slot": 2,
+      "definitionId": "fixture-07",
+      "price": 3
+    },
+    "upgrades": [
+      {
+        "star": 2,
+        "consumed": [
+          {
+            "kind": "existing",
+            "unitId": 47
+          },
+          {
+            "kind": "existing",
+            "unitId": 63
+          },
+          {
+            "kind": "created",
+            "creationIndex": 0
+          }
+        ],
+        "location": {
+          "kind": "board",
+          "col": 0,
+          "row": 2
+        }
+      }
+    ],
+    "boardDpsBefore": 121.76190476190479,
+    "boardDpsAfterBuyDeploy": 125.09523809523813,
+    "selectedMaterials": [
+      {
+        "id": 47,
+        "definitionId": "fixture-07",
+        "star": 1,
+        "cooldown": 1,
+        "location": {
+          "kind": "board",
+          "col": 0,
+          "row": 2
+        },
+        "rarityId": "uncommon",
+        "damage": 6,
+        "bossDamage": 6,
+        "range": 3200,
+        "nextAttackCooldown": 12,
+        "supportActive": false,
+        "supportSourceIds": [],
+        "sellGold": 1
+      },
+      {
+        "id": 63,
+        "definitionId": "fixture-07",
+        "star": 1,
+        "cooldown": 2,
+        "location": {
+          "kind": "board",
+          "col": 3,
+          "row": 1
+        },
+        "rarityId": "uncommon",
+        "damage": 6,
+        "bossDamage": 6,
+        "range": 3200,
+        "nextAttackCooldown": 12,
+        "supportActive": false,
+        "supportSourceIds": [],
+        "sellGold": 1
+      }
+    ],
+    "availableOffers": [
+      {
+        "slot": 0,
+        "definitionId": null,
+        "rarityId": null,
+        "price": null,
+        "recruitPreview": {
+          "ok": false,
+          "error": {
+            "code": "OFFER_EMPTY"
+          }
+        }
+      },
+      {
+        "slot": 1,
+        "definitionId": "fixture-02",
+        "rarityId": "rare",
+        "price": 4,
+        "recruitPreview": {
+          "ok": false,
+          "error": {
+            "code": "INSUFFICIENT_GOLD"
+          }
+        }
+      },
+      {
+        "slot": 2,
+        "definitionId": "fixture-07",
+        "rarityId": "uncommon",
+        "price": 3,
+        "recruitPreview": {
+          "ok": true,
+          "offerSlot": 2,
+          "price": 3,
+          "goldAfter": 0,
+          "arrival": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 0
+            },
+            "definitionId": "fixture-07",
+            "star": 1,
+            "cooldown": 0,
+            "location": null
+          },
+          "upgrades": [
+            {
+              "consumed": [
+                {
+                  "kind": "existing",
+                  "unitId": 47
+                },
+                {
+                  "kind": "existing",
+                  "unitId": 63
+                },
+                {
+                  "kind": "created",
+                  "creationIndex": 0
+                }
+              ],
+              "result": {
+                "ref": {
+                  "kind": "created",
+                  "creationIndex": 1
+                },
+                "definitionId": "fixture-07",
+                "star": 2,
+                "location": {
+                  "kind": "board",
+                  "col": 0,
+                  "row": 2
+                },
+                "cooldown": 2
+              }
+            }
+          ],
+          "result": {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 1
+            },
+            "definitionId": "fixture-07",
+            "star": 2,
+            "location": {
+              "kind": "board",
+              "col": 0,
+              "row": 2
+            },
+            "cooldown": 2
+          },
+          "finalUnits": [
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 3
+              },
+              "definitionId": "fixture-03",
+              "star": 1,
+              "cooldown": 5,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 4
+              },
+              "definitionId": "fixture-08",
+              "star": 1,
+              "cooldown": 4,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 12
+              },
+              "definitionId": "fixture-04",
+              "star": 1,
+              "cooldown": 5,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 14
+              },
+              "definitionId": "fixture-01",
+              "star": 2,
+              "cooldown": 10,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 23
+              },
+              "definitionId": "fixture-03",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 24
+              },
+              "definitionId": "fixture-04",
+              "star": 1,
+              "cooldown": 10,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 1
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 35
+              },
+              "definitionId": "fixture-05",
+              "star": 1,
+              "cooldown": 13,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 0
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 49
+              },
+              "definitionId": "fixture-01",
+              "star": 2,
+              "cooldown": 12,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 62
+              },
+              "definitionId": "fixture-01",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 2,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 76
+              },
+              "definitionId": "fixture-01",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 3,
+                "row": 2
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 77
+              },
+              "definitionId": "fixture-02",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 1,
+                "row": 3
+              }
+            },
+            {
+              "ref": {
+                "kind": "existing",
+                "unitId": 91
+              },
+              "definitionId": "fixture-02",
+              "star": 1,
+              "cooldown": 0,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 3
+              }
+            },
+            {
+              "ref": {
+                "kind": "created",
+                "creationIndex": 1
+              },
+              "definitionId": "fixture-07",
+              "star": 2,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 2
+              },
+              "cooldown": 2
+            }
+          ],
+          "boardCountAfter": 13,
+          "benchCountAfter": 0
+        }
+      }
+    ],
+    "scoreComponents": {
+      "inventoryDelta": 0.09999999999999964,
+      "pipelineDelta": -0.3299999999999996,
+      "oldOwnScore": 0.0034999999999999567
+    },
+    "revised": {
+      "type": "recruit",
+      "offerSlot": 2
+    }
+  }
+]

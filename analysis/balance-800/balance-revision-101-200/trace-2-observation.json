@@ -1,0 +1,2755 @@
+{
+  "rules": {
+    "schemaVersion": 3,
+    "rulesId": "playable-v2-gen2-fixture1-count40",
+    "status": "unapproved-fixture",
+    "tickMs": 50,
+    "waveCount": 20,
+    "startingGold": 12,
+    "rerollCost": 1,
+    "waveReward": 6,
+    "offerCount": 3,
+    "board": {
+      "columns": 4,
+      "rows": 4,
+      "tileSize": 1000
+    },
+    "benchCapacity": 8,
+    "footprintByStar": [
+      {
+        "width": 1,
+        "height": 1
+      },
+      {
+        "width": 1,
+        "height": 1
+      },
+      {
+        "width": 1,
+        "height": 1
+      }
+    ],
+    "countLimit": 40,
+    "warningCount": 32,
+    "rarities": [
+      {
+        "id": "common",
+        "label": "일반",
+        "offerWeight": 500,
+        "recruitPrice": 2,
+        "sellGoldByStar": [
+          1,
+          3,
+          9
+        ]
+      },
+      {
+        "id": "uncommon",
+        "label": "고급",
+        "offerWeight": 250,
+        "recruitPrice": 3,
+        "sellGoldByStar": [
+          1,
+          3,
+          9
+        ]
+      },
+      {
+        "id": "rare",
+        "label": "희귀",
+        "offerWeight": 150,
+        "recruitPrice": 4,
+        "sellGoldByStar": [
+          2,
+          6,
+          18
+        ]
+      },
+      {
+        "id": "epic",
+        "label": "영웅",
+        "offerWeight": 75,
+        "recruitPrice": 5,
+        "sellGoldByStar": [
+          2,
+          6,
+          18
+        ]
+      },
+      {
+        "id": "legendary",
+        "label": "전설",
+        "offerWeight": 25,
+        "recruitPrice": 6,
+        "sellGoldByStar": [
+          3,
+          9,
+          27
+        ]
+      }
+    ],
+    "starDamagePercent": [
+      100,
+      220,
+      484
+    ],
+    "synergyPercentByDistinctCount": [
+      0,
+      0,
+      5,
+      10
+    ],
+    "slow": {
+      "percent": 30,
+      "durationTicks": 40
+    },
+    "supportPeriodPercent": 90,
+    "path": {
+      "length": 20000,
+      "vertices": [
+        {
+          "x": -500,
+          "y": -500
+        },
+        {
+          "x": 4500,
+          "y": -500
+        },
+        {
+          "x": 4500,
+          "y": 4500
+        },
+        {
+          "x": -500,
+          "y": 4500
+        }
+      ]
+    },
+    "characters": [
+      {
+        "id": "fixture-01",
+        "label": "기술 기물 01",
+        "rarityId": "common",
+        "tag": "focus",
+        "damage": 6,
+        "cooldownTicks": 12,
+        "range": 3200,
+        "behavior": "single",
+        "maxTargets": 1,
+        "splashRadius": 0,
+        "bossDamagePercent": 100
+      },
+      {
+        "id": "fixture-02",
+        "label": "기술 기물 02",
+        "rarityId": "rare",
+        "tag": "cooperation",
+        "damage": 5,
+        "cooldownTicks": 24,
+        "range": 3000,
+        "behavior": "splash",
+        "maxTargets": null,
+        "splashRadius": 1100,
+        "bossDamagePercent": 100
+      },
+      {
+        "id": "fixture-03",
+        "label": "기술 기물 03",
+        "rarityId": "uncommon",
+        "tag": "focus",
+        "damage": 3,
+        "cooldownTicks": 10,
+        "range": 2200,
+        "behavior": "multi",
+        "maxTargets": 2,
+        "splashRadius": 0,
+        "bossDamagePercent": 100
+      },
+      {
+        "id": "fixture-04",
+        "label": "기술 기물 04",
+        "rarityId": "common",
+        "tag": "cooperation",
+        "damage": 3,
+        "cooldownTicks": 20,
+        "range": 3000,
+        "behavior": "slow",
+        "maxTargets": 1,
+        "splashRadius": 0,
+        "bossDamagePercent": 100
+      },
+      {
+        "id": "fixture-05",
+        "label": "기술 기물 05",
+        "rarityId": "epic",
+        "tag": "cooperation",
+        "damage": 3,
+        "cooldownTicks": 20,
+        "range": 2800,
+        "behavior": "support",
+        "maxTargets": 1,
+        "splashRadius": 0,
+        "bossDamagePercent": 100
+      },
+      {
+        "id": "fixture-06",
+        "label": "기술 기물 06",
+        "rarityId": "legendary",
+        "tag": "focus",
+        "damage": 10,
+        "cooldownTicks": 30,
+        "range": 4500,
+        "behavior": "bossFirst",
+        "maxTargets": 1,
+        "splashRadius": 0,
+        "bossDamagePercent": 200
+      },
+      {
+        "id": "fixture-07",
+        "label": "기술 기물 07",
+        "rarityId": "uncommon",
+        "tag": "focus",
+        "damage": 6,
+        "cooldownTicks": 12,
+        "range": 3200,
+        "behavior": "single",
+        "maxTargets": 1,
+        "splashRadius": 0,
+        "bossDamagePercent": 100
+      },
+      {
+        "id": "fixture-08",
+        "label": "기술 기물 08",
+        "rarityId": "rare",
+        "tag": "cooperation",
+        "damage": 5,
+        "cooldownTicks": 24,
+        "range": 3000,
+        "behavior": "splash",
+        "maxTargets": null,
+        "splashRadius": 1100,
+        "bossDamagePercent": 100
+      }
+    ],
+    "enemySpeed": {
+      "basic": 70,
+      "swift": 110,
+      "sturdy": 45,
+      "boss": 55
+    },
+    "waves": [
+      {
+        "wave": 1,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 16
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 11
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 25
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 16
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 11
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 25
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 16
+          }
+        ]
+      },
+      {
+        "wave": 2,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 21
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 14
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 33
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 21
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 14
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 33
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 21
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 14
+          }
+        ]
+      },
+      {
+        "wave": 3,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 26
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 18
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 41
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 26
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 18
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 41
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 26
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 18
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 41
+          }
+        ]
+      },
+      {
+        "wave": 4,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 32
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 22
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 51
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 32
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 22
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 51
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 32
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 22
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 51
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 32
+          }
+        ]
+      },
+      {
+        "wave": 5,
+        "durationTicks": 600,
+        "bossDeadlineWaveTick": 600,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "boss",
+            "hp": 320
+          },
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 38
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 26
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 38
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 26
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 38
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 26
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 38
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 26
+          }
+        ]
+      },
+      {
+        "wave": 6,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 45
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 31
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 72
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 45
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 31
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 72
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 45
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 31
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 72
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 45
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 31
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 72
+          }
+        ]
+      },
+      {
+        "wave": 7,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 52
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 36
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 83
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 52
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 36
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 83
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 52
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 36
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 83
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 52
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 36
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 83
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 52
+          }
+        ]
+      },
+      {
+        "wave": 8,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 42
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 42
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 42
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 42
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 42
+          }
+        ]
+      },
+      {
+        "wave": 9,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 68
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 47
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 108
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 68
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 47
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 108
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 68
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 47
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 108
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 68
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 47
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 108
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 68
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 47
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 108
+          }
+        ]
+      },
+      {
+        "wave": 10,
+        "durationTicks": 600,
+        "bossDeadlineWaveTick": 600,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "boss",
+            "hp": 520
+          },
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 77
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 53
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 123
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 77
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 53
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 123
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 77
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 53
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 123
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 77
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 53
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 123
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 77
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 53
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 123
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 77
+          }
+        ]
+      },
+      {
+        "wave": 11,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 86
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 137
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 86
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 137
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 86
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 137
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 86
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 137
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 86
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 60
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 137
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 86
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 60
+          }
+        ]
+      },
+      {
+        "wave": 12,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 67
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 153
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 67
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 153
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 67
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 153
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 67
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 153
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 67
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 153
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 96
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 67
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 153
+          }
+        ]
+      },
+      {
+        "wave": 13,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 74
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 169
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 74
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 169
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 74
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 169
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 74
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 169
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 74
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 169
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 74
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 169
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 106
+          }
+        ]
+      },
+      {
+        "wave": 14,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 117
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 81
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 187
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 117
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 81
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 187
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 117
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 81
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 187
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 117
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 81
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 187
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 117
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 81
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 187
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 117
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 81
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 187
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 117
+          },
+          {
+            "atWaveTick": 229,
+            "typeId": "swift",
+            "hp": 81
+          }
+        ]
+      },
+      {
+        "wave": 15,
+        "durationTicks": 600,
+        "bossDeadlineWaveTick": 600,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "boss",
+            "hp": 720
+          },
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 128
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 89
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 204
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 128
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 89
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 204
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 128
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 89
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 204
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 128
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 89
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 204
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 128
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 89
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 204
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 128
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 89
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 204
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 128
+          },
+          {
+            "atWaveTick": 229,
+            "typeId": "swift",
+            "hp": 89
+          },
+          {
+            "atWaveTick": 241,
+            "typeId": "sturdy",
+            "hp": 204
+          }
+        ]
+      },
+      {
+        "wave": 16,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 140
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 98
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 224
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 140
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 98
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 224
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 140
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 98
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 224
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 140
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 98
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 224
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 140
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 98
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 224
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 140
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 98
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 224
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 140
+          },
+          {
+            "atWaveTick": 229,
+            "typeId": "swift",
+            "hp": 98
+          },
+          {
+            "atWaveTick": 241,
+            "typeId": "sturdy",
+            "hp": 224
+          },
+          {
+            "atWaveTick": 253,
+            "typeId": "basic",
+            "hp": 140
+          }
+        ]
+      },
+      {
+        "wave": 17,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 243
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 243
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 243
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 243
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 243
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 243
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 229,
+            "typeId": "swift",
+            "hp": 106
+          },
+          {
+            "atWaveTick": 241,
+            "typeId": "sturdy",
+            "hp": 243
+          },
+          {
+            "atWaveTick": 253,
+            "typeId": "basic",
+            "hp": 152
+          },
+          {
+            "atWaveTick": 265,
+            "typeId": "swift",
+            "hp": 106
+          }
+        ]
+      },
+      {
+        "wave": 18,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 264
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 264
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 264
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 264
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 264
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 264
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 229,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 241,
+            "typeId": "sturdy",
+            "hp": 264
+          },
+          {
+            "atWaveTick": 253,
+            "typeId": "basic",
+            "hp": 165
+          },
+          {
+            "atWaveTick": 265,
+            "typeId": "swift",
+            "hp": 115
+          },
+          {
+            "atWaveTick": 277,
+            "typeId": "sturdy",
+            "hp": 264
+          }
+        ]
+      },
+      {
+        "wave": 19,
+        "durationTicks": 400,
+        "bossDeadlineWaveTick": null,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 229,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 241,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 253,
+            "typeId": "basic",
+            "hp": 178
+          },
+          {
+            "atWaveTick": 265,
+            "typeId": "swift",
+            "hp": 124
+          },
+          {
+            "atWaveTick": 277,
+            "typeId": "sturdy",
+            "hp": 284
+          },
+          {
+            "atWaveTick": 289,
+            "typeId": "basic",
+            "hp": 178
+          }
+        ]
+      },
+      {
+        "wave": 20,
+        "durationTicks": 600,
+        "bossDeadlineWaveTick": 600,
+        "spawns": [
+          {
+            "atWaveTick": 1,
+            "typeId": "boss",
+            "hp": 920
+          },
+          {
+            "atWaveTick": 1,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 13,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 25,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 37,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 49,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 61,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 73,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 85,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 97,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 109,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 121,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 133,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 145,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 157,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 169,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 181,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 193,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 205,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 217,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 229,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 241,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 253,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 265,
+            "typeId": "swift",
+            "hp": 134
+          },
+          {
+            "atWaveTick": 277,
+            "typeId": "sturdy",
+            "hp": 307
+          },
+          {
+            "atWaveTick": 289,
+            "typeId": "basic",
+            "hp": 192
+          },
+          {
+            "atWaveTick": 301,
+            "typeId": "swift",
+            "hp": 134
+          }
+        ]
+      }
+    ],
+    "shopSampling": {
+      "algorithm": "rarity-weight-then-uniform-definition",
+      "weightTotal": 1000,
+      "rarityOrder": [
+        "common",
+        "uncommon",
+        "rare",
+        "epic",
+        "legendary"
+      ],
+      "withinRarityOrder": "profile-character-order",
+      "drawsForSingleton": true
+    },
+    "autoUpgrade": {
+      "materialCount": 3,
+      "maxStar": 3,
+      "starOrder": [
+        1,
+        2
+      ],
+      "materialOrder": "ascending-identity",
+      "placement": "oldest-board-else-lowest-material-bench",
+      "newRecruitPlacement": "transient-until-stable",
+      "loneRecruitPlacement": "lowest-empty-bench",
+      "cooldown": "max-material-remainder"
+    },
+    "semantics": {
+      "revision": "playable-v2-generation2-api-fixture1",
+      "tickOrder": [
+        "incrementClocks",
+        "expireEffects",
+        "spawn",
+        "unitAttacksAndDeaths",
+        "move",
+        "accumulationLoss",
+        "deadlineLoss",
+        "successRewards"
+      ],
+      "targetOrder": [
+        "totalDistanceDescending",
+        "enemyIdAscending"
+      ],
+      "hitOrder": "targetPrioritySnapshot",
+      "rangeBoundary": "inclusiveSquaredDistance",
+      "slowRounding": "floorBaseSpeedTimes70Over100"
+    },
+    "rulesDigest": "83462afeda2fe1756f130669f4b77af45c518390c04248d1d006909fb911c886"
+  },
+  "tick": 1114,
+  "phase": "preparation",
+  "outcome": null,
+  "outcomeReason": null,
+  "wave": 9,
+  "waveTick": 180,
+  "gold": 4,
+  "offers": [
+    {
+      "slot": 0,
+      "definitionId": "fixture-03",
+      "rarityId": "uncommon",
+      "price": 3,
+      "recruitPreview": {
+        "ok": true,
+        "offerSlot": 0,
+        "price": 3,
+        "goldAfter": 1,
+        "arrival": {
+          "ref": {
+            "kind": "created",
+            "creationIndex": 0
+          },
+          "definitionId": "fixture-03",
+          "star": 1,
+          "cooldown": 0,
+          "location": null
+        },
+        "upgrades": [
+          {
+            "consumed": [
+              {
+                "kind": "existing",
+                "unitId": 1
+              },
+              {
+                "kind": "existing",
+                "unitId": 13
+              },
+              {
+                "kind": "created",
+                "creationIndex": 0
+              }
+            ],
+            "result": {
+              "ref": {
+                "kind": "created",
+                "creationIndex": 1
+              },
+              "definitionId": "fixture-03",
+              "star": 2,
+              "location": {
+                "kind": "board",
+                "col": 0,
+                "row": 0
+              },
+              "cooldown": 7
+            }
+          }
+        ],
+        "result": {
+          "ref": {
+            "kind": "created",
+            "creationIndex": 1
+          },
+          "definitionId": "fixture-03",
+          "star": 2,
+          "location": {
+            "kind": "board",
+            "col": 0,
+            "row": 0
+          },
+          "cooldown": 7
+        },
+        "finalUnits": [
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 2
+            },
+            "definitionId": "fixture-07",
+            "star": 1,
+            "cooldown": 3,
+            "location": {
+              "kind": "board",
+              "col": 1,
+              "row": 1
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 3
+            },
+            "definitionId": "fixture-08",
+            "star": 1,
+            "cooldown": 16,
+            "location": {
+              "kind": "board",
+              "col": 1,
+              "row": 0
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 23
+            },
+            "definitionId": "fixture-07",
+            "star": 1,
+            "cooldown": 7,
+            "location": {
+              "kind": "board",
+              "col": 2,
+              "row": 2
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 33
+            },
+            "definitionId": "fixture-08",
+            "star": 1,
+            "cooldown": 20,
+            "location": {
+              "kind": "board",
+              "col": 2,
+              "row": 0
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 35
+            },
+            "definitionId": "fixture-01",
+            "star": 2,
+            "cooldown": 2,
+            "location": {
+              "kind": "board",
+              "col": 2,
+              "row": 1
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 47
+            },
+            "definitionId": "fixture-02",
+            "star": 1,
+            "cooldown": 9,
+            "location": {
+              "kind": "board",
+              "col": 3,
+              "row": 1
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 61
+            },
+            "definitionId": "fixture-06",
+            "star": 1,
+            "cooldown": 30,
+            "location": {
+              "kind": "board",
+              "col": 1,
+              "row": 3
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 76
+            },
+            "definitionId": "fixture-01",
+            "star": 2,
+            "cooldown": 2,
+            "location": {
+              "kind": "board",
+              "col": 1,
+              "row": 2
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 90
+            },
+            "definitionId": "fixture-01",
+            "star": 1,
+            "cooldown": 0,
+            "location": {
+              "kind": "board",
+              "col": 3,
+              "row": 2
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 92
+            },
+            "definitionId": "fixture-04",
+            "star": 2,
+            "cooldown": 14,
+            "location": {
+              "kind": "board",
+              "col": 0,
+              "row": 1
+            }
+          },
+          {
+            "ref": {
+              "kind": "existing",
+              "unitId": 110
+            },
+            "definitionId": "fixture-04",
+            "star": 2,
+            "cooldown": 1,
+            "location": {
+              "kind": "board",
+              "col": 0,
+              "row": 2
+            }
+          },
+          {
+            "ref": {
+              "kind": "created",
+              "creationIndex": 1
+            },
+            "definitionId": "fixture-03",
+            "star": 2,
+            "location": {
+              "kind": "board",
+              "col": 0,
+              "row": 0
+            },
+            "cooldown": 7
+          }
+        ],
+        "boardCountAfter": 12,
+        "benchCountAfter": 0
+      }
+    },
+    {
+      "slot": 1,
+      "definitionId": null,
+      "rarityId": null,
+      "price": null,
+      "recruitPreview": {
+        "ok": false,
+        "error": {
+          "code": "OFFER_EMPTY"
+        }
+      }
+    },
+    {
+      "slot": 2,
+      "definitionId": null,
+      "rarityId": null,
+      "price": null,
+      "recruitPreview": {
+        "ok": false,
+        "error": {
+          "code": "OFFER_EMPTY"
+        }
+      }
+    }
+  ],
+  "units": [
+    {
+      "id": 1,
+      "definitionId": "fixture-03",
+      "star": 1,
+      "cooldown": 7,
+      "location": {
+        "kind": "board",
+        "col": 0,
+        "row": 0
+      },
+      "rarityId": "uncommon",
+      "damage": 3,
+      "bossDamage": 3,
+      "range": 2200,
+      "nextAttackCooldown": 10,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 1
+    },
+    {
+      "id": 2,
+      "definitionId": "fixture-07",
+      "star": 1,
+      "cooldown": 3,
+      "location": {
+        "kind": "board",
+        "col": 1,
+        "row": 1
+      },
+      "rarityId": "uncommon",
+      "damage": 6,
+      "bossDamage": 6,
+      "range": 3200,
+      "nextAttackCooldown": 12,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 1
+    },
+    {
+      "id": 3,
+      "definitionId": "fixture-08",
+      "star": 1,
+      "cooldown": 16,
+      "location": {
+        "kind": "board",
+        "col": 1,
+        "row": 0
+      },
+      "rarityId": "rare",
+      "damage": 5,
+      "bossDamage": 5,
+      "range": 3300,
+      "nextAttackCooldown": 24,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 2
+    },
+    {
+      "id": 13,
+      "definitionId": "fixture-03",
+      "star": 1,
+      "cooldown": 7,
+      "location": {
+        "kind": "board",
+        "col": 3,
+        "row": 0
+      },
+      "rarityId": "uncommon",
+      "damage": 3,
+      "bossDamage": 3,
+      "range": 2200,
+      "nextAttackCooldown": 10,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 1
+    },
+    {
+      "id": 23,
+      "definitionId": "fixture-07",
+      "star": 1,
+      "cooldown": 7,
+      "location": {
+        "kind": "board",
+        "col": 2,
+        "row": 2
+      },
+      "rarityId": "uncommon",
+      "damage": 6,
+      "bossDamage": 6,
+      "range": 3200,
+      "nextAttackCooldown": 12,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 1
+    },
+    {
+      "id": 33,
+      "definitionId": "fixture-08",
+      "star": 1,
+      "cooldown": 20,
+      "location": {
+        "kind": "board",
+        "col": 2,
+        "row": 0
+      },
+      "rarityId": "rare",
+      "damage": 5,
+      "bossDamage": 5,
+      "range": 3300,
+      "nextAttackCooldown": 24,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 2
+    },
+    {
+      "id": 35,
+      "definitionId": "fixture-01",
+      "star": 2,
+      "cooldown": 2,
+      "location": {
+        "kind": "board",
+        "col": 2,
+        "row": 1
+      },
+      "rarityId": "common",
+      "damage": 14,
+      "bossDamage": 14,
+      "range": 3200,
+      "nextAttackCooldown": 12,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 3
+    },
+    {
+      "id": 47,
+      "definitionId": "fixture-02",
+      "star": 1,
+      "cooldown": 9,
+      "location": {
+        "kind": "board",
+        "col": 3,
+        "row": 1
+      },
+      "rarityId": "rare",
+      "damage": 5,
+      "bossDamage": 5,
+      "range": 3300,
+      "nextAttackCooldown": 24,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 2
+    },
+    {
+      "id": 61,
+      "definitionId": "fixture-06",
+      "star": 1,
+      "cooldown": 30,
+      "location": {
+        "kind": "board",
+        "col": 1,
+        "row": 3
+      },
+      "rarityId": "legendary",
+      "damage": 11,
+      "bossDamage": 22,
+      "range": 4500,
+      "nextAttackCooldown": 30,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 3
+    },
+    {
+      "id": 76,
+      "definitionId": "fixture-01",
+      "star": 2,
+      "cooldown": 2,
+      "location": {
+        "kind": "board",
+        "col": 1,
+        "row": 2
+      },
+      "rarityId": "common",
+      "damage": 14,
+      "bossDamage": 14,
+      "range": 3200,
+      "nextAttackCooldown": 12,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 3
+    },
+    {
+      "id": 90,
+      "definitionId": "fixture-01",
+      "star": 1,
+      "cooldown": 0,
+      "location": {
+        "kind": "board",
+        "col": 3,
+        "row": 2
+      },
+      "rarityId": "common",
+      "damage": 6,
+      "bossDamage": 6,
+      "range": 3200,
+      "nextAttackCooldown": 12,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 1
+    },
+    {
+      "id": 92,
+      "definitionId": "fixture-04",
+      "star": 2,
+      "cooldown": 14,
+      "location": {
+        "kind": "board",
+        "col": 0,
+        "row": 1
+      },
+      "rarityId": "common",
+      "damage": 6,
+      "bossDamage": 6,
+      "range": 3300,
+      "nextAttackCooldown": 20,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 3
+    },
+    {
+      "id": 110,
+      "definitionId": "fixture-04",
+      "star": 2,
+      "cooldown": 1,
+      "location": {
+        "kind": "board",
+        "col": 0,
+        "row": 2
+      },
+      "rarityId": "common",
+      "damage": 6,
+      "bossDamage": 6,
+      "range": 3300,
+      "nextAttackCooldown": 20,
+      "supportActive": false,
+      "supportSourceIds": [],
+      "sellGold": 3
+    }
+  ],
+  "enemies": [],
+  "synergies": [
+    {
+      "tag": "focus",
+      "distinctDefinitions": [
+        "fixture-01",
+        "fixture-03",
+        "fixture-06",
+        "fixture-07"
+      ],
+      "tier": 3,
+      "percent": 10,
+      "affectedUnitIds": [
+        1,
+        2,
+        13,
+        23,
+        35,
+        61,
+        76,
+        90
+      ]
+    },
+    {
+      "tag": "cooperation",
+      "distinctDefinitions": [
+        "fixture-02",
+        "fixture-04",
+        "fixture-08"
+      ],
+      "tier": 3,
+      "percent": 10,
+      "affectedUnitIds": [
+        3,
+        33,
+        47,
+        92,
+        110
+      ]
+    }
+  ],
+  "boardCount": 13,
+  "benchCount": 0,
+  "remainingCount": 0,
+  "countLimit": 40,
+  "warningCount": 32,
+  "warning": false,
+  "segmentRemainingTicks": 400,
+  "bossDeadlineWaveTick": null,
+  "bossRemainingTicks": null,
+  "nextWave": {
+    "wave": 9,
+    "durationTicks": 400,
+    "bossDeadlineWaveTick": null,
+    "spawns": [
+      {
+        "atWaveTick": 1,
+        "typeId": "basic",
+        "hp": 68
+      },
+      {
+        "atWaveTick": 13,
+        "typeId": "swift",
+        "hp": 47
+      },
+      {
+        "atWaveTick": 25,
+        "typeId": "sturdy",
+        "hp": 108
+      },
+      {
+        "atWaveTick": 37,
+        "typeId": "basic",
+        "hp": 68
+      },
+      {
+        "atWaveTick": 49,
+        "typeId": "swift",
+        "hp": 47
+      },
+      {
+        "atWaveTick": 61,
+        "typeId": "sturdy",
+        "hp": 108
+      },
+      {
+        "atWaveTick": 73,
+        "typeId": "basic",
+        "hp": 68
+      },
+      {
+        "atWaveTick": 85,
+        "typeId": "swift",
+        "hp": 47
+      },
+      {
+        "atWaveTick": 97,
+        "typeId": "sturdy",
+        "hp": 108
+      },
+      {
+        "atWaveTick": 109,
+        "typeId": "basic",
+        "hp": 68
+      },
+      {
+        "atWaveTick": 121,
+        "typeId": "swift",
+        "hp": 47
+      },
+      {
+        "atWaveTick": 133,
+        "typeId": "sturdy",
+        "hp": 108
+      },
+      {
+        "atWaveTick": 145,
+        "typeId": "basic",
+        "hp": 68
+      },
+      {
+        "atWaveTick": 157,
+        "typeId": "swift",
+        "hp": 47
+      },
+      {
+        "atWaveTick": 169,
+        "typeId": "sturdy",
+        "hp": 108
+      }
+    ]
+  },
+  "canStartWave": true
+}
