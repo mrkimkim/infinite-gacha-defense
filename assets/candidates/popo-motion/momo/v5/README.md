@@ -25,7 +25,7 @@ These are proposed animation presentation durations chosen to show an idle lead-
 - static-controls-verification.json: DOM-stub timeline/control test PASS. This proves script sequence at supplied clock times, not live browser execution.
 - verify_playback.cjs: real Chromium review script for working environment.
 - Chromium launch here failed with process_singleton_posix.cc socket() Operation not permitted in default and approved elevated mode. Actual playback is therefore UNVERIFIED in this environment. No screenshot or live-playback success is claimed. Leader's existing working browser is the next test route.
-- gif-decoded-*.png: decoded GIF stills inspected, not actual playback captures.
+- GIF에서 추출해 검수한 이미지: decoded stills used for inspection, not separate files preserved in this PR or actual playback captures.
 
 No further socket escalation, code integration, core change, repository publication or automatic adoption was performed.
 
