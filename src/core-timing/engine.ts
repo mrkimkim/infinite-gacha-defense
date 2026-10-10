@@ -278,10 +278,12 @@ function combatTick(state: WorkingState, events: CombatEvent[], rules: RuleData)
         ? a.typeId === 'boss' ? -1 : 1 : targetOrder(a, b));
     const primary = targets[0];
     if (!primary) continue;
-    if(character.behavior==='single'||character.behavior==='splash') {
+    const delayed=Object.hasOwn(rules.timing.delayedDefinitions,character.id)
+      ? rules.timing.delayedDefinitions[character.id as keyof typeof rules.timing.delayedDefinitions] : null;
+    if(delayed) {
       const snapshot: AttackSnapshot={damage:derived.damage,bossDamage:derived.bossDamage,range:derived.range,
-        period:derived.nextAttackCooldown,behavior:character.behavior,radius:character.splashRadius,effect:null,
-        windupTicks:character.behavior==='single'?rules.timing.singleWindupTicks:rules.timing.splashWindupTicks,
+        period:derived.nextAttackCooldown,behavior:delayed.behavior,radius:character.splashRadius,effect:null,
+        windupTicks:delayed.windupTicks,
         minFlightTicks:rules.timing.minFlightTicks,distancePerFlightTick:rules.timing.distancePerFlightTick};
       const windup: Windup={kind:'windup',attackId:allocateAttackId(state),unitId:unit.id,targetId:primary.id,
         startTick:state.tick,releaseTick:safe(state.tick+snapshot.windupTicks),sourcePosition,snapshot};
@@ -291,7 +293,9 @@ function combatTick(state: WorkingState, events: CombatEvent[], rules: RuleData)
       continue;
     }
     const center = pathPosition(primary.totalDistance)!;
-    const hitTargets = targets.slice(0, character.maxTargets ?? 1);
+    const hitTargets = character.behavior === 'splash'
+      ? state.enemies.filter(e => squared(center, pathPosition(e.totalDistance)!) <= safe(character.splashRadius * character.splashRadius)).sort(targetOrder)
+      : targets.slice(0, character.maxTargets ?? 1);
     const hits = hitTargets.map(enemy => ({ enemyId: enemy.id,
       damage: Math.min(enemy.hp, enemy.typeId === 'boss' ? derived.bossDamage : derived.damage),
       position: pathPosition(enemy.totalDistance)! }));

@@ -3,7 +3,7 @@ import type { EnemyTypeId, RuleData, RulesId, WaveDefinition } from './types.ts'
 
 export const SCHEMA_VERSION = 4 as const;
 /** Unapproved technical fixture only. No production odds, roster or economics chosen. */
-export const EXPERIMENT_RULES_ID: RulesId = 'attack-timing-v4-r1-count40';
+export const EXPERIMENT_RULES_ID: RulesId = 'attack-timing-v4-r2-count40';
 
 /** Excludes acceptedLog: batching/log granularity must not change state hashes. */
 export const CANONICAL_STATE_KEYS = Object.freeze([
@@ -45,7 +45,7 @@ function proposedWaves(): WaveDefinition[] {
 function profile(limit: 40 | 80): RuleData {
   return freezeTree<RuleData>({
     schemaVersion: 4,
-    rulesId: `attack-timing-v4-r1-count${limit}`,
+    rulesId: `attack-timing-v4-r2-count${limit}`,
     status: 'unapproved-fixture', tickMs: 50, waveCount: 20, startingGold: 12,
     rerollCost: 1, waveReward: 6, offerCount: 3,
     board: { columns: 4, rows: 4, tileSize: 1000 }, benchCapacity: 8,
@@ -98,8 +98,12 @@ function profile(limit: 40 | 80): RuleData {
     prng: { algorithm: 'xorshift32', shifts: [13, 17, 5], seedMin: 1,
       seedMax: 4294967295, sampling: 'nonzero-domain-rejection-uniform' },
     timing: {
-      singleWindupTicks: 3, splashWindupTicks: 4, minFlightTicks: 2, distancePerFlightTick: 600,
-      delayedBehaviors: ['single', 'splash'], immediateBehaviors: ['multi', 'slow', 'support', 'bossFirst'],
+      // Compatibility metadata describes role formats; only delayedDefinitions selects delay.
+      singleWindupTicks: 3, splashWindupTicks: 4,
+      delayedBehaviors: ['single','splash'], immediateBehaviors: ['multi','slow','support','bossFirst'],
+      minFlightTicks: 2, distancePerFlightTick: 600,
+      delayedDefinitions: { 'fixture-01': { behavior: 'single', windupTicks: 3 }, 'fixture-02': { behavior: 'splash', windupTicks: 4 } },
+      immediateDefinitions: ['fixture-03','fixture-04','fixture-05','fixture-06','fixture-07','fixture-08'],
       flight: 'fixedArrival=max(2,ceil(LinfReleaseDistance/600));firstMove=release+1;noRetarget',
       rounding: 'truncSignedDeltaOverRemainingTicks;finalExactlyLiveTarget',
       snapshot: ['sourcePosition','targetId','damage','bossDamage','range','period','behavior','radius','effect','windupTicks','minFlightTicks','distancePerFlightTick'],
@@ -111,7 +115,7 @@ function profile(limit: 40 | 80): RuleData {
       origin: 'integerWorldCoordinates;artAnchorsExcluded',
     },
     semantics: {
-      revision: 'attack-timing-v4-r1',
+      revision: 'attack-timing-v4-r2',
       tickOrder: ['incrementClocks', 'expireEffects', 'spawn', 'existingFlightsMoveImpactByAttackId', 'existingWindupsReleaseCancelByAttackId', 'unitCooldownStartOrImmediateByUnitId',
         'move', 'accumulationLoss', 'deadlineLoss', 'successRewards'],
       targetOrder: ['totalDistanceDescending', 'enemyIdAscending'],
@@ -122,12 +126,12 @@ function profile(limit: 40 | 80): RuleData {
 }
 
 export const RULES_PROPOSALS: Readonly<Record<RulesId, RuleData>> = freezeTree({
-  'attack-timing-v4-r1-count40': profile(40),
-  'attack-timing-v4-r1-count80': profile(80),
+  'attack-timing-v4-r2-count40': profile(40),
+  'attack-timing-v4-r2-count80': profile(80),
 });
 
 /** Full fixed RuleData canonical UTF-8 JSON SHA-256; never hash runtime overrides. */
 export const RULES_DIGESTS: Readonly<Record<RulesId, string>> = Object.freeze({
-  'attack-timing-v4-r1-count40': sha256(canonicalJson(RULES_PROPOSALS['attack-timing-v4-r1-count40'])),
-  'attack-timing-v4-r1-count80': sha256(canonicalJson(RULES_PROPOSALS['attack-timing-v4-r1-count80'])),
+  'attack-timing-v4-r2-count40': sha256(canonicalJson(RULES_PROPOSALS['attack-timing-v4-r2-count40'])),
+  'attack-timing-v4-r2-count80': sha256(canonicalJson(RULES_PROPOSALS['attack-timing-v4-r2-count80'])),
 });

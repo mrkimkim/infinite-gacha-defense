@@ -1,7 +1,7 @@
-/** Approved readonly generation2/schema4 engine contract. */
+/** Readonly opt-in schema4 experiment; rules revision is selected explicitly. */
 export type DeepReadonly<T> = T extends object
   ? { readonly [K in keyof T]: DeepReadonly<T[K]> } : T;
-export type RulesId = 'attack-timing-v4-r1-count40' | 'attack-timing-v4-r1-count80';
+export type RulesId = 'attack-timing-v4-r2-count40' | 'attack-timing-v4-r2-count80';
 /** Registry data defines the roster; this is deliberately not a six-character union. */
 export type DefinitionId = string;
 export type RarityId = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
@@ -137,8 +137,11 @@ export type RuleData = DeepReadonly<{
     cooldown: 'max-material-remainder' };
   prng: { algorithm: 'xorshift32'; shifts: [13, 17, 5]; seedMin: 1;
     seedMax: 4294967295; sampling: 'nonzero-domain-rejection-uniform' };
-  timing: { singleWindupTicks: 3; splashWindupTicks: 4; minFlightTicks: 2; distancePerFlightTick: 600;
-    delayedBehaviors: ['single', 'splash']; immediateBehaviors: ['multi', 'slow', 'support', 'bossFirst'];
+  timing: { singleWindupTicks: 3; splashWindupTicks: 4;
+    delayedBehaviors: ['single','splash']; immediateBehaviors: ['multi','slow','support','bossFirst'];
+    minFlightTicks: 2; distancePerFlightTick: 600;
+    delayedDefinitions: { 'fixture-01': { behavior: 'single'; windupTicks: 3 }; 'fixture-02': { behavior: 'splash'; windupTicks: 4 } };
+    immediateDefinitions: ['fixture-03','fixture-04','fixture-05','fixture-06','fixture-07','fixture-08'];
     flight: string; rounding: string; snapshot: string[]; cancellation: string[];
     cooldown: string; overlap: string; phaseCleanup: string; aoe: string; origin: string };
   semantics: { revision: string; tickOrder: string[]; targetOrder: string[];

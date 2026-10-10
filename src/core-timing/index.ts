@@ -1,4 +1,4 @@
-/** Opt-in schema4 r1 timing engine, isolated from historical schema1/3 APIs, rules and hashes. */
+/** Opt-in schema4 r2 timing engine, isolated from historical schema1/3 APIs, rules and hashes. */
 export type * from './types.ts';
 export { SCHEMA_VERSION, EXPERIMENT_RULES_ID, RULES_PROPOSALS, RULES_DIGESTS,
   CANONICAL_STATE_KEYS } from './profiles.ts';

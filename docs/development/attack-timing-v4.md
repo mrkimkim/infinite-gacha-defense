@@ -1,4 +1,4 @@
-# Opt-in attack timing schema4, r1
+# Opt-in attack timing schema4, r2 (two-ID scope correction)
 
 Status: experimental implementation awaiting independent exact-SHA review. This document covers only the newly requested attack timing experiment. It does not publish unrelated design material, approve original-IP abilities, change production balance, replace the schema1/3 default, or authorize deployment.
 
@@ -13,7 +13,7 @@ All types in `src/core-timing/types.ts` are exported. Runtime exports:
 
 ```ts
 SCHEMA_VERSION // literal 4
-EXPERIMENT_RULES_ID // 'attack-timing-v4-r1-count40'
+EXPERIMENT_RULES_ID // 'attack-timing-v4-r2-count40'
 RULES_PROPOSALS; RULES_DIGESTS; CANONICAL_STATE_KEYS;
 createMatch(seed: unknown, rulesId: unknown): CreateMatchResult;
 previewRecruit(state: MatchState, offerSlot: unknown): RecruitPreview;
@@ -34,10 +34,10 @@ Only these immutable profiles are accepted:
 
 | rulesId | Full RuleData canonical UTF-8 SHA-256 |
 |---|---|
-| `attack-timing-v4-r1-count40` | `50b9506a8dda1d5710db1efb54c51d886a4dbcc95b5b97fa16e6f971cc8f7088` |
-| `attack-timing-v4-r1-count80` | `de5b21fe483b59ac324c672577110f95c7e44bd30f5b1071e581331a233026cb` |
+| `attack-timing-v4-r2-count40` | `c495c9f090730d614a4a565ef224b9154d0efb9ca753e3aaa97da3bfe133ecb0` |
+| `attack-timing-v4-r2-count80` | `530cc41abcb3ffe9997152f094f175487d57e46a44ec20c299d23cbdfa2891d8` |
 
-The digest includes all fixed baseline data plus the full r1 timing/ordering semantics. Constants are computed from frozen profiles and checked against pinned hashes in tests. No rule overrides, delayed slow/multi extensions, or schema1/3 auto-conversion. Cross-version schema/rules/digest combinations fail. Schema3's existing17 canonical keys, golden bytes, rules and APIs are untouched.
+The digest includes all fixed baseline data plus the r1 timing semantics and the explicit r2 two-ID selection table. Constants are computed from frozen profiles and checked against pinned hashes in tests. No rule overrides, delayed slow/multi extensions, or schema1/3 auto-conversion. Cross-version schema/rules/digest combinations fail. Schema3's existing17 canonical keys, golden bytes, rules and APIs are untouched.
 
 ## Canonical state and pending contract
 
@@ -62,7 +62,7 @@ All coordinates are core integer world coordinates. Renderer hand/shell anchors,
 
 ## Delayed roles and exact tick order
 
-The two delayed behaviors are single letter and target-centered water splash. Neutral fixture01/07 share single,02/08 share splash. This is role coverage, not a final character-name mapping. Multi, slow, support and bossFirst retain explicitly immediate attacks and their existing effect semantics. A delayed snapshot with any other behavior or non-null effect is rejected.
+Only the immutable definition table delays fixture-01 (single,3 ticks) and fixture-02 (splash,4 ticks). Fixture-07 remains immediate single; fixture-08 remains immediate splash with the baseline inclusive radius and totalDistance-descending/enemyId-ascending hit order. Fixture03–06 are also immediate. Behavior alone never opts a definition into delay. This is the original two-ID experimental scope, not a final character-name mapping. A delayed snapshot with any other behavior or non-null effect is rejected.
 
 Each tick: increment global/wave clocks → expire effects → spawn → existing flights move/impact by attackId → existing windups release/cancel by attackId → board units decrement cooldown and eligible start/immediate attack by unitId → move live enemies → accumulation loss → deadline loss → success/reward.
 
@@ -120,3 +120,13 @@ The generation5 choice is bounded frozen final impact aftermath until explicit r
 Boundary tests explicitly use synthetic engine-owned diagnostic states; they are not legal-match replay evidence. Replay/batching tests separately use accepted commands. No final character power, balance, animation quality, merge or deployment approval follows from these tests.
 
 Run `npm run typecheck:core-timing`, `npm run test:core-timing`, then the existing full checks. Browser harness is available only by explicitly opening `/tests/core-timing/browser-harness.html` on the development server.
+
+## r2 correction and prior review boundary
+
+Previous head `bbd2f72d887c3f2f7626616e9cfa78cc64783ffd` selected every single/splash behavior, unintentionally delaying07/08 as well as01/02. That scope expansion is corrected here. Prior static version/hash/rollback review remains evidence about that old SHA only; it is not approval of this revision. Independent reviewers must inspect the new selection table, restored immediate splash, new digests and new tests at the updated SHA.
+
+The canonical20 keys and function API remain unchanged. New rule IDs are r2; r1 IDs are rejected as UNKNOWN_RULES, never aliased to r2. Old r1 logs remain interpretable only by their original pinned implementation; no automatic conversion is offered. Even a seed using only01 has a different state hash because rules identity/digest changes.
+
+Added regression coverage: nested accessors/cycles without invocation, complete structural preflight before earlier sequence/semantic errors, command-event tampering, final-hash mismatch, explicit01/02 delayed versus07/08 immediate behavior, immediate splash boundary/order, and mixed multi/slow/support/bossFirst role parity with unchanged schema3.
+
+Existing public timing field names are retained for additive API compatibility. `singleWindupTicks`, `splashWindupTicks`, `delayedBehaviors`, and `immediateBehaviors` are descriptive role-format metadata, not definition selectors. The sole executable delayed selection is `delayedDefinitions`; `immediateDefinitions` explicitly lists03–08. Consumers must use current pending/events, not infer that every member of a behavior category has delayed timing. Legal mixed replay/browser cases use seed9 (01+07) and seed24 (02+08); the four-ID simultaneous boundary fixture is separately labeled diagnostic.
