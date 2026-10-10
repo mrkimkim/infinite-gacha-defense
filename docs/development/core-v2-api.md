@@ -237,6 +237,20 @@ preparation/wave1/waveTick0/spawnCursor0, gold from fixture, empty units/enemies
 null outcome/reason, exactly one free full shop. Shop always contains three slots;
 purchase empties one definitionId to null and does not refill it.
 
+CORE-PERF-01 keeps private provenance for successfully validated and deeply frozen
+engine snapshots. For those snapshots only, dispatch/advance deep-copy live state,
+copy the acceptedLog outer array and reuse immutable prior entry subtrees. Numeric
+validation checks live state and newly appended entries; prior entries were already
+checked before publication. Freezing still traverses the new container and skips
+previously frozen entries. Unknown/caller-created states, including shallow-frozen
+or deeply frozen diagnostic fixtures, retain full deep-copy and full numeric checks.
+Neither failure nor successfully copying a fixture marks the caller's original
+object as trusted. Returned events and new history records remain detached, and
+failed transactions retain the identical untouched input state. Command data-tree
+validation, replay preflight, public API, schema, profiles and canonical bytes are
+unchanged. Each accepted call still copies/scans O(n) outer log references; this is
+not constant-time history append, nor a mobile-device performance benchmark claim.
+
 Persistent units hold only ID/definitionId/star/location/cooldown. Rarity is
 immutable definition data; observation adds rarityId for display. It also adds
 effective damage/bossDamage/range/nextAttackCooldown, supportActive/supportSourceIds,
@@ -374,8 +388,8 @@ bench cooldown freeze and capped >=3-definition synergy.
 A simple deterministic **public-observation-only smoke policy** reaches an actual
 20-wave win with seed3 in both fixed profiles (global tick6378), reproduces the
 final hash by replay, and produces identical full combat event traces with
-17-tick versus full-wave batching. It records20 rewards and19 preparation shop
-refreshes, with one final reward and no final refresh. Seed1 with the same policy
+single-tick,17-tick and full-wave batching in both profiles. It records20 rewards
+and19 preparation shop refreshes, with one final reward and no final refresh. Seed1 with the same policy
 naturally reaches finalTimeout at wave20 and receives only19 successful-wave
 rewards. These are executable regression traces, not ordinary/skilled-gamer
 policy comparisons, balance validation or evidence of human fun.

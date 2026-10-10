@@ -9,7 +9,15 @@ import { command as validCommand, dataTree, integer } from './validation.ts';
 import { checkNumbers, copy, freeze, IntegerOverflow, safe } from './util.ts';
 import type { Mutable } from './util.ts';
 import { observe } from './observation.ts';
-type WorkingState = Mutable<MatchState>;
+type WorkingState = Mutable<Omit<MatchState, 'acceptedLog'>> & { acceptedLog: ReplayEntry[] };
+// Only this module's successfully validated, deeply frozen snapshots are trusted.
+// Object.isFrozen alone cannot establish that externally supplied children are safe.
+const publishedStates = new WeakSet<MatchState>();
+function workingCopy(state: MatchState): WorkingState {
+  if (!publishedStates.has(state)) return copy(state);
+  const { acceptedLog, ...live } = state;
+  return { ...copy(live), acceptedLog: [...acceptedLog] };
+}
 function stamp(state: MatchState): Stamp {
   return { tick: state.tick, wave: state.wave, waveTick: state.waveTick };
 }
@@ -32,7 +40,19 @@ function refreshOffers(state: WorkingState, rules: RuleData): void {
     return { slot, definitionId: pool[uniform(state, pool.length)].id };
   });
 }
-function checkFinal(state: WorkingState): void { checkNumbers(state); observe(state); }
+function publish(state: WorkingState, previous?: MatchState): MatchState {
+  if (previous !== undefined && publishedStates.has(previous)) {
+    const { acceptedLog, ...live } = state;
+    checkNumbers(live);
+    for (let index = previous.acceptedLog.length; index < acceptedLog.length; index += 1) {
+      checkNumbers(acceptedLog[index]);
+    }
+  } else checkNumbers(state);
+  observe(state);
+  freeze(state);
+  publishedStates.add(state);
+  return state;
+}
 export function createMatch(seed: unknown, rulesId: unknown): CreateMatchResult {
   if (typeof rulesId !== 'string') return { ok: false, error: { code: 'BAD_FORMAT' } };
   if (!isRulesId(rulesId)) return { ok: false, error: { code: 'UNKNOWN_RULES' } };
@@ -42,7 +62,7 @@ export function createMatch(seed: unknown, rulesId: unknown): CreateMatchResult 
     seed, rngState: seed, nextEntityId: 1, tick: 0, phase: 'preparation', outcome: null,
     outcomeReason: null, wave: 1, waveTick: 0, spawnCursor: 0, gold: rules.startingGold,
     offers: [], units: [], enemies: [], acceptedLog: [] };
-  refreshOffers(state, rules); return { ok: true, state: freeze(state) };
+  refreshOffers(state, rules); return { ok: true, state: publish(state) };
 }
 function reject(state: MatchState, code: CoreErrorCode): DispatchResult {
   return { ok: false, state, error: { code } };
@@ -86,7 +106,7 @@ export function dispatch(state: MatchState, input: unknown): DispatchResult {
     const error = semanticError(state, command, rules); if (error) return reject(state, error);
   }
   try {
-    const next = copy(state), events: CommandEvent[] = [], at = stamp(next);
+    const next = workingCopy(state), events: CommandEvent[] = [], at = stamp(next);
     const find = (id: number) => next.units.find(u => u.id === id)!;
     switch (command.type) {
       case 'recruit': {
@@ -124,7 +144,7 @@ export function dispatch(state: MatchState, input: unknown): DispatchResult {
         events.push({ ...stamp(next), type: 'waveStarted' }); break;
     }
     next.acceptedLog.push(copy({ type: 'command', seq: safe(next.acceptedLog.length + 1), atTick: state.tick, command, events } satisfies ReplayEntry));
-    checkFinal(next); return { ok: true, state: freeze(next), events: freeze(events) };
+    freeze(events); return { ok: true, state: publish(next, state), events };
   } catch (error) { if (error instanceof IntegerOverflow) return reject(state, 'INTEGER_OVERFLOW'); throw error; }
 }
 
@@ -214,14 +234,14 @@ export function advance(state: MatchState, count: unknown): AdvanceResult {
   if (!integer(count, 1)) return fail('BAD_COUNT');
   if (state.phase !== 'combat') return fail('BAD_PHASE');
   try {
-    const next = copy(state), events: CombatEvent[] = [], rules = RULES_PROPOSALS[state.rulesId];
+    const next = workingCopy(state), events: CombatEvent[] = [], rules = RULES_PROPOSALS[state.rulesId];
     let executedTicks = 0;
     while (executedTicks < count && next.phase === 'combat') {
       combatTick(next, events, rules); executedTicks += 1;
     }
     next.acceptedLog.push({ type: 'advance', seq: safe(next.acceptedLog.length + 1), startTick: state.tick, executedTicks });
-    checkFinal(next);
-    return { ok: true, state: freeze(next), events: freeze(events), executedTicks };
+    freeze(events);
+    return { ok: true, state: publish(next, state), events, executedTicks };
   } catch (error) {
     if (error instanceof IntegerOverflow) return fail('INTEGER_OVERFLOW');
     throw error;

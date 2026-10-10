@@ -58,13 +58,17 @@ test('real commands reach twenty-wave win in both fixed profiles; final reward o
     roundTrip(result.state);
   }
 });
-test('seventeen-tick batches reproduce the entire natural win event trace and final hash', () => {
-  const id = Object.keys(RULES_PROPOSALS)[0] as RulesId;
-  const full = play(3, id, 1000), split = play(3, id, 17);
-  assert.equal(stateHash(split.state), stateHash(full.state));
-  assert.deepEqual(split.events, full.events);
-  assert.notEqual(split.state.acceptedLog.length, full.state.acceptedLog.length);
-  roundTrip(split.state);
+test('single-tick and seventeen-tick batches reproduce both profiles\' entire win traces and final hashes', () => {
+  for (const id of Object.keys(RULES_PROPOSALS) as RulesId[]) {
+    const full = play(3, id, 1000);
+    for (const batch of [1, 17]) {
+      const split = play(3, id, batch);
+      assert.equal(stateHash(split.state), stateHash(full.state));
+      assert.deepEqual(split.events, full.events);
+      assert.notEqual(split.state.acceptedLog.length, full.state.acceptedLog.length);
+      roundTrip(split.state);
+    }
+  }
 });
 test('same public smoke policy also records a natural finalTimeout loss with no failed-wave reward', () => {
   const id = Object.keys(RULES_PROPOSALS)[0] as RulesId;
