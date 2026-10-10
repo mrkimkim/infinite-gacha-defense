@@ -47,3 +47,6 @@ npm run build는 Cannot resolve entry module index.html로 실패했습니다. �
 
 ## Issue #14 연결 준비 — generation2
 현재 base ee2fa330b148dffe1e1b8f1c59b86aaeeb6a37e1에는 코어/API·게임 진입점이 없습니다. src/cli/README.md는 미구현 CLI 규격이며 tests/integration/fixtures는 명세 기반 입력/기대값 준비입니다. npm test는 모든 하위 suite를 발견하도록 확장했지만 없는 게임 테스트를 통과로 세지 않습니다. 코어 전용 tsconfig는 Issue #12 소유이며 CI는 파일이 게시되면 별도 검사합니다. 전체 check/build와 실제 Node/브라우저 게임 해시 대조는 API 연결 후 수행합니다. 앞 절의 tooling3개 검증 기록은 과거 도구 검증으로 보존합니다.
+
+## API 연결 체크포인트
+PR #17 head b6b38f9edcf0fc0181dfd461f677a28a37849192의 동기 CoreApi에 CLI를 연결했습니다. `npm run cli -- run --input file.json` 또는 `npm run cli -- replay --input -`를 사용합니다. stdout JSON 한 건 보장이 필요한 자동화는 npm 자체 배너를 피하도록 `node src/cli/main.ts ...` 또는 `npm run --silent cli -- ...`를 사용합니다. API stub은 exit1/CORE_NOT_IMPLEMENTED이며 게임 성공이 아닙니다. 입력/옵션 오류2, 코어 거부3, 내부/해시 불일치1입니다. 코어 파일은 이 PR에 포함하지 않으며 main에 API가 없으면 타입검사가 미해결 import로 막힙니다. 별도 검증 디렉터리에 정확한 API SHA와 리더 파일을 합쳐 검사한 결과를 PR에 기록합니다. 실제 core fixture는 모듈 부재 또는 명시적인 API stub일 때 BLOCKED skip을 남기며 구현이 들어오면 실행됩니다.

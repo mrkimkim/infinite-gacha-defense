@@ -15,7 +15,8 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "npm run typecheck && npm test && npm run build:tooling",
-    "typecheck:core": "tsc --noEmit -p tsconfig.core.json"
+    "typecheck:core": "tsc --noEmit -p tsconfig.core.json",
+    "cli": "node src/cli/main.ts"
   },
   "devDependencies": {
     "@types/node": "24.19.2",

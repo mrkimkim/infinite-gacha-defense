@@ -1,6 +1,6 @@
 # CLI 연결 규격 — Issue #14, generation 2
 
-상태: API 연결 전 준비 문서. 아래 명령은 제안된 CLI 사용법이며 아직 실행 가능한 npm script가 아닙니다. 코어의 실제 exports/반환형은 모모의 src/core/index.ts와 core-api.md 게시 후에만 연결합니다.
+상태: PR #17 head b6b38f9edcf0fc0181dfd461f677a28a37849192의 실제 동기 immutable API에 연결했습니다. npm script는 실행 가능하지만 core는 아직 CORE_NOT_IMPLEMENTED를 던집니다. 게임 성공 검증은 대기 중입니다. run 입력 shape는 {seed,rulesId?,steps:[{command}|{advance}]}이며 replay 입력은 {header,entries,expectedFinalHash?}입니다. 코어 없는 브랜치는 CORE_UNAVAILABLE/exit1, API stub은 CORE_NOT_IMPLEMENTED/exit1을 반환합니다.
 
 ## 사용자 입출력
 

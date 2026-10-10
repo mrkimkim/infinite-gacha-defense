@@ -11,9 +11,9 @@
 
 | 작업 | generation / 담당 | 독점 범위 / 현재 단계 |
 |---|---|---|
-| [#12](https://github.com/mrkimkim/infinite-gacha-defense/issues/12) | 1 / 모모 | src/core, tests/core, tsconfig.core.json, core-api.md / 공개 API 게시 대기 |
+| [#12](https://github.com/mrkimkim/infinite-gacha-defense/issues/12) | 1 / 모모 | src/core, tests/core, tsconfig.core.json, core-api.md / PR #17 API-only head b6b38f9edcf0fc0181dfd461f677a28a37849192 게시; 실제 구현 대기 |
 | [#13](https://github.com/mrkimkim/infinite-gacha-defense/issues/13) | 1 / 키키 | index.html, src/web, tests/web, browser-slice.md / API 의존 브라우저 작업 배정 |
-| [#14](https://github.com/mrkimkim/infinite-gacha-defense/issues/14) | 2 / 리더 | src/cli, tests/integration, tools, package/lock/tsconfig/CI, RUNNING, 이 STATUS, 계약 승인 근거만 / 독립 fixture·실행 규격 준비 |
+| [#14](https://github.com/mrkimkim/infinite-gacha-defense/issues/14) | 2 / 리더 | src/cli, tests/integration, tools, package/lock/tsconfig/CI, RUNNING, 이 STATUS, 계약 승인 근거만 / PR #15 CLI API 연결·입출력 검증; 실제 core fixture BLOCKED |
 
 Issue #14의 STATUS 경로 정정으로 generation2가 되었으며 owner/branch/base 및 나머지 범위는 같습니다. 공통 base는 위 main이며 별도 브랜치를 사용합니다. API를 임의 확정하거나 코어를 복제하지 않습니다. 실제 게임 실행·Node/브라우저 해시 대조·게임 UI 조작·사람 플레이는 아직 미실시입니다. 봇 smoke는 일반/숙련 게이머나 재미 증거가 아닙니다. 아트 production 채택도 별도 실제 리뷰·결정 대상입니다.
 
@@ -60,3 +60,6 @@ Issue #14의 STATUS 경로 정정으로 generation2가 되었으며 owner/branch
 승인된 활성 세션에서 필요한 후속 확인은 계속합니다. 회의/응답 대기 중 2–3분, 독립 작업 중 5–10분 확인을 운영 제안으로 둡니다. 이는 새 영구 서비스나 무기한 실행 보장이 아닙니다.
 계속 실행할 수 없는 닷은 제한과 체크포인트를 명시하고, 재개 시 최신 Issue/main/배정 세대를 확인합니다. 글 한 번 게시했다는 이유만으로 승인된 유한 목표가 끝난 것으로 처리하지 않습니다.
 상태 반영 시 message-id를 중복 적용하지 않습니다. 위 링크의 실제 메시지를 근거로 사용하며 원장과 다른 세대는 리더에게 확인합니다.
+
+### API 연결 체크포인트
+PR #17의4파일을 읽고 CLI를 실제 동기 타입에 연결했습니다. core 파일을 리더 PR에 포함하지 않았습니다. 별도 검증 디렉터리의 API SHA + 리더 변경 조합에서 check/core 타입검사 통과, 테스트5 PASS·실제 코어1 BLOCKED skip. CLI의 CORE_NOT_IMPLEMENTED exit1 및 부분 상태 없는 JSON 오류를 확인했습니다. 원래 브랜치에는 core가 없어 정적 import 검사가 차단됩니다. game build·실제 브라우저·portable 상태해시 계산은 미실시입니다. 이후 main b623a08c8633198d788bf96aa3cdab0f775dfa45의 추가 변경은 PR #7 아트 후보 보존뿐이며 production 채택이나 이 코드 검증에 포함하지 않습니다.
