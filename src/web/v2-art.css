@@ -1,0 +1,14 @@
+/* Opt-in sprite nodes only. The host keeps its existing accessible name and role-icon fallback. */
+.v2-art-sprite {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  transform-origin: center;
+  /* Frame changes come from public ticks, never a separate CSS simulation clock. */
+}
+.v2-art-host { position: relative; }
+.v2-art-sprite[hidden] { display: none; }
+/* Source status remains visible to inspection; production does not silently accept candidates. */
+.v2-art-sprite[data-art-status='candidate'],
+.v2-art-sprite[data-art-status='synthetic-test'] { outline: 1px dashed #9b6a25; }
