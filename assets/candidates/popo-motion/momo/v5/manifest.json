@@ -1,0 +1,291 @@
+{
+  "asset_id": "mvp-am-popo-momo-v5",
+  "task": "https://github.com/mrkimkim/infinite-gacha-defense/issues/24",
+  "generator": "Built-in image generation: v3 -> v5 attack extension; raw and all input-generation prompts preserved in history",
+  "reference": "docs/reference/characters/popo/sheet.png",
+  "reference_sha256": "324d5a44059328ec6e8219bb19f0f059275675c7a73a4c25fd7a01e7ea1be11b",
+  "raw_dimensions": [
+    2172,
+    724
+  ],
+  "raw_mode": "RGBA",
+  "raw_nonzero_alpha": 883028,
+  "raw_opaque_alpha": 402,
+  "native_frame_dimensions": [
+    896,
+    768
+  ],
+  "frames": [
+    {
+      "pose": "idle",
+      "path": "frames/idle.png",
+      "source_partition": [
+        0,
+        0,
+        716,
+        724
+      ],
+      "body_bbox_source": [
+        58,
+        19,
+        692,
+        698
+      ],
+      "body_height": 679,
+      "translation": [
+        67,
+        6
+      ],
+      "pivot": [
+        448,
+        704
+      ],
+      "alpha_nonzero": 285753,
+      "alpha_partial": 285620,
+      "alpha_components": 177,
+      "tiny_components_le4": 161
+    },
+    {
+      "pose": "attack",
+      "path": "frames/attack.png",
+      "source_partition": [
+        716,
+        0,
+        1492,
+        724
+      ],
+      "body_bbox_source": [
+        742,
+        18,
+        1478,
+        699
+      ],
+      "body_height": 681,
+      "translation": [
+        -620,
+        5
+      ],
+      "pivot": [
+        448,
+        704
+      ],
+      "alpha_nonzero": 309859,
+      "alpha_partial": 309701,
+      "alpha_components": 181,
+      "tiny_components_le4": 171
+    },
+    {
+      "pose": "recovery",
+      "path": "frames/recovery.png",
+      "source_partition": [
+        1492,
+        0,
+        2172,
+        724
+      ],
+      "body_bbox_source": [
+        1510,
+        18,
+        2148,
+        698
+      ],
+      "body_height": 680,
+      "translation": [
+        -1382,
+        6
+      ],
+      "pivot": [
+        448,
+        704
+      ],
+      "alpha_nonzero": 287416,
+      "alpha_partial": 287305,
+      "alpha_components": 183,
+      "tiny_components_le4": 173
+    }
+  ],
+  "previews": [
+    {
+      "pose": "idle",
+      "target_body_height": 32,
+      "canvas": [
+        42,
+        36
+      ],
+      "uniform_scale": 0.04698972099853157,
+      "measured_body_height": 32
+    },
+    {
+      "pose": "attack",
+      "target_body_height": 32,
+      "canvas": [
+        42,
+        36
+      ],
+      "uniform_scale": 0.04698972099853157,
+      "measured_body_height": 32
+    },
+    {
+      "pose": "recovery",
+      "target_body_height": 32,
+      "canvas": [
+        42,
+        36
+      ],
+      "uniform_scale": 0.04698972099853157,
+      "measured_body_height": 32
+    },
+    {
+      "pose": "idle",
+      "target_body_height": 36,
+      "canvas": [
+        47,
+        41
+      ],
+      "uniform_scale": 0.05286343612334802,
+      "measured_body_height": 36
+    },
+    {
+      "pose": "attack",
+      "target_body_height": 36,
+      "canvas": [
+        47,
+        41
+      ],
+      "uniform_scale": 0.05286343612334802,
+      "measured_body_height": 36
+    },
+    {
+      "pose": "recovery",
+      "target_body_height": 36,
+      "canvas": [
+        47,
+        41
+      ],
+      "uniform_scale": 0.05286343612334802,
+      "measured_body_height": 36
+    }
+  ],
+  "integrity": "PASS: exact full RGBA reconstructs from translated native frames; no recolor, alpha cleanup, pixel deletion or native scaling",
+  "approval": "candidate_only_independent_review_pending",
+  "limitations": [
+    "Subtle generated contour/bag differences remain; independent visual acceptance pending",
+    "Three keyposes only, not smooth animation",
+    "Runtime projectile and hit synchronization not implemented or tested",
+    "Interior alpha nearopaque251-254, median253; opaque255 count alone is not a visual failure; no alpha alteration"
+  ],
+  "hashes": {
+    "viewer.html": "30124dd66ac66d96f1f3e43ecd884134cf6ee0977150c49cccaa84a5b93de5b4",
+    "playback-36px.gif": "7b4eaa15b1a597d6e2d6c17378416e7c0699ebcf9e14ebb88b2065fd5933e515",
+    "board-review-background.png": "0d3f14f2bb2ec1477cec92c556acc2063d8d9b376c5e01d300a7c8c5aff6115e",
+    "verify_controls_static.cjs": "5bc795cc326b8a695cc4991f5235db4831e4d29efe00e48a311d26ad17f97a18",
+    "alpha-light-dark-review.png": "f6b21047e0d48ebda54957402bd073276fdd77e3079975822cade296d814ad5d",
+    "README.md": "e17dd6f64a2f87c51a276f08ef0e377530ecf8b57151f1701f2666d3c4bf1629",
+    "raw-generated.png": "714bb468681ed355de94a85f384c4719a809ee0f4022b8e2ce52dcabd372343d",
+    "contact-sheet-32-36.png": "03c430216efd640c5feacc18a6daa262dcddcd3cf082932631088e3ada9e4126",
+    "board-contact-sheet-32-36.png": "1c5e3574b8610d1cad24393f9a4b32bf86024aa002e817519ba0daea895ad60e",
+    "prompt.txt": "b2802a86a3058f18d43112120effd2e74eab0cb3ffba6fc081c1393cd7761d25",
+    "alpha-inspection.json": "88093c06b6bb899a581973a1570679484b718afb1bd32ee469c433cff2ad72df",
+    "verify_playback.cjs": "651de52bd2f0bb7950c65c30290f993df8814a8d2c4219b66246c01de8ce6b63",
+    "measurements.json": "390a37fd76ebf8e854df2a919d5dde544af6bbf22f403094b26e0d477b7620b0",
+    "build_playback.py": "2f6e06ce4039de7b69c57b0b2fc3601fcb91bb661e3a9025f1c82d10d0447462",
+    "static-controls-verification.json": "e5999d2707b7cbea2a613f9ac56bb9a7cc24feacfd1fee8b6b7ef11428d88483",
+    "frames/attack.png": "d3dbb83e84281a1c165ca6f6fd3e9fab838b1a756d658396ef35573b8db5fb78",
+    "frames/recovery.png": "076b52314bcfed7f55e9e0a10a13753094c35a623894ce810178800531e8d862",
+    "frames/idle.png": "77ce1cd09eb1a4279822cf29d1445d8aae723ce61fe248d8d78026f00eaee565",
+    "previews/attack-36px.png": "a2ac55f46692dbfe12309744b370183539379341e0b0c6260d6dcd579605f0a6",
+    "previews/recovery-36px.png": "af5ac2e0226fafef786ffea9a520100ec9a452f35596d504f73780018a07df73",
+    "previews/idle-32px.png": "4977133d93bccd93136bd1f642ba6d5f9f19d9773958e90f1541124f5fd0d77a",
+    "previews/idle-36px.png": "4820027bb63d62fa885052c13ee4140e1558cc123e3f77eda4b975a08146d5b5",
+    "previews/recovery-32px.png": "bd70ed4a65aeb7b4e9b944fbc4b874ec400b22671009bae667394ffc2345ec70",
+    "previews/attack-32px.png": "03a8eea50fb2f5e2edcc825eef8b9b8f2f957c3ff5023f794405106a544ad718"
+  },
+  "alpha_assessment": {
+    "interior_definition": "alpha>127 mask eroded12nativepixels",
+    "interior_pixels": 773650,
+    "interior_alpha_histogram": {
+      "239": 1,
+      "240": 2,
+      "241": 1,
+      "242": 2,
+      "243": 1,
+      "245": 2,
+      "246": 3,
+      "247": 3,
+      "248": 4,
+      "249": 3,
+      "250": 10,
+      "251": 15,
+      "252": 2412,
+      "253": 439649,
+      "254": 331542
+    },
+    "interior_alpha_below250": 22,
+    "maximum_black_to_white_background_influence_per_channel": 16,
+    "median_black_to_white_background_influence_per_channel": 2.0,
+    "interpretation": "Nearopaque interiors, not materially translucent on inspected backdrops; alpha255 count alone is not a rejection criterion."
+  },
+  "proposed_visual_timing_ms": {
+    "idle_lead_in": 120,
+    "attack": 100,
+    "recovery": 140,
+    "inspection_idle_gap": 640,
+    "total_idle": 760,
+    "total_loop": 1000,
+    "core_timing_changed": false,
+    "distinct_anticipation_pose": false
+  },
+  "browser_playback": "BLOCKED: Chromium socket Operation not permitted, default and elevated",
+  "idle_frame_identity": {
+    "decoded_gif_indices": [
+      0,
+      3
+    ],
+    "exact_rgba_equal": true,
+    "differing_pixels": 0,
+    "rgba_sha256": "f671d81bb61f2b0273ca7ef33df9b46f6a420f7b364620e80fd670f91a56f99e",
+    "source_image": "previews/idle-36px.png"
+  },
+  "task_name": "MVP-AM-ART-POPO-01",
+  "assignment_generation": 3,
+  "candidate_publication_base": "8140bda52445c348d1c9dde6fc3265c0962af010",
+  "generation_base_commit": "412ddd2891655d96e7e9b0fff63e9ab7322699aa",
+  "package_hashes": {
+    "prepare_v5.py": "772b19d65262f9efac896cf8ecbb7ebb32719f677b7491fd40d7f262f31d37f6",
+    "verify_package.py": "635fcc8f217bd251ccbcf25e51a722c20d297294cfba16dbfcc21a4891256a9d",
+    "inspect_alpha_v5.py": "7d549a705c76fb188b3711be3ad99f71aa1163e5108a7c3bc7eeea2a748b1436",
+    "README.md": "2cbd262ffed07a179968d0f98ab8fb3dd59f2abf5a7bbe89d8ab350fc16b5dfc",
+    "v5/viewer.html": "30124dd66ac66d96f1f3e43ecd884134cf6ee0977150c49cccaa84a5b93de5b4",
+    "v5/playback-36px.gif": "7b4eaa15b1a597d6e2d6c17378416e7c0699ebcf9e14ebb88b2065fd5933e515",
+    "v5/board-review-background.png": "0d3f14f2bb2ec1477cec92c556acc2063d8d9b376c5e01d300a7c8c5aff6115e",
+    "v5/verify_controls_static.cjs": "5bc795cc326b8a695cc4991f5235db4831e4d29efe00e48a311d26ad17f97a18",
+    "v5/alpha-light-dark-review.png": "f6b21047e0d48ebda54957402bd073276fdd77e3079975822cade296d814ad5d",
+    "v5/README.md": "e17dd6f64a2f87c51a276f08ef0e377530ecf8b57151f1701f2666d3c4bf1629",
+    "v5/raw-generated.png": "714bb468681ed355de94a85f384c4719a809ee0f4022b8e2ce52dcabd372343d",
+    "v5/contact-sheet-32-36.png": "03c430216efd640c5feacc18a6daa262dcddcd3cf082932631088e3ada9e4126",
+    "v5/board-contact-sheet-32-36.png": "1c5e3574b8610d1cad24393f9a4b32bf86024aa002e817519ba0daea895ad60e",
+    "v5/prompt.txt": "b2802a86a3058f18d43112120effd2e74eab0cb3ffba6fc081c1393cd7761d25",
+    "v5/alpha-inspection.json": "88093c06b6bb899a581973a1570679484b718afb1bd32ee469c433cff2ad72df",
+    "v5/verify_playback.cjs": "651de52bd2f0bb7950c65c30290f993df8814a8d2c4219b66246c01de8ce6b63",
+    "v5/measurements.json": "390a37fd76ebf8e854df2a919d5dde544af6bbf22f403094b26e0d477b7620b0",
+    "v5/build_playback.py": "2f6e06ce4039de7b69c57b0b2fc3601fcb91bb661e3a9025f1c82d10d0447462",
+    "v5/static-controls-verification.json": "e5999d2707b7cbea2a613f9ac56bb9a7cc24feacfd1fee8b6b7ef11428d88483",
+    "history/candidate-v2/raw-generated.png": "ffd6baa4f8aaab2460d8d916bc7275a2cd6460034541abd3aed642df38320a87",
+    "history/candidate-v2/prompt.txt": "a3c7dc49e91d17e2e6111952850319326b04c68168febac952a7109755c3dd9c",
+    "history/candidate-v4-alpha-attempt/raw-generated.png": "9b5671c69eb0d093b80c82aeda8e9e7f06b460866f0d1d23e93024e88c0b0c86",
+    "history/candidate-v4-alpha-attempt/prompt.txt": "e504f3f23b048a8820abe851087a346fbd0b31b92114aede71d0df60d4326b21",
+    "history/candidate-v1/raw-generated.png": "78c57f5ad542df2b94c53092544d7387b7d5ed8703a6ea5d2046b6f918f109aa",
+    "history/candidate-v1/prompt.txt": "35b9493f9cfb590bb0ae9e41c9bed3fb6456c5f9f92f6fee96461040fea97f7f",
+    "history/candidate-v3/raw-generated.png": "2d8242c4d2b26c6107da106565f4de9038fc5cc75123c748e4d9b3d10cb6256a",
+    "history/candidate-v3/prompt.txt": "ff012036dc6e4b0a6fc2562b341c8a2ea5eb507be96433e4041d6a3c22567e45",
+    "v5/frames/attack.png": "d3dbb83e84281a1c165ca6f6fd3e9fab838b1a756d658396ef35573b8db5fb78",
+    "v5/frames/recovery.png": "076b52314bcfed7f55e9e0a10a13753094c35a623894ce810178800531e8d862",
+    "v5/frames/idle.png": "77ce1cd09eb1a4279822cf29d1445d8aae723ce61fe248d8d78026f00eaee565",
+    "v5/previews/attack-36px.png": "a2ac55f46692dbfe12309744b370183539379341e0b0c6260d6dcd579605f0a6",
+    "v5/previews/recovery-36px.png": "af5ac2e0226fafef786ffea9a520100ec9a452f35596d504f73780018a07df73",
+    "v5/previews/idle-32px.png": "4977133d93bccd93136bd1f642ba6d5f9f19d9773958e90f1541124f5fd0d77a",
+    "v5/previews/idle-36px.png": "4820027bb63d62fa885052c13ee4140e1558cc123e3f77eda4b975a08146d5b5",
+    "v5/previews/recovery-32px.png": "bd70ed4a65aeb7b4e9b944fbc4b874ec400b22671009bae667394ffc2345ec70",
+    "v5/previews/attack-32px.png": "03a8eea50fb2f5e2edcc825eef8b9b8f2f957c3ff5023f794405106a544ad718"
+  }
+}

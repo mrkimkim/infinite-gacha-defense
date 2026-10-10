@@ -1,0 +1,203 @@
+{
+  "asset_id": "mvp-am-popo-momo-v5",
+  "task": "MVP-AM-ART-01",
+  "base_commit": "412ddd2891655d96e7e9b0fff63e9ab7322699aa",
+  "generator": "Built-in image_gen, v3 -> targeted v5 attack extension",
+  "reference": "docs/reference/characters/popo/sheet.png",
+  "reference_sha256": "324d5a44059328ec6e8219bb19f0f059275675c7a73a4c25fd7a01e7ea1be11b",
+  "raw_dimensions": [
+    2172,
+    724
+  ],
+  "raw_mode": "RGBA",
+  "raw_nonzero_alpha": 883028,
+  "raw_opaque_alpha": 402,
+  "native_frame_dimensions": [
+    896,
+    768
+  ],
+  "frames": [
+    {
+      "pose": "idle",
+      "path": "frames/idle.png",
+      "source_partition": [
+        0,
+        0,
+        716,
+        724
+      ],
+      "body_bbox_source": [
+        58,
+        19,
+        692,
+        698
+      ],
+      "body_height": 679,
+      "translation": [
+        67,
+        6
+      ],
+      "pivot": [
+        448,
+        704
+      ],
+      "alpha_nonzero": 285753,
+      "alpha_partial": 285620,
+      "alpha_components": 177,
+      "tiny_components_le4": 161
+    },
+    {
+      "pose": "attack",
+      "path": "frames/attack.png",
+      "source_partition": [
+        716,
+        0,
+        1492,
+        724
+      ],
+      "body_bbox_source": [
+        742,
+        18,
+        1478,
+        699
+      ],
+      "body_height": 681,
+      "translation": [
+        -620,
+        5
+      ],
+      "pivot": [
+        448,
+        704
+      ],
+      "alpha_nonzero": 309859,
+      "alpha_partial": 309701,
+      "alpha_components": 181,
+      "tiny_components_le4": 171
+    },
+    {
+      "pose": "recovery",
+      "path": "frames/recovery.png",
+      "source_partition": [
+        1492,
+        0,
+        2172,
+        724
+      ],
+      "body_bbox_source": [
+        1510,
+        18,
+        2148,
+        698
+      ],
+      "body_height": 680,
+      "translation": [
+        -1382,
+        6
+      ],
+      "pivot": [
+        448,
+        704
+      ],
+      "alpha_nonzero": 287416,
+      "alpha_partial": 287305,
+      "alpha_components": 183,
+      "tiny_components_le4": 173
+    }
+  ],
+  "previews": [
+    {
+      "pose": "idle",
+      "target_body_height": 32,
+      "canvas": [
+        42,
+        36
+      ],
+      "uniform_scale": 0.04698972099853157,
+      "measured_body_height": 32
+    },
+    {
+      "pose": "attack",
+      "target_body_height": 32,
+      "canvas": [
+        42,
+        36
+      ],
+      "uniform_scale": 0.04698972099853157,
+      "measured_body_height": 32
+    },
+    {
+      "pose": "recovery",
+      "target_body_height": 32,
+      "canvas": [
+        42,
+        36
+      ],
+      "uniform_scale": 0.04698972099853157,
+      "measured_body_height": 32
+    },
+    {
+      "pose": "idle",
+      "target_body_height": 36,
+      "canvas": [
+        47,
+        41
+      ],
+      "uniform_scale": 0.05286343612334802,
+      "measured_body_height": 36
+    },
+    {
+      "pose": "attack",
+      "target_body_height": 36,
+      "canvas": [
+        47,
+        41
+      ],
+      "uniform_scale": 0.05286343612334802,
+      "measured_body_height": 36
+    },
+    {
+      "pose": "recovery",
+      "target_body_height": 36,
+      "canvas": [
+        47,
+        41
+      ],
+      "uniform_scale": 0.05286343612334802,
+      "measured_body_height": 36
+    }
+  ],
+  "integrity": "PASS: exact full RGBA reconstructs from translated native frames; no recolor, alpha cleanup, pixel deletion or native scaling",
+  "approval": "candidate_only_independent_review_pending",
+  "limitations": [
+    "Subtle generated contour/bag differences remain; independent visual acceptance pending",
+    "Three keyposes only, not smooth animation",
+    "Runtime projectile and hit synchronization not implemented or tested",
+    "Interior alpha nearopaque251-254, median253; opaque255 count alone is not a visual failure; no alpha alteration"
+  ],
+  "hashes": {
+    "viewer.html": "30124dd66ac66d96f1f3e43ecd884134cf6ee0977150c49cccaa84a5b93de5b4",
+    "playback-36px.gif": "7b4eaa15b1a597d6e2d6c17378416e7c0699ebcf9e14ebb88b2065fd5933e515",
+    "board-review-background.png": "0d3f14f2bb2ec1477cec92c556acc2063d8d9b376c5e01d300a7c8c5aff6115e",
+    "verify_controls_static.cjs": "5bc795cc326b8a695cc4991f5235db4831e4d29efe00e48a311d26ad17f97a18",
+    "alpha-light-dark-review.png": "f6b21047e0d48ebda54957402bd073276fdd77e3079975822cade296d814ad5d",
+    "README.md": "e17dd6f64a2f87c51a276f08ef0e377530ecf8b57151f1701f2666d3c4bf1629",
+    "raw-generated.png": "714bb468681ed355de94a85f384c4719a809ee0f4022b8e2ce52dcabd372343d",
+    "contact-sheet-32-36.png": "03c430216efd640c5feacc18a6daa262dcddcd3cf082932631088e3ada9e4126",
+    "board-contact-sheet-32-36.png": "1c5e3574b8610d1cad24393f9a4b32bf86024aa002e817519ba0daea895ad60e",
+    "prompt.txt": "b2802a86a3058f18d43112120effd2e74eab0cb3ffba6fc081c1393cd7761d25",
+    "alpha-inspection.json": "88093c06b6bb899a581973a1570679484b718afb1bd32ee469c433cff2ad72df",
+    "verify_playback.cjs": "651de52bd2f0bb7950c65c30290f993df8814a8d2c4219b66246c01de8ce6b63",
+    "build_playback.py": "2f6e06ce4039de7b69c57b0b2fc3601fcb91bb661e3a9025f1c82d10d0447462",
+    "static-controls-verification.json": "e5999d2707b7cbea2a613f9ac56bb9a7cc24feacfd1fee8b6b7ef11428d88483",
+    "frames/attack.png": "d3dbb83e84281a1c165ca6f6fd3e9fab838b1a756d658396ef35573b8db5fb78",
+    "frames/recovery.png": "076b52314bcfed7f55e9e0a10a13753094c35a623894ce810178800531e8d862",
+    "frames/idle.png": "77ce1cd09eb1a4279822cf29d1445d8aae723ce61fe248d8d78026f00eaee565",
+    "previews/attack-36px.png": "a2ac55f46692dbfe12309744b370183539379341e0b0c6260d6dcd579605f0a6",
+    "previews/recovery-36px.png": "af5ac2e0226fafef786ffea9a520100ec9a452f35596d504f73780018a07df73",
+    "previews/idle-32px.png": "4977133d93bccd93136bd1f642ba6d5f9f19d9773958e90f1541124f5fd0d77a",
+    "previews/idle-36px.png": "4820027bb63d62fa885052c13ee4140e1558cc123e3f77eda4b975a08146d5b5",
+    "previews/recovery-32px.png": "bd70ed4a65aeb7b4e9b944fbc4b874ec400b22671009bae667394ffc2345ec70",
+    "previews/attack-32px.png": "03a8eea50fb2f5e2edcc825eef8b9b8f2f957c3ff5023f794405106a544ad718"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "status": "review candidate; generated alternatives not recommended",
+  "preserved_v6_inputs_byte_identical": true,
+  "sha256": {
+    "README.md": "93d54d3052c5fd3aad35155ce6cc99668e8ccf2dee5c29b0f00dc1bf5c4ec4c6",
+    "attempt-1/prompt.txt": "4b0daa9f0ca092530bfee92423345086b5e60431b76286018e9b0684cea95ae0",
+    "attempt-1/raw-generated.png": "fe45604b5620342f64621c6584788421ff514799c4c10d6eeeb77d9928711c39",
+    "attempt-2/prompt.txt": "4b4c8df51cdbd6d872be9a944a23acaf856d8de49e059c13e78d0e5805366fcc",
+    "attempt-2/raw-generated.png": "0cb4b8988bf4e415206843595b8e8a707ac74e932915df0b2ddd98595c51f675",
+    "compare.py": "ed0fa7c8e6094084fd508c4e019ce7fc740c4aa68acacd0c1f3f858acf14d735",
+    "comparison-8-10-12.png": "c9ea6721c82361699509be37fbc559a9c388d5422b096eba38f487832652d9f7",
+    "detached-flight-comparison.png": "224a268af65aa77a69d440aff81fd390fa6f0d48d57a815d9f0ce0b63a1ebb2b",
+    "effects/attempt-1-10px.png": "88a49be410dc38e32fe6cdcff84063a3dcfe48434ee051c442c643d7e191b15f",
+    "effects/attempt-1-12px.png": "0458f696995e1d6f57cd8cb52ff09eb3cd01bc9bf56e69004b685a24285d7326",
+    "effects/attempt-1-8px.png": "a13c698ed0b1a3943d20c491ffa8a4f65a4eeb317532f01bed0131c2d40fd971",
+    "effects/attempt-2-10px.png": "e56dab7c35d2c6fc03682f93ca693d693798c6db39fc3f5d27277521f08cb0c9",
+    "effects/attempt-2-12px.png": "b749a165f638084ff2ec22e6747e8a499323b3e3bd1d5006c6106d8ed22d4bf7",
+    "effects/attempt-2-8px.png": "e6c795ef073ff05b050ef6d88dc4043be18c336788a3c05e0e2291dd59537b8e",
+    "effects/v6-baseline-10px.png": "c3089e08695d50191b26350bc34f4cc1f3a3ae4e5d5097ed792fb852cb0e2ea1",
+    "effects/v6-baseline-12px.png": "ae2696edf1a1544d9596b96c0eac423caacf37cb93bbbd5688aa33d2f143b154",
+    "effects/v6-baseline-8px.png": "17f8fdf20fc1fe90dbf544088e82de7efaefdf23519084847ccf224d461fe8e4",
+    "measurements.json": "6e79debbcb7cc56f0cf5743dfdb8a4f15f1d113fe49c05b1f21cfb8d50daa5db",
+    "references/pr49-32px-0019.jpg": "65dcff04d71f54eb3ac0a993083b74d17820aa61d4dceec85c3b830ab44d6ce2",
+    "references/release-32px-body.png": "24d739902d4a51d9944d7e8db689b0fca9af44f45eb90af2b24a3c29259dfc47",
+    "references/release-36px-body.png": "5ef1ec8f404c39851065f1d6138d1ffd6d6bbf45189a7279bf83f87aef6795e0",
+    "references/v6-letter.png": "57037e5217d589d67da57366143e871938bbe06ed202a2a934c1fd1e6f6bef9c",
+    "references/v6-release-native.png": "7224558d1c86895d84c5a55114649c859287123cc986d0a09d6dfd0ad061fbbe",
+    "verify_package.py": "a815be00bcf0e81a0eb36087fea84e9a8b57ba7ccc236997dcc62b1700ddcc4f"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "type": "static DOM-stub control/timeline verification; NOT actual browser playback",
+  "timingMs": [
+    120,
+    100,
+    140,
+    640
+  ],
+  "observed": [
+    {
+      "t": 0,
+      "frame": 0,
+      "pose": "idle"
+    },
+    {
+      "t": 119,
+      "frame": 0,
+      "pose": "idle"
+    },
+    {
+      "t": 120,
+      "frame": 1,
+      "pose": "attack"
+    },
+    {
+      "t": 219,
+      "frame": 1,
+      "pose": "attack"
+    },
+    {
+      "t": 220,
+      "frame": 2,
+      "pose": "recovery"
+    },
+    {
+      "t": 359,
+      "frame": 2,
+      "pose": "recovery"
+    },
+    {
+      "t": 360,
+      "frame": 3,
+      "pose": "idle"
+    },
+    {
+      "t": 999,
+      "frame": 3,
+      "pose": "idle"
+    },
+    {
+      "t": 1000,
+      "frame": 0,
+      "pose": "idle"
+    }
+  ],
+  "pause": true,
+  "step": true
+}

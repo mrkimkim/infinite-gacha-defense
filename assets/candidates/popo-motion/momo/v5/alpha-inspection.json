@@ -1,0 +1,25 @@
+{
+  "interior_definition": "alpha>127 mask eroded12nativepixels",
+  "interior_pixels": 773650,
+  "interior_alpha_histogram": {
+    "239": 1,
+    "240": 2,
+    "241": 1,
+    "242": 2,
+    "243": 1,
+    "245": 2,
+    "246": 3,
+    "247": 3,
+    "248": 4,
+    "249": 3,
+    "250": 10,
+    "251": 15,
+    "252": 2412,
+    "253": 439649,
+    "254": 331542
+  },
+  "interior_alpha_below250": 22,
+  "maximum_black_to_white_background_influence_per_channel": 16,
+  "median_black_to_white_background_influence_per_channel": 2.0,
+  "interpretation": "Nearopaque interiors, not materially translucent on inspected backdrops; alpha255 count alone is not a rejection criterion."
+}

@@ -1,0 +1,226 @@
+{
+  "status": "initial candidate inspection; not accepted",
+  "body_frames": [
+    {
+      "pose": "idle",
+      "source_partition": [
+        0,
+        0,
+        536,
+        724
+      ],
+      "translation": [
+        84,
+        14
+      ],
+      "body_bbox": [
+        23,
+        76,
+        528,
+        626
+      ],
+      "body_height": 550,
+      "pivot": [
+        360,
+        640
+      ]
+    },
+    {
+      "pose": "anticipation",
+      "source_partition": [
+        536,
+        0,
+        1058,
+        724
+      ],
+      "translation": [
+        -436,
+        13
+      ],
+      "body_bbox": [
+        543,
+        75,
+        1051,
+        627
+      ],
+      "body_height": 552,
+      "pivot": [
+        360,
+        640
+      ]
+    },
+    {
+      "pose": "release",
+      "source_partition": [
+        1058,
+        0,
+        1644,
+        724
+      ],
+      "translation": [
+        -958,
+        13
+      ],
+      "body_bbox": [
+        1064,
+        75,
+        1642,
+        627
+      ],
+      "body_height": 552,
+      "pivot": [
+        360,
+        640
+      ]
+    },
+    {
+      "pose": "recovery",
+      "source_partition": [
+        1644,
+        0,
+        2172,
+        724
+      ],
+      "translation": [
+        -1537,
+        13
+      ],
+      "body_bbox": [
+        1646,
+        75,
+        2156,
+        627
+      ],
+      "body_height": 552,
+      "pivot": [
+        360,
+        640
+      ]
+    }
+  ],
+  "letter_source_bbox_alpha_gt127": [
+    110,
+    335,
+    1143,
+    919
+  ],
+  "letter_native_scale": 0.1335914811229429,
+  "anchors": {
+    "anticipation": {
+      "source": [
+        903,
+        370
+      ],
+      "kind": "grip contact on raised paw",
+      "frame": [
+        467,
+        383
+      ]
+    },
+    "release": {
+      "source": [
+        1640,
+        365
+      ],
+      "kind": "rightmost open fingertip",
+      "frame": [
+        682,
+        378
+      ]
+    }
+  },
+  "letter_overlay_positions": {
+    "anticipation": [
+      383,
+      299
+    ],
+    "release": [
+      679,
+      294
+    ]
+  },
+  "previews": [
+    {
+      "pose": "idle",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        56,
+        45
+      ],
+      "letter_strong_width": 0
+    },
+    {
+      "pose": "anticipation",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        56,
+        45
+      ],
+      "letter_strong_width": 8.0
+    },
+    {
+      "pose": "release",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        56,
+        45
+      ],
+      "letter_strong_width": 8.0
+    },
+    {
+      "pose": "recovery",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        56,
+        45
+      ],
+      "letter_strong_width": 0
+    },
+    {
+      "pose": "idle",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        63,
+        50
+      ],
+      "letter_strong_width": 0
+    },
+    {
+      "pose": "anticipation",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        63,
+        50
+      ],
+      "letter_strong_width": 9.0
+    },
+    {
+      "pose": "release",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        63,
+        50
+      ],
+      "letter_strong_width": 9.0
+    },
+    {
+      "pose": "recovery",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        63,
+        50
+      ],
+      "letter_strong_width": 0
+    }
+  ],
+  "integrity": "full RGBA reconstructs exactly; no alpha cleanup; narrow gutters may split faint fringe",
+  "projectile_contract": "art-only attachment/release comparison, no game anticipation or moving projectile implemented"
+}
