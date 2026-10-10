@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import type { PublicRules, RecruitPreview } from '../../src/core-v2/index.ts';
 import {
   definitionLabel, rarityLabel, unitAccessibleLabel, locationLabel, planRefLabel,
-  recruitPreviewLabel, ticksLabel,
+  recruitPreviewLabel, ticksLabel, activeAttackEffects,
 } from '../../src/web/v2-view.ts';
 
 // Explicit presentation mocks only. These do not execute or reproduce an engine,
@@ -94,4 +94,15 @@ test('v2 time copy distinguishes an absent deadline from zero remaining', () => 
   assert.equal(ticksLabel(null, 50), '—');
   assert.equal(ticksLabel(0, 50), '0.0초');
   assert.equal(ticksLabel(31, 50), '1.6초');
+});
+
+// Presentation history is deliberately separate from immutable core/replay events.
+test('v2 clears attack lines and numbers on frozen preparation/result, not on combat pause', () => {
+  const effects = Object.freeze([Object.freeze({ shownAt: 40, id: 'old' }), Object.freeze({ shownAt: 50, id: 'last-hit' })]);
+  assert.deepEqual(activeAttackEffects(effects, 51, 'combat'), effects);
+  assert.deepEqual(activeAttackEffects(effects, 52, 'combat'), [effects[1]]);
+  assert.deepEqual(activeAttackEffects(effects, 51, 'preparation'), []);
+  assert.deepEqual(activeAttackEffects(effects, 51, 'result'), []);
+  assert.deepEqual(activeAttackEffects(effects, 51, 'combat'), effects);
+  assert.equal(effects.length, 2);
 });

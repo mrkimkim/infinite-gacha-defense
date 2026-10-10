@@ -1,6 +1,6 @@
 import type {
   CombatEvent, CoreApi, Observation, ObservedUnit, Point, PublicRules,
-  DefinitionId, RarityId, RecruitPreview, PlanRef, Location, CharacterDefinition,
+  DefinitionId, RarityId, RecruitPreview, PlanRef, Location, CharacterDefinition, Phase,
 } from '../core-v2/index.ts';
 import type { V2ShellRefs, V2SlotRefs } from './v2-shell.ts';
 
@@ -28,6 +28,11 @@ const EFFECT_LIFETIME_TICKS = 12;
 const MAX_ATTACK_EFFECTS = 64;
 type Attack = Extract<CombatEvent, { type: 'attack' }>;
 type AttackEffect = { event: Attack; shownAt: number; definition: CharacterDefinition | undefined };
+
+/** Attack feedback has no meaning in frozen preparation/results; logs retain history. */
+export function activeAttackEffects<T extends { shownAt: number }>(effects: readonly T[], tick: number, phase: Phase): T[] {
+  return phase === 'combat' ? effects.filter(effect => tick - effect.shownAt < EFFECT_LIFETIME_TICKS) : [];
+}
 
 /** Pure copy projection, including deliberately symbolic transaction-local refs. */
 export function definitionLabel(rules: Pick<PublicRules, 'characters'>, id: DefinitionId): string {
@@ -172,7 +177,7 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
         'data-effect': 'slow' }, '❄'));
       fragment.append(group);
     }
-    effects = effects.filter(effect => o.tick - effect.shownAt < EFFECT_LIFETIME_TICKS);
+    effects = activeAttackEffects(effects, o.tick, o.phase);
     for (const effect of effects) {
       const event = effect.event;
       const definition = effect.definition;
@@ -299,8 +304,8 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi) {
 
   function consume(events: readonly CombatEvent[]) {
     if (disposed) return;
-    // Called either side of render: same-tick transition hits remain visible even
-    // when the engine has already switched to preparation/result. No wall clock.
+    // Called before render: the next observation clears attack feedback on a phase
+    // transition. Recorded events remain untouched; no display wall clock.
     for (const event of events) {
       if (event.type !== 'attack') continue;
       const source = observation?.units.find(unit => unit.id === event.unitId);
