@@ -1,0 +1,31 @@
+Use case: precise-object-edit.
+Edit target: supplied transparent original-game atlas candidate v02. Create candidate v03 and keep sixteen separate sprites in the same arrangement. Do not draw a complete board.
+
+The geometry is now full-square, but the roads still look like a row of blocked cells because every tile has a black end-cap. REMOVE THOSE BLACK END-CAPS. Every connected road end must be open, borderless, flat, and extend all the way to the square edge. Do not outline each road tile. No vertical seam line crossing a horizontal road. No horizontal seam line crossing a vertical road. No shadows, bevels, lips or caps on an open edge. No grid cracks or grout seams. No scattered stones. No metal edging on the roads. Very simple clean painted 2D color planes, readable at a 60px runtime tile size.
+
+Palette and hierarchy:
+- Hero placement tile face: calm, flat desaturated blue-gray #6B7A89, clean empty face, no paving lines, cracks, texture clusters or internal seams. Very thin 2px muted slate edge; almost no bevel. Hero art will be warm cream/tan characters 32–36px tall, so the tiles must stay visually quiet and not compete with them.
+- Path face: distinctly darker muted slate #344453, almost uniform with extremely subtle painterly tone. This must read as a continuous walkway, not individual blocks. Path face stays exactly the same color on every connecting edge.
+- Path guiding curbs, only where specified below: very thin 2px muted blue-gray #52616E, lower contrast than character outlines. A top-down road drawn as a dark full-width square with slim longitudinal edge lines, not a 3D pavement slab.
+- UI: retain navy/ivory buttons with quiet thin borders; no brighter additions.
+
+All tiles must have identical exact square footprints and no perspective. No diamonds, isometric angle, rotation or visible vertical side face. Fully opaque within the squares, transparent between isolated sprites. No floating flecks, halos, drop shadows, color fringe or checkerboard.
+
+Exact sprite arrangement:
+Row 1 col 1: plain empty hero tile.
+Row 1 col 2: same empty hero tile with a crisp thin cyan selected line, like v02.
+Row 1 col 3: same plain empty hero tile.
+Row 1 col 4: same empty hero tile with a thin ivory hover line.
+No locks, symbols, text, metal studs, cracks or internal masonry lines on any hero tile.
+
+Row 2 col 1, HORIZONTAL road: full dark square. Thin continuous curb lines only along TOP and BOTTOM. LEFT and RIGHT ends fully open, absolutely no black border or end-cap across either end.
+Row 2 col 2, VERTICAL road: full dark square. Thin continuous curb lines only along LEFT and RIGHT. TOP and BOTTOM fully open, absolutely no border or end-cap across either end.
+Row 2 col 3, TOP-LEFT corner: full dark square. Thin curb lines along TOP and LEFT form the outer right-angle turn. At BOTTOM-RIGHT, add only a tiny 2px inner-corner joint touching those two edges so it meets neighboring inside rails. RIGHT and BOTTOM are full-width open ends. NO large missing quadrant.
+Row 2 col 4, TOP-RIGHT corner: full dark square. Thin curb TOP and RIGHT. Tiny 2px inner joint at BOTTOM-LEFT. LEFT and BOTTOM fully open.
+Row 3 col 1, BOTTOM-LEFT corner: full dark square. Thin curb BOTTOM and LEFT. Tiny 2px inner joint at TOP-RIGHT. TOP and RIGHT fully open.
+Row 3 col 2, BOTTOM-RIGHT corner: full dark square. Thin curb BOTTOM and RIGHT. Tiny 2px inner joint at TOP-LEFT. TOP and LEFT fully open.
+The corner outside and inside rail joints must align to straight rails when tiled. Use the same curb thickness, offset, and face color for all six road pieces. Corners remain FULL SOLID SQUARES, not L-shaped cutout sprites.
+
+Row 3 cols 3–4 and Row 4 cols 1–4: keep blank HUD plate, main button, secondary button, disabled button, bronze coin, cyan spark in the current arrangement. All label areas blank.
+
+Prioritize exact simple square silhouettes, uninterrupted paths and clean flat hero faces over rendering detail. This is a deliberately simple usable 2D mobile game atlas, not ornate stone concept art. Keep the transparent background and preserve distinct reusable sprites.
