@@ -10,11 +10,13 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "test": "node --test \"tests/tooling/*.test.ts\"",
+    "test": "node tools/run-tests.ts",
     "build:tooling": "vite build --mode tooling",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "check": "npm run typecheck && npm test && npm run build:tooling"
+    "check": "npm run typecheck && npm test && npm run build:tooling",
+    "typecheck:core": "tsc --noEmit -p tsconfig.core.json",
+    "cli": "node src/cli/main.ts"
   },
   "devDependencies": {
     "@types/node": "24.19.2",

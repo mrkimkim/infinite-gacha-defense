@@ -1,10 +1,10 @@
-# 첫 실행 계약 v0 — 검토용 제안
+# 첫 실행 계약 v0 — 승인된 기술 실험 계약
 
 Issue: [#3](https://github.com/mrkimkim/infinite-gacha-defense/issues/3) · owner: 리더 · assignment-generation: 1  
 브랜치: leader/core-contract-v1 · base: 62ca8d0fddb6b51fef596f91d6ad668c83cd3176  
-상태: 모모·키키가 실제 PR SHA를 읽고 검토할 초안. 이 문서의 게시/PR 생성은 설계 승인이나 구현 착수가 아닙니다.
+상태: PR #6의 head `7a11833733f8e45039beca85201af80743cd2155`를 모모와 키키가 실제 검토·승인하여 main에 통합했습니다. [모모 승인](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093406424), [키키 승인](https://github.com/mrkimkim/infinite-gacha-defense/pull/6#issuecomment-6093779594). 승인 범위는 첫 기술 실험 계약이며 게임 구현·플레이·재미 검증 완료가 아닙니다.
 
-[합의 근거와 미합의 목록](kickoff-decisions.md)이 권한·출처의 기준입니다. **합의**는 가역적인 첫 실험 범위이며 최종 게임 규칙이 아닙니다. 아래 **제안 P1–P8**은 구현 모호성을 없애기 위한 리더 의견으로 두 동료 확인이 필요합니다.
+[합의 근거와 미합의 목록](kickoff-decisions.md)이 권한·출처의 기준입니다. **합의**는 가역적인 첫 실험 범위이며 최종 게임 규칙이 아닙니다. 아래 P1–P8 본문의 제안·검토 요청 표현은 작성 당시 이력입니다. 위 두 동료의 현재 SHA 승인이 문서 승인 상태를 갱신합니다. 규칙 본문과 첫/growth 프로필 범위는 변경하지 않습니다.
 
 ## 1. 범위와 단일 원본 — 제안 P1
 

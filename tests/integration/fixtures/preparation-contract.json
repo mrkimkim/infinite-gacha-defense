@@ -1,0 +1,23 @@
+{
+  "fixtureId": "preparation-contract-v1",
+  "contractCommit": "7a11833733f8e45039beca85201af80743cd2155",
+  "seed": 1,
+  "profile": "first technical profile; resolve registered rulesId from published core API",
+  "initialExpected": {"phase":"preparation","tick":0,"wave":1,"gold":6,"lives":10,"nextEntityId":1,"units":[],"enemies":[]},
+  "steps": [
+    {"command":{"type":"startWave"},"expect":"rejected; entire state including acceptedLog unchanged"},
+    {"advance":1,"expect":"rejected; preparation cannot advance"},
+    {"command":{"type":"recruit","offerSlot":0,"to":{"kind":"board","col":0,"row":0}},"expect":{"gold":4,"nextEntityId":2,"unitId":1,"tick":0}},
+    {"command":{"type":"recruit","offerSlot":0,"to":{"kind":"board","col":0,"row":0}},"expect":"rejected; occupied destination; no RNG or ID consumption"},
+    {"command":{"type":"move","unitId":1,"to":{"kind":"board","col":1,"row":0}},"expect":{"gold":4,"nextEntityId":2,"unitId":1,"tick":0}},
+    {"command":{"type":"recruit","offerSlot":1,"to":{"kind":"board","col":0,"row":0}},"expect":{"gold":2,"nextEntityId":3,"unitId":2,"tick":0}},
+    {"command":{"type":"swap","aId":1,"bId":2},"expect":{"gold":2,"nextEntityId":3,"unit1Location":{"kind":"board","col":0,"row":0},"unit2Location":{"kind":"board","col":1,"row":0}}},
+    {"command":{"type":"recruit","offerSlot":2,"to":{"kind":"board","col":2,"row":0}},"expect":{"gold":0,"nextEntityId":4,"unitId":3,"tick":0}},
+    {"command":{"type":"recruit","offerSlot":0,"to":{"kind":"board","col":3,"row":0}},"expect":"rejected; insufficient gold; entire state unchanged"},
+    {"command":{"type":"move","unitId":1,"to":{"kind":"bench","slot":0}},"expect":"rejected; first profile has no bench"},
+    {"command":{"type":"merge","ids":[1,2,3],"keepId":1},"expect":"rejected; growth not enabled"},
+    {"command":{"type":"startWave","unexpected":true},"expect":"rejected; unknown field"},
+    {"command":{"type":"startWave"},"expect":{"phase":"combat","tick":0,"waveTick":0,"spawnCursor":0}},
+    {"command":{"type":"move","unitId":1,"to":{"kind":"board","col":3,"row":3}},"expect":"rejected; combat formation lock"}
+  ]
+}

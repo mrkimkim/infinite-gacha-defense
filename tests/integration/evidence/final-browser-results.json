@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "browser": "151.0.7922.173",
+  "checks": [
+    {
+      "label": "initial browser/Node replay",
+      "tick": 0,
+      "hash": "ba15e6ff12c45ae395217c928f47cd4b86dd60e4393e23cfa05479f53e055300"
+    },
+    {
+      "label": "repeat recruit click",
+      "tick": 0,
+      "hash": "9306da147195885f510016ab3f86d2f6e8ea0c15e8559de2796ae954cd0ee46e"
+    },
+    {
+      "label": "move",
+      "tick": 0,
+      "hash": "6bf9d5bf6cfbf846e8e005143c384471e8edf4482dbff6e3df66a5d51def1c0b"
+    },
+    {
+      "label": "swap",
+      "tick": 0,
+      "hash": "793623eed845ace6dadf9bcd8bfddaffd0ab92b8e0c091a63772ad13f2ed45c7"
+    },
+    {
+      "label": "rejected recruit preserves state and selection",
+      "tick": 0,
+      "hash": "693acfdb8d24c76b0670fdbf998bc2b7d96186720070eb8d3d25e3b64556b181"
+    },
+    {
+      "label": "dt250 included,251 and negative discarded",
+      "tick": 5,
+      "hash": "6cb0c2754930638fbe0fb4bf77f0b1ab2ffcedd4bd3a17cd25c3afa44e7a1510"
+    },
+    {
+      "label": "manual pause survives visibility restoration and stale callback",
+      "tick": 6,
+      "hash": "83a353d01312b75e121ac492539420a6adedcb736408045f27ac5cb6364f2df2"
+    },
+    {
+      "label": "first actual result",
+      "tick": 1152,
+      "hash": "61d5a070487e224e0611829a87819c873862642d3f241dbe3df62d1c88eddbdb"
+    },
+    {
+      "label": "same seed restart; late crypto and stale RAF discarded",
+      "tick": 0,
+      "hash": "ba15e6ff12c45ae395217c928f47cd4b86dd60e4393e23cfa05479f53e055300"
+    },
+    {
+      "label": "actual five-wave win browser/Node replay",
+      "tick": 960,
+      "hash": "1874e87b80d5052ebe139beac9d0b0fb62bce63a5274ae3141ac0747236e6c00"
+    },
+    {
+      "label": "restart after win",
+      "tick": 0,
+      "hash": "ba15e6ff12c45ae395217c928f47cd4b86dd60e4393e23cfa05479f53e055300"
+    }
+  ],
+  "limitation": "Controlled RAF/visibility probes are not OS tab hiding or human play. Both win and loss DOM result/restart paths exercised; no human fun claim. Click force bypasses Playwright RAF stability checks; separate native RAF/hitbox checks remain necessary.",
+  "sourceCommits": {
+    "core": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+    "web": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+    "cliAndHarness": "426fe21ba846a4cd4dcc3c5018d8b5cd272718e7"
+  },
+  "sourceBlobs": [
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/engine.ts",
+      "gitBlob": "de6ec6111d30f388edaa9310cf128af2d3136085"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/index.ts",
+      "gitBlob": "76cd815a36e5f47a0f42c0759b4c10c230e2fd0a"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/replay.ts",
+      "gitBlob": "cf120cf01cf98850c9245cb03cb62227e0d87a1f"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/rules.ts",
+      "gitBlob": "3ef085b60a155afc21415e502dfbae4c8bba3c53"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/serialization.ts",
+      "gitBlob": "8e9b5b53bd0727efe663df2f4554f86c7edb0dd7"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/types.ts",
+      "gitBlob": "6dac2b0a41f8e60568cbd08ca49773321af464fa"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "src/core/validation.ts",
+      "gitBlob": "93d2e5fa1a4aea898f2905957def8d8b75d343c1"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/batching-seeds.test.ts",
+      "gitBlob": "64be1720d278ef5236f5901a2f7e2881753c5b82"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/engine.test.ts",
+      "gitBlob": "b46de5e16e85167acc67aa411d4096f75acc8755"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/replay.test.ts",
+      "gitBlob": "972ced7bcb26301f4e1591c1f812a4abf526c516"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tests/core/serialization.test.ts",
+      "gitBlob": "41af7d8f647271ed4ff7fd1bd98fedfd9fabd468"
+    },
+    {
+      "sourceCommit": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+      "path": "tsconfig.core.json",
+      "gitBlob": "9f4e2a8673510a674168f1a932ad251d439fc595"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "index.html",
+      "gitBlob": "405e075e05a8cf08c9081d14c9a91f0c959e1178"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "src/web/env.d.ts",
+      "gitBlob": "11f02fe2a0061d6e6e1f271b21da95423b448b32"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "src/web/main.ts",
+      "gitBlob": "5d5fbae82573c8daea67ecf0e9c3915609e4811e"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "src/web/scheduler.ts",
+      "gitBlob": "38ff6043137b7ae95dad3fb097436d6681226c58"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "src/web/session.ts",
+      "gitBlob": "c317e325c9664563fc85da710de964429b2e2ceb"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "src/web/style.css",
+      "gitBlob": "df5a9243cbb8b8de22d3b9633d8138480a1e5ae6"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "src/web/view.ts",
+      "gitBlob": "a88f1857a5582d12f7da7f1e0c7680e5e8c6d404"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "tests/web/scheduler.test.ts",
+      "gitBlob": "183024f380c0b1d8f97cec4a094be91c72f2fbc8"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "tests/web/session-core.test.ts",
+      "gitBlob": "5821e9e94b1207ef521f3c5efe7162c601af4393"
+    },
+    {
+      "sourceCommit": "8ac4b7161258ecadf43cf51fd160f67b70a46798",
+      "path": "tests/web/session.test.ts",
+      "gitBlob": "abcf974d8d820cf6f051e6dc8d25c5367423d0d7"
+    }
+  ],
+  "validation": {
+    "node": "24.19.0",
+    "npm": "11.9.0",
+    "testsPassed": 113,
+    "failed": 0,
+    "skipped": 0,
+    "typecheck": "PASS",
+    "coreTypecheck": "PASS",
+    "toolingBuild": "PASS",
+    "browserBuild": "PASS"
+  },
+  "currentRemoteHeadsAfterRun": {
+    "core": "6d85bf91708dd5344ac1a2bffdfe903b38309698",
+    "web": "8ac4b7161258ecadf43cf51fd160f67b70a46798"
+  },
+  "reviewedChanges": [
+    "core: merge.ids distinct and keepId membership exact-shape plus replay preflight regression",
+    "web: restart exception fatal boundary; rules.waveCount UI text; real-core session regressions"
+  ],
+  "screenshots": [
+    {
+      "path": "final-win-390.png",
+      "bytes": 74079,
+      "sha256": "dec9fda1f0ff767b268d836b0c1e423cf987d6ef6ba74c4e8647e480784fda1e",
+      "gitBlob": "0de60b78c5a17913a74ab4610c1cc6a313e20d5e"
+    },
+    {
+      "path": "final-loss-390.png",
+      "bytes": 81546,
+      "sha256": "8b88e4ee8d2d5dbb57a47187ef7a65c77b01c7c13fd06eae0cfdc2c115083fae",
+      "gitBlob": "555a646f2e05f0bf51b93a94193471a173763bbc"
+    }
+  ]
+}
