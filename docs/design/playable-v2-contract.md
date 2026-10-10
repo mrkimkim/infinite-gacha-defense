@@ -21,7 +21,7 @@ owner 리더 / assignment_generation 1 / branch `leader/playable-v2-contract`.
 
 5/10/15는 보스가 기한 안에 죽었으면 구간 끝에 일반 잔존을 다음 준비로 이월한다.20은 기한 내 일반 적까지 전부 제거해야 한다. 보스가 준비로 이월되지는 않는다. 잔존 수는 보스 포함이며 `count >= limit`이면 즉시 패배, 유예 없음. 경고는 limit의80%부터다.
 
-첫 advance는 logical tick1을 처리한다. 각 처리 tick의 순서는 다음과 같고 이벤트 timestamp도 같은 logical tick을 사용한다.
+전역 `tick`은 경기 전체에서 단조증가하며 효과 `expireAt`과 이벤트 timestamp는 전역 tick 기준이다. `waveTick`은 startWave마다0으로 리셋하며 스폰 시각·구간400/600·보스기한은 waveTick 기준이다. 첫 advance는 전역 tick1, 각 웨이브의 첫 처리는 waveTick1이다. 전투의 처리 한 번마다 둘 다1씩 증가하고 준비에서는 진행하지 않는다. 각 처리의 순서는 다음과 같다.
 
 1. `expireAt <= tick`인 효과 만료.
 2. 예정 스폰.
@@ -31,7 +31,7 @@ owner 리더 / assignment_generation 1 / branch `leader/playable-v2-contract`.
 6. 보스/최종 기한 실패 판정.
 7. 조기 또는 최대 구간 성공 전환·보상.
 
-`deadline=600`은600번째 공격·사망 정리·이동까지 처리한 뒤 판정한다. 따라서 해당 공격으로 보스/마지막 적을 잡으면 기한 실패를 피할 수 있다. 경로의 화면 modulo 위치와 누적 이동 거리는 분리한다.
+웨이브 기한 `waveTick=600`은 해당 웨이브의600번째 공격·사망 정리·이동까지 처리한 뒤 판정한다. 예를 들어5웨이브 시작 시 전역 tick이 T라면 첫 처리는 전역 T+1/waveTick1, 기한 처리는 전역 T+600/waveTick600이다. 보스기한을 전역 tick600과 비교하지 않는다. 따라서 해당 공격으로 보스/마지막 적을 잡으면 기한 실패를 피할 수 있다. 경로의 화면 modulo 위치와 누적 이동 거리는 분리한다.
 
 일반 타깃은 사거리 내 누적거리 내림차순, 동률 enemyId 오름차순이다. 보스 특화는 사거리 내 보스를 먼저 고른다. 각 유닛의 다중/범위 공격은 그 공격 직전 정렬된 대상 스냅샷으로 처리하고 즉시 사망 제거하여 뒤 유닛이 죽은 적을 다시 선택하지 않게 한다. 누리의 범위 중심은 공격 직전 주 타깃 위치로 고정하며 첫 대상이 사망해도 바꾸지 않는다. 화면상 유클리드 거리 제곱으로 범위를 판정한다. 다중2발은 서로 다른 최대2대상이며1명에게2발을 몰지 않는다. 범위 대상 배열의 세부 정렬/경계 연산은 공동 API 체크포인트에서 고정한다. 이펙트는 확정된 hit를 표시하며 렌더링 완료나 애니메이션 시간이 코어 판정/시간에 영향을 주지 않는다.
 
@@ -84,14 +84,14 @@ observe는 분리된 readonly 관측이다. 필수 항목은 배치/벤치/상�
 
 - 정확성: v1 과거 fixture/seed1 UI 로그 회귀, v2 Node↔브라우저 canonical/hash/로그와 batching 일치, strict 입력·프로필 검사 및 실패 원자성.
 - 경제/XP: 매매·합성·책 재사용 복제 금지, 상한Lv XP 보존, 벤치/배치 한계, 빈 슬롯 구매, 무료갱신/보상 중복 금지, 거절 RNG 불변.
-- 전투: tick1/효과만료/600번째 공격, count 경계·동일tick 처치, 예정 스폰 전 조기종료 금지, 최종 잔존 실패, cooldown 실제 간격, 준비 완전 정지, 공격 스냅샷/실제 hit damage 검사.
+- 전투: 전역 tick과 waveTick 분리/효과만료/해당 웨이브600번째 공격, count 경계·동일tick 처치, 예정 스폰 전 조기종료 금지, 최종 잔존 실패, cooldown 실제 간격, 준비 완전 정지, 공격 스냅샷/실제 hit damage 검사.
 - 정책: 일반/숙련 모두 같은 공개 관측만 사용한다. 일반을 무작위 초보로 약화하지 않으며 숙련 탐색 RNG는 경기 RNG와 분리한다. 경제2×한계2, 조정/검증 seed 분리, 프로필별500경기를 첫 검증 목표로 삼는다. 정책ID·seed·리플레이와 역할전환/첫2·3성/유효행동/유휴웨이브/벤치포화/코인/대기/보스실패/편성다양성을 기록한다. 같은 seed도 리롤 횟수에 따라 상점 경험이 다름을 명시한다. 집중XP·복제지원·재사용 stress는 별도 집계한다.
 - 화면: 짧은 높이에서 보드/벤치/핵심조작·잔존/보스시간 동시 확인, 별과 Lv/XP 분리, 사거리·공격/피격·판매회수·거절이유 표시, 접힌 시너지의 활성단계 표시. 실제 viewport는 웹 수용 체크포인트에서 고정한다.
 - 세 독립 DOT가 실제 화면의 성장 루프와6역할 구분·승패/재시작을 플레이하고 정확한 SHA로 교차 리뷰한다. 봇 승률·브라우저 조작을 사람의 재미 평가로 부르지 않는다. 정확성 결함은 통과시키지 않는다.
 
 ## 근거와 남은 승인
 
-[초안 키키 리뷰][kr]·[초안 모모 리뷰/후속 합의][mr]는 이전 head `2628ce4a5715e1c5895295e2b7ec053b50614fb1` 대상이다. 이 갱신에 자동 승계하지 않는다. [리더 경계 조정][boundary], [PR 후속 정리][finalize], [정책 공정성 계획][policy]를 반영했다. 남은 것은 현재 SHA 재리뷰, 명시된 스폰/보스 프로필 세부 데이터 및 공동 API 체크포인트다. 구현은 별도 배정 원장을 따르며 아트 도입/원본 공개 승인은 [Issue #19](https://github.com/mrkimkim/infinite-gacha-defense/issues/19)와 분리한다.
+[초안 키키 리뷰][kr]·[초안 모모 리뷰/후속 합의][mr]는 이전 head `2628ce4a5715e1c5895295e2b7ec053b50614fb1` 대상이다. 이 갱신에 자동 승계하지 않는다. [리더 경계 조정][boundary], [PR 후속 정리][finalize], [시간 기준 명확화 리뷰][time-review], [정책 공정성 계획][policy]를 반영했다. 남은 것은 현재 SHA 재리뷰, 명시된 스폰/보스 프로필 세부 데이터 및 공동 API 체크포인트다. 구현은 별도 배정 원장을 따르며 아트 도입/원본 공개 승인은 [Issue #19](https://github.com/mrkimkim/infinite-gacha-defense/issues/19)와 분리한다.
 
 [issue]: https://github.com/mrkimkim/infinite-gacha-defense/issues/21
 [kr]: https://github.com/mrkimkim/infinite-gacha-defense/pull/22#issuecomment-6094407183
@@ -104,3 +104,5 @@ observe는 분리된 readonly 관측이다. 필수 항목은 배치/벤치/상�
 [policy]: https://github.com/mrkimkim/infinite-gacha-defense/issues/21#issuecomment-6094398759
 
 [k-role-ack]: https://github.com/mrkimkim/infinite-gacha-defense/issues/19#issuecomment-6094424317
+
+[time-review]: https://github.com/mrkimkim/infinite-gacha-defense/pull/22#issuecomment-6094445696
