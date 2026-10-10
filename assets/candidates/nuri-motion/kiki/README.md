@@ -21,7 +21,19 @@ Both PNGs have predominantly alpha 253 interiors, equivalent to about **99.22% o
 
 [Momo's v02 review, 2026-10-10 14:45:30 UTC](https://app.slack.com/archives/C0C83AS1GE9/p1791643530654379), reports inspecting the actual source and 32/36px views. The face, blue scarf, apron, shell and same-hand usage remain recognizable, and the attack silhouette reads. Recovery reads as a crouched intermediate pose rather than a completed return. At 32px, the lowered shell appears to merge with the body. Alpha 253 did not appear to be a severe transparency issue in that inspection.
 
-For the next playback review, propose **idle → attack → crouched intermediate (the source frame named recovery) → the unchanged v02 idle frame** as a settling return. Keep one common scale and the measured sole anchors; do not enlarge the whole recovery frame to hide its height change. Frame duration, settling behavior and hit synchronization remain subject to actual repeated playback review. Reusing idle is a review proposal only; no extra raster frame or runtime sequence is added here. Momo's foot sliding, size-pop, 32px shell separation and hit-connection findings remain unresolved.
+For the next playback review, propose **idle → attack → crouched intermediate (the source frame named recovery) → the unchanged v02 idle frame** as a settling return. Keep one common scale and the measured sole anchors; do not enlarge the whole recovery frame to hide its height change. Frame duration, settling behavior and hit synchronization remain subject to actual repeated playback review. Reusing idle is a review proposal only; no extra raster frame or production runtime sequence is added here. Momo's foot sliding, size-pop, 32px shell separation and hit-connection findings remain unresolved.
+
+## Portable playback review artifact
+
+Download [the standalone v02 HTML](v02/nuri-v02-portable-playback-review.html) and open the saved file in a browser for offline review. GitHub's source view does not run it. The file embeds the unchanged v02 PNG bytes and contains no external resource or network dependency. It adds review controls only, without connecting to the game runtime or altering the images.
+
+- Play, pause, step, reset and optional loop; playback starts paused and a single pass stops on the unchanged idle settlement.
+- 32px/36px **idle-height** choices, fixed measured sole anchors and one common scale across poses. At the 32px choice, crouch is approximately 29.13px high; this is not normalization of every pose to 32px. The separate 4× view is for inspection only.
+- Flat dark slate and light cream backgrounds, plus optional anchor guides. This does not reproduce the actual game board or validate in-game contrast.
+- Editable holds of 40–5,000ms, with arbitrary inspection defaults of 600/140/180/400ms. These are not game-core timings, anticipation windows or hit-synchronization decisions.
+- Source windows use alpha ≥8 bounds with 4px padding. Faint pixels outside these windows are clipped only during display; the complete original PNG remains embedded and expandable. No alpha cleanup or raster export occurs.
+
+[The structural-check report](v02/portable-playback-checks.json) records **21 passing checks** against the exact HTML hash: embedded PNG byte equality and decoding, inline JavaScript compilation, phase/control behavior, scale/anchor arithmetic and mocked DOM/canvas events. These checks do not render a browser, inspect pixels at target size, or close the motion review. No browser visual QA or screenshot of this portable artifact has been performed. Foot sliding, size pops, low-shell separation and timing/hit review remain open.
 
 ## Raw image integrity
 
