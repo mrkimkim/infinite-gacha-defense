@@ -1,4 +1,4 @@
-# Generation2 API/data checkpoint: schema3 automatic upgrades
+# Generation2 schema3 engine: automatic upgrades
 
 Owner 모모, Issue #23 assignment_generation2; base
 `361ed54339daab180cd8dfc1cc2526fee479eded`. Input contract: PR #36
@@ -6,11 +6,16 @@ Owner 모모, Issue #23 assignment_generation2; base
 Assignment: [6094839654](https://github.com/mrkimkim/infinite-gacha-defense/issues/23#issuecomment-6094839654);
 resume: [6095709433](https://github.com/mrkimkim/infinite-gacha-defense/issues/23#issuecomment-6095709433).
 
-**API/data review only. No schema3 engine, purchase planner, replay implementation
-or throwing stub is exported.** `CoreApi` in `src/core-v2/types.ts` is the exact
-planned synchronous interface. `index.ts` exports types and fixed fixture data
-only. Adapters must wait for both independent DOTs' exact-SHA API review before
-implementing against it. Previous schema2 approvals do not approve this model.
+**Runtime implementation checkpoint; fixed content remains experimental.**
+Both independent DOTs approved API SHA
+`b753dbf6c37078fbe4eb17dd7ac96c25c3ddbad9` for implementation in PR #29:
+[Kiki6095847989](https://github.com/mrkimkim/infinite-gacha-defense/pull/29#issuecomment-6095847989)
+and [leader6095864131](https://github.com/mrkimkim/infinite-gacha-defense/pull/29#issuecomment-6095864131).
+The public `CoreApi` shapes and profile data/digests remain unchanged. All declared
+synchronous operations are now exported from `src/core-v2/index.ts`; purchase
+planning is one shared pure function used by preview, observation and dispatch.
+This implementation needs its own exact-SHA review; API approvals do not approve
+new runtime code, final balance, browser integration or human play.
 
 Generation1's unmerged implementation is not part of this checkpoint. This clean
 branch removes XP, levels, books, manual merge, XP participants and the eight-unit
@@ -73,8 +78,7 @@ footprint/anchor/collision/placement contract, not a runtime flag flip.
 The same pure internal planner must produce `previewRecruit(state, offerSlot)`
 and dispatch's checked purchase plan. observe includes its result on each shop
 slot as `ObservedOffer.recruitPreview`; empty slots still exist with null
-rarityId/price and OFFER_EMPTY in preparation. There is no preview implementation
-in this checkpoint; the following is the reviewable planner contract.
+rarityId/price and OFFER_EMPTY in preparation. The planner implements the following approved contract; no adapter duplicates it.
 
 Plan references:
 - `{kind:'existing',unitId}` refers only to an already public existing unit ID.
@@ -359,18 +363,29 @@ weights must be positive safe integers, totals bounded to the nonzero domain,
 and every positive-weight rarity must have a nonempty pool. No wall-time RNG.
 Buying draws nothing; free/paid refresh consumes complete three-slot sequences.
 
-Review fixtures/tests verify deep freezing, full-data digest, five rarity entries,
-eight definition data rows, public weighted table consistency, sell-price sanity,
-no obsolete growth/cap fields, schedule validity, canonical17 and type-level
-negative capabilities. These are not planner/engine correctness tests.
+The original static fixtures still verify profile identity, five rarity/eight
+neutral definitions, public weighted odds, no obsolete growth/cap fields and
+compile-time negative capabilities. They remain explicitly distinct from actual
+runtime tests. Runtime tests now exercise preview/commit equivalence, full-bench
+chains, relocated upgrades, every intermediate ID, exact overflow rollback,
+board16, weighted RNG, strict replay and schema2 rejection, combat timing/hits,
+bench cooldown freeze and capped >=3-definition synergy.
+
+A simple deterministic **public-observation-only smoke policy** reaches an actual
+20-wave win with seed3 in both fixed profiles (global tick6378), reproduces the
+final hash by replay, and produces identical full combat event traces with
+17-tick versus full-wave batching. It records20 rewards and19 preparation shop
+refreshes, with one final reward and no final refresh. Seed1 with the same policy
+naturally reaches finalTimeout at wave20 and receives only19 successful-wave
+rewards. These are executable regression traces, not ordinary/skilled-gamer
+policy comparisons, balance validation or evidence of human fun.
 
 Commands: `node --test tests/core-v2/*.test.ts`,
 `node_modules/.bin/tsc --noEmit -p tsconfig.core-v2.json`, `npm run check`,
 `npm run typecheck:core`, `npm run build`. The lockfile equals the previous verified
 install; ignored local dependency links reuse it without package edits.
 
-Remaining reviews: this exact schema/API/events/placement/error contract and
-fixture choices; then implementation with preview/commit parity, automatic
-chains, full-bench success/rejection, board16, ID/RNG rollback, strict replay and
-combat regression tests. Final roster/rarity assignments/odds/prices/schedule,
-2×2 design, balance runs, integrated browser checks and human play remain open.
+Remaining work: independent review of the actual implementation SHA, adapter
+integration and Node/browser trace checks. Final roster/rarity assignments/odds/
+prices/schedule,2×2 design, balance runs and human play remain open. Profile fixture
+status and digests are unchanged; no finalized content selection is implied.

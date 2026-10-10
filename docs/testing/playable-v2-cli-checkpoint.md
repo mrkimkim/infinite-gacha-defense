@@ -1,37 +1,27 @@
-# CLI / evaluation checkpoint — Issue #25 schema3 compatibility update
+# CLI / evaluation checkpoint — Issue #25 schema3 runtime connection
 
-Dependency: PR #29 API-only SHA `b753dbf6c37078fbe4eb17dd7ac96c25c3ddbad9`.
-This branch is stacked on `momo/playable-v2-core`; its PR targets that branch so core sources are not duplicated in the integration diff. The approved dependency is incorporated unchanged as an exact parent; only four CLI-owned files are modified for this update. No core/web source is edited by the leader. Keep this draft stacked until the dependency lands; this is not a merge to main.
+Pinned runtime dependency: PR #29 `e2d11aad22ff2e63c4d05c431ac4f5a753bc03a0`, following approved API/data `b753dbf6c37078fbe4eb17dd7ac96c25c3ddbad9`.
+This draft remains stacked on `momo/playable-v2-core`. The exact runtime commit is incorporated as an additional parent without leader edits to its 17 changed dependency files. This update changes only `tests/integration/v2-cli.test.ts` and this document. It does not merge to main or deploy.
 
-## Superseding user direction
+## Runtime transport
 
-The user removed the separate eight-unit cap in favor of available 4×4 space, requested automatic three-copy promotion/chains, character rarity separate from star level, and removal of level/XP/books. Three-star 2×2 occupancy and rarity odds/data are still under discussion. API29 generation1/proposal1 is historical input. The dependency above defines schema3 types/data only, reviewed against PR36 exact19c4dac76a7ed14c27fb87c3d5167c8478c2ec78; no runtime engine is exported. No manual merge, XP/book policy, eight-unit constant, altered profile, invented rarity schedule or gameplay bot ships in this checkpoint. Earlier proposal1 policy drafts were retained outside this repository for recovery, not published or counted as validation of the new direction.
+- `run --input` defaults to schema1. Schema3 requires explicit `schemaVersion:3` and `rulesId`; schema2 run/replay is explicitly unsupported.
+- Replay accepts either native `finalHash` or CLI `expectedFinalHash`, never both. Header fields and transport shape are checked by CLI; entry semantics and rule digest validation remain core-owned.
+- Actual schema3 exports, including `previewRecruit`, are required. API-only and partially implemented modules remain rejected by isolated capability fixtures. The pinned module now executes real commands and replay; it is no longer expected to report CORE_NOT_IMPLEMENTED.
+- CLI computes Node SHA-256 over canonical bytes and checks the core hash. Replay headers come from authoritative state, preserving schema/rules ID/digest/seed.
 
-## What runs
+The subprocess regression uses both fixed profiles and real seed1 commands: recruit, move to(3,3), recruit, reroll, recruit with automatic star2 promotion, startWave, advance17. It verifies the committed result ID4/star2/location, gold5, combat tick17, seven accepted entries, exact header and independently computed SHA. Both replay hash aliases must reproduce the entire CLI output. Real schema1 execution, schema2 rejection, wrong schema3 rules digest and missing runtime capabilities remain covered. No mock engine success is used.
 
-- Existing `run --input` remains schema1 by default; explicit `schemaVersion:1` is accepted. Schema3 requires an explicit rulesId. Schema2 is explicitly UNSUPPORTED_SCHEMA for both run and replay. Replay routing uses header.schemaVersion.
-- Replay transport accepts the CLI's expectedFinalHash or native document finalHash, never both. Header fields/hash format/entries container are checked; entry semantics and digest validation belong to the selected core.
-- Schema3 dynamically checks for actual engine exports, including previewRecruit. Exported replay headers preserve schema3 from the reviewed state rather than hardcoding the old schema2. API-only29 returns CORE_NOT_IMPLEMENTED, exit1, without a partial state. A future engine adapter must be reviewed against its new exact API before real new-rule evaluation.
-- Rules-independent EnginePort and publicSnapshot isolate policy callbacks from match state. Inputs are detached/frozen plain JSON and private keys are rejected recursively before callback. This is an API boundary, not a sandbox against malicious policy closures.
-- Evaluation plans pair seeds across explicit profile IDs, separate tuning/validation without overlap, and retain stress cohorts separately. No fixed profiles are implicitly chosen. The 500-validation-games-per-profile goal awaits the new reviewed profiles and actual engine.
-- The generic runner consumes accepted engine progress only, re-observes after every action, stops on errors/stalls/step limits, and never calls incomplete execution a loss. Multi-action search must choose again from the next observation. Canonical/hash/replay export and validation are the real adapter's responsibility.
-- Neutral census measures first2/3-star observation, composition changes/diversity, unchanged-composition streaks, bench saturation and idle gold at starts, plus peak observed pressure. These are proxies, not meaningful-choice or fun scores. Exact action/purchase/sale/role transitions and their definitions await the new API. Aggregation separates policy/profile/partition/cohort and boss-wall denominators count only waves actually reached.
+## Evaluation boundaries
 
-## Policy preparation / remaining work
+EnginePort remains rule-independent. Policies receive detached/frozen plain public JSON, rejecting hidden/private keys, accessors, sparse or decorated arrays and nonstandard prototypes. This is an input boundary, not a sandbox against malicious closures. Each accepted action is followed by fresh observation; terminal completion at the action budget is accepted, while incomplete runs, errors and stalls are never classified as losses.
 
-Ordinary and expert policies will receive only public observation/rules. Ordinary must understand roles, synergy, automatic promotion material and reserve budgets; expert explores a wider current-observation action set. Neither sees seed/RNG/nextID/log/future random offers. Any hypothetical sampling uses a separate RNG and published probabilities; identical evaluation seeds do not imply identical shop histories when rerolls differ.
+Plans pair explicit profile/seed sets and keep tuning, validation and stress cohorts separate. Census metrics cover first star2/star3, composition changes/diversity, unchanged-composition streaks, bench saturation, idle gold and observed pressure. These are proxies, not fun scores. Removed XP/books/manual merge and a separate eight-unit board cap are not restored. Three-star2x2 and final economy/rarity data are outside this checkpoint.
 
-Growth/role/synergy policy variants, rarity-aware buying, legal spatial placement, automatic promotion/packed-bench purchase boundaries, and economic recycling/duplicate-support stress await the real schema3 implementation and its exact-SHA review. Removed XP stress/books will not be carried forward. No fake engine success, policy win rate, 500-game run, new-rule browser replay comparison or new-rule gameplay is claimed here.
+## Validation and remaining scope
 
-Tests exercise strict transport, actual schema1 CLI, honest schema3 unavailable error, public input isolation, deterministic matrix construction, neutral metric arithmetic and a rejection-only injected port. Unit data for metrics are synthetic test inputs, not game outcomes. PR #28's separately observed inert layout is not new-rule gameplay evidence.
+The combined source passes232 tests with0 failures/0 skips, full TypeScript checks, v1 and schema3 ES2022 portability, tooling and existing-web production builds. Earlier API-only137-pass and integrated229-pass/2-obsolete-expectation-failure results are historical checkpoints, superseded by this runtime-aware suite.
 
-## Validation scope of the schema3 update
+Independent local integration review of the same pinned core and prior CLI8ed90a4 also exercised12 public-observation policy runs (two profiles × two preliminary policy hypotheses × seeds1/3/7), actual CLI run/replay, purchase preview/commit parity and rejected-command rollback. Both wins and wave20 finalTimeout losses occurred. A separate synthetic stabilized full-bench boundary exercised a two-step chain with placement/max-cooldown inheritance; it was not presented as a naturally reached inventory. Normal seed3 count40 at1000/17/1-tick batching had identical canonical hash and entire combat-event trace. These external review scripts are evidence, not shipped or calibrated player policies.
 
-Tests cover real v1 execution, schema3 routing and honest unavailable-engine errors,
-schema2 run/replay rejection, strict replay envelope aliases, missing preview capability,
-and header projection from static transport data. Header projection is not a mocked
-engine success. The rules-independent evaluation harness remains unchanged.
-No planner/automatic-upgrade/full-bench transaction, schema3 combat or successful
-schema3 replay has run: the dependency contains types, data and static examples only.
-After runtime publication, verify preview/commit parity, ID/cooldown/event chains,
-atomic rollback, replay/hash parity and browser/Node agreement before any policy run.
+Short advances remain a core-owned performance concern: the local5366-tick run took approximately0.36s/0.56s/7.16s for1000/17/1-tick batches, and cost grew with accepted-log length. No core optimization is included here. Browser–Node integration, live v2 controller/layout, human play, calibrated ordinary/expert policies,500-game evaluation and final balance remain outstanding. PR28's inert layout does not establish live v2 gameplay. Current-head independent review is required before merge.
