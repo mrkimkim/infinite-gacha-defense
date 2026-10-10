@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#183e38" />
+    <title>무한의 가챠 디펜스 · 기술 실험실</title>
+  </head>
+  <body>
+    <main class="shop" id="app">
+      <header class="shop-header">
+        <p class="eyebrow">CAPSULE GUARDIANS / TECHNICAL SLICE</p>
+        <h1>무한의 가챠 디펜스</h1>
+        <p class="subtitle">작은 수호자, 나만의 배치.</p>
+        <span class="prototype" id="prototype">기술 실험 · 임시 그래픽</span>
+      </header>
+      <section class="game-stats" aria-label="경기 상태">
+        <div><span>웨이브</span><strong id="wave">—</strong></div>
+        <div><span>체력</span><strong id="lives">—</strong></div>
+        <div><span>코인</span><strong id="gold">—</strong></div>
+        <div><span>배치</span><strong id="capacity">—</strong></div>
+      </section>
+      <section class="arena-panel" aria-label="전투판">
+        <div class="phase-row"><strong id="phase">연결 중</strong><span id="tick">tick 0</span></div>
+        <div class="arena" id="arena">
+          <svg id="path-layer" viewBox="-1000 -1000 6000 6000" aria-label="시계방향으로 닫힌 외곽 경로" role="img"></svg>
+          <div class="board" id="board" role="group" aria-label="4 곱하기 4 배치판"></div>
+          <svg id="enemy-layer" viewBox="-1000 -1000 6000 6000" aria-hidden="true"></svg>
+          <div id="pause-overlay" class="pause-overlay" hidden>잠시 쉬는 중</div>
+        </div>
+        <div class="legend"><span><i class="single-dot"></i> 단일</span><span><i class="splash-dot"></i> 범위</span><span>입구 ↻ 한 바퀴 돌면 체력 감소</span></div>
+      </section>
+      <section class="recruit-panel" aria-labelledby="recruit-title">
+        <div class="section-title"><h2 id="recruit-title">수호자 영입</h2><span id="recruit-cost">후보를 고르고 빈칸을 누르세요</span></div>
+        <div class="offers" id="offers"></div>
+        <p id="selection" class="selection">코어 연결을 기다리고 있습니다.</p>
+        <button type="button" id="cancel" class="text-button" disabled>선택 취소</button>
+      </section>
+      <p id="message" class="message" role="status" aria-live="polite">게임을 준비하고 있습니다.</p>
+      <section class="controls" aria-label="경기 조작">
+        <button type="button" id="start-wave" class="primary" disabled>전투 시작</button>
+        <button type="button" id="pause" disabled>일시정지</button>
+      </section>
+      <section id="result" class="result" hidden aria-labelledby="result-title">
+        <h2 id="result-title">경기 결과</h2><p id="result-detail"></p>
+        <button type="button" id="restart" class="primary">같은 seed로 다시 시작</button>
+      </section>
+      <details class="help"><summary>이 실험의 규칙과 조작</summary>
+        <p>영입 후보 → 빈칸을 누르면 구매와 배치를 한 번에 합니다. 배치된 수호자 → 빈칸은 무료 이동, 다른 수호자는 무료 교환입니다. 선택 취소 또는 Escape로 선택을 풉니다.</p>
+        <p>전투 중 편성은 잠깁니다. 이 기술 프로필은 대기석 0칸, 판매·합성·새로고침 없음입니다. 배치 상한을 채우면 추가 영입할 수 없습니다. 탭을 숨기면 자동으로 멈추며 숨겨진 시간은 따라잡지 않습니다.</p>
+        <p>그래픽은 조작 검증용 도형입니다. 아트 후보 채택이나 최종 게임성 검증을 뜻하지 않습니다.</p>
+      </details>
+      <details class="diagnostics"><summary>재현 기록</summary>
+        <p id="identity"></p><p id="hash">상태 해시: 아직 계산하지 않음</p>
+        <button type="button" id="snapshot">현재 상태·해시 기록</button>
+        <button type="button" id="export">현재 리플레이 저장</button>
+        <p id="archive-count">보존된 이전 경기: 0</p>
+        <button type="button" id="export-previous" disabled>이전 경기 저장</button>
+        <textarea id="evidence" readonly aria-label="현재 경기 재현 데이터" rows="5"></textarea>
+      </details>
+      <footer>키키 · 브라우저 어댑터 / 공동 TypeScript 코어</footer>
+    </main>
+    <script type="module" src="/src/web/main.ts"></script>
+  </body>
+</html>
