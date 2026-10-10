@@ -1,0 +1,25 @@
+{
+  "status": "BLOCKED",
+  "dateUTC": "2026-10-10",
+  "sources": {
+    "cli": "fbcb12ffa95a9051b2cf6e152ca7bece54007d99",
+    "core": "b6b38f9edcf0fc0181dfd461f677a28a37849192",
+    "web": "945f977ec90f6c3d0927d3ecc928269d709fcfce",
+    "harness": "browser-verify.mjs in this preparation commit"
+  },
+  "sourceVerification": "core 3 blobs and web/index/tests 9 blobs exactly match source Git objects; no source edits",
+  "environment": {"node":"24.19.0","npm":"11.9.0","chromium":"151.0.7922.173","viewport":{"width":390,"height":844}},
+  "checks": {
+    "npmCiIgnoreScripts": "PASS",
+    "typecheck": "PASS",
+    "typecheckCore": "PASS",
+    "test": {"passed":62,"failed":0,"skipped":1,"scope":"tooling and adapter tests; real core fixture BLOCKED"},
+    "toolingBuild": "PASS",
+    "browserBundle": "PASS (stub-linked bundle, not working gameplay)",
+    "actualBrowser": "API-only UI diagnostic and disabled snapshot/export/start-wave/pause/restart confirmed",
+    "harnessExitCode":2,
+    "reason":"CORE_NOT_IMPLEMENTED: API-only checkpoint"
+  },
+  "notRun": ["DOM recruitment/move/swap with actual core","browser/Node canonical and replay comparison","controlled RAF/visibility and delayed crypto game paths","win/loss/restart gameplay","OS tab hiding","human play"],
+  "cleanup":"local Vite server stopped; Chromium closed; no deployment or tunnel"
+}
