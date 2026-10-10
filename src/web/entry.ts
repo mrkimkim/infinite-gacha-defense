@@ -1,7 +1,7 @@
 export {};
 
 const query = new URLSearchParams(window.location.search);
-const screen = query.get('screen');
+const screen = query.get('screen') ?? 'v2';
 if (screen === 'v2-layout' || screen === 'v2') {
   const root = document.getElementById('app');
   if (!root) throw new Error('Missing app host');
