@@ -29,6 +29,9 @@ for doc in [root/'README.md',v/'README.md']:
   if not target.startswith(('http://','https://','#')):assert (doc.parent/target).exists(),target
 reference=root/'../../../../docs/reference/characters/popo/sheet.png'
 assert hashlib.sha256(reference.read_bytes()).hexdigest()==m['reference_sha256']
-assert {f.relative_to(root).as_posix() for f in root.rglob('*') if f.is_file()}==set(m['package_hashes'])|{'v5/manifest.json','package-verification.json'}
+# V6 is an independently manifested candidate. Exclude exactly that subtree;
+# retain exhaustive inventory checks for the original v1-v5 package.
+# Run v6/verify_package.py separately; no other new path is exempt.
+assert {f.relative_to(root).as_posix() for f in root.rglob('*') if f.is_file() and f.relative_to(root).parts[0] != 'v6'}==set(m['package_hashes'])|{'v5/manifest.json','package-verification.json'}
 result={'status':'PASS','hashed_files':len(m['package_hashes']),'full_native_rgba_reconstruction':True,'gif_frames':len(decoded),'gif_durations_ms':durations,'idle_first_last_identical':True,'viewer_embedded_pngs':len(embedded),'local_links_valid':True,'actual_browser_playback':'UNVERIFIED: author environment Chromium socket launch blocked','production_adoption':False}
 (root/'package-verification.json').write_text(json.dumps(result,indent=2));print(json.dumps(result))

@@ -252,7 +252,7 @@
   "generation_base_commit": "412ddd2891655d96e7e9b0fff63e9ab7322699aa",
   "package_hashes": {
     "prepare_v5.py": "772b19d65262f9efac896cf8ecbb7ebb32719f677b7491fd40d7f262f31d37f6",
-    "verify_package.py": "20707fd787bb50ae2b54ed77e3eb67d321e3b916f0a9332364d08962f67d6ed3",
+    "verify_package.py": "635fcc8f217bd251ccbcf25e51a722c20d297294cfba16dbfcc21a4891256a9d",
     "inspect_alpha_v5.py": "7d549a705c76fb188b3711be3ad99f71aa1163e5108a7c3bc7eeea2a748b1436",
     "README.md": "2cbd262ffed07a179968d0f98ab8fb3dd59f2abf5a7bbe89d8ab350fc16b5dfc",
     "v5/viewer.html": "30124dd66ac66d96f1f3e43ecd884134cf6ee0977150c49cccaa84a5b93de5b4",

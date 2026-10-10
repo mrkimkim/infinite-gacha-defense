@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "method": "static VM/DOM stub only, not browser playback",
+  "times": [
+    {
+      "t": 0,
+      "pose": "idle"
+    },
+    {
+      "t": 499,
+      "pose": "idle"
+    },
+    {
+      "t": 500,
+      "pose": "anticipation"
+    },
+    {
+      "t": 679,
+      "pose": "anticipation"
+    },
+    {
+      "t": 680,
+      "pose": "release"
+    },
+    {
+      "t": 779,
+      "pose": "release"
+    },
+    {
+      "t": 780,
+      "pose": "recovery"
+    },
+    {
+      "t": 959,
+      "pose": "recovery"
+    },
+    {
+      "t": 960,
+      "pose": "idle"
+    }
+  ],
+  "pause": true,
+  "next": true,
+  "letter_layers_by_pose": {
+    "idle": 0,
+    "anticipation": 1,
+    "release": 1,
+    "recovery": 0
+  },
+  "engine_anticipation_or_projectile_contract": false
+}
