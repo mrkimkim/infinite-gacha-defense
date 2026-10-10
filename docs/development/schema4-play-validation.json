@@ -96,5 +96,18 @@
     "evidenceDirectory": "schema4-preparation-fix-evidence",
     "historicalCaptureCaveat": "normalBrowser evidence predates the correction and did not prove preparation canvas units",
     "artifactTransferAttempted": false
+  },
+  "inputStability": {
+    "originalSHA": "78b34ac2d46ef5ad0836662f2b1413dfacaa243c",
+    "originalChecks": 22,
+    "originalFailures": 18,
+    "widths": [
+      390,
+      1165
+    ],
+    "script": "tests/schema4-play/input-browser.mjs",
+    "includedInNpmTest": false,
+    "scope": "Actual Chromium keyboard and pointer events across normal RAF; original and fixed evidence kept separately locally",
+    "artifactTransferAttempted": false
   }
 }

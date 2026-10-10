@@ -12,6 +12,21 @@ const assets={
  nuri:'nuri/nuri-direction-correction-raw-v05.png',bubble:'nuri/flight-bubble-raw-v05.png',ripple:'nuri/ground-ripple-reference-v04.png',
 };
 function makeButton(text:string,run:()=>void,disabled=false,selected=false){const b=document.createElement('button');b.textContent=text;b.disabled=disabled;b.setAttribute('aria-pressed',String(selected));const owner=session.match;b.onclick=()=>{if(owner===session.match)run();};return b;}
+// Keep interactive nodes (and their pressed/focused identity) for this match.
+// A new owner gets new controls; detached old controls retain makeButton's guard.
+const controlGroups=new Map<string,{owner:object;buttons:HTMLButtonElement[]}>();
+function controls(selector:string,count:number,create:(i:number)=>HTMLButtonElement){
+ let group=controlGroups.get(selector);
+ if(!group||group.owner!==session.match||group.buttons.length!==count){
+  group={owner:session.match,buttons:Array.from({length:count},(_,i)=>create(i))};
+  controlGroups.set(selector,group);$(selector).replaceChildren(...group.buttons);
+ }
+ return group.buttons;
+}
+function buttonState(b:HTMLButtonElement,text:string,disabled:boolean,selected=false){
+ if(b.firstChild?.textContent!==text)b.firstChild!.textContent=text;
+ b.disabled=disabled;b.setAttribute('aria-pressed',String(selected));
+}
 function message(text:string){$('#message').textContent=text;}
 function changed(result:{ok:boolean;code?:string;events?:readonly CommandEvent[]}){if(!result.ok){message('명령 거절: '+result.code);return;}const recruit=result.events?.find(e=>e.type==='recruited');message(recruit?`${name(recruit.result.definitionId)} 영입${recruit.upgrades.length?' · 자동승급 '+recruit.upgrades.length+'회':''} · 선택 #${recruit.result.id}`:'');if(result.events?.length)presentation.acceptPreparation(session.match,session.observe(),session.match.state.acceptedLog.length);scheduler.sync();paint(session.match);}
 function place(to:Location){changed(session.selectLocation(to));}
@@ -21,9 +36,12 @@ function ui(){const o=latest,select=session.selection,editable=ready&&o.phase===
  $<HTMLButtonElement>('#start').disabled=!ready||!o.canStartWave;$<HTMLButtonElement>('#pause').disabled=!ready||o.phase!=='combat';$('#pause').textContent=paused?'계속':'일시정지';
  $<HTMLButtonElement>('#buy').disabled=!editable||select?.kind!=='offer'||!o.offers.find(f=>f.slot===(select?.kind==='offer'?select.slot:-1))?.recruitPreview.ok;
  $<HTMLButtonElement>('#reroll').disabled=!editable||o.gold<o.rules.rerollCost;$<HTMLButtonElement>('#sell').disabled=!editable||select?.kind!=='unit';$('#reroll').textContent=`새로고침 ${o.rules.rerollCost}G`;
- $('#offers').replaceChildren(...o.offers.map(f=>{const p=f.recruitPreview;const b=makeButton(f.definitionId?name(f.definitionId)+' · '+f.price+'G':'비어 있음',()=>changed(session.selectOffer(f.slot)),!editable||!f.definitionId,select?.kind==='offer'&&select.slot===f.slot);b.dataset.slot=String(f.slot);const small=document.createElement('small');const def=o.rules.characters.find(c=>c.id===f.definitionId);small.textContent=def?`${f.rarityId} · 피해${def.damage} · ${def.cooldownTicks*o.rules.tickMs/1000}초 · 사거리${def.range}\n${p.ok?`영입 후 ${p.goldAfter}G · 승급${p.upgrades.length}회`:p.error.code}`:'';b.append(small);return b;}));
- $('#bench').replaceChildren(...Array.from({length:o.rules.benchCapacity},(_,slot)=>{const u=o.units.find(u=>u.location.kind==='bench'&&u.location.slot===slot);const b=makeButton(u?name(u.definitionId)+' '+u.star+'★':`대기 ${slot+1}`,()=>place({kind:'bench',slot}),!ready,select?.kind==='unit'&&u?.id===select.id);b.dataset.slot=String(slot);return b;}));
- $('#board').replaceChildren(...Array.from({length:16},(_,i)=>{const col=i%4,row=Math.floor(i/4),u=o.units.find(u=>u.location.kind==='board'&&u.location.col===col&&u.location.row===row);const b=makeButton('',()=>place({kind:'board',col,row}),!ready);b.dataset.col=String(col);b.dataset.row=String(row);b.setAttribute('aria-label',`${row+1}행 ${col+1}열 ${u?name(u.definitionId)+' '+u.star+'성':'빈 칸'}`);return b;}));
+ const offers=controls('#offers',o.offers.length,i=>{const slot=o.offers[i].slot,b=makeButton(' ',()=>changed(session.selectOffer(slot)));b.dataset.slot=String(slot);b.append(document.createElement('small'));return b;});
+ o.offers.forEach((f,i)=>{const p=f.recruitPreview,b=offers[i];buttonState(b,f.definitionId?name(f.definitionId)+' · '+f.price+'G':'비어 있음',!editable||!f.definitionId,select?.kind==='offer'&&select.slot===f.slot);const small=b.querySelector('small')!,def=o.rules.characters.find(c=>c.id===f.definitionId),text=def?`${f.rarityId} · 피해${def.damage} · ${def.cooldownTicks*o.rules.tickMs/1000}초 · 사거리${def.range}\n${p.ok?`영입 후 ${p.goldAfter}G · 승급${p.upgrades.length}회`:p.error.code}`:'';if(small.textContent!==text)small.textContent=text;});
+ const bench=controls('#bench',o.rules.benchCapacity,slot=>{const b=makeButton(' ',()=>place({kind:'bench',slot}));b.dataset.slot=String(slot);return b;});
+ bench.forEach((b,slot)=>{const u=o.units.find(u=>u.location.kind==='bench'&&u.location.slot===slot);buttonState(b,u?name(u.definitionId)+' '+u.star+'★':`대기 ${slot+1}`,!ready,select?.kind==='unit'&&u?.id===select.id);});
+ const board=controls('#board',16,i=>{const col=i%4,row=Math.floor(i/4),b=makeButton('',()=>place({kind:'board',col,row}));b.dataset.col=String(col);b.dataset.row=String(row);return b;});
+ board.forEach((b,i)=>{const col=i%4,row=Math.floor(i/4),u=o.units.find(u=>u.location.kind==='board'&&u.location.col===col&&u.location.row===row);b.disabled=!ready;b.setAttribute('aria-label',`${row+1}행 ${col+1}열 ${u?name(u.definitionId)+' '+u.star+'성':'빈 칸'}`);});
  const unit=select?.kind==='unit'?o.units.find(u=>u.id===select.id):null;$('#selection').textContent=unit?`선택 #${unit.id} ${name(unit.definitionId)} ${unit.star}★ · 피해${unit.damage} · 보스${unit.bossDamage} · 사거리${unit.range} · 주기${unit.nextAttackCooldown*o.rules.tickMs/1000}초 · 판매${unit.sellGold}G`:select?.kind==='offer'?'선택 상품을 확인한 뒤 영입하세요.':'기물을 선택한 뒤 빈 보드/대기석을 누르세요. 점유 칸은 교환합니다.';
  $('#hits').replaceChildren(...(lastView?.impacts??[]).slice(-6).flatMap(a=>a.hits.map(h=>{const d=document.createElement('div');d.className='hit';d.textContent=`공격${a.attackId} · 기물${a.unitId} → 적${h.enemyId} HP ${h.before}→${h.after}${h.after===0?' 처치':''}`;return d;})));
  $('#contract').textContent=`${o.rules.rulesId}\n${o.rules.rulesDigest}\ntick ${o.tick} · windup ${o.windups.length} / flight ${o.flights.length}`;
