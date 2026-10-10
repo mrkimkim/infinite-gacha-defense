@@ -19,6 +19,8 @@ export interface V2ShellRefs {
   readonly bossTime: HTMLElement;
   readonly segmentTime: HTMLElement;
   readonly wavePreview: HTMLElement;
+  readonly waveCarry: HTMLElement;
+  readonly waveTiming: HTMLElement;
   readonly arena: HTMLElement;
   readonly board: HTMLElement;
   /** Row-major order: index = row * 4 + column. */
@@ -86,7 +88,9 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
           <svg class="v2-enemy-layer" data-v2="enemy-layer" viewBox="-1000 -1000 6000 6000" aria-label="적 이동 경로" role="img"></svg>
           <div class="v2-board" data-v2="board" role="group" aria-label="4행 4열 배치판"></div>
         </div>
-        <p class="v2-wave-preview"><span>다음 웨이브</span><strong data-v2="wave-preview">연결 후 표시됩니다.</strong></p>
+        <p class="v2-wave-preview"><span>등장 예정</span><strong data-v2="wave-preview">연결 후 표시됩니다.</strong></p>
+        <p class="v2-wave-preview"><span>잔존 적</span><strong data-v2="wave-carry">연결 후 표시됩니다.</strong></p>
+        <p class="v2-wave-preview"><span>시간 규칙</span><strong data-v2="wave-timing">연결 후 표시됩니다.</strong></p>
         <div class="v2-section-heading"><h2>대기석 <span class="v2-muted">8칸</span></h2><span data-v2="bench-count">— / 8</span></div>
         <div class="v2-bench" data-v2="bench" role="group" aria-label="대기석 8칸"></div>
       </section>
@@ -97,7 +101,7 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
         </section>
         <section class="v2-panel v2-selection-panel" data-v2="selection-panel" aria-label="선택한 수호자" hidden>
           <div class="v2-selection-heading"><h2 data-v2="selected-name">수호자를 선택하세요</h2><span data-v2="selected-detail">선택 없음</span><button type="button" class="v2-button" data-v2="cancel" disabled>선택 취소</button></div>
-          <dl class="v2-unit-stats" data-v2="selected-stats"><div><dt>공격력</dt><dd data-v2="attack">—</dd></div><div><dt>공격 속도</dt><dd data-v2="attack-speed">—</dd></div><div><dt>사거리</dt><dd data-v2="range">—</dd></div></dl>
+          <dl class="v2-unit-stats" data-v2="selected-stats"><div><dt>공격력</dt><dd data-v2="attack">—</dd></div><div><dt>공격 간격</dt><dd data-v2="attack-speed">—</dd></div><div><dt>사거리</dt><dd data-v2="range">—</dd></div></dl>
           <div data-v2="recruit-preview" class="v2-recruit-preview" hidden></div>
           <div class="v2-unit-actions"><button type="button" class="v2-button v2-primary" data-v2="recruit" disabled hidden>영입</button><button type="button" class="v2-button" data-v2="sell" disabled>판매</button></div>
         </section>
@@ -144,7 +148,7 @@ export function createV2Shell(root: HTMLElement): V2ShellRefs {
   return {
     root, phase: ref('phase'), wave: ref('wave'), gold: ref('gold'), enemyPressure: ref('enemy-pressure'),
     capacity: ref('capacity'), enemyCount: ref('enemy-count'), bossTime: ref('boss-time'), segmentTime: ref('segment-time'),
-    wavePreview: ref('wave-preview'), arena: ref('arena'), board,
+    wavePreview: ref('wave-preview'), waveCarry: ref('wave-carry'), waveTiming: ref('wave-timing'), arena: ref('arena'), board,
     boardCells: slots(board, 16, 'board'), enemyLayer: ref<SVGSVGElement>('enemy-layer'),
     bench, benchSlots: slots(bench, 8, 'bench'), benchCount: ref('bench-count'),
     offers, offerSlots: slots(offers, 3, 'offer'),
