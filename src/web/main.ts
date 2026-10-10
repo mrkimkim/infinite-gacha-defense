@@ -35,6 +35,13 @@ function boot() {
   const initial = session.observe();
   let lastPhase = initial.phase;
   let captureEpoch = 0;
+  let fatalError: string | null = null;
+  function showFatal() {
+    if (fatalError === null) return;
+    say(`진행을 중단했습니다: ${fatalError}. 재현 기록을 저장한 뒤 페이지를 새로고침해 주세요.`, true);
+    for (const button of document.querySelectorAll<HTMLButtonElement>(
+      '#board button, #offers button, #start-wave, #pause, #restart, #cancel')) button.disabled = true;
+  }
   const scheduler = createScheduler({
     tickMs: initial.rules.tickMs,
     getMatch: () => session.match,
@@ -44,7 +51,8 @@ function boot() {
         session.advance(match, ticks);
         render();
       } catch (error) {
-        say(`전투 진행 중 오류: ${error instanceof Error ? error.message : String(error)}`, true);
+        fatalError = error instanceof Error ? error.message : String(error);
+        showFatal();
         throw error;
       }
     },
@@ -54,31 +62,38 @@ function boot() {
   });
 
   function render() {
+    if (fatalError !== null) { showFatal(); return; }
     const observation = session.observe();
     view.render(observation, session.selection, scheduler.getStatus());
     element('identity').textContent = `seed ${seed} · ${initial.rules.rulesId} · ${initial.rules.rulesDigest}`;
     element('archive-count').textContent = `보존된 이전 경기: ${session.archives.length} (현재 페이지 세션 안에서만 보존)`;
     element<HTMLButtonElement>('export-previous').disabled = session.archives.length === 0;
     if (lastPhase !== observation.phase) {
-      if (observation.phase === 'preparation') say('웨이브를 막았습니다. 배치를 바꾸거나 수호자를 영입하세요.');
+      if (lastPhase === 'combat' && observation.phase === 'preparation') say('웨이브를 막았습니다. 배치를 바꾸거나 수호자를 영입하세요.');
       if (observation.phase === 'result') say(observation.outcome === 'win' ? '5웨이브 기술 실험을 완주했습니다.' : '적을 놓쳐 체력이 모두 소진됐습니다. 다음 배치를 시험해 보세요.');
       lastPhase = observation.phase;
     }
   }
   function input(action: () => InputResult) {
-    if (document.hidden) return;
-    const result = action();
-    say(result.ok ? '선택을 반영했습니다.' : errors[result.code] ?? result.code, !result.ok);
-    scheduler.sync();
-    render();
+    if (document.hidden || fatalError !== null) return;
+    try {
+      const result = action();
+      say(result.ok ? '선택을 반영했습니다.' : errors[result.code] ?? result.code, !result.ok);
+      scheduler.sync();
+      render();
+    } catch (error) {
+      fatalError = error instanceof Error ? error.message : String(error);
+      scheduler.dispose();
+      showFatal();
+    }
   }
   element('start-wave').addEventListener('click', () => input(() => session.start()));
-  element('cancel').addEventListener('click', () => { session.cancel(); render(); say('선택을 취소했습니다.'); });
+  element('cancel').addEventListener('click', () => { if (fatalError !== null) return; session.cancel(); render(); say('선택을 취소했습니다.'); });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') { session.cancel(); render(); say('선택을 취소했습니다.'); }
+    if (event.key === 'Escape' && fatalError === null) { session.cancel(); render(); say('선택을 취소했습니다.'); }
   });
   element('pause').addEventListener('click', () => {
-    if (session.observe().phase !== 'combat') return;
+    if (fatalError !== null || session.observe().phase !== 'combat') return;
     scheduler.setPaused(!scheduler.getStatus().paused);
     render();
     say(scheduler.getStatus().paused ? '일시정지했습니다.' : '전투를 재개했습니다.');
@@ -87,6 +102,7 @@ function boot() {
   window.addEventListener('pagehide', () => scheduler.setHidden(true));
   window.addEventListener('pageshow', () => { scheduler.setHidden(document.hidden); render(); });
   element('restart').addEventListener('click', () => {
+    if (fatalError !== null) return;
     const result = session.restart();
     if (result.ok) {
       captureEpoch += 1;
@@ -108,7 +124,7 @@ function boot() {
     let digest: ArrayBuffer;
     try { digest = await crypto.subtle.digest('SHA-256', bytes); }
     catch (error) {
-      if (epoch === captureEpoch && session.match === match) say(`해시 기록 실패: ${String(error)}`, true);
+      if (epoch === captureEpoch && session.match === match && fatalError === null) say(`해시 기록 실패: ${String(error)}`, true);
       return;
     }
     const stateHash = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
@@ -124,7 +140,7 @@ function boot() {
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  element('snapshot').addEventListener('click', () => { void capture().catch((error: unknown) => say(`해시 기록 실패: ${String(error)}`, true)); });
+  element('snapshot').addEventListener('click', () => { void capture().catch((error: unknown) => { if (fatalError === null) say(`해시 기록 실패: ${String(error)}`, true); }); });
   element('export').addEventListener('click', () => download(session.record(), 'current'));
   element('export-previous').addEventListener('click', () => {
     const replay = session.archives.at(-1);

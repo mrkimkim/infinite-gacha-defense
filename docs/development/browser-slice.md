@@ -37,3 +37,5 @@ Issue [#13](https://github.com/mrkimkim/infinite-gacha-defense/issues/13), owner
 재현 데이터는 현재 페이지 세션의 메모리에만 있다. 같은 seed 재시작 전 이전 경기의 authoritative header/entries를 보존한다. 파일 저장 버튼으로 JSON을 사용자가 내려받을 수 있다. 새로고침/탭 종료를 넘기는 지속 저장은 이번 범위가 아니다. 별도의 상태 기록 버튼은 실제 canonical bytes를 browser crypto.subtle로 SHA-256하고 해당 tick을 함께 보여 준다. 비동기 결과는 새 경기 또는 더 최신 기록 요청을 덮어쓰지 않는다.
 
 입력 세션은 `tests/web/session.test.ts`의 22개 명시적 CoreApi test double 검사도 통과했다. frozen 상태/스크립트된 반환을 쓰며 실제 core 게임 규칙 구현을 대신하지 않는다. 선택·취소, 정확한 recruit/move/swap 명령, 빠른 두 번째 클릭에서 중복 구매하지 않음, 실패 시 상태/선택 유지, phase 제한, 재시작 실패/재시도, 보존→새 wrapper 순서, 오래된 wrapper 입력/advance 무시를 검사한다. 합계 어댑터 테스트 57개, 타입 검사 및 스텁 API와 결합한 브라우저 번들이 통과했다. 실제 코어 통합 검사는 아직 별도다.
+
+예상하지 못한 전투/입력 예외는 치명 오류로 고정하고 편성·시작·pause·재시작을 잠근다. 멈춘 scheduler에서 ‘재개했다’고 잘못 안내하지 않으며 기록 저장 후 수동 새로고침이 필요함을 표시한다. 이 예외 안내와 결과→새 경기 안내 수정은 코드 경로 검토와 타입/빌드 검사를 거쳤지만 실제 DOM 이벤트로 재현한 증거는 아직 없다.
