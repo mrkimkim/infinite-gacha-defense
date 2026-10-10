@@ -1,0 +1,43 @@
+{
+  "status": "candidate-review-only",
+  "nuriCommit": "1e0876909457981cecf520e8ef4e5655115c1ee8",
+  "popoCommit": "65d62d79cb229c53ab4f90ad0a662be652c64495",
+  "files": [
+    {
+      "path": "popo/raw-generated.png",
+      "sha256": "714bb468681ed355de94a85f384c4719a809ee0f4022b8e2ce52dcabd372343d"
+    },
+    {
+      "path": "popo/prompt.txt",
+      "sha256": "b2802a86a3058f18d43112120effd2e74eab0cb3ffba6fc081c1393cd7761d25"
+    },
+    {
+      "path": "popo/attack.png",
+      "sha256": "d3dbb83e84281a1c165ca6f6fd3e9fab838b1a756d658396ef35573b8db5fb78"
+    },
+    {
+      "path": "popo/idle.png",
+      "sha256": "77ce1cd09eb1a4279822cf29d1445d8aae723ce61fe248d8d78026f00eaee565"
+    },
+    {
+      "path": "popo/recovery.png",
+      "sha256": "076b52314bcfed7f55e9e0a10a13753094c35a623894ce810178800531e8d862"
+    },
+    {
+      "path": "popo/manifest.json",
+      "sha256": "198d213bab196f90f06afea387fdb3d29aada8318e55ee8ce5e8cf5884d354f4"
+    },
+    {
+      "path": "nuri/prompt.txt",
+      "sha256": "3bbd7aa43b571fa73d2df28d51325bc8655f657ba61612db43d74ef126f4f1e2"
+    },
+    {
+      "path": "nuri/raw.png",
+      "sha256": "c53d340bcb53386dfd0a2424a0d24a853b32ba12b732e6c5434c52969599727f"
+    },
+    {
+      "path": "nuri/measurements.json",
+      "sha256": "6974f64f40ae401f6c5984e65648ff8c226a1438c2cb2492aa09019e16612a9d"
+    }
+  ]
+}
