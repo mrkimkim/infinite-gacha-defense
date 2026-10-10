@@ -3,7 +3,6 @@ import fs from 'node:fs/promises';import assert from 'node:assert/strict';
 const root=process.env.EVIDENCE_DIR??'artifacts/popo-timing';await fs.mkdir(root,{recursive:true});
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',args:['--no-sandbox']});const results=[],runs=[];
 for(const viewport of [{width:390,height:844},{width:1165,height:747}])for(const size of [32,36])for(const delay of [0,150,250])for(const startTick of [122,146]){
- if(startTick===146&&delay!==0)continue;
  const id=`${startTick}-${viewport.width}-${size}-${delay}`,dir=`${root}/${id}`;await fs.mkdir(dir,{recursive:true});
  const p=await b.newPage({viewport});const errors=[];p.on('pageerror',e=>errors.push(String(e)));
  await p.goto(process.env.REVIEW_URL??'http://127.0.0.1:4198/popo-timing.html');await p.waitForFunction(()=>window.popoReview?.snapshot().audit.length>0);
