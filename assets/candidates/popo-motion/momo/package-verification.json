@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "hashed_files": 36,
+  "full_native_rgba_reconstruction": true,
+  "gif_frames": 4,
+  "gif_durations_ms": [
+    120,
+    100,
+    140,
+    640
+  ],
+  "idle_first_last_identical": true,
+  "viewer_embedded_pngs": 4,
+  "local_links_valid": true,
+  "actual_browser_playback": "UNVERIFIED: author environment Chromium socket launch blocked",
+  "production_adoption": false
+}
