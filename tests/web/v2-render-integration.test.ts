@@ -8,6 +8,7 @@ import type { ArtLoader } from '../../src/web/v2-art.ts';
 import { createV2Renderer } from '../../src/web/v2-view.ts';
 import { waveGuidance } from '../../src/web/v2-wave-guidance.ts';
 import { shellSink } from './v2-render-harness.ts';
+import type { ElementSink } from './v2-render-harness.ts';
 
 const created = core.createMatch(1, core.EXPERIMENT_RULES_ID);
 assert.ok(created.ok);
@@ -38,6 +39,65 @@ function attack(tick: number): CombatEvent {
     sourcePosition: { x: 500, y: 500 }, center: { x: 0, y: 0 },
     hits: [{ enemyId: 99, damage: 10, position: { x: 0, y: 0 } }] };
 }
+function svgAttacks(node: ElementSink): ElementSink[] {
+  return [...(node.getAttribute('data-effect') === 'attack' ? [node] : []), ...node.children.flatMap(svgAttacks)];
+}
+
+test('preparation-to-combat SVG hit matches combat control and retains its original event age', () => {
+  for (const phase of ['preparation', 'combat'] as const) {
+    const { shell, elements } = shellSink(), renderer = createV2Renderer(shell, core);
+    const event = attack(1), before = JSON.stringify(event);
+    renderer.render(observation(0, { phase }));
+    renderer.consume([event]);
+    assert.equal(svgAttacks(elements.enemyLayer).length, 0, 'consume waits for its matching observation before drawing');
+    renderer.render(observation(4));
+    const groups = svgAttacks(elements.enemyLayer);
+    assert.equal(groups.length, 1, phase);
+    assert.equal(groups[0].getAttribute('data-tick'), '1');
+    assert.equal(groups[0].getAttribute('opacity'), '0.75', 'age is tick4 minus committed tick1');
+    const hits = groups[0].children.filter(node => node.getAttribute('data-hit-id') === '99');
+    assert.equal(hits.length, 1);
+    assert.equal(hits[0].textContent, '10');
+    assert.equal(hits[0].getAttribute('y'), '-322', 'hit number rises by three ticks, not zero');
+    renderer.render(observation(12));
+    assert.equal(svgAttacks(elements.enemyLayer).length, 1);
+    renderer.render(observation(13));
+    assert.equal(svgAttacks(elements.enemyLayer).length, 0, 'expires 12 ticks after the event, not after render arrival');
+    assert.equal(JSON.stringify(event), before, 'display never rewrites committed damage or events');
+    renderer.dispose();
+  }
+});
+
+test('final SVG hits clear on preparation and result and cannot return in the next combat', () => {
+  for (const phase of ['preparation', 'result'] as const) {
+    const { shell, elements } = shellSink(), renderer = createV2Renderer(shell, core);
+    renderer.render(observation()); renderer.consume([attack(1)]); renderer.render(observation(4));
+    assert.equal(svgAttacks(elements.enemyLayer).length, 1);
+    renderer.consume([attack(5)]);
+    renderer.render(observation(5, { phase }));
+    assert.equal(svgAttacks(elements.enemyLayer).length, 0);
+    renderer.render(observation(5));
+    assert.equal(svgAttacks(elements.enemyLayer).length, 0, 'frozen-phase cleanup is permanent for old feedback');
+    renderer.consume([attack(6)]); renderer.render(observation(6));
+    assert.equal(svgAttacks(elements.enemyLayer).length, 1, 'a newly committed hit still renders normally');
+    renderer.dispose();
+  }
+});
+
+test('restart clear/reset and disposal discard pending SVG hits before any new observation', () => {
+  for (const boundary of ['clearEffects', 'reset', 'dispose'] as const) {
+    const { shell, elements } = shellSink(), renderer = createV2Renderer(shell, core);
+    renderer.render(observation(0, { phase: 'preparation' }));
+    renderer.consume([attack(1)]); renderer[boundary]();
+    renderer.render(observation(4));
+    assert.equal(svgAttacks(elements.enemyLayer).length, 0, boundary);
+    if (boundary !== 'dispose') {
+      renderer.consume([attack(5)]); renderer.render(observation(5));
+      assert.equal(svgAttacks(elements.enemyLayer).length, 1);
+      renderer.dispose();
+    }
+  }
+});
 
 test('renderer projects all three guidance fields and exact ordinary/boss/final countdowns', () => {
   const { shell, elements } = shellSink(), renderer = createV2Renderer(shell, core);

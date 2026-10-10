@@ -460,8 +460,10 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi, options: V2Re
 
   function consume(events: readonly CombatEvent[]) {
     if (disposed) return;
-    // Called before render: the next observation clears attack feedback on a phase
-    // transition. Recorded events remain untouched; no display wall clock.
+    // Queue committed feedback until render receives its matching observation.
+    // Rendering here would age/filter new effects against the previous phase and
+    // can permanently discard a first combat hit while that phase is preparation.
+    // The next render still clears final hits on preparation/result boundaries.
     for (const event of events) {
       if (event.type !== 'attack') continue;
       pendingAttackTicks.set(event.unitId, Math.max(pendingAttackTicks.get(event.unitId) ?? -1, event.tick));
@@ -470,7 +472,6 @@ export function createV2Renderer(shell: V2ShellRefs, api: CoreApi, options: V2Re
         definition: source ? definition(source.definitionId) : undefined });
     }
     if (effects.length > MAX_ATTACK_EFFECTS) effects = effects.slice(-MAX_ATTACK_EFFECTS);
-    renderScene();
   }
   function clearEffects() { effects = []; resetArt(true); renderScene(); }
   function reset() { effects = []; resetArt(true); observation = null; currentUi = {}; shell.enemyLayer.replaceChildren(); statNote.textContent = ''; }
