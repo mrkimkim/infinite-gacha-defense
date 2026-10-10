@@ -1,0 +1,24 @@
+{
+  "name": "infinite-gacha-defense",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "packageManager": "npm@11.9.0",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"tests/tooling/*.test.ts\"",
+    "build:tooling": "vite build --mode tooling",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "npm run typecheck && npm test && npm run build:tooling"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
+  }
+}

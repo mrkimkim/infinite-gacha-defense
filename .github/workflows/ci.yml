@@ -1,0 +1,41 @@
+name: Tooling checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tooling-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tooling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9f698171ed81b15d1823a05fc7211befd50c8ae0
+        # v6.0.3; do not retain a writable Git credential.
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
+        # v6.3.0
+        with:
+          node-version: "24.19.0"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Type and unused-code checks
+        run: npm run typecheck
+      - name: Tooling smoke tests (not gameplay)
+        run: npm test
+      - name: Portable tooling specimen build (not game build)
+        run: npm run build:tooling
+      - name: Game build when an entry exists
+        if: ${{ hashFiles('index.html') != '' }}
+        run: npm run build
+      - name: Explicit scaffold limitation
+        if: ${{ hashFiles('index.html') == '' }}
+        run: echo "::notice::No index.html yet; tooling checks passed only. Game build and gameplay remain unverified."
