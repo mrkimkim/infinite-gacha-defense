@@ -13,3 +13,7 @@ Issue #14 generation2. 준비 fixture는 승인 계약7a118337의 §2/3/6에서 
 5. seed1/2/4294967295 재현, seed0/-1/1.5/4294967296 거부를 별도 실행합니다. seed마다 같은 후보가 나올 수 있으므로 모든 서로 다른 seed가 반드시 다른 첫 후보를 가진다는 잘못된 assertion은 만들지 않습니다.
 
 승패 완주·모바일 입력·일시정지·사람 재미는 이 준비 fixture의 증거가 아닙니다. 일반/숙련 정책 비교는 후속 공동 설계이며 기본 smoke를 그 대용으로 부르지 않습니다.
+
+## Portable SHA-256 대조 준비
+
+sha256-vectors.json은 널리 알려진 empty/abc 고정 답입니다. 모모의 portable 구현 API가 게시되면 이 벡터와 Node crypto를 대조합니다. 실제 canonicalState/규칙 canonical bytes에는 Node createHash, 브라우저 crypto.subtle, 코어 portable 구현을 각각 적용해 같은 UTF-8 입력에서 비교합니다. 한 구현이 만든 digest를 자기 자신과 비교하는 검사로 대체하지 않습니다. 한글·emoji·55/56/63/64/65바이트 입력도 Node를 독립 기준으로 padding/인코딩 경계 검사에 포함합니다. 현재 portable와 브라우저 비교는 NOT_RUN입니다.
