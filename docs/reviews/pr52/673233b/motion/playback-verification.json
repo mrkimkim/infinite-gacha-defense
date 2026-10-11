@@ -1,0 +1,42 @@
+{
+  "method": "Chromium HTMLVideoElement full-duration playback, playbackRate=1, both viewports concurrently; not human art approval",
+  "browser": "151.0.7922.173",
+  "results": [
+    {
+      "viewportWidth": 390,
+      "ended": true,
+      "currentTime": 112.604691,
+      "duration": 112.604691,
+      "playbackRate": 1,
+      "width": 390,
+      "height": 844,
+      "error": null,
+      "wallSeconds": 112.66169999998807,
+      "videoFrameCallbacks": 4903,
+      "firstMediaTime": 0,
+      "lastMediaTime": 112.60469,
+      "quality": {
+        "totalVideoFrames": 5643,
+        "droppedVideoFrames": 126
+      }
+    },
+    {
+      "viewportWidth": 1165,
+      "ended": true,
+      "currentTime": 112.633895,
+      "duration": 112.633895,
+      "playbackRate": 1,
+      "width": 1166,
+      "height": 748,
+      "error": null,
+      "wallSeconds": 112.67329999999701,
+      "videoFrameCallbacks": 5082,
+      "firstMediaTime": 0,
+      "lastMediaTime": 112.633894,
+      "quality": {
+        "totalVideoFrames": 6011,
+        "droppedVideoFrames": 78
+      }
+    }
+  ]
+}

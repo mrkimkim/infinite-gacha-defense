@@ -1,0 +1,217 @@
+{
+  "encoding": "Source lossless CDP PNG; H.264 libx264 medium CRF18 yuv420p lossy; no scaling, interpolation, speed change, frame dropping or duplication; even dimension padding only; variable timestamps with 1 microsecond timebase; faststart",
+  "reports": [
+    {
+      "viewportWidth": 390,
+      "sourceGameSHA": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+      "file": "390-realtime-fullplay.mp4",
+      "bytes": 2583209,
+      "sha256": "f7a25d359f0aa6bfe0733132ab39f0af02758e5bec8798e1ee6cf53040693898",
+      "originalMP4": {
+        "bytes": 6921951,
+        "sha256": "c32718c8b61d4eaac8e41eb0279c57be1a824f40161eac03efde31f568f42a58",
+        "usedAsEncodingInput": false
+      },
+      "rawPNGCount": 5638,
+      "outputDecodedFrames": 5638,
+      "relativeSourceIntervalSeconds": [
+        0,
+        112.60469007492065
+      ],
+      "maxFrameTimestampErrorSeconds": 1.732788064146007e-07,
+      "allFramesDecodeWithoutError": true,
+      "sourceFrameManifest": "390-source-frames.json",
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 390,
+            "height": 844,
+            "coded_width": 390,
+            "coded_height": 844,
+            "closed_captions": 0,
+            "film_grain": 0,
+            "has_b_frames": 2,
+            "pix_fmt": "yuv420p",
+            "level": 62,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "1000000/1",
+            "avg_frame_rate": "162371523/3245489",
+            "time_base": "1/1000000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 112604691,
+            "duration": "112.604691",
+            "bit_rate": "175444",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "5638",
+            "extradata_size": 46,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "vendor_id": "[0][0][0][0]",
+              "encoder": "Lavc61.19.101 libx264"
+            }
+          }
+        ],
+        "format": {
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "112.604691",
+          "size": "2583209",
+          "bit_rate": "183524",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf61.7.103"
+          }
+        }
+      },
+      "decodeVerification": "ffmpeg full decode to null with passthrough and 1:1000000 encoder timebase; exit0, empty error stderr"
+    },
+    {
+      "viewportWidth": 1165,
+      "sourceGameSHA": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+      "file": "1165-realtime-fullplay.mp4",
+      "bytes": 3438321,
+      "sha256": "9a9caf9651e8a59c9f4d814eee785a4b80b4353bab92b22008c7561809068fe8",
+      "originalMP4": {
+        "bytes": 9209798,
+        "sha256": "91eeda5379c5ea3d15c07b52fa3f9bc712c1bd45521572b4463d4470e0a7eaf1",
+        "usedAsEncodingInput": false
+      },
+      "rawPNGCount": 6007,
+      "outputDecodedFrames": 6007,
+      "relativeSourceIntervalSeconds": [
+        0,
+        112.6338939666748
+      ],
+      "maxFrameTimestampErrorSeconds": 1.826629656420664e-07,
+      "allFramesDecodeWithoutError": true,
+      "sourceFrameManifest": "1165-source-frames.json",
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 1166,
+            "height": 748,
+            "coded_width": 1166,
+            "coded_height": 748,
+            "closed_captions": 0,
+            "film_grain": 0,
+            "has_b_frames": 2,
+            "pix_fmt": "yuv420p",
+            "level": 62,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "1000000/1",
+            "avg_frame_rate": "1201400000/22537839",
+            "time_base": "1/1000000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 112633895,
+            "duration": "112.633895",
+            "bit_rate": "235609",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "6007",
+            "extradata_size": 46,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "vendor_id": "[0][0][0][0]",
+              "encoder": "Lavc61.19.101 libx264"
+            }
+          }
+        ],
+        "format": {
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "112.633895",
+          "size": "3438321",
+          "bit_rate": "244212",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf61.7.103"
+          }
+        }
+      },
+      "decodeVerification": "ffmpeg full decode to null with passthrough and 1:1000000 encoder timebase; exit0, empty error stderr"
+    }
+  ]
+}
