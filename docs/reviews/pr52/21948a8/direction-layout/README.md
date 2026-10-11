@@ -11,6 +11,16 @@
 
 canvas만 확인: [390 이전](before-673233b/390-selected-nuri-canvas.png) / [390 이후](after-21948a8/390-selected-nuri-canvas.png), [1165 이전](before-673233b/1165-selected-nuri-canvas.png) / [1165 이후](after-21948a8/1165-selected-nuri-canvas.png).
 
+## 출처 정정 — 이전 결과의 restartClearsNotice는 미검사
+
+[키키의 지적](https://github.com/mrkimkim/infinite-gacha-defense/pull/52#issuecomment-6105070660)에 따라 이전/이후 실행 스크립트의 차이를 명시합니다. **`before-673233b/results.json`의 두 `restartClearsNotice:true`는 실제 검증 결과가 아니라 제작 측 최초 스크립트의 고정값 기록 오류입니다. 이 항목은 미검사(`null`에 해당)로 취급하며 PASS 근거에서 제외합니다.** 원본 JSON을 사후 수정하지 않고 보존합니다.
+
+이전 실행은 [당시 임시 스크립트 원본](provenance/baseline-executed.mjs)에 `BASELINE=1`을 설정해 수행했습니다. 해당 스크립트는 `if(!baseline)`에서만 안내 제거를 검사했지만 결과에는 무조건 `true`를 기록했습니다. baseline에서 실제 확인한 재시작 관련 동작은 재시작 클릭 후 ready 대기까지이며, 안내 제거 assertion은 수행하지 않았습니다. 게임 SHA673233b는 검사 대상 소스의 버전이고 이 임시 검사 스크립트의 커밋 버전이 아닙니다. 이전 `pass:true`도 실제 실행한 assertion들에 한정되며 이 미검사 항목까지 승인하지 않습니다.
+
+이후 실행은 [21948a8의 커밋된 스크립트 원본](provenance/after-executed-21948a8.mjs)을 `BASELINE` 미설정으로 실행했습니다. 이 버전은 baseline이면 `null`을 기록하도록 이미 수정됐고, non-baseline에서는 재시작 뒤 안내 문자열이 비었음을 실제 assert한 후 `true`를 기록합니다. 따라서 이후 결과의 `true`는 검사 통과이며, 이 스크립트가 이전 결과까지 생성했다고 해석하면 안 됩니다. 두 버전은 Playwright 기본 로딩 경로와 non-baseline의 가로 경계·선택 표시 검사도 다릅니다.
+
+정확한 파일 해시·필드별 해석은 [erratum.json](provenance/erratum.json)에 기록했습니다. 기존 PNG·상태·리플레이·결과 파일은 바꾸지 않았으며, 이번 정정에서 새 브라우저 실행이나 전체 검사를 반복하지 않았습니다.
+
 ## 재현·검증
 
 두 viewport 모두 844px 높이에서 실제 브라우저의 영입·배치·전투 시작·정지·선택 버튼을 사용했습니다. 가상 시계를 제어해 동일 tick1을 고정한 정지 레이아웃 회귀 검사입니다. 실시간 동작 영상이나 사람 플레이로 표시하지 않습니다. full-page PNG는 viewport 아래 스크롤 영역까지 포함하며, canvas PNG는 브라우저 element screenshot입니다. 이미지를 합성·보정하지 않았습니다.
@@ -21,7 +31,7 @@ canvas만 확인: [390 이전](before-673233b/390-selected-nuri-canvas.png) / [3
 - [전후 레이아웃 검사 결과](after-21948a8/results.json): 안내 canvas draw 없음, 안내 DOM이 canvas 아래, 가로 넘침 없음, 선택 표시 갱신, 재시작 후 안내 제거 확인. 모모의 기존 PNG와 별도로 새 재현 전후 화면을 만들었습니다.
 - [입력 검사](input-results.json): 새 SHA에서 26/26 통과, 미커밋 소스 없음. pointer/Space/포커스/정지/재개 경계를 보존합니다.
 - [준비 화면 검사](preparation-results.json): 새 SHA production build에서 24단계 통과. 이 기존 결과 배열에는 자체 SHA 필드가 없으므로 실행 출처는 본 manifest에 명시합니다.
-- 원본 재현 스크립트는 게임 커밋의 `tests/schema4-play/direction-layout-browser.mjs`입니다. `PLAYWRIGHT_MODULE`, `PLAY_URL`, `EVIDENCE_DIR`로 실행 환경을 지정합니다. `npm test`에 `.mjs` 브라우저 검사는 포함되지 않습니다.
+- 이후 실행 재현 스크립트는 게임 커밋의 `tests/schema4-play/direction-layout-browser.mjs`입니다. `PLAYWRIGHT_MODULE`, `PLAY_URL`, `EVIDENCE_DIR`로 실행 환경을 지정합니다. `npm test`에 `.mjs` 브라우저 검사는 포함되지 않습니다.
 
 ## 별도 제안 — 이번 수정에 포함하지 않음
 

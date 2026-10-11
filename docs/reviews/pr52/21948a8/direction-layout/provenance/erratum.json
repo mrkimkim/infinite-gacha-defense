@@ -1,0 +1,40 @@
+{
+  "review": "https://github.com/mrkimkim/infinite-gacha-defense/pull/52#issuecomment-6105070660",
+  "kind": "producer evidence provenance correction; no new browser run",
+  "originalResultsPreserved": true,
+  "before": {
+    "gameSHA": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+    "script": "provenance/baseline-executed.mjs",
+    "scriptSHA256": "b3a18f8b1a2edad4a896d302362c988786c835155acb54431367f5e9ac069bab",
+    "scriptOrigin": "Standalone temporary script /tmp/direction-layout-browser.mjs, not a script committed at game SHA673233b",
+    "baseline": true,
+    "affectedResults": "before-673233b/results.json",
+    "affectedWidths": [
+      390,
+      1165
+    ],
+    "field": "restartClearsNotice",
+    "recordedValue": true,
+    "assessment": "NOT_CHECKED; recorded true is a reporting error, not a passed assertion",
+    "effectiveValue": null,
+    "cause": "The executed script skipped the notice-empty assertion under if(!baseline) but unconditionally wrote restartClearsNotice:true. It clicked restart and waited for ready; it did not check notice clearance.",
+    "passFieldScope": "pass:true applies only to assertions actually executed; exclude restartClearsNotice from any baseline pass claim"
+  },
+  "after": {
+    "gameSHA": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+    "script": "provenance/after-executed-21948a8.mjs",
+    "scriptSHA256": "733bfbde6648aadcf43bb258b58038fce6a293d5b33b8bc66a086a18c86be6be",
+    "scriptOrigin": "Exact bytes of tests/schema4-play/direction-layout-browser.mjs at game SHA21948a8",
+    "baseline": false,
+    "affectedResults": "after-21948a8/results.json",
+    "field": "restartClearsNotice",
+    "recordedValue": true,
+    "assessment": "CHECKED_PASS: notice textContent asserted empty after restart and ready",
+    "baselineBehaviorOfThisScript": "Would record null with baseline=true; this script did not produce the preserved before results"
+  },
+  "otherScriptDifferences": [
+    "Playwright default changed from environment-specific module path to package name; after execution supplied PLAYWRIGHT_MODULE explicitly",
+    "After version added notice horizontal-bound checks and selection-marker change assertions in non-baseline branch"
+  ],
+  "scope": "This correction does not change original PNG/state/replay/result bytes, game code, or existing673233b video provenance. No aggregate tests or browser checks were rerun."
+}
