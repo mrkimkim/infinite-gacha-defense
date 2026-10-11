@@ -3,9 +3,10 @@ const{chromium}=await import(process.env.PLAYWRIGHT_MODULE??'playwright');const 
 const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']}),results=[];
 try{for(const width of [390,1165]){
  const page=await browser.newPage({viewport:{width,height:844}}),errors=[];page.on('pageerror',e=>errors.push(String(e)));
- await page.addInitScript(()=>{window.testFrames=[];const raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=cb=>{window.testFrames.push(cb);return raf(cb);};});
  await page.goto(process.env.PLAY_URL??'http://127.0.0.1:4246/schema4-play.html');await page.waitForFunction(()=>window.graphicsReview?.snapshot().ready);
  await page.clock.install({time:new Date('2026-10-11T00:00:00Z')});await page.clock.pauseAt(new Date('2026-10-11T00:00:00Z'));
+ await page.evaluate(()=>{window.testFrames=[];const raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=cb=>{window.testFrames.push(cb);return raf(cb);};});
+
  const snap=()=>page.evaluate(()=>window.graphicsReview.snapshot());
  const place=async()=>{for(const[slot,col]of[[0,0],[2,1]]){await page.locator('#offers button').nth(slot).click();await page.click('#buy');await page.locator(`#board button[data-col="${col}"][data-row="3"]`).click();}await page.click('#start');};
  await place();await page.clock.runFor(4700);await page.click('#pause');const paused=await snap();await page.clock.runFor(5000);const frozen=await snap();assert.equal(frozen.hash,paused.hash);assert.deepEqual(frozen.view,paused.view);await page.click('#pause');
