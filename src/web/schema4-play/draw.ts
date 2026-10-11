@@ -8,7 +8,7 @@ export function draw(ctx:CanvasRenderingContext2D,v:BattleView,images:Images,sel
   if(u.definitionId==='fixture-01'){const pose=u.pose==='preparation'?'anticipation':u.pose==='recoil'?'recovery':u.pose;ctx.drawImage(images['popo-'+pose],p.x-360*32/563,p.y-640*32/563,960*32/563,768*32/563);}
   else if(u.definitionId==='fixture-02'){const f=nuri[u.pose as keyof typeof nuri],s=32/480,[x0,y0,x1,y1]=f.rect;ctx.drawImage(images.nuri,x0,y0,x1-x0,y1-y0,p.x+(x0-f.pivot[0])*s,p.y+(y0-f.pivot[1])*s,(x1-x0)*s,(y1-y0)*s);}
   else{ctx.fillStyle='#82779a';ctx.fillRect(p.x-12,p.y-25,24,25);ctx.fillStyle='white';ctx.font='11px system-ui';ctx.fillText(u.definitionId.slice(-2),p.x-7,p.y-9);}
-  ctx.font='10px system-ui';ctx.fillStyle='#334332';ctx.fillText('★'.repeat(u.star),p.x-8,p.y+12);if(u.unsupported){ctx.fillStyle='#925321';ctx.fillText('기본 방향',p.x-22,p.y+23);}
+  ctx.font='10px system-ui';ctx.fillStyle='#334332';ctx.fillText('★'.repeat(u.star),p.x-8,p.y+12);
  }
  for(const e of v.enemies){const p=e.position;ctx.fillStyle=e.dead?'#aaa08d':e.hit?'#e7c580':'#73876b';ctx.strokeStyle='#344c39';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(p.x,p.y,10,11,0,0,Math.PI*2);ctx.fill();ctx.stroke();for(const dx of [-4,4]){ctx.fillStyle='#263d2c';if(e.dead){ctx.beginPath();ctx.moveTo(p.x+dx-2,p.y-4);ctx.lineTo(p.x+dx+2,p.y);ctx.moveTo(p.x+dx+2,p.y-4);ctx.lineTo(p.x+dx-2,p.y);ctx.stroke();}else ctx.fillRect(p.x+dx-1,p.y-4,2,4);}ctx.fillStyle='#686453';ctx.fillRect(p.x-12,p.y-20,24,4);ctx.fillStyle='#50a17d';ctx.fillRect(p.x-12,p.y-20,e.maxHp?24*e.hp/e.maxHp:0,4);}
  for(const f of v.flights){const p=f.position;if(!f.art){ctx.fillStyle='#76538f';ctx.strokeStyle='#fff6d2';ctx.beginPath();ctx.arc(p.x,p.y,3,0,Math.PI*2);ctx.fill();ctx.stroke();}
