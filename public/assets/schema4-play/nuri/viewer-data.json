@@ -1,0 +1,427 @@
+{
+  "assets": {
+    "character": {
+      "file": "nuri-direction-correction-raw-v05.png",
+      "dimensions_px": [
+        2172,
+        724
+      ],
+      "bytes": 1373020,
+      "sha256": "9e89cce33db28c8eda5bd66b81804a9c506941c1ec46ece829a57f1de59c736d",
+      "bounds_alpha8": [
+        18,
+        132,
+        2150,
+        615
+      ],
+      "bounds_alpha128": [
+        19,
+        133,
+        2149,
+        614
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 874975,
+      "low_alpha_1_to_7": 17176,
+      "center_rgba": [
+        58,
+        155,
+        212,
+        253
+      ]
+    },
+    "bubble": {
+      "file": "flight-bubble-raw-v05.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "bytes": 517610,
+      "sha256": "db8f367946be1d83b2c6b27a0ad7396ee745a33dcc22979a4c103a1556b4b684",
+      "bounds_alpha8": [
+        218,
+        271,
+        1011,
+        1025
+      ],
+      "bounds_alpha128": [
+        219,
+        272,
+        1011,
+        1024
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1208688,
+      "low_alpha_1_to_7": 4990,
+      "center_rgba": [
+        156,
+        228,
+        252,
+        253
+      ]
+    },
+    "impact": {
+      "file": "water-impact-reference-v04.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "bytes": 195629,
+      "sha256": "5765e53597267abd72a3ab147cb2f37e6e32b4f4d6d3c6e7cf1729041959f863",
+      "bounds_alpha8": [
+        89,
+        102,
+        1164,
+        1150
+      ],
+      "bounds_alpha128": [
+        91,
+        103,
+        1163,
+        1149
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1477525,
+      "low_alpha_1_to_7": 4122,
+      "center_rgba": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "ripple": {
+      "file": "ground-ripple-reference-v04.png",
+      "dimensions_px": [
+        2172,
+        724
+      ],
+      "bytes": 403886,
+      "sha256": "3eefc591750cc58ba0d16f73dd8c9cba15b45e8392abc6d7d32208477425fdb3",
+      "bounds_alpha8": [
+        221,
+        227,
+        1951,
+        493
+      ],
+      "bounds_alpha128": [
+        222,
+        229,
+        1950,
+        490
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1386585,
+      "low_alpha_1_to_7": 88894,
+      "center_rgba": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "frames": [
+    {
+      "name": "idle",
+      "source_rect": [
+        16,
+        130,
+        390,
+        616
+      ],
+      "bounds_alpha128": [
+        19,
+        133,
+        387,
+        613
+      ],
+      "pivot_source": [
+        182.25,
+        613
+      ],
+      "launch_anchor_source": [
+        253,
+        332
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 605,
+      "sole_runs": [
+        [
+          56,
+          132
+        ],
+        [
+          230,
+          311
+        ]
+      ],
+      "sole_centers": [
+        94,
+        270.5
+      ],
+      "sole_separation": 176.5,
+      "per_foot_shift_at32": 0,
+      "per_foot_shift_at36": 0,
+      "body_height_source": 480,
+      "height_at32": 32,
+      "height_at36": 36
+    },
+    {
+      "name": "preparation",
+      "source_rect": [
+        446,
+        131,
+        809,
+        616
+      ],
+      "bounds_alpha128": [
+        449,
+        134,
+        806,
+        613
+      ],
+      "pivot_source": [
+        598.75,
+        613
+      ],
+      "launch_anchor_source": [
+        596,
+        321
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 605,
+      "sole_runs": [
+        [
+          472,
+          548
+        ],
+        [
+          647,
+          728
+        ]
+      ],
+      "sole_centers": [
+        510,
+        687.5
+      ],
+      "sole_separation": 177.5,
+      "per_foot_shift_at32": 0.03333333333333333,
+      "per_foot_shift_at36": 0.0375,
+      "body_height_source": 479,
+      "height_at32": 31.933333333333334,
+      "height_at36": 35.925
+    },
+    {
+      "name": "release",
+      "source_rect": [
+        831,
+        131,
+        1361,
+        616
+      ],
+      "bounds_alpha128": [
+        834,
+        134,
+        1357,
+        613
+      ],
+      "pivot_source": [
+        1056,
+        613
+      ],
+      "launch_anchor_source": [
+        1348,
+        443
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 605,
+      "sole_runs": [
+        [
+          928,
+          1004
+        ],
+        [
+          1105,
+          1187
+        ]
+      ],
+      "sole_centers": [
+        966,
+        1146
+      ],
+      "sole_separation": 180,
+      "per_foot_shift_at32": 0.11666666666666667,
+      "per_foot_shift_at36": 0.13125,
+      "body_height_source": 479,
+      "height_at32": 31.933333333333334,
+      "height_at36": 35.925
+    },
+    {
+      "name": "recoil",
+      "source_rect": [
+        1386,
+        130,
+        1746,
+        616
+      ],
+      "bounds_alpha128": [
+        1389,
+        133,
+        1744,
+        613
+      ],
+      "pivot_source": [
+        1536.25,
+        613
+      ],
+      "launch_anchor_source": [
+        1611,
+        329
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 605,
+      "sole_runs": [
+        [
+          1411,
+          1485
+        ],
+        [
+          1584,
+          1665
+        ]
+      ],
+      "sole_centers": [
+        1448,
+        1624.5
+      ],
+      "sole_separation": 176.5,
+      "per_foot_shift_at32": 0,
+      "per_foot_shift_at36": 0,
+      "body_height_source": 480,
+      "height_at32": 32,
+      "height_at36": 36
+    },
+    {
+      "name": "recovery",
+      "source_rect": [
+        1790,
+        132,
+        2152,
+        617
+      ],
+      "bounds_alpha128": [
+        1793,
+        136,
+        2149,
+        614
+      ],
+      "pivot_source": [
+        1949.25,
+        614
+      ],
+      "launch_anchor_source": [
+        2043,
+        333
+      ],
+      "anchor_method": "Manual visual outer shell-rim landmark, candidate; integration orientation review required",
+      "sole_measurement_y": 606,
+      "sole_runs": [
+        [
+          1824,
+          1898
+        ],
+        [
+          1998,
+          2077
+        ]
+      ],
+      "sole_centers": [
+        1861,
+        2037.5
+      ],
+      "sole_separation": 176.5,
+      "per_foot_shift_at32": 0,
+      "per_foot_shift_at36": 0,
+      "body_height_source": 478,
+      "height_at32": 31.866666666666667,
+      "height_at36": 35.85
+    }
+  ],
+  "commonHeight": 480,
+  "fixture": {
+    "kind": "proposed_flight_choreography_art_only",
+    "direction": "down-right",
+    "character_ground": [
+      48,
+      60
+    ],
+    "target_center_far": [
+      144,
+      89
+    ],
+    "target_center_near": [
+      108,
+      89
+    ],
+    "target_bottom_y": 97,
+    "scene_dimensions": [
+      240,
+      124
+    ],
+    "bubble_nominal_width_at32": 8,
+    "bubble_nominal_width_at36": 9,
+    "phases": [
+      {
+        "name": "idle",
+        "pose": 0,
+        "hold_ms": 450
+      },
+      {
+        "name": "preparation",
+        "pose": 1,
+        "hold_ms": 260
+      },
+      {
+        "name": "launch",
+        "pose": 2,
+        "hold_ms": 150
+      },
+      {
+        "name": "flight",
+        "pose": 3,
+        "hold_ms": 400
+      },
+      {
+        "name": "impact",
+        "pose": 4,
+        "hold_ms": 160
+      },
+      {
+        "name": "recovery",
+        "pose": 4,
+        "hold_ms": 180
+      },
+      {
+        "name": "settled",
+        "pose": 0,
+        "hold_ms": 450
+      }
+    ],
+    "semantics": "Art-only proposed choreography. One separate bubble travels from the release rim to a fixed geometric target; impact is shown only upon arrival. No dotted trail. No HP or game-state change. Not connected to schema4 or any runtime.",
+    "engine_contract_status": "Pending separate schema4 integration review; old immediate-hit semantics are not represented as compatible with this flight preview.",
+    "aoe": "Decorative ripple only. No multi-hit fixture or radius contract."
+  }
+}

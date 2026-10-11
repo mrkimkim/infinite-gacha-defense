@@ -1,0 +1,313 @@
+{
+  "assignment": "https://github.com/mrkimkim/infinite-gacha-defense/issues/24#issuecomment-6100065723",
+  "native_release_anchor": [
+    688,
+    365
+  ],
+  "body_scale": "height/563; phase_y=0.375",
+  "effect_attachment": "leftmost alpha>127 effect pixel = round(anchor_x)+1; vertical center = round(anchor_y); never changes native body anchor",
+  "background_sample": {
+    "source": "references/pr49-32px-0019.jpg",
+    "rect": [
+      260,
+      460,
+      300,
+      480
+    ],
+    "median_RGB": [
+      216,
+      213,
+      182
+    ]
+  },
+  "effects": [
+    {
+      "variant": "v6 baseline",
+      "requested_effect_width": 8,
+      "canvas": [
+        14,
+        14
+      ],
+      "alpha_gt127_bbox": [
+        3,
+        5,
+        11,
+        9
+      ],
+      "alpha_gt0_bbox": [
+        0,
+        2,
+        13,
+        12
+      ],
+      "strong_dimensions": [
+        8,
+        4
+      ],
+      "source_strong_bbox": [
+        110,
+        335,
+        1143,
+        919
+      ],
+      "scale": 0.007744433688286544,
+      "scale_adjustment_to_measured_width": 0.0
+    },
+    {
+      "variant": "v6 baseline",
+      "requested_effect_width": 10,
+      "canvas": [
+        16,
+        16
+      ],
+      "alpha_gt127_bbox": [
+        3,
+        5,
+        13,
+        11
+      ],
+      "alpha_gt0_bbox": [
+        0,
+        3,
+        16,
+        14
+      ],
+      "strong_dimensions": [
+        10,
+        6
+      ],
+      "source_strong_bbox": [
+        110,
+        335,
+        1143,
+        919
+      ],
+      "scale": 0.00968054211035818,
+      "scale_adjustment_to_measured_width": 0.0
+    },
+    {
+      "variant": "v6 baseline",
+      "requested_effect_width": 12,
+      "canvas": [
+        19,
+        19
+      ],
+      "alpha_gt127_bbox": [
+        3,
+        6,
+        15,
+        13
+      ],
+      "alpha_gt0_bbox": [
+        1,
+        3,
+        18,
+        15
+      ],
+      "strong_dimensions": [
+        12,
+        7
+      ],
+      "source_strong_bbox": [
+        110,
+        335,
+        1143,
+        919
+      ],
+      "scale": 0.011616650532429816,
+      "scale_adjustment_to_measured_width": 0.0
+    },
+    {
+      "variant": "attempt-1",
+      "requested_effect_width": 8,
+      "canvas": [
+        17,
+        13
+      ],
+      "alpha_gt127_bbox": [
+        5,
+        4,
+        13,
+        8
+      ],
+      "alpha_gt0_bbox": [
+        1,
+        2,
+        15,
+        11
+      ],
+      "strong_dimensions": [
+        8,
+        4
+      ],
+      "source_strong_bbox": [
+        168,
+        268,
+        1260,
+        757
+      ],
+      "scale": 0.008333333333333333,
+      "scale_adjustment_to_measured_width": 1.1
+    },
+    {
+      "variant": "attempt-1",
+      "requested_effect_width": 10,
+      "canvas": [
+        20,
+        15
+      ],
+      "alpha_gt127_bbox": [
+        5,
+        5,
+        15,
+        10
+      ],
+      "alpha_gt0_bbox": [
+        1,
+        2,
+        18,
+        12
+      ],
+      "strong_dimensions": [
+        10,
+        5
+      ],
+      "source_strong_bbox": [
+        168,
+        268,
+        1260,
+        757
+      ],
+      "scale": 0.010393772893772893,
+      "scale_adjustment_to_measured_width": 1.35
+    },
+    {
+      "variant": "attempt-1",
+      "requested_effect_width": 12,
+      "canvas": [
+        22,
+        16
+      ],
+      "alpha_gt127_bbox": [
+        5,
+        5,
+        17,
+        11
+      ],
+      "alpha_gt0_bbox": [
+        2,
+        2,
+        19,
+        13
+      ],
+      "strong_dimensions": [
+        12,
+        6
+      ],
+      "source_strong_bbox": [
+        168,
+        268,
+        1260,
+        757
+      ],
+      "scale": 0.011492673992673993,
+      "scale_adjustment_to_measured_width": 0.55
+    },
+    {
+      "variant": "attempt-2",
+      "requested_effect_width": 8,
+      "canvas": [
+        14,
+        11
+      ],
+      "alpha_gt127_bbox": [
+        4,
+        3,
+        12,
+        7
+      ],
+      "alpha_gt0_bbox": [
+        0,
+        1,
+        14,
+        10
+      ],
+      "strong_dimensions": [
+        8,
+        4
+      ],
+      "source_strong_bbox": [
+        119,
+        204,
+        1389,
+        797
+      ],
+      "scale": 0.006830708661417323,
+      "scale_adjustment_to_measured_width": 0.675
+    },
+    {
+      "variant": "attempt-2",
+      "requested_effect_width": 10,
+      "canvas": [
+        17,
+        12
+      ],
+      "alpha_gt127_bbox": [
+        4,
+        4,
+        14,
+        9
+      ],
+      "alpha_gt0_bbox": [
+        1,
+        1,
+        16,
+        11
+      ],
+      "strong_dimensions": [
+        10,
+        5
+      ],
+      "source_strong_bbox": [
+        119,
+        204,
+        1389,
+        797
+      ],
+      "scale": 0.00828740157480315,
+      "scale_adjustment_to_measured_width": 0.525
+    },
+    {
+      "variant": "attempt-2",
+      "requested_effect_width": 12,
+      "canvas": [
+        20,
+        15
+      ],
+      "alpha_gt127_bbox": [
+        4,
+        4,
+        16,
+        10
+      ],
+      "alpha_gt0_bbox": [
+        1,
+        1,
+        19,
+        13
+      ],
+      "strong_dimensions": [
+        12,
+        6
+      ],
+      "source_strong_bbox": [
+        119,
+        204,
+        1389,
+        797
+      ],
+      "scale": 0.01029527559055118,
+      "scale_adjustment_to_measured_width": 1.075
+    }
+  ]
+}

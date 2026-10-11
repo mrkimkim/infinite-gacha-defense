@@ -1,0 +1,285 @@
+{
+  "references": {
+    "base": "2d9870a29c2cd769f85bd018c4377b2b1ad2ee05",
+    "core48": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+    "popo49": "c5ae0239bc0666a5fd7dbde10143f935d71a39c6",
+    "surface51": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+    "nuri50": "f90c657455b459826ea9b39a89273ca89001e1f8"
+  },
+  "byteIdenticalImports": [
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/engine.ts",
+      "path": "src/core-timing/engine.ts",
+      "sha256": "cd21fd3d2e2d91fe07b7aeee169419e6de1ebaa3c1fbf24644859f26a23cc110"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/index.ts",
+      "path": "src/core-timing/index.ts",
+      "sha256": "2f557e102f3e59f7040cc73379b0ee7a234e87fa79bf2b43da99ac9a92dd6624"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/observation.ts",
+      "path": "src/core-timing/observation.ts",
+      "sha256": "29127e056194ad5be5647b7a2c3df579e6e2e4684fa4e9656d595d23687e3a46"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/planner.ts",
+      "path": "src/core-timing/planner.ts",
+      "sha256": "7fb0a5a440a6bc5ff2fa1e8943e07f839ab0034e672b32a472725c7aaef934de"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/profiles.ts",
+      "path": "src/core-timing/profiles.ts",
+      "sha256": "8d6ecf0ebe8217a061843a3957e9f766efe4043848b870c9bac1e6bce4a70a52"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/replay.ts",
+      "path": "src/core-timing/replay.ts",
+      "sha256": "f98b112cfc154a78ab85125045ff159ccb01051f4784e6edd9dd2706e807cd1b"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/rules.ts",
+      "path": "src/core-timing/rules.ts",
+      "sha256": "041fa5655b8ccb6baa31949ae40479ae6a97bee0505f4522740c6c31aa1bff22"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/serialization.ts",
+      "path": "src/core-timing/serialization.ts",
+      "sha256": "bc8982880d11ba7b862bcb6b3d24d87b1fe9e3d5cec9319b1d8b84f3a9a56085"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/timing.ts",
+      "path": "src/core-timing/timing.ts",
+      "sha256": "74a1fcda7330e48c8aa7ec9064ae6cf77e0da2accd76b4909e9c3d39255fad8d"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/types.ts",
+      "path": "src/core-timing/types.ts",
+      "sha256": "d04213eab8d396aec616eda5a624a8a1c7256c875acd85b58b0c53383ed395e7"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/util.ts",
+      "path": "src/core-timing/util.ts",
+      "sha256": "0fcdcee126982c6ff7763bff976b329c1a35339bca40f854541545120c9a1155"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "src/core-timing/validation.ts",
+      "path": "src/core-timing/validation.ts",
+      "sha256": "4771e724cc936677f73afa84bd26a8d1d0b4d7e83fd7e00a90fa393b79586f2d"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/api-types.ts",
+      "path": "tests/core-timing/api-types.ts",
+      "sha256": "de640e16ff8a1d3a1c94d295e657e38f43eeba04f58e5c70a65571543b2a7d70"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/browser-harness.html",
+      "path": "tests/core-timing/browser-harness.html",
+      "sha256": "b012f88aa9e9522ac91cc7c203b8740486dfeb23c8f51d80230ed834f59e0c73"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/consumer.test.ts",
+      "path": "tests/core-timing/consumer.test.ts",
+      "sha256": "9bbc3a30f2bb1c328afbfee134fd2f14c6157a3dd00b9341b72682e6e00ed586"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/consumer.ts",
+      "path": "tests/core-timing/consumer.ts",
+      "sha256": "943ff9a3d6dba372a8bd04fdd2e9a95c07fca8873016a0038634421ea37df09b"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/helpers.ts",
+      "path": "tests/core-timing/helpers.ts",
+      "sha256": "a5f2fff3d9272ef7c200e9cfb7899c16fcc209a60157454e6739c9f611b113fe"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/scope.test.ts",
+      "path": "tests/core-timing/scope.test.ts",
+      "sha256": "97ca2329c57fdd5f4f1e83a448432211ca5fc7148c2444db0b5cba1af655f652"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/timing.test.ts",
+      "path": "tests/core-timing/timing.test.ts",
+      "sha256": "00242349e9871b1df3e006a243e7715fee12134cf891f90c56f3f501b060a49a"
+    },
+    {
+      "sourceCommit": "493590fba179c2c100f628fb9aeb3d5e0de37c0b",
+      "sourcePath": "tests/core-timing/version.test.ts",
+      "path": "tests/core-timing/version.test.ts",
+      "sha256": "293b6ce5d3842c455c1a624a9a1a661fb25a1e5cd622f21286dd37ee182c2c13"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/anchors.json",
+      "path": "public/assets/schema4-play/popo/anchors.json",
+      "sha256": "fd3a9cebaba06ce9912b0ca3b7d667b4d87a58259041ba2666e491ab8abc9a58"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/anticipation.png",
+      "path": "public/assets/schema4-play/popo/anticipation.png",
+      "sha256": "e1083fa0054818ca9ffe6793751a2ce94232c13417d50d506f989eab6eefe038"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/idle.png",
+      "path": "public/assets/schema4-play/popo/idle.png",
+      "sha256": "dc16905b09e907b53700e9fb35d74ae2a6d7fde4085758a02431ad93506300ec"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/letter.png",
+      "path": "public/assets/schema4-play/popo/letter.png",
+      "sha256": "57037e5217d589d67da57366143e871938bbe06ed202a2a934c1fd1e6f6bef9c"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/original.png",
+      "path": "public/assets/schema4-play/popo/original.png",
+      "sha256": "f8a54a21fa4402faf82a5843bb0057d5bc2a22b386b82904878d9fb0c39d32d5"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/provenance.json",
+      "path": "public/assets/schema4-play/popo/provenance.json",
+      "sha256": "12c28ab238c0aef2bec11acf2a3a2e8ca47b1ba35cb5952e1310d2c167481732"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/recovery.png",
+      "path": "public/assets/schema4-play/popo/recovery.png",
+      "sha256": "e9560c839bdc6aec5b98709559bf32509a4fa960436746e159a104268de2ee16"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/release.png",
+      "path": "public/assets/schema4-play/popo/release.png",
+      "sha256": "7224558d1c86895d84c5a55114649c859287123cc986d0a09d6dfd0ad061fbbe"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/README.md",
+      "path": "public/assets/schema4-play/popo/v7-letter/README.md",
+      "sha256": "93d54d3052c5fd3aad35155ce6cc99668e8ccf2dee5c29b0f00dc1bf5c4ec4c6"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/comparison-8-10-12.png",
+      "path": "public/assets/schema4-play/popo/v7-letter/comparison-8-10-12.png",
+      "sha256": "c9ea6721c82361699509be37fbc559a9c388d5422b096eba38f487832652d9f7"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/detached-flight-comparison.png",
+      "path": "public/assets/schema4-play/popo/v7-letter/detached-flight-comparison.png",
+      "sha256": "224a268af65aa77a69d440aff81fd390fa6f0d48d57a815d9f0ce0b63a1ebb2b"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/effects/v6-baseline-10px.png",
+      "path": "public/assets/schema4-play/popo/v7-letter/effects/v6-baseline-10px.png",
+      "sha256": "c3089e08695d50191b26350bc34f4cc1f3a3ae4e5d5097ed792fb852cb0e2ea1"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/effects/v6-baseline-12px.png",
+      "path": "public/assets/schema4-play/popo/v7-letter/effects/v6-baseline-12px.png",
+      "sha256": "ae2696edf1a1544d9596b96c0eac423caacf37cb93bbbd5688aa33d2f143b154"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/effects/v6-baseline-8px.png",
+      "path": "public/assets/schema4-play/popo/v7-letter/effects/v6-baseline-8px.png",
+      "sha256": "17f8fdf20fc1fe90dbf544088e82de7efaefdf23519084847ccf224d461fe8e4"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/measurements.json",
+      "path": "public/assets/schema4-play/popo/v7-letter/measurements.json",
+      "sha256": "6e79debbcb7cc56f0cf5743dfdb8a4f15f1d113fe49c05b1f21cfb8d50daa5db"
+    },
+    {
+      "sourceCommit": "ac0885b69063acde1b3045688a77e3e8a18a34f4",
+      "sourcePath": "public/assets/popo-timing/v7-letter/provenance.json",
+      "path": "public/assets/schema4-play/popo/v7-letter/provenance.json",
+      "sha256": "70d97010478f2c4683c8e9fe0b1660b5d859d9e3ba182d2fd5560bee3a50546e"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/INDEPENDENT_REVIEW.md",
+      "path": "public/assets/schema4-play/nuri/INDEPENDENT_REVIEW.md",
+      "sha256": "d1a19229e03b63ec679e652b8e2e1d9622a9277ad5868600aaff09ed3958d30b"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/REVIEW.md",
+      "path": "public/assets/schema4-play/nuri/REVIEW.md",
+      "sha256": "329f94c471c0c28b1fa22283652ac66fd8554aa76c52b6ac8ce5265fe5204646"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/flight-bubble-raw-v05.png",
+      "path": "public/assets/schema4-play/nuri/flight-bubble-raw-v05.png",
+      "sha256": "db8f367946be1d83b2c6b27a0ad7396ee745a33dcc22979a4c103a1556b4b684"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/ground-ripple-reference-v04.png",
+      "path": "public/assets/schema4-play/nuri/ground-ripple-reference-v04.png",
+      "sha256": "3eefc591750cc58ba0d16f73dd8c9cba15b45e8392abc6d7d32208477425fdb3"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/nuri-direction-correction-raw-v05.png",
+      "path": "public/assets/schema4-play/nuri/nuri-direction-correction-raw-v05.png",
+      "sha256": "9e89cce33db28c8eda5bd66b81804a9c506941c1ec46ece829a57f1de59c736d"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/provenance.json",
+      "path": "public/assets/schema4-play/nuri/provenance.json",
+      "sha256": "04b1a4b2cc305299ff67a89fabe9ce7445c113a5f8ad114fb17921640eca85e0"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/viewer-data.json",
+      "path": "public/assets/schema4-play/nuri/viewer-data.json",
+      "sha256": "5b29f7ed45e804693e8edef43a60cc16038cef405066d0e8040eb89a6a60b6a6"
+    },
+    {
+      "sourceCommit": "f90c657455b459826ea9b39a89273ca89001e1f8",
+      "sourcePath": "public/assets/nuri-timing/water-impact-reference-v04.png",
+      "path": "public/assets/schema4-play/nuri/water-impact-reference-v04.png",
+      "sha256": "5765e53597267abd72a3ab147cb2f37e6e32b4f4d6d3c6e7cf1729041959f863"
+    }
+  ],
+  "adaptations": {
+    "session": "main v2-session input contract; schema4 import only",
+    "consumer": "PR50 consumer, shared new projection",
+    "ledger": "PR50 ledger plus committed sourcePosition",
+    "contact": "PR51 contact.ts unchanged; shared projected source/hit/incoming",
+    "effects": "PR51 effects.ts unchanged",
+    "nuri-art": "PR50 art.ts unchanged",
+    "projection": "new shared square .06 world-to-canvas transform, no prior scene transforms",
+    "capture": "PR50 f90c657 bounded capture helpers and25 standalone mjs tests"
+  }
+}

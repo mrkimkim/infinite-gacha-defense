@@ -1,0 +1,284 @@
+{
+  "status": "revised candidate for independent root review; animation continuity not passed",
+  "body_frames": [
+    {
+      "pose": "idle",
+      "extraction": "nearest-main-component partition; source strong bodies overlap x, so no vertical seam cut",
+      "translation": [
+        85,
+        12
+      ],
+      "body_bbox": [
+        22,
+        73,
+        528,
+        628
+      ],
+      "body_height": 555,
+      "pivot": [
+        360,
+        640
+      ]
+    },
+    {
+      "pose": "anticipation",
+      "extraction": "nearest-main-component partition; source strong bodies overlap x, so no vertical seam cut",
+      "translation": [
+        -436,
+        12
+      ],
+      "body_bbox": [
+        543,
+        72,
+        1053,
+        628
+      ],
+      "body_height": 556,
+      "pivot": [
+        360,
+        640
+      ]
+    },
+    {
+      "pose": "release",
+      "extraction": "nearest-main-component partition; source strong bodies overlap x, so no vertical seam cut",
+      "translation": [
+        -958,
+        11
+      ],
+      "body_bbox": [
+        1064,
+        72,
+        1646,
+        629
+      ],
+      "body_height": 557,
+      "pivot": [
+        360,
+        640
+      ]
+    },
+    {
+      "pose": "recovery",
+      "extraction": "nearest-main-component partition; source strong bodies overlap x, so no vertical seam cut",
+      "translation": [
+        -1532,
+        11
+      ],
+      "body_bbox": [
+        1630,
+        66,
+        2139,
+        629
+      ],
+      "body_height": 563,
+      "pivot": [
+        360,
+        640
+      ]
+    }
+  ],
+  "letter_source_bbox_alpha_gt127": [
+    110,
+    335,
+    1143,
+    919
+  ],
+  "letter_native_scale": 0.1335914811229429,
+  "anchors": {
+    "anticipation": {
+      "source": [
+        903,
+        370
+      ],
+      "kind": "grip contact on raised paw",
+      "frame": [
+        467,
+        382
+      ]
+    },
+    "release": {
+      "source": [
+        1646,
+        354
+      ],
+      "kind": "rightmost open fingertip",
+      "frame": [
+        688,
+        365
+      ]
+    }
+  },
+  "letter_overlay_positions": {
+    "anticipation": [
+      383,
+      298
+    ],
+    "release": [
+      685,
+      281
+    ]
+  },
+  "common_preview_sampling_phase_y_px": 0.375,
+  "previews": [
+    {
+      "pose": "idle",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        55,
+        44
+      ],
+      "letter_strong_width": 0
+    },
+    {
+      "pose": "anticipation",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        55,
+        44
+      ],
+      "letter_strong_width": 7.843694493783304
+    },
+    {
+      "pose": "release",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        55,
+        44
+      ],
+      "letter_strong_width": 7.843694493783304
+    },
+    {
+      "pose": "recovery",
+      "target": 32,
+      "actual_body_height": 32,
+      "canvas": [
+        55,
+        44
+      ],
+      "letter_strong_width": 0
+    },
+    {
+      "pose": "idle",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        61,
+        49
+      ],
+      "letter_strong_width": 0
+    },
+    {
+      "pose": "anticipation",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        61,
+        49
+      ],
+      "letter_strong_width": 8.824156305506216
+    },
+    {
+      "pose": "release",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        61,
+        49
+      ],
+      "letter_strong_width": 8.824156305506216
+    },
+    {
+      "pose": "recovery",
+      "target": 36,
+      "actual_body_height": 36,
+      "canvas": [
+        61,
+        49
+      ],
+      "letter_strong_width": 0
+    }
+  ],
+  "integrity": "full RGBA reconstructs exactly; no alpha cleanup; all pixel ownership by nearest main-body component; no strong body cut",
+  "projectile_contract": "art-only attachment/release comparison, no game anticipation or moving projectile implemented",
+  "pose_consistency_measurements": [
+    {
+      "pose": "idle",
+      "individual_foot_lower40px_bboxes": [
+        [
+          224,
+          600,
+          344,
+          639
+        ],
+        [
+          373,
+          600,
+          494,
+          640
+        ]
+      ],
+      "head_top_after_anchor": 85
+    },
+    {
+      "pose": "anticipation",
+      "individual_foot_lower40px_bboxes": [
+        [
+          224,
+          600,
+          346,
+          640
+        ],
+        [
+          374,
+          600,
+          497,
+          640
+        ]
+      ],
+      "head_top_after_anchor": 84
+    },
+    {
+      "pose": "release",
+      "individual_foot_lower40px_bboxes": [
+        [
+          223,
+          600,
+          345,
+          639
+        ],
+        [
+          373,
+          600,
+          497,
+          640
+        ]
+      ],
+      "head_top_after_anchor": 83
+    },
+    {
+      "pose": "recovery",
+      "individual_foot_lower40px_bboxes": [
+        [
+          222,
+          600,
+          346,
+          639
+        ],
+        [
+          375,
+          600,
+          498,
+          640
+        ]
+      ],
+      "head_top_after_anchor": 77
+    }
+  ],
+  "identity_limit": "Generated head/body/face/bag pixels are not identical. Recovery head top is8nativepx above idle after foot alignment (~0.51px at36px). Common total height alone does not establish continuity.",
+  "raw_sha256": "f8a54a21fa4402faf82a5843bb0057d5bc2a22b386b82904878d9fb0c39d32d5",
+  "letter_sha256": "57037e5217d589d67da57366143e871938bbe06ed202a2a934c1fd1e6f6bef9c"
+}

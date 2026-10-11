@@ -1,0 +1,113 @@
+{
+  "base": "2d9870a29c2cd769f85bd018c4377b2b1ad2ee05",
+  "typescriptTests": {
+    "passed": 440,
+    "failed": 0,
+    "includes": {
+      "baseline": 365,
+      "importedTimingCore": 63,
+      "newIntegration": 12
+    }
+  },
+  "explicitMjsTests": {
+    "passed": 25,
+    "includedInNpmTest": false
+  },
+  "normalBrowser": [
+    {
+      "id": "390",
+      "normalRAF": true,
+      "firstWaveTick": 330,
+      "secondWave": 2,
+      "hash": "75453d64e6688f5598708c42990b25f72e96bc27446f0070930eee9c580b038e",
+      "frames": 1094,
+      "endpoint": "390/1091.jpg",
+      "pauseStable": true,
+      "lastImpactPreserved": true,
+      "resetCleared": true,
+      "automaticUpgrade": true,
+      "replayVerified": true
+    },
+    {
+      "id": "1165",
+      "normalRAF": true,
+      "firstWaveTick": 330,
+      "secondWave": 2,
+      "hash": "75453d64e6688f5598708c42990b25f72e96bc27446f0070930eee9c580b038e",
+      "frames": 1135,
+      "endpoint": "1165/1133.jpg",
+      "pauseStable": true,
+      "lastImpactPreserved": true,
+      "resetCleared": true,
+      "automaticUpgrade": true,
+      "replayVerified": true
+    }
+  ],
+  "lifecycleAndBuiltEntry": {
+    "decodeRejectAndRetry": true,
+    "productionEntryLoaded": true,
+    "acceleratedBrowserResult": {
+      "starts": 5,
+      "tick": 2200,
+      "outcome": "loss",
+      "reason": "bossTimeout",
+      "hash": "4c5b50363838788bacc05ae3594bc5dad8370b65b8b772ef2d08d5174e99560b"
+    },
+    "restartCleared": true,
+    "normalSpeedFootage": false
+  },
+  "builds": [
+    "default index.html",
+    "dist-schema4-play/schema4-play.html"
+  ],
+  "defaultCliSchema4": "UNSUPPORTED_SCHEMA (unchanged)",
+  "schema4ReplayVerifier": "src/core-timing/index.ts replay(header,entries,finalHash)",
+  "coverageLimits": [
+    "Endpoint PNG/JPEG similarity and ACK do not prove all intermediate poses",
+    "Audit predicates are render-audit coverage; sample original frames visually inspected by implementer",
+    "Accelerated browser result is not normal-speed footage",
+    "Diagnostic final-impact and lethal/cancel Node states are not legal normal-play captures",
+    "Independent art/film review and final quality approval pending"
+  ],
+  "unchanged": [
+    "main default screen",
+    "core-v1",
+    "core-v2",
+    "CLI",
+    "PR48",
+    "PR49",
+    "PR50",
+    "PR51"
+  ],
+  "library": "No retry attempted; prior outage remains",
+  "preparationCorrection": {
+    "regressionBase": "82be2fe76a758fd80f357fc8d8a1a26055c1633e",
+    "reproduction": {
+      "coreBoardCount": 1,
+      "canvasViewUnits": 0
+    },
+    "browserStagesPassed": 24,
+    "widths": [
+      390,
+      1165
+    ],
+    "actualCanvasRGBA": true,
+    "script": "tests/schema4-play/preparation-browser.mjs",
+    "evidenceDirectory": "schema4-preparation-fix-evidence",
+    "historicalCaptureCaveat": "normalBrowser evidence predates the correction and did not prove preparation canvas units",
+    "artifactTransferAttempted": false
+  },
+  "inputStability": {
+    "originalSHA": "78b34ac2d46ef5ad0836662f2b1413dfacaa243c",
+    "originalChecks": 22,
+    "originalFailures": 18,
+    "widths": [
+      390,
+      1165
+    ],
+    "script": "tests/schema4-play/input-browser.mjs",
+    "includedInNpmTest": false,
+    "scope": "Actual Chromium keyboard and pointer events across normal RAF; original and fixed evidence kept separately locally",
+    "artifactTransferAttempted": false
+  }
+}
