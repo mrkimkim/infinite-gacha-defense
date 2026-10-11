@@ -1,0 +1,123 @@
+{
+  "beforeSourceSHA": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+  "afterSourceSHA": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+  "method": "Actual Chromium UI, Playwright clock controlled, seed5 legal purchases at (0,0),(1,0),(0,1); combat tick1 paused. Not real-time motion evidence. Before development server; after dedicated production build. 390x844 and 1165x844. Full-page PNGs may exceed viewport height.",
+  "matchingBeforeAfter": [
+    "observation",
+    "view",
+    "selection",
+    "hash"
+  ],
+  "hash": "71a7c8b34530d8e5e7cba5636a27343a5c779930aca2a80faf3ca92bc6a4a4e8",
+  "validation": {
+    "typecheck": "pass",
+    "typescriptTests": 440,
+    "inputBrowserChecks": 26,
+    "preparationBrowserStages": 24,
+    "defaultBuild": "pass",
+    "dedicatedBuild": "pass",
+    "coreProjectionPresentationContactSessionLedgerSchedulerUnchanged": true
+  },
+  "files": [
+    {
+      "file": "after-21948a8/1165-replay.json",
+      "bytes": 2337,
+      "sha256": "fd385cfd0ee5fdafb964d85946383786f0b2c5aefa68ca5438c871f8d68d3cfb"
+    },
+    {
+      "file": "after-21948a8/1165-selected-nuri-canvas.png",
+      "bytes": 8342,
+      "sha256": "50266ae2ed9d101bc0e2468d30620283c61de6aead392fe52e768f4f9f036b77"
+    },
+    {
+      "file": "after-21948a8/1165-selected-nuri.png",
+      "bytes": 53206,
+      "sha256": "bd6a36094bb748c7f89d6159e2149b8628fe6f248352d0a1cf4bc946c2d5602c"
+    },
+    {
+      "file": "after-21948a8/1165-selected-state.json",
+      "bytes": 57816,
+      "sha256": "3f66a629cdecc6b45560bc80b32ffa7431d66c5c470dc50ce282ff7a24e258f4"
+    },
+    {
+      "file": "after-21948a8/390-replay.json",
+      "bytes": 2337,
+      "sha256": "fd385cfd0ee5fdafb964d85946383786f0b2c5aefa68ca5438c871f8d68d3cfb"
+    },
+    {
+      "file": "after-21948a8/390-selected-nuri-canvas.png",
+      "bytes": 8321,
+      "sha256": "e188b6e553d445b775de3a20dafd7edcfa6f1edfbb6f9233bfea365e1f6ee59c"
+    },
+    {
+      "file": "after-21948a8/390-selected-nuri.png",
+      "bytes": 45781,
+      "sha256": "971266c88d071cad1586175c4115b09c88e8b8700b3a8ff92dbeff09b24de800"
+    },
+    {
+      "file": "after-21948a8/390-selected-state.json",
+      "bytes": 57816,
+      "sha256": "3f66a629cdecc6b45560bc80b32ffa7431d66c5c470dc50ce282ff7a24e258f4"
+    },
+    {
+      "file": "after-21948a8/results.json",
+      "bytes": 1594,
+      "sha256": "222170960295e51305cf1af8897203a9f9d43767bc12ff2763592ba57d8966e8"
+    },
+    {
+      "file": "before-673233b/1165-replay.json",
+      "bytes": 2337,
+      "sha256": "fd385cfd0ee5fdafb964d85946383786f0b2c5aefa68ca5438c871f8d68d3cfb"
+    },
+    {
+      "file": "before-673233b/1165-selected-nuri-canvas.png",
+      "bytes": 9271,
+      "sha256": "e7cba01a15182d875afb8944eb973cafd99941cf4a8a7f6d4b80a9f5d2926746"
+    },
+    {
+      "file": "before-673233b/1165-selected-nuri.png",
+      "bytes": 51102,
+      "sha256": "adf3c2ee51caa561039da680bc5ea12ea2a0acd7598fc39a225cbd46bc1ef05a"
+    },
+    {
+      "file": "before-673233b/1165-selected-state.json",
+      "bytes": 57816,
+      "sha256": "3f66a629cdecc6b45560bc80b32ffa7431d66c5c470dc50ce282ff7a24e258f4"
+    },
+    {
+      "file": "before-673233b/390-replay.json",
+      "bytes": 2337,
+      "sha256": "fd385cfd0ee5fdafb964d85946383786f0b2c5aefa68ca5438c871f8d68d3cfb"
+    },
+    {
+      "file": "before-673233b/390-selected-nuri-canvas.png",
+      "bytes": 9244,
+      "sha256": "fab84d022390fb4bba9ab77f5219bde125460f81d0907306eea8322850c0f17a"
+    },
+    {
+      "file": "before-673233b/390-selected-nuri.png",
+      "bytes": 43671,
+      "sha256": "bb1c6ae8ec6120edf58331e49000d8377c6a04675ae234c37d94e8219d4fce75"
+    },
+    {
+      "file": "before-673233b/390-selected-state.json",
+      "bytes": 57816,
+      "sha256": "3f66a629cdecc6b45560bc80b32ffa7431d66c5c470dc50ce282ff7a24e258f4"
+    },
+    {
+      "file": "before-673233b/results.json",
+      "bytes": 1219,
+      "sha256": "e4558402962eca71535aafd23aa4a05f323d18a469db52e30473176ac5405b15"
+    },
+    {
+      "file": "input-results.json",
+      "bytes": 15535,
+      "sha256": "cb1a7af276d1fe42324d97b9dc331a204a1c3adc63316cf25a55bce595cc44b6"
+    },
+    {
+      "file": "preparation-results.json",
+      "bytes": 6832,
+      "sha256": "f3851352dd67161e098f1fd7aa1bcfca3c467759e63a6d80ba83f4d3a3baeb62"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "sha": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+  "baseline": false,
+  "checks": [
+    {
+      "width": 390,
+      "pass": true,
+      "hash": "71a7c8b34530d8e5e7cba5636a27343a5c779930aca2a80faf3ca92bc6a4a4e8",
+      "tick": 1,
+      "layout": {
+        "canvas": {
+          "x": 15,
+          "y": 153.5,
+          "width": 360,
+          "height": 390,
+          "bottom": 543.5
+        },
+        "note": {
+          "x": 8,
+          "y": 589,
+          "width": 374,
+          "height": 18,
+          "bottom": 607
+        },
+        "noteText": "기본 방향: 누리 후보 (02) #1 (선택) · 포포 후보 (01) #2",
+        "canvasWarnings": 0,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      },
+      "lowerSelectionReachable": true,
+      "resumeAdvanced": true,
+      "restartClearsNotice": true
+    },
+    {
+      "width": 1165,
+      "pass": true,
+      "hash": "71a7c8b34530d8e5e7cba5636a27343a5c779930aca2a80faf3ca92bc6a4a4e8",
+      "tick": 1,
+      "layout": {
+        "canvas": {
+          "x": 132.5,
+          "y": 169.5,
+          "width": 360,
+          "height": 390,
+          "bottom": 559.5
+        },
+        "note": {
+          "x": 132.5,
+          "y": 605,
+          "width": 360,
+          "height": 18,
+          "bottom": 623
+        },
+        "noteText": "기본 방향: 누리 후보 (02) #1 (선택) · 포포 후보 (01) #2",
+        "canvasWarnings": 0,
+        "scrollWidth": 1165,
+        "innerWidth": 1165
+      },
+      "lowerSelectionReachable": true,
+      "resumeAdvanced": true,
+      "restartClearsNotice": true
+    }
+  ]
+}

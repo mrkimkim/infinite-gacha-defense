@@ -1,0 +1,404 @@
+[
+  {
+    "width": 390,
+    "label": "empty",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 390,
+    "label": "recruit-bench",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 390,
+    "label": "placed-nuri",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "label": "moved",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "label": "placed-popo",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      },
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 150,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "label": "swapped",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 150,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      },
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "label": "sold-nuri",
+    "tick": 0,
+    "units": [
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "label": "sold-all",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 390,
+    "label": "reset",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 390,
+    "label": "upgrade-first",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "label": "upgrade-second",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      },
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 150,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "label": "upgraded",
+    "tick": 0,
+    "units": [
+      {
+        "id": 4,
+        "definitionId": "fixture-01",
+        "star": 2,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "empty",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 1165,
+    "label": "recruit-bench",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 1165,
+    "label": "placed-nuri",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "moved",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "placed-popo",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      },
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 150,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "swapped",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-02",
+        "star": 1,
+        "position": {
+          "x": 150,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      },
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "sold-nuri",
+    "tick": 0,
+    "units": [
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 180
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "sold-all",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 1165,
+    "label": "reset",
+    "tick": 0,
+    "units": []
+  },
+  {
+    "width": 1165,
+    "label": "upgrade-first",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "upgrade-second",
+    "tick": 0,
+    "units": [
+      {
+        "id": 1,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      },
+      {
+        "id": 2,
+        "definitionId": "fixture-01",
+        "star": 1,
+        "position": {
+          "x": 150,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "label": "upgraded",
+    "tick": 0,
+    "units": [
+      {
+        "id": 4,
+        "definitionId": "fixture-01",
+        "star": 2,
+        "position": {
+          "x": 90,
+          "y": 120
+        },
+        "pose": "idle",
+        "unsupported": false
+      }
+    ]
+  }
+]

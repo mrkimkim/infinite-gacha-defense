@@ -1,0 +1,52 @@
+{
+  "sha": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+  "baseline": true,
+  "checks": [
+    {
+      "width": 390,
+      "pass": true,
+      "hash": "71a7c8b34530d8e5e7cba5636a27343a5c779930aca2a80faf3ca92bc6a4a4e8",
+      "tick": 1,
+      "layout": {
+        "canvas": {
+          "x": 15,
+          "y": 153.5,
+          "width": 360,
+          "height": 390,
+          "bottom": 543.5
+        },
+        "note": null,
+        "noteText": null,
+        "canvasWarnings": 8,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      },
+      "lowerSelectionReachable": true,
+      "resumeAdvanced": true,
+      "restartClearsNotice": true
+    },
+    {
+      "width": 1165,
+      "pass": true,
+      "hash": "71a7c8b34530d8e5e7cba5636a27343a5c779930aca2a80faf3ca92bc6a4a4e8",
+      "tick": 1,
+      "layout": {
+        "canvas": {
+          "x": 132.5,
+          "y": 169.5,
+          "width": 360,
+          "height": 390,
+          "bottom": 559.5
+        },
+        "note": null,
+        "noteText": null,
+        "canvasWarnings": 8,
+        "scrollWidth": 1165,
+        "innerWidth": 1165
+      },
+      "lowerSelectionReachable": true,
+      "resumeAdvanced": true,
+      "restartClearsNotice": true
+    }
+  ]
+}
