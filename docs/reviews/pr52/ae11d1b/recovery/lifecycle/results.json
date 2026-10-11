@@ -1,0 +1,32 @@
+{
+  "sha": "ae11d1b03a070696798f7b72b8c3d238e1244308",
+  "method": "Playwright clock-controlled lifecycle checks; document.hidden event is synthetic; separate from normal-speed motion evidence",
+  "results": [
+    {
+      "width": 390,
+      "firstTick": 335,
+      "hash": "1afa2867b3a81c96457898f5002212c532e5140050d8147bf13f9a56de548580",
+      "firstRecovery": true,
+      "firstContacts": 1,
+      "idleAfterActiveDisplayTime": true,
+      "terminalDataPreserved": true,
+      "pauseFreeze": true,
+      "syntheticHiddenFreeze": true,
+      "noHiddenCatchup": true,
+      "resetOldRafIgnored": true
+    },
+    {
+      "width": 1165,
+      "firstTick": 335,
+      "hash": "1afa2867b3a81c96457898f5002212c532e5140050d8147bf13f9a56de548580",
+      "firstRecovery": true,
+      "firstContacts": 1,
+      "idleAfterActiveDisplayTime": true,
+      "terminalDataPreserved": true,
+      "pauseFreeze": true,
+      "syntheticHiddenFreeze": true,
+      "noHiddenCatchup": true,
+      "resetOldRafIgnored": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+✔ preparation first frame retains final hit, then only recovery poses settle after 400 active ms (135.70916ms)
+✔ pause/hidden discard elapsed wall time and stale or duplicate RAF callbacks cannot settle (123.139253ms)
+✔ invalid, backward and long RAF intervals never catch up display time (116.693258ms)
+✔ old owner, reset and a new combat phase retire queued pose callbacks (114.373007ms)
+✔ new preparation stamp gets a fresh tail; result policy and ordinary idle screens stay inert (114.155151ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 704.983956

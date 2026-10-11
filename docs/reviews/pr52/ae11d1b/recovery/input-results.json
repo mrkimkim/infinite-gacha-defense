@@ -1,0 +1,680 @@
+{
+  "sha": "ae11d1b03a070696798f7b72b8c3d238e1244308",
+  "sourceMainSha256": "7ccb6d4c47a583ee8523708f3ad226bbda845e9afeffbf36ab631ea512bfcb4f",
+  "uncommittedSource": false,
+  "url": "http://127.0.0.1:4246/schema4-play.html",
+  "checks": [
+    {
+      "width": 390,
+      "name": "keyboard-offer-selection",
+      "pass": true,
+      "selection": {
+        "kind": "offer",
+        "slot": 0
+      },
+      "active": "<button aria-pressed=\"true\" data-slot=\"0\">누리 후보 (02) · 4G<small>rare · 피해5 · 1.2초 · 사거리3000\n영입 후 8G · 승급0회</small></button>"
+    },
+    {
+      "width": 390,
+      "name": "tab-next-offer",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "name": "rapid-three-purchases-placements",
+      "pass": true,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 120
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 120
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 3,
+          "definitionId": "fixture-03",
+          "star": 1,
+          "position": {
+            "x": 210,
+            "y": 120
+          },
+          "pose": "idle",
+          "unsupported": false
+        }
+      ],
+      "entries": [
+        {
+          "type": "command",
+          "seq": 1,
+          "atTick": 0,
+          "command": {
+            "type": "recruit",
+            "offerSlot": 0
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "recruited",
+              "offerSlot": 0,
+              "goldDelta": -4,
+              "arrival": {
+                "id": 1,
+                "definitionId": "fixture-02",
+                "star": 1,
+                "cooldown": 0,
+                "location": null
+              },
+              "upgrades": [],
+              "result": {
+                "id": 1,
+                "definitionId": "fixture-02",
+                "star": 1,
+                "cooldown": 0,
+                "location": {
+                  "kind": "bench",
+                  "slot": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 2,
+          "atTick": 0,
+          "command": {
+            "type": "move",
+            "unitId": 1,
+            "to": {
+              "kind": "board",
+              "col": 0,
+              "row": 0
+            }
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "moved",
+              "unitId": 1,
+              "from": {
+                "kind": "bench",
+                "slot": 0
+              },
+              "to": {
+                "kind": "board",
+                "col": 0,
+                "row": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 3,
+          "atTick": 0,
+          "command": {
+            "type": "recruit",
+            "offerSlot": 2
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "recruited",
+              "offerSlot": 2,
+              "goldDelta": -2,
+              "arrival": {
+                "id": 2,
+                "definitionId": "fixture-01",
+                "star": 1,
+                "cooldown": 0,
+                "location": null
+              },
+              "upgrades": [],
+              "result": {
+                "id": 2,
+                "definitionId": "fixture-01",
+                "star": 1,
+                "cooldown": 0,
+                "location": {
+                  "kind": "bench",
+                  "slot": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 4,
+          "atTick": 0,
+          "command": {
+            "type": "move",
+            "unitId": 2,
+            "to": {
+              "kind": "board",
+              "col": 1,
+              "row": 0
+            }
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "moved",
+              "unitId": 2,
+              "from": {
+                "kind": "bench",
+                "slot": 0
+              },
+              "to": {
+                "kind": "board",
+                "col": 1,
+                "row": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 5,
+          "atTick": 0,
+          "command": {
+            "type": "recruit",
+            "offerSlot": 1
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "recruited",
+              "offerSlot": 1,
+              "goldDelta": -3,
+              "arrival": {
+                "id": 3,
+                "definitionId": "fixture-03",
+                "star": 1,
+                "cooldown": 0,
+                "location": null
+              },
+              "upgrades": [],
+              "result": {
+                "id": 3,
+                "definitionId": "fixture-03",
+                "star": 1,
+                "cooldown": 0,
+                "location": {
+                  "kind": "bench",
+                  "slot": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 6,
+          "atTick": 0,
+          "command": {
+            "type": "move",
+            "unitId": 3,
+            "to": {
+              "kind": "board",
+              "col": 2,
+              "row": 0
+            }
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "moved",
+              "unitId": 3,
+              "from": {
+                "kind": "bench",
+                "slot": 0
+              },
+              "to": {
+                "kind": "board",
+                "col": 2,
+                "row": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "keyboard-board-selection",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "name": "tab-next-board-cell",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "name": "combat-board-pointer-repaint",
+      "pass": true,
+      "connected": true,
+      "selection": {
+        "kind": "unit",
+        "id": 1
+      },
+      "tick": 1,
+      "paintsAfterDown": 4
+    },
+    {
+      "width": 390,
+      "name": "combat-bench-pointer-repaint",
+      "pass": true,
+      "connected": true,
+      "selection": {
+        "kind": "unit",
+        "id": 2
+      },
+      "tick": 3,
+      "paintsAfterDown": 4
+    },
+    {
+      "width": 390,
+      "name": "combat-focus-across-raf",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "name": "combat-tab-next-cell",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "name": "combat-space-across-raf",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "name": "paused-keyboard-input",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "name": "resumed-pointer-repaint",
+      "pass": true,
+      "connected": true,
+      "selection": {
+        "kind": "unit",
+        "id": 2
+      },
+      "tick": 9,
+      "paintsAfterDown": 4
+    },
+    {
+      "width": 390,
+      "name": "retired-owner-input",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "keyboard-offer-selection",
+      "pass": true,
+      "selection": {
+        "kind": "offer",
+        "slot": 0
+      },
+      "active": "<button aria-pressed=\"true\" data-slot=\"0\">누리 후보 (02) · 4G<small>rare · 피해5 · 1.2초 · 사거리3000\n영입 후 8G · 승급0회</small></button>"
+    },
+    {
+      "width": 1165,
+      "name": "tab-next-offer",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "rapid-three-purchases-placements",
+      "pass": true,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 120
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 120
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 3,
+          "definitionId": "fixture-03",
+          "star": 1,
+          "position": {
+            "x": 210,
+            "y": 120
+          },
+          "pose": "idle",
+          "unsupported": false
+        }
+      ],
+      "entries": [
+        {
+          "type": "command",
+          "seq": 1,
+          "atTick": 0,
+          "command": {
+            "type": "recruit",
+            "offerSlot": 0
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "recruited",
+              "offerSlot": 0,
+              "goldDelta": -4,
+              "arrival": {
+                "id": 1,
+                "definitionId": "fixture-02",
+                "star": 1,
+                "cooldown": 0,
+                "location": null
+              },
+              "upgrades": [],
+              "result": {
+                "id": 1,
+                "definitionId": "fixture-02",
+                "star": 1,
+                "cooldown": 0,
+                "location": {
+                  "kind": "bench",
+                  "slot": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 2,
+          "atTick": 0,
+          "command": {
+            "type": "move",
+            "unitId": 1,
+            "to": {
+              "kind": "board",
+              "col": 0,
+              "row": 0
+            }
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "moved",
+              "unitId": 1,
+              "from": {
+                "kind": "bench",
+                "slot": 0
+              },
+              "to": {
+                "kind": "board",
+                "col": 0,
+                "row": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 3,
+          "atTick": 0,
+          "command": {
+            "type": "recruit",
+            "offerSlot": 2
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "recruited",
+              "offerSlot": 2,
+              "goldDelta": -2,
+              "arrival": {
+                "id": 2,
+                "definitionId": "fixture-01",
+                "star": 1,
+                "cooldown": 0,
+                "location": null
+              },
+              "upgrades": [],
+              "result": {
+                "id": 2,
+                "definitionId": "fixture-01",
+                "star": 1,
+                "cooldown": 0,
+                "location": {
+                  "kind": "bench",
+                  "slot": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 4,
+          "atTick": 0,
+          "command": {
+            "type": "move",
+            "unitId": 2,
+            "to": {
+              "kind": "board",
+              "col": 1,
+              "row": 0
+            }
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "moved",
+              "unitId": 2,
+              "from": {
+                "kind": "bench",
+                "slot": 0
+              },
+              "to": {
+                "kind": "board",
+                "col": 1,
+                "row": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 5,
+          "atTick": 0,
+          "command": {
+            "type": "recruit",
+            "offerSlot": 1
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "recruited",
+              "offerSlot": 1,
+              "goldDelta": -3,
+              "arrival": {
+                "id": 3,
+                "definitionId": "fixture-03",
+                "star": 1,
+                "cooldown": 0,
+                "location": null
+              },
+              "upgrades": [],
+              "result": {
+                "id": 3,
+                "definitionId": "fixture-03",
+                "star": 1,
+                "cooldown": 0,
+                "location": {
+                  "kind": "bench",
+                  "slot": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "seq": 6,
+          "atTick": 0,
+          "command": {
+            "type": "move",
+            "unitId": 3,
+            "to": {
+              "kind": "board",
+              "col": 2,
+              "row": 0
+            }
+          },
+          "events": [
+            {
+              "tick": 0,
+              "wave": 1,
+              "waveTick": 0,
+              "type": "moved",
+              "unitId": 3,
+              "from": {
+                "kind": "bench",
+                "slot": 0
+              },
+              "to": {
+                "kind": "board",
+                "col": 2,
+                "row": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1165,
+      "name": "keyboard-board-selection",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "tab-next-board-cell",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "combat-board-pointer-repaint",
+      "pass": true,
+      "connected": true,
+      "selection": {
+        "kind": "unit",
+        "id": 1
+      },
+      "tick": 1,
+      "paintsAfterDown": 4
+    },
+    {
+      "width": 1165,
+      "name": "combat-bench-pointer-repaint",
+      "pass": true,
+      "connected": true,
+      "selection": {
+        "kind": "unit",
+        "id": 2
+      },
+      "tick": 3,
+      "paintsAfterDown": 4
+    },
+    {
+      "width": 1165,
+      "name": "combat-focus-across-raf",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "combat-tab-next-cell",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "combat-space-across-raf",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "paused-keyboard-input",
+      "pass": true
+    },
+    {
+      "width": 1165,
+      "name": "resumed-pointer-repaint",
+      "pass": true,
+      "connected": true,
+      "selection": {
+        "kind": "unit",
+        "id": 2
+      },
+      "tick": 10,
+      "paintsAfterDown": 4
+    },
+    {
+      "width": 1165,
+      "name": "retired-owner-input",
+      "pass": true
+    }
+  ],
+  "passed": 26,
+  "failed": 0
+}

@@ -1,0 +1,684 @@
+[
+  {
+    "sourceSHA": "ae11d1b03a070696798f7b72b8c3d238e1244308",
+    "viewportWidth": 390,
+    "firstPreparation": {
+      "wall": 17357.20000000298,
+      "tick": 335,
+      "phase": "preparation",
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "flights": [],
+      "contacts": [
+        {
+          "attackId": 26,
+          "targetId": 8,
+          "unitId": 2,
+          "popoSurface": false,
+          "position": {
+            "x": 190.2,
+            "y": 360
+          },
+          "aoe": false,
+          "shownTick": 335,
+          "surface": null
+        }
+      ],
+      "hits": [
+        {
+          "enemyId": 8,
+          "damage": 2,
+          "position": {
+            "x": 2170,
+            "y": 4500
+          },
+          "before": 2,
+          "after": 0,
+          "attackId": 26,
+          "unitId": 2,
+          "shownTick": 335,
+          "aoe": false
+        }
+      ],
+      "cancelled": [
+        7,
+        11,
+        15,
+        27
+      ]
+    },
+    "firstIdle": {
+      "wall": 17789.79999999702,
+      "tick": 335,
+      "phase": "preparation",
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        }
+      ],
+      "flights": [],
+      "contacts": [
+        {
+          "attackId": 26,
+          "targetId": 8,
+          "unitId": 2,
+          "popoSurface": false,
+          "position": {
+            "x": 190.2,
+            "y": 360
+          },
+          "aoe": false,
+          "shownTick": 335,
+          "surface": null
+        }
+      ],
+      "hits": [
+        {
+          "enemyId": 8,
+          "damage": 2,
+          "position": {
+            "x": 2170,
+            "y": 4500
+          },
+          "before": 2,
+          "after": 0,
+          "attackId": 26,
+          "unitId": 2,
+          "shownTick": 335,
+          "aoe": false
+        }
+      ],
+      "cancelled": [
+        7,
+        11,
+        15,
+        27
+      ]
+    },
+    "observedRecoveryMilliseconds": 432.59999999403954,
+    "approxVideoRecoveryStart": 16.77750800000596,
+    "approxVideoIdleStart": 17.210108,
+    "terminalAuditFieldsUnchanged": [
+      "contacts",
+      "hits",
+      "flights",
+      "cancelled"
+    ],
+    "coreTick": 335,
+    "finalHash": "1afa2867b3a81c96457898f5002212c532e5140050d8147bf13f9a56de548580",
+    "frames": 1032,
+    "maxGapSeconds": 0.030736000000000985,
+    "transitionWindowMaxGapSeconds": 0.017804000000001707,
+    "mapping": "Approximate video cue placement from median(receivedAt-trackTimestamp); frame interval measurements use actual track timestamps",
+    "selectedFrames": {
+      "recovery": {
+        "frameIndex": 1011,
+        "trackSeconds": 16.877953
+      },
+      "idle": {
+        "frameIndex": 1031,
+        "trackSeconds": 17.211056
+      }
+    },
+    "videos": [
+      {
+        "file": "canvas-original.webm",
+        "bytes": 812276,
+        "sha256": "c1763a221b2feb5847ee03e6bfdc75fcbd23217d85d43ba5c20be3bb259dd7dc",
+        "frames": 1032,
+        "maxPTSvsTrackErrorSeconds": 0.0009990000000001942,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "vp9",
+              "codec_long_name": "Google VP9",
+              "profile": "Profile 0",
+              "codec_type": "video",
+              "codec_tag_string": "[0][0][0][0]",
+              "codec_tag": "0x0000",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 0,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": -99,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "refs": 1,
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "60/1",
+              "time_base": "1/1000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "alpha_mode": "1"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "matroska,webm",
+            "format_long_name": "Matroska / WebM",
+            "start_time": "0.000000",
+            "duration": "17.211056",
+            "size": "812276",
+            "bit_rate": "377560",
+            "probe_score": 100,
+            "tags": {
+              "encoder": "Chrome"
+            }
+          }
+        },
+        "decodeErrors": 0
+      },
+      {
+        "file": "canvas-realtime.mp4",
+        "bytes": 200174,
+        "sha256": "cff25e82908d33307f06ed71fc1d1fa79e6b4c10743f2037c3b6f798218e1e98",
+        "frames": 1032,
+        "maxPTSvsTrackErrorSeconds": 0.0009990000000001942,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+              "profile": "High",
+              "codec_type": "video",
+              "codec_tag_string": "avc1",
+              "codec_tag": "0x31637661",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 2,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": 30,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "chroma_location": "left",
+              "field_order": "progressive",
+              "refs": 1,
+              "is_avc": "true",
+              "nal_length_size": "4",
+              "id": "0x1",
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "172000/2873",
+              "time_base": "1/1000000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 17227000,
+              "duration": "17.227000",
+              "bit_rate": "84217",
+              "bits_per_raw_sample": "8",
+              "nb_frames": "1032",
+              "extradata_size": 50,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "handler_name": "VideoHandler",
+                "vendor_id": "[0][0][0][0]",
+                "encoder": "Lavc61.19.101 libx264"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "17.227000",
+            "size": "200174",
+            "bit_rate": "92958",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "isom",
+              "minor_version": "512",
+              "compatible_brands": "isomiso2avc1mp41",
+              "encoder": "Lavf61.7.103"
+            }
+          }
+        },
+        "decodeErrors": 0
+      }
+    ]
+  },
+  {
+    "sourceSHA": "ae11d1b03a070696798f7b72b8c3d238e1244308",
+    "viewportWidth": 1165,
+    "firstPreparation": {
+      "wall": 17248.59999999404,
+      "tick": 335,
+      "phase": "preparation",
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "flights": [],
+      "contacts": [
+        {
+          "attackId": 26,
+          "targetId": 8,
+          "unitId": 2,
+          "popoSurface": false,
+          "position": {
+            "x": 190.2,
+            "y": 360
+          },
+          "aoe": false,
+          "shownTick": 335,
+          "surface": null
+        }
+      ],
+      "hits": [
+        {
+          "enemyId": 8,
+          "damage": 2,
+          "position": {
+            "x": 2170,
+            "y": 4500
+          },
+          "before": 2,
+          "after": 0,
+          "attackId": 26,
+          "unitId": 2,
+          "shownTick": 335,
+          "aoe": false
+        }
+      ],
+      "cancelled": [
+        7,
+        11,
+        15,
+        27
+      ]
+    },
+    "firstIdle": {
+      "wall": 17664.70000000298,
+      "tick": 335,
+      "phase": "preparation",
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        }
+      ],
+      "flights": [],
+      "contacts": [
+        {
+          "attackId": 26,
+          "targetId": 8,
+          "unitId": 2,
+          "popoSurface": false,
+          "position": {
+            "x": 190.2,
+            "y": 360
+          },
+          "aoe": false,
+          "shownTick": 335,
+          "surface": null
+        }
+      ],
+      "hits": [
+        {
+          "enemyId": 8,
+          "damage": 2,
+          "position": {
+            "x": 2170,
+            "y": 4500
+          },
+          "before": 2,
+          "after": 0,
+          "attackId": 26,
+          "unitId": 2,
+          "shownTick": 335,
+          "aoe": false
+        }
+      ],
+      "cancelled": [
+        7,
+        11,
+        15,
+        27
+      ]
+    },
+    "observedRecoveryMilliseconds": 416.1000000089407,
+    "approxVideoRecoveryStart": 16.77842900000298,
+    "approxVideoIdleStart": 17.19452900001192,
+    "terminalAuditFieldsUnchanged": [
+      "contacts",
+      "hits",
+      "flights",
+      "cancelled"
+    ],
+    "coreTick": 335,
+    "finalHash": "1afa2867b3a81c96457898f5002212c532e5140050d8147bf13f9a56de548580",
+    "frames": 1032,
+    "maxGapSeconds": 0.031227,
+    "transitionWindowMaxGapSeconds": 0.017866999999998967,
+    "mapping": "Approximate video cue placement from median(receivedAt-trackTimestamp); frame interval measurements use actual track timestamps",
+    "selectedFrames": {
+      "recovery": {
+        "frameIndex": 1012,
+        "trackSeconds": 16.879511
+      },
+      "idle": {
+        "frameIndex": 1031,
+        "trackSeconds": 17.195729
+      }
+    },
+    "videos": [
+      {
+        "file": "canvas-original.webm",
+        "bytes": 811063,
+        "sha256": "fa5cdd8b8070b55f0f11353357db41f6391f4e4df506a0cf22342fb124af6cba",
+        "frames": 1032,
+        "maxPTSvsTrackErrorSeconds": 0.0009979999999998324,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "vp9",
+              "codec_long_name": "Google VP9",
+              "profile": "Profile 0",
+              "codec_type": "video",
+              "codec_tag_string": "[0][0][0][0]",
+              "codec_tag": "0x0000",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 0,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": -99,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "refs": 1,
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "60/1",
+              "time_base": "1/1000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "alpha_mode": "1"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "matroska,webm",
+            "format_long_name": "Matroska / WebM",
+            "start_time": "0.000000",
+            "duration": "17.195728",
+            "size": "811063",
+            "bit_rate": "377332",
+            "probe_score": 100,
+            "tags": {
+              "encoder": "Chrome"
+            }
+          }
+        },
+        "decodeErrors": 0
+      },
+      {
+        "file": "canvas-realtime.mp4",
+        "bytes": 200195,
+        "sha256": "83fef27560cdc3c2568f8dc43a40479d784d53fee011c48e26e0a8ad7a5143e1",
+        "frames": 1032,
+        "maxPTSvsTrackErrorSeconds": 0.0009979999999998324,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+              "profile": "High",
+              "codec_type": "video",
+              "codec_tag_string": "avc1",
+              "codec_tag": "0x31637661",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 2,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": 30,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "chroma_location": "left",
+              "field_order": "progressive",
+              "refs": 1,
+              "is_avc": "true",
+              "nal_length_size": "4",
+              "id": "0x1",
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "344000/5741",
+              "time_base": "1/1000000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 17211000,
+              "duration": "17.211000",
+              "bit_rate": "84346",
+              "bits_per_raw_sample": "8",
+              "nb_frames": "1032",
+              "extradata_size": 50,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "handler_name": "VideoHandler",
+                "vendor_id": "[0][0][0][0]",
+                "encoder": "Lavc61.19.101 libx264"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "17.211000",
+            "size": "200195",
+            "bit_rate": "93054",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "isom",
+              "minor_version": "512",
+              "compatible_brands": "isomiso2avc1mp41",
+              "encoder": "Lavf61.7.103"
+            }
+          }
+        },
+        "decodeErrors": 0
+      }
+    ]
+  }
+]

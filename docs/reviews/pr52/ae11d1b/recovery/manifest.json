@@ -1,0 +1,222 @@
+{
+  "gameSHA": "ae11d1b03a070696798f7b72b8c3d238e1244308",
+  "baseSHA": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+  "implementationCommit": "6fdb71d",
+  "testHarnessCorrectionCommit": "ae11d1b",
+  "sourceTreeIdentity": "6fdb71d:src and ae11d1b:src both daf5b007a18343b59c99ff52bc9b14fefc396f91; built app and TypeScript tests unchanged by final mjs harness fix",
+  "validation": {
+    "typecheck": "pass",
+    "typescriptTests": 445,
+    "focusedTestsOnFinalSHA": 5,
+    "defaultBuild": "pass",
+    "dedicatedBuild": "pass",
+    "inputBrowserChecksOnFinalSHA": 26,
+    "lifecycleViewportsOnFinalSHA": [
+      390,
+      1165
+    ],
+    "normalRealtimeViewportsOnFinalSHA": [
+      390,
+      1165
+    ],
+    "syntheticHiddenEvent": true,
+    "nativeTabVisibilitySwitchTested": false,
+    "replayBothPassed": true
+  },
+  "derivedFiles": [
+    {
+      "file": "lifecycle/390-states-without-audit.json",
+      "sourceSHA256": "4fbbdccde98ed6c9417377807460f47ae7281d9d3f411b3954f400a9c6e9bdd0",
+      "sourceBytes": 4545439,
+      "operation": "Omit only repeated audit arrays from four snapshots; keep all other fields unchanged. Full original remains local."
+    },
+    {
+      "file": "lifecycle/1165-states-without-audit.json",
+      "sourceSHA256": "e614d7bd46ea3554379e376f29f1350fa85615a112d5d9bff1ef8518f39b37e4",
+      "sourceBytes": 4545484,
+      "operation": "Omit only repeated audit arrays from four snapshots; keep all other fields unchanged. Full original remains local."
+    }
+  ],
+  "limitations": [
+    "Normal videos are native canvas-only capture, lossy VP9 original and H264 convenience copies.",
+    "Lifecycle browser uses controlled clock and synthetic hidden event; not normal footage.",
+    "Result-screen pose policy unchanged; this fix targets preparation recovery only."
+  ],
+  "files": [
+    {
+      "file": "1165/canvas-original.webm",
+      "bytes": 811063,
+      "sha256": "fa5cdd8b8070b55f0f11353357db41f6391f4e4df506a0cf22342fb124af6cba"
+    },
+    {
+      "file": "1165/canvas-realtime.mp4",
+      "bytes": 200195,
+      "sha256": "83fef27560cdc3c2568f8dc43a40479d784d53fee011c48e26e0a8ad7a5143e1"
+    },
+    {
+      "file": "1165/capture.json",
+      "bytes": 52703,
+      "sha256": "e33055e9a02f7819b55a10055eb1c90a65f13212f38141a6ec8646c4f1f7a23b"
+    },
+    {
+      "file": "1165/end.png",
+      "bytes": 64673,
+      "sha256": "07277dc7d1ca5491e2ceaf9d48c1e580fb533c9e33303c7d18ad6dd2b28e3c0f"
+    },
+    {
+      "file": "1165/idle.png",
+      "bytes": 12245,
+      "sha256": "5d53d57df8f0288f18fb5e89a23e1aa62c77a334c40be3bab42bcb56ca168521"
+    },
+    {
+      "file": "1165/recovery.png",
+      "bytes": 12175,
+      "sha256": "07972271867e4dd534354df898cc73f881acaae36363ce866b99082c57911a41"
+    },
+    {
+      "file": "1165/replay.json",
+      "bytes": 22544,
+      "sha256": "cf20abec94173c9ee5cf9f4a823897b67a05fdcd8e3f835b3646a4c9d0709c0c"
+    },
+    {
+      "file": "1165/run.json",
+      "bytes": 354,
+      "sha256": "8aea3cd01ecaf45ab768f89ba206803d6fbd23636be8eec076cf8cf8dd6205c9"
+    },
+    {
+      "file": "1165/setup.png",
+      "bytes": 52175,
+      "sha256": "383f71ab6e78c6d82ab7c9f292732a0117b021a4e9a7de308c75fcd8cdcf313a"
+    },
+    {
+      "file": "1165/snapshot.json",
+      "bytes": 619150,
+      "sha256": "5af68922620e562c1dde2fe82709e2ba8904917476031f389e16fc5f9f9769b3"
+    },
+    {
+      "file": "1165/verification.json",
+      "bytes": 8757,
+      "sha256": "055e71cec1759d37995464aa30ffe31ebf3d9e7453b5b358598c27164075c939"
+    },
+    {
+      "file": "390/canvas-original.webm",
+      "bytes": 812276,
+      "sha256": "c1763a221b2feb5847ee03e6bfdc75fcbd23217d85d43ba5c20be3bb259dd7dc"
+    },
+    {
+      "file": "390/canvas-realtime.mp4",
+      "bytes": 200174,
+      "sha256": "cff25e82908d33307f06ed71fc1d1fa79e6b4c10743f2037c3b6f798218e1e98"
+    },
+    {
+      "file": "390/capture.json",
+      "bytes": 52795,
+      "sha256": "e32a9ccaea5d6aef156a6c97da1ce236348735ba5ed484a8150b888e49191fda"
+    },
+    {
+      "file": "390/end.png",
+      "bytes": 33929,
+      "sha256": "6f21df56b8f112310f0f48635495909095f0229a8fac8cd4dcd065d8b7fe8225"
+    },
+    {
+      "file": "390/idle.png",
+      "bytes": 12244,
+      "sha256": "09c5d9d823bd73de405f0988aff5e9b6ef0b25fc2dde3acb80c23573d9cbc637"
+    },
+    {
+      "file": "390/recovery.png",
+      "bytes": 12132,
+      "sha256": "4b8d4285d6e42a5c93bcc362a2c83427f995684d141645cc05502711318ff097"
+    },
+    {
+      "file": "390/replay.json",
+      "bytes": 22544,
+      "sha256": "cf20abec94173c9ee5cf9f4a823897b67a05fdcd8e3f835b3646a4c9d0709c0c"
+    },
+    {
+      "file": "390/run.json",
+      "bytes": 353,
+      "sha256": "56eb8f4e2089169080da8dea08e53c5f73324253e9303eb682f36c8e9c46e30b"
+    },
+    {
+      "file": "390/setup.png",
+      "bytes": 33242,
+      "sha256": "b6d0b8f13e7b7c0a5e98a1759a36852c4709160e3c8cd116db58caca0bac5ad9"
+    },
+    {
+      "file": "390/snapshot.json",
+      "bytes": 619865,
+      "sha256": "2f9f273f11d6ef5516afdef3f7a626c460eb55171c25203eb1b070ef0c6696e8"
+    },
+    {
+      "file": "390/verification.json",
+      "bytes": 8761,
+      "sha256": "462af5b8cc2c889ea18ca85ad3260d056b2d5b03f19893d78981c494139cbb23"
+    },
+    {
+      "file": "capture-canvas.mjs",
+      "bytes": 3425,
+      "sha256": "44cd1195bf5ed5bbf1d66f034ba0bfad896c12a8df40be6dfe8ec7bfb44f33a5"
+    },
+    {
+      "file": "default-build.log",
+      "bytes": 1117,
+      "sha256": "c003b5cd507c3a0505f8768a9cf8e9fbb1c13cea45655c7194a4d0a02f363b08"
+    },
+    {
+      "file": "focused-tests.log",
+      "bytes": 624,
+      "sha256": "d0218d6882a5aa591f66c07b62390c903643db1bb4a6f624d595ad69ecce33c7"
+    },
+    {
+      "file": "input-results.json",
+      "bytes": 15534,
+      "sha256": "9c49688e6b34c9490aafd369dd082d96e3abd215ebb2bea40f0c1fb3c6cee09f"
+    },
+    {
+      "file": "lifecycle/1165-settled.png",
+      "bytes": 64673,
+      "sha256": "07277dc7d1ca5491e2ceaf9d48c1e580fb533c9e33303c7d18ad6dd2b28e3c0f"
+    },
+    {
+      "file": "lifecycle/1165-states-without-audit.json",
+      "bytes": 329247,
+      "sha256": "cef113942f0a2d9ee2cf2b2ca1195517297fe94cf4214d5374106e997e482ff1"
+    },
+    {
+      "file": "lifecycle/390-settled.png",
+      "bytes": 48911,
+      "sha256": "80bef715099de4efe76a13454d2cabae0874c3b1834e5d26abda540d470fb3aa"
+    },
+    {
+      "file": "lifecycle/390-states-without-audit.json",
+      "bytes": 329247,
+      "sha256": "cef113942f0a2d9ee2cf2b2ca1195517297fe94cf4214d5374106e997e482ff1"
+    },
+    {
+      "file": "lifecycle/results.json",
+      "bytes": 1017,
+      "sha256": "bf85f0efdeefe967bd04be56c4a37d76cf21bfa665ed7f3fee1d25c837aa1b6b"
+    },
+    {
+      "file": "playback-verification.json",
+      "bytes": 1047,
+      "sha256": "084271151551eeead210a32e35f66248ab50642284f9d57c12f63f2164d27cf1"
+    },
+    {
+      "file": "typecheck.log",
+      "bytes": 266,
+      "sha256": "006c0358b458cce37e5652f1a5d11159b96ae2509c3c3c9e3cf2b07d5045d57a"
+    },
+    {
+      "file": "typescript-tests.log",
+      "bytes": 43644,
+      "sha256": "519362704f402cf3f6fcb4efc3559afb3b0454bc4784fdfb03dd75fe5901debe"
+    },
+    {
+      "file": "video-verification.json",
+      "bytes": 18887,
+      "sha256": "e7afc219475d4f1c67139ef5398ec8ca3f96322fa248cb470613387ca799bd46"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+
+> infinite-gacha-defense@0.0.0 build
+> vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 36 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     4.46 kB │ gzip:  1.94 kB
+dist/assets/v2-main-DxlFCWfu.css    0.30 kB │ gzip:  0.20 kB
+dist/assets/main-BK_F29ff.css       5.67 kB │ gzip:  2.06 kB
+dist/assets/v2-shell-MKirQGE3.css  10.07 kB │ gzip:  2.86 kB
+dist/assets/v2-shell-D_TrMWm1.js    0.05 kB │ gzip:  0.07 kB
+dist/assets/scheduler-B6Iv7yUx.js   1.08 kB │ gzip:  0.61 kB
+dist/assets/index-C0KCVg5c.js       3.76 kB │ gzip:  1.86 kB
+dist/assets/v2-shell-DPGtM2tC.js    6.38 kB │ gzip:  2.37 kB
+dist/assets/core-v2-H3vYfPiY.js    28.38 kB │ gzip: 10.10 kB
+dist/assets/main-D_vXSfHU.js       28.52 kB │ gzip: 11.27 kB
+dist/assets/v2-main-Bb1S4jxw.js    34.93 kB │ gzip: 13.62 kB
+
+✓ built in 95ms
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
