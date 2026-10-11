@@ -1,0 +1,159 @@
+{
+  "sourceGameSHA": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+  "producerEvidence": true,
+  "normalRAF": true,
+  "clockManipulation": false,
+  "stateInjection": false,
+  "motionInterpolation": false,
+  "frameDuplication": false,
+  "method": "Native 360x390 game canvas stream, MediaRecorder VP9, real Chromium UI seed5 Nuri at(0,3), Popo at(1,3), two viewport runs sequentially. Canvas-only, not whole-page composited screenshot evidence.",
+  "limitation": "Full goal remains incomplete: Popo does not naturally return idle between dense attacks and remains recovery at terminal preparation tick335. Nuri returns idle after two consecutive completed attacks. No game-code change.",
+  "replayValidation": {
+    "bothPassed": true,
+    "finalHash": "1afa2867b3a81c96457898f5002212c532e5140050d8147bf13f9a56de548580",
+    "finalTick": 335,
+    "finalPhase": "preparation"
+  },
+  "files": [
+    {
+      "file": "1165/analysis.json",
+      "bytes": 45425,
+      "sha256": "50d4fb3c7f1daf505e3a5248961799c3ecbd579271c8de5ee6ff17483c72f05d"
+    },
+    {
+      "file": "1165/canvas-original.webm",
+      "bytes": 801265,
+      "sha256": "bba741431b84adee9192865e912bfa94ee3b2fc8812bbecb93fb63b0c3c38bd2"
+    },
+    {
+      "file": "1165/canvas-realtime.mp4",
+      "bytes": 198185,
+      "sha256": "134c33cc6f24944feb176ded5a0c7728132311852eee43c6b22a4c291533b05c"
+    },
+    {
+      "file": "1165/capture.json",
+      "bytes": 51235,
+      "sha256": "53d62d0e104647e8478ec1f61ead63e1a272906bafa0a5c3c6229e15355f6643"
+    },
+    {
+      "file": "1165/end.png",
+      "bytes": 64695,
+      "sha256": "b17f1f2f8ce78a80e28a37fa86895507a87b1c5c2426cef0bd9693aba7db0f0b"
+    },
+    {
+      "file": "1165/replay.json",
+      "bytes": 22544,
+      "sha256": "cf20abec94173c9ee5cf9f4a823897b67a05fdcd8e3f835b3646a4c9d0709c0c"
+    },
+    {
+      "file": "1165/run.json",
+      "bytes": 354,
+      "sha256": "93188c15098d12f0ccfe7a2775ae6a09abfe65963cc28616f165e5226410c58e"
+    },
+    {
+      "file": "1165/setup.png",
+      "bytes": 52175,
+      "sha256": "383f71ab6e78c6d82ab7c9f292732a0117b021a4e9a7de308c75fcd8cdcf313a"
+    },
+    {
+      "file": "1165/snapshot.json",
+      "bytes": 603188,
+      "sha256": "1d11d7766ea14765c0e22910bcfc9d41e242aa2f7857c524b213ca9057eaf7ad"
+    },
+    {
+      "file": "390/analysis.json",
+      "bytes": 45481,
+      "sha256": "310c9f93334a5eb6d41af2e5ddcad013fea1273291cfa086a452a14feb677726"
+    },
+    {
+      "file": "390/canvas-original.webm",
+      "bytes": 803831,
+      "sha256": "5596e128b6674c3d452be3333439fb9fa2d76342639712149f141dbf0f4dbad8"
+    },
+    {
+      "file": "390/canvas-realtime.mp4",
+      "bytes": 197802,
+      "sha256": "bed6824f9ea12e4e2f4f7fbcc8de8eae62091deaf07aeade696112280851b958"
+    },
+    {
+      "file": "390/capture.json",
+      "bytes": 51808,
+      "sha256": "8af1c4f044de433a01df76ebb2d2178432a46e53e19e394130baacc08f8c1bdf"
+    },
+    {
+      "file": "390/end.png",
+      "bytes": 33994,
+      "sha256": "557aea72a5121e964efee740015430287366aae6ff0dbbcd45c78c4b567c7e9f"
+    },
+    {
+      "file": "390/replay.json",
+      "bytes": 22544,
+      "sha256": "cf20abec94173c9ee5cf9f4a823897b67a05fdcd8e3f835b3646a4c9d0709c0c"
+    },
+    {
+      "file": "390/run.json",
+      "bytes": 353,
+      "sha256": "354f39052947df22cf8aef8e347944f7651b3bac0005accc9dc275c9df6fd3c6"
+    },
+    {
+      "file": "390/setup.png",
+      "bytes": 33242,
+      "sha256": "b6d0b8f13e7b7c0a5e98a1759a36852c4709160e3c8cd116db58caca0bac5ad9"
+    },
+    {
+      "file": "390/snapshot.json",
+      "bytes": 603723,
+      "sha256": "76b63ff6ea8e4e3096198887f2c2b17bde859756097679bb1f8c7aa0266da01c"
+    },
+    {
+      "file": "673233b-gap-verification.json",
+      "bytes": 1585,
+      "sha256": "65b5389b8bf2cc4624d108d13f58efc1084ba550f70e080af56c8b2c7c4511e0"
+    },
+    {
+      "file": "analyze-canvas.py",
+      "bytes": 2343,
+      "sha256": "cbdbb5c2816bcfa973d54bd7dc1fcca4d620c63f74d0e869b365ae0fa9f54d3a"
+    },
+    {
+      "file": "capture-canvas.mjs",
+      "bytes": 3425,
+      "sha256": "6c8acbe2d10117e3c1b20adfc89dcb39d6c103593042349e0e37396f63908321"
+    },
+    {
+      "file": "capture-memory.mjs",
+      "bytes": 3163,
+      "sha256": "1f7d0ffeaecd9de5f275c38b11714bcee2864a73bbf6d384ce1724b21686adc4"
+    },
+    {
+      "file": "cdp-comparison/jpeg95-diagnosis.json",
+      "bytes": 21710,
+      "sha256": "786ac540fe77d4ad095495fb860fd542758038b4f4501632426d3e9e3d08b7ba"
+    },
+    {
+      "file": "cdp-comparison/jpeg95-frames.json",
+      "bytes": 93032,
+      "sha256": "be6c136e46dde4ab894d20795b312679a36bbb4451e58788f766c491dd206783"
+    },
+    {
+      "file": "cdp-comparison/png-diagnosis.json",
+      "bytes": 20826,
+      "sha256": "748fd88f2df92bf63d95b55431056609a99ebe875ca596eab6a4b8a32f8b793c"
+    },
+    {
+      "file": "cdp-comparison/png-frames.json",
+      "bytes": 93032,
+      "sha256": "4a7e117d00d582134d96824c325b5fafc8699beadbeab071a984041293b4f614"
+    },
+    {
+      "file": "playback-verification.json",
+      "bytes": 1048,
+      "sha256": "cd9d8c058adbaa86189a7a4bc58e8adc95ebe561d6d62b6354291484d4e8bc04"
+    },
+    {
+      "file": "video-verification.json",
+      "bytes": 14329,
+      "sha256": "2dd1ef595f57ae6f904b40ba09922ac892801fde08b8c2eb8a14cb46b0f3a1d4"
+    }
+  ]
+}

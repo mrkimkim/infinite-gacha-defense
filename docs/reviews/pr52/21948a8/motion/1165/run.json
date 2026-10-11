@@ -1,0 +1,11 @@
+{
+  "sha": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+  "viewport": {
+    "width": 1165,
+    "height": 844
+  },
+  "normalRAF": true,
+  "clockInstalled": false,
+  "method": "HTMLCanvasElement.captureStream(60), MediaRecorder VP9 5Mbps; cloned track MediaStreamTrackProcessor frame timestamp log; no game state or timing modifications",
+  "frames": 1007
+}

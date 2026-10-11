@@ -1,0 +1,470 @@
+[
+  {
+    "viewportWidth": 390,
+    "sourceGameSHA": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+    "canvasSize": [
+      360,
+      390
+    ],
+    "captureSamples": 1007,
+    "maxGapSeconds": 0.030679,
+    "windows": [
+      {
+        "label": "popo-first-two",
+        "rangeSeconds": [
+          4.2,
+          5.8
+        ],
+        "capturedFrames": 96,
+        "maxGapSeconds": 0.020353000000000065,
+        "medianGapSeconds": 0.016641000000000794
+      },
+      {
+        "label": "nuri-first-complete",
+        "rangeSeconds": [
+          13.5,
+          14.7
+        ],
+        "capturedFrames": 72,
+        "maxGapSeconds": 0.018178000000000694,
+        "medianGapSeconds": 0.016620999999998887
+      },
+      {
+        "label": "nuri-second-complete",
+        "rangeSeconds": [
+          15.4,
+          16.5
+        ],
+        "capturedFrames": 66,
+        "maxGapSeconds": 0.017480000000000828,
+        "medianGapSeconds": 0.01665899999999887
+      },
+      {
+        "label": "wave-end",
+        "rangeSeconds": [
+          16.5,
+          17.0
+        ],
+        "capturedFrames": 17,
+        "maxGapSeconds": 0.01798300000000097,
+        "medianGapSeconds": 0.016607000000000482
+      }
+    ],
+    "outputs": [
+      {
+        "file": "canvas-original.webm",
+        "bytes": 803831,
+        "sha256": "5596e128b6674c3d452be3333439fb9fa2d76342639712149f141dbf0f4dbad8",
+        "frames": 1007,
+        "firstPTS": 0.0,
+        "lastPTS": 16.78,
+        "maxTrackTimestampErrorSeconds": 0.0009970000000001367,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "vp9",
+              "codec_long_name": "Google VP9",
+              "profile": "Profile 0",
+              "codec_type": "video",
+              "codec_tag_string": "[0][0][0][0]",
+              "codec_tag": "0x0000",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 0,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": -99,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "refs": 1,
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "60/1",
+              "time_base": "1/1000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "alpha_mode": "1"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "matroska,webm",
+            "format_long_name": "Matroska / WebM",
+            "start_time": "0.000000",
+            "duration": "16.780642",
+            "size": "803831",
+            "bit_rate": "383218",
+            "probe_score": 100,
+            "tags": {
+              "encoder": "Chrome"
+            }
+          }
+        },
+        "fullDecodeErrors": 0
+      },
+      {
+        "file": "canvas-realtime.mp4",
+        "bytes": 197802,
+        "sha256": "bed6824f9ea12e4e2f4f7fbcc8de8eae62091deaf07aeade696112280851b958",
+        "frames": 1007,
+        "firstPTS": 0.0,
+        "lastPTS": 16.78,
+        "maxTrackTimestampErrorSeconds": 0.0009970000000001367,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+              "profile": "High",
+              "codec_type": "video",
+              "codec_tag_string": "avc1",
+              "codec_tag": "0x31637661",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 2,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": 30,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "chroma_location": "left",
+              "field_order": "progressive",
+              "refs": 1,
+              "is_avc": "true",
+              "nal_length_size": "4",
+              "id": "0x1",
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "1007000/16809",
+              "time_base": "1/1000000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 16796000,
+              "duration": "16.796000",
+              "bit_rate": "85445",
+              "bits_per_raw_sample": "8",
+              "nb_frames": "1007",
+              "extradata_size": 50,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "handler_name": "VideoHandler",
+                "vendor_id": "[0][0][0][0]",
+                "encoder": "Lavc61.19.101 libx264"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "16.796000",
+            "size": "197802",
+            "bit_rate": "94213",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "isom",
+              "minor_version": "512",
+              "compatible_brands": "isomiso2avc1mp41",
+              "encoder": "Lavf61.7.103"
+            }
+          }
+        },
+        "fullDecodeErrors": 0
+      }
+    ]
+  },
+  {
+    "viewportWidth": 1165,
+    "sourceGameSHA": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+    "canvasSize": [
+      360,
+      390
+    ],
+    "captureSamples": 1007,
+    "maxGapSeconds": 0.027379,
+    "windows": [
+      {
+        "label": "popo-first-two",
+        "rangeSeconds": [
+          4.2,
+          5.8
+        ],
+        "capturedFrames": 96,
+        "maxGapSeconds": 0.022357000000000404,
+        "medianGapSeconds": 0.016661000000000037
+      },
+      {
+        "label": "nuri-first-complete",
+        "rangeSeconds": [
+          13.5,
+          14.7
+        ],
+        "capturedFrames": 72,
+        "maxGapSeconds": 0.017713000000000534,
+        "medianGapSeconds": 0.016664999999999708
+      },
+      {
+        "label": "nuri-second-complete",
+        "rangeSeconds": [
+          15.4,
+          16.5
+        ],
+        "capturedFrames": 66,
+        "maxGapSeconds": 0.022057999999999467,
+        "medianGapSeconds": 0.016625999999998697
+      },
+      {
+        "label": "wave-end",
+        "rangeSeconds": [
+          16.5,
+          17.0
+        ],
+        "capturedFrames": 17,
+        "maxGapSeconds": 0.0183649999999993,
+        "medianGapSeconds": 0.01671699999999987
+      }
+    ],
+    "outputs": [
+      {
+        "file": "canvas-original.webm",
+        "bytes": 801265,
+        "sha256": "bba741431b84adee9192865e912bfa94ee3b2fc8812bbecb93fb63b0c3c38bd2",
+        "frames": 1007,
+        "firstPTS": 0.0,
+        "lastPTS": 16.778,
+        "maxTrackTimestampErrorSeconds": 0.0009990000000001942,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "vp9",
+              "codec_long_name": "Google VP9",
+              "profile": "Profile 0",
+              "codec_type": "video",
+              "codec_tag_string": "[0][0][0][0]",
+              "codec_tag": "0x0000",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 0,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": -99,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "refs": 1,
+              "r_frame_rate": "60000/1001",
+              "avg_frame_rate": "60000/1001",
+              "time_base": "1/1000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "alpha_mode": "1"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "matroska,webm",
+            "format_long_name": "Matroska / WebM",
+            "start_time": "0.000000",
+            "duration": "16.778759",
+            "size": "801265",
+            "bit_rate": "382037",
+            "probe_score": 100,
+            "tags": {
+              "encoder": "Chrome"
+            }
+          }
+        },
+        "fullDecodeErrors": 0
+      },
+      {
+        "file": "canvas-realtime.mp4",
+        "bytes": 198185,
+        "sha256": "134c33cc6f24944feb176ded5a0c7728132311852eee43c6b22a4c291533b05c",
+        "frames": 1007,
+        "firstPTS": 0.0,
+        "lastPTS": 16.778,
+        "maxTrackTimestampErrorSeconds": 0.0009990000000001942,
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+              "profile": "High",
+              "codec_type": "video",
+              "codec_tag_string": "avc1",
+              "codec_tag": "0x31637661",
+              "width": 360,
+              "height": 390,
+              "coded_width": 360,
+              "coded_height": 390,
+              "closed_captions": 0,
+              "film_grain": 0,
+              "has_b_frames": 2,
+              "sample_aspect_ratio": "1:1",
+              "display_aspect_ratio": "12:13",
+              "pix_fmt": "yuv420p",
+              "level": 30,
+              "color_range": "tv",
+              "color_space": "smpte170m",
+              "chroma_location": "left",
+              "field_order": "progressive",
+              "refs": 1,
+              "is_avc": "true",
+              "nal_length_size": "4",
+              "id": "0x1",
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "503500/8401",
+              "time_base": "1/1000000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 16794000,
+              "duration": "16.794000",
+              "bit_rate": "85618",
+              "bits_per_raw_sample": "8",
+              "nb_frames": "1007",
+              "extradata_size": 50,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "eng",
+                "handler_name": "VideoHandler",
+                "vendor_id": "[0][0][0][0]",
+                "encoder": "Lavc61.19.101 libx264"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "16.794000",
+            "size": "198185",
+            "bit_rate": "94407",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "isom",
+              "minor_version": "512",
+              "compatible_brands": "isomiso2avc1mp41",
+              "encoder": "Lavf61.7.103"
+            }
+          }
+        },
+        "fullDecodeErrors": 0
+      }
+    ]
+  }
+]

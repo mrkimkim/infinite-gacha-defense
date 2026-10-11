@@ -1,0 +1,48 @@
+{
+  "sourceGameSHA": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+  "review": "https://github.com/mrkimkim/infinite-gacha-defense/pull/52#issuecomment-6105088559",
+  "checks": [
+    {
+      "viewportWidth": 390,
+      "originalFrameLogSHA256": "18f9307216cebb5b72de9a36d498b445000ee12a2b7d8541799db75ece46ec70",
+      "contactRelativeSeconds": 5.637796,
+      "before": {
+        "file": "normal/390/00297.png",
+        "timestamp": 1791685116.467261,
+        "receivedAt": 1791685116469,
+        "ackedAt": 1791685116469,
+        "relativeSeconds": 5.622357130050659
+      },
+      "after": {
+        "file": "normal/390/00298.png",
+        "timestamp": 1791685116.734091,
+        "receivedAt": 1791685116736,
+        "ackedAt": 1791685116737,
+        "relativeSeconds": 5.8891870975494385
+      },
+      "gapSeconds": 0.2668299674987793,
+      "contactWithinGap": true
+    },
+    {
+      "viewportWidth": 1165,
+      "originalFrameLogSHA256": "eb9961ab58f7239be79bdd1a3edad4a966015b63e3116583d06425eb11eab18a",
+      "contactRelativeSeconds": 5.619151,
+      "before": {
+        "file": "normal/1165/00297.png",
+        "timestamp": 1791685235.785258,
+        "receivedAt": 1791685235790,
+        "ackedAt": 1791685235791,
+        "relativeSeconds": 5.609508991241455
+      },
+      "after": {
+        "file": "normal/1165/00298.png",
+        "timestamp": 1791685236.048311,
+        "receivedAt": 1791685236053,
+        "ackedAt": 1791685236053,
+        "relativeSeconds": 5.872561931610107
+      },
+      "gapSeconds": 0.26305294036865234,
+      "contactWithinGap": true
+    }
+  ]
+}

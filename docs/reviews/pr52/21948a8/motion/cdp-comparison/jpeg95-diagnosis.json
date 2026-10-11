@@ -1,0 +1,970 @@
+{
+  "run": {
+    "sha": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+    "run": "390-jpeg95-memory",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "normalRAF": true,
+    "clockInstalled": false,
+    "mode": "jpeg",
+    "quality": 95,
+    "secondsRequested": 23,
+    "frames": 913,
+    "originalSeconds": 17.0871639251709,
+    "writeStrategy": "base64 frames buffered in host memory; immediate ACK; no disk writes/encoding/snapshot polling during combat capture",
+    "errors": []
+  },
+  "firstContact": {
+    "time": 4.697007894515991,
+    "tick": 93,
+    "attackId": 1,
+    "unitId": 2,
+    "position": {
+      "x": 330,
+      "y": 288
+    },
+    "surface": true,
+    "aoe": false,
+    "bracketingGap": 0.266467809677124,
+    "frames": [
+      "00280.jpg",
+      "00281.jpg"
+    ]
+  },
+  "maxGapSeconds": 0.3906588554382324,
+  "gapsOver100ms": 8,
+  "boundaryFrames": [
+    {
+      "file": "00280.jpg",
+      "timestamp": 1791690092.482649,
+      "receivedAt": 1791690092486,
+      "ackedAt": 1791690092486,
+      "sha256": "5b861c8c97d2657eaf425fe439c302c288953b40b99f47b0132cf4fbded2f03e",
+      "relativeSeconds": 4.696757078170776
+    },
+    {
+      "file": "00281.jpg",
+      "timestamp": 1791690092.749117,
+      "receivedAt": 1791690092751,
+      "ackedAt": 1791690092751,
+      "sha256": "1f56f3436bcc4245852fa6e9081c9ad7697e28f3f65b54fa4011a46e6cce92f2",
+      "relativeSeconds": 4.9632248878479
+    }
+  ],
+  "auditDuringGap": [
+    {
+      "relativeSeconds": 4.697007894515991,
+      "tick": 93,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": {
+            "anchor": {
+              "x": 316.51055918860135,
+              "y": 283.9860752678518
+            },
+            "points": [
+              {
+                "x": 316.0066814593314,
+                "y": 287.5366319543626
+              },
+              {
+                "x": 316.0351690826094,
+                "y": 286.9374488584799
+              },
+              {
+                "x": 316.0859974563502,
+                "y": 286.3399656177582
+              },
+              {
+                "x": 316.1590852659986,
+                "y": 285.7451380779263
+              },
+              {
+                "x": 316.25431558665036,
+                "y": 285.15391783615814
+              },
+              {
+                "x": 316.37153607010725,
+                "y": 284.56725071872035
+              },
+              {
+                "x": 316.51055918860135,
+                "y": 283.9860752678518
+              },
+              {
+                "x": 316.6711625347998,
+                "y": 283.4113212402964
+              },
+              {
+                "x": 316.8530891776089,
+                "y": 282.8439081198906
+              },
+              {
+                "x": 317.05604807320907,
+                "y": 282.28474364658535
+              },
+              {
+                "x": 317.279714530663,
+                "y": 281.73472236425596
+              },
+              {
+                "x": 317.5237307313517,
+                "y": 281.19472418962243
+              },
+              {
+                "x": 317.78770630140804,
+                "y": 280.6656130045708
+              }
+            ],
+            "direction": "flight"
+          }
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.7126078605651855,
+      "tick": 93,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": {
+            "anchor": {
+              "x": 316.51055918860135,
+              "y": 283.9860752678518
+            },
+            "points": [
+              {
+                "x": 316.0066814593314,
+                "y": 287.5366319543626
+              },
+              {
+                "x": 316.0351690826094,
+                "y": 286.9374488584799
+              },
+              {
+                "x": 316.0859974563502,
+                "y": 286.3399656177582
+              },
+              {
+                "x": 316.1590852659986,
+                "y": 285.7451380779263
+              },
+              {
+                "x": 316.25431558665036,
+                "y": 285.15391783615814
+              },
+              {
+                "x": 316.37153607010725,
+                "y": 284.56725071872035
+              },
+              {
+                "x": 316.51055918860135,
+                "y": 283.9860752678518
+              },
+              {
+                "x": 316.6711625347998,
+                "y": 283.4113212402964
+              },
+              {
+                "x": 316.8530891776089,
+                "y": 282.8439081198906
+              },
+              {
+                "x": 317.05604807320907,
+                "y": 282.28474364658535
+              },
+              {
+                "x": 317.279714530663,
+                "y": 281.73472236425596
+              },
+              {
+                "x": 317.5237307313517,
+                "y": 281.19472418962243
+              },
+              {
+                "x": 317.78770630140804,
+                "y": 280.6656130045708
+              }
+            ],
+            "direction": "flight"
+          }
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.729207992553711,
+      "tick": 93,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": {
+            "anchor": {
+              "x": 316.51055918860135,
+              "y": 283.9860752678518
+            },
+            "points": [
+              {
+                "x": 316.0066814593314,
+                "y": 287.5366319543626
+              },
+              {
+                "x": 316.0351690826094,
+                "y": 286.9374488584799
+              },
+              {
+                "x": 316.0859974563502,
+                "y": 286.3399656177582
+              },
+              {
+                "x": 316.1590852659986,
+                "y": 285.7451380779263
+              },
+              {
+                "x": 316.25431558665036,
+                "y": 285.15391783615814
+              },
+              {
+                "x": 316.37153607010725,
+                "y": 284.56725071872035
+              },
+              {
+                "x": 316.51055918860135,
+                "y": 283.9860752678518
+              },
+              {
+                "x": 316.6711625347998,
+                "y": 283.4113212402964
+              },
+              {
+                "x": 316.8530891776089,
+                "y": 282.8439081198906
+              },
+              {
+                "x": 317.05604807320907,
+                "y": 282.28474364658535
+              },
+              {
+                "x": 317.279714530663,
+                "y": 281.73472236425596
+              },
+              {
+                "x": 317.5237307313517,
+                "y": 281.19472418962243
+              },
+              {
+                "x": 317.78770630140804,
+                "y": 280.6656130045708
+              }
+            ],
+            "direction": "flight"
+          }
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.74590802192688,
+      "tick": 94,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.762207984924316,
+      "tick": 94,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.779108047485352,
+      "tick": 94,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.7958080768585205,
+      "tick": 95,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.812207937240601,
+      "tick": 95,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.8289079666137695,
+      "tick": 95,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.846008062362671,
+      "tick": 96,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.862407922744751,
+      "tick": 96,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.87880802154541,
+      "tick": 96,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "recovery",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.895807981491089,
+      "tick": 97,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "preparation",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.912107944488525,
+      "tick": 97,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "preparation",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.928807973861694,
+      "tick": 97,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "preparation",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.945607900619507,
+      "tick": 98,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "preparation",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    },
+    {
+      "relativeSeconds": 4.96210789680481,
+      "tick": 98,
+      "units": [
+        {
+          "id": 1,
+          "definitionId": "fixture-02",
+          "star": 1,
+          "position": {
+            "x": 90,
+            "y": 300
+          },
+          "pose": "idle",
+          "unsupported": false
+        },
+        {
+          "id": 2,
+          "definitionId": "fixture-01",
+          "star": 1,
+          "position": {
+            "x": 150,
+            "y": 300
+          },
+          "pose": "preparation",
+          "unsupported": false
+        }
+      ],
+      "contacts": [
+        {
+          "attackId": 1,
+          "targetId": 4,
+          "unitId": 2,
+          "popoSurface": true,
+          "position": {
+            "x": 330,
+            "y": 288
+          },
+          "aoe": false,
+          "shownTick": 93,
+          "surface": null
+        }
+      ]
+    }
+  ],
+  "scope": "Original CDP image files remain local; this comparison publishes frame timing/ACK and matching producer audit, not full rejected videos."
+}

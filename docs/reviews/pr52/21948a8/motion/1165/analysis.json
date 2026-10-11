@@ -1,0 +1,1959 @@
+{
+  "run": {
+    "sha": "21948a8458837dcf93da91e1c9278928f4c2ccee",
+    "viewport": {
+      "width": 1165,
+      "height": 844
+    },
+    "normalRAF": true,
+    "clockInstalled": false,
+    "method": "HTMLCanvasElement.captureStream(60), MediaRecorder VP9 5Mbps; cloned track MediaStreamTrackProcessor frame timestamp log; no game state or timing modifications",
+    "frames": 1007
+  },
+  "decodedFrames": 1007,
+  "sampledFrames": 1007,
+  "maxDecodedPTSErrorSeconds": 0.0009990000000001942,
+  "frameTimestampMaxGapSeconds": 0.027379,
+  "mapping": {
+    "method": "Approximate cue position only: audit wall minus median(track frame receive performance.now - track timestamp). Arrival latency is not zero; pixel frames are final authority.",
+    "offsetMilliseconds": 556.0650000059613,
+    "receiveOffsetRangeMilliseconds": [
+      555.7520000089407,
+      566.7999999970198
+    ]
+  },
+  "transitions": [
+    {
+      "approxVideoSeconds": -0.2423650000029811,
+      "wall": 313.70000000298023,
+      "tick": 0,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": -0.08286500000298111,
+      "wall": 473.20000000298023,
+      "tick": 0,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 4.276834999999999,
+      "wall": 4832.9000000059605,
+      "tick": 85,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 4.426934999994039,
+      "wall": 4983,
+      "tick": 88,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 4.476434999994039,
+      "wall": 5032.5,
+      "tick": 89,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 4.6774349999940386,
+      "wall": 5233.5,
+      "tick": 93,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 4.8758349999999995,
+      "wall": 5431.9000000059605,
+      "tick": 97,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 5.026134999997019,
+      "wall": 5582.20000000298,
+      "tick": 100,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 5.075734999991059,
+      "wall": 5631.79999999702,
+      "tick": 101,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 5.276434999994039,
+      "wall": 5832.5,
+      "tick": 105,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 5.726035000002979,
+      "wall": 6282.100000008941,
+      "tick": 114,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 5.8758349999999995,
+      "wall": 6431.9000000059605,
+      "tick": 117,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 5.925834999999999,
+      "wall": 6481.9000000059605,
+      "tick": 118,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 6.126134999997019,
+      "wall": 6682.20000000298,
+      "tick": 122,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 6.326234999991058,
+      "wall": 6882.29999999702,
+      "tick": 126,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 6.475634999997019,
+      "wall": 7031.70000000298,
+      "tick": 129,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 6.525834999999999,
+      "wall": 7081.9000000059605,
+      "tick": 130,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 6.725634999997019,
+      "wall": 7281.70000000298,
+      "tick": 134,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 6.92603500000298,
+      "wall": 7482.100000008941,
+      "tick": 138,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.075934999994039,
+      "wall": 7632,
+      "tick": 141,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.1258349999999995,
+      "wall": 7681.9000000059605,
+      "tick": 142,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.326334999999999,
+      "wall": 7882.4000000059605,
+      "tick": 146,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.525634999997019,
+      "wall": 8081.70000000298,
+      "tick": 150,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.575934999994039,
+      "wall": 8132,
+      "tick": 151,
+      "unitId": 1,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.6258349999999995,
+      "wall": 8181.9000000059605,
+      "tick": 152,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 7.776134999997019,
+      "wall": 8332.20000000298,
+      "tick": 155,
+      "unitId": 1,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.776134999997019,
+      "wall": 8332.20000000298,
+      "tick": 155,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 7.825734999991059,
+      "wall": 8381.79999999702,
+      "tick": 156,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 7.825734999991059,
+      "wall": 8381.79999999702,
+      "tick": 156,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 8.126035000002979,
+      "wall": 8682.10000000894,
+      "tick": 162,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 8.27613499999702,
+      "wall": 8832.20000000298,
+      "tick": 165,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 8.425535000002979,
+      "wall": 8981.60000000894,
+      "tick": 168,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 8.726035000002978,
+      "wall": 9282.10000000894,
+      "tick": 174,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 8.876234999991059,
+      "wall": 9432.29999999702,
+      "tick": 177,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 8.925434999994039,
+      "wall": 9481.5,
+      "tick": 178,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 9.125834999999999,
+      "wall": 9681.90000000596,
+      "tick": 182,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 9.326134999997018,
+      "wall": 9882.20000000298,
+      "tick": 186,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 9.47563499999702,
+      "wall": 10031.70000000298,
+      "tick": 189,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 9.525634999997019,
+      "wall": 10081.70000000298,
+      "tick": 190,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 9.67593499999404,
+      "wall": 10232,
+      "tick": 193,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 9.875834999999999,
+      "wall": 10431.90000000596,
+      "tick": 197,
+      "unitId": 1,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 9.92593499999404,
+      "wall": 10482,
+      "tick": 198,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 10.075934999994038,
+      "wall": 10632,
+      "tick": 201,
+      "unitId": 1,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 10.125834999999999,
+      "wall": 10681.90000000596,
+      "tick": 202,
+      "unitId": 1,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 10.125834999999999,
+      "wall": 10681.90000000596,
+      "tick": 202,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 10.226134999997019,
+      "wall": 10782.20000000298,
+      "tick": 204,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 10.226134999997019,
+      "wall": 10782.20000000298,
+      "tick": 204,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 10.275434999994038,
+      "wall": 10831.5,
+      "tick": 205,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 10.525934999994039,
+      "wall": 11082,
+      "tick": 210,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 10.675835,
+      "wall": 11231.90000000596,
+      "tick": 213,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 10.72553500000298,
+      "wall": 11281.60000000894,
+      "tick": 214,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 10.925634999997019,
+      "wall": 11481.70000000298,
+      "tick": 218,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.125434999994038,
+      "wall": 11681.5,
+      "tick": 222,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.275535000002979,
+      "wall": 11831.60000000894,
+      "tick": 225,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.325734999991058,
+      "wall": 11881.79999999702,
+      "tick": 226,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.47563499999702,
+      "wall": 12031.70000000298,
+      "tick": 229,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.675334999999999,
+      "wall": 12231.40000000596,
+      "tick": 233,
+      "unitId": 1,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.72553500000298,
+      "wall": 12281.60000000894,
+      "tick": 234,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 11.875634999997018,
+      "wall": 12431.70000000298,
+      "tick": 237,
+      "unitId": 1,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.925334999999999,
+      "wall": 12481.40000000596,
+      "tick": 238,
+      "unitId": 1,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 11.925334999999999,
+      "wall": 12481.40000000596,
+      "tick": 238,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 12.025634999997019,
+      "wall": 12581.70000000298,
+      "tick": 240,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 12.025634999997019,
+      "wall": 12581.70000000298,
+      "tick": 240,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 12.07543499999404,
+      "wall": 12631.5,
+      "tick": 241,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 12.32543499999404,
+      "wall": 12881.5,
+      "tick": 246,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 12.47543499999404,
+      "wall": 13031.5,
+      "tick": 249,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 12.525334999999998,
+      "wall": 13081.40000000596,
+      "tick": 250,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 12.725335,
+      "wall": 13281.40000000596,
+      "tick": 254,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 12.925334999999999,
+      "wall": 13481.40000000596,
+      "tick": 258,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.075234999991059,
+      "wall": 13631.29999999702,
+      "tick": 261,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.125234999991058,
+      "wall": 13681.29999999702,
+      "tick": 262,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.275334999999998,
+      "wall": 13831.40000000596,
+      "tick": 265,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.525234999991058,
+      "wall": 14081.29999999702,
+      "tick": 270,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.675234999991059,
+      "wall": 14231.29999999702,
+      "tick": 273,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.72523499999106,
+      "wall": 14281.29999999702,
+      "tick": 274,
+      "unitId": 1,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.72523499999106,
+      "wall": 14281.29999999702,
+      "tick": 274,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.825234999991059,
+      "wall": 14381.29999999702,
+      "tick": 276,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 13.875234999991058,
+      "wall": 14431.29999999702,
+      "tick": 277,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.925234999991059,
+      "wall": 14481.29999999702,
+      "tick": 278,
+      "unitId": 1,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 13.97523499999106,
+      "wall": 14531.29999999702,
+      "tick": 279,
+      "unitId": 1,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 14.125634999997018,
+      "wall": 14681.70000000298,
+      "tick": 282,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 14.176234999991058,
+      "wall": 14732.29999999702,
+      "tick": 283,
+      "unitId": 1,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 14.326134999997018,
+      "wall": 14882.20000000298,
+      "tick": 286,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 14.425835,
+      "wall": 14981.90000000596,
+      "tick": 288,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 14.625634999997018,
+      "wall": 15181.70000000298,
+      "tick": 292,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 14.72553500000298,
+      "wall": 15281.60000000894,
+      "tick": 294,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 14.87553500000298,
+      "wall": 15431.60000000894,
+      "tick": 297,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 14.925835,
+      "wall": 15481.90000000596,
+      "tick": 298,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.076334999999998,
+      "wall": 15632.40000000596,
+      "tick": 301,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.32543499999404,
+      "wall": 15881.5,
+      "tick": 306,
+      "unitId": 2,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.475934999994038,
+      "wall": 16032,
+      "tick": 309,
+      "unitId": 2,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.525734999991059,
+      "wall": 16081.79999999702,
+      "tick": 310,
+      "unitId": 1,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.525734999991059,
+      "wall": 16081.79999999702,
+      "tick": 310,
+      "unitId": 2,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.625335,
+      "wall": 16181.40000000596,
+      "tick": 312,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 15.675334999999999,
+      "wall": 16231.40000000596,
+      "tick": 313,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.72553500000298,
+      "wall": 16281.60000000894,
+      "tick": 314,
+      "unitId": 1,
+      "pose": "release",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.775334999999998,
+      "wall": 16331.40000000596,
+      "tick": 315,
+      "unitId": 1,
+      "pose": "recoil",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 15.925234999991059,
+      "wall": 16481.29999999702,
+      "tick": 318,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 15.97523499999106,
+      "wall": 16531.29999999702,
+      "tick": 319,
+      "unitId": 1,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 16.12553500000298,
+      "wall": 16681.60000000894,
+      "tick": 322,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 16.22543499999404,
+      "wall": 16781.5,
+      "tick": 324,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 16.42553500000298,
+      "wall": 16981.60000000894,
+      "tick": 328,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 16.52573499999106,
+      "wall": 17081.79999999702,
+      "tick": 330,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 16.67563499999702,
+      "wall": 17231.70000000298,
+      "tick": 333,
+      "unitId": 2,
+      "pose": "idle",
+      "unsupported": true
+    },
+    {
+      "approxVideoSeconds": 16.72593499999404,
+      "wall": 17282,
+      "tick": 334,
+      "unitId": 1,
+      "pose": "preparation",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 16.776634999997018,
+      "wall": 17332.70000000298,
+      "tick": 335,
+      "unitId": 1,
+      "pose": "idle",
+      "unsupported": false
+    },
+    {
+      "approxVideoSeconds": 16.776634999997018,
+      "wall": 17332.70000000298,
+      "tick": 335,
+      "unitId": 2,
+      "pose": "recovery",
+      "unsupported": false
+    }
+  ],
+  "contacts": [
+    {
+      "approxVideoSeconds": 4.6774349999940386,
+      "wall": 5233.5,
+      "tick": 93,
+      "attackId": 1,
+      "targetId": 4,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 330,
+        "y": 288
+      },
+      "aoe": false,
+      "shownTick": 93,
+      "surface": {
+        "anchor": {
+          "x": 316.51055918860135,
+          "y": 283.9860752678518
+        },
+        "points": [
+          {
+            "x": 316.0066814593314,
+            "y": 287.5366319543626
+          },
+          {
+            "x": 316.0351690826094,
+            "y": 286.9374488584799
+          },
+          {
+            "x": 316.0859974563502,
+            "y": 286.3399656177582
+          },
+          {
+            "x": 316.1590852659986,
+            "y": 285.7451380779263
+          },
+          {
+            "x": 316.25431558665036,
+            "y": 285.15391783615814
+          },
+          {
+            "x": 316.37153607010725,
+            "y": 284.56725071872035
+          },
+          {
+            "x": 316.51055918860135,
+            "y": 283.9860752678518
+          },
+          {
+            "x": 316.6711625347998,
+            "y": 283.4113212402964
+          },
+          {
+            "x": 316.8530891776089,
+            "y": 282.8439081198906
+          },
+          {
+            "x": 317.05604807320907,
+            "y": 282.28474364658535
+          },
+          {
+            "x": 317.279714530663,
+            "y": 281.73472236425596
+          },
+          {
+            "x": 317.5237307313517,
+            "y": 281.19472418962243
+          },
+          {
+            "x": 317.78770630140804,
+            "y": 280.6656130045708
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 25,
+      "nearbyMaxGapSeconds": 0.022357000000000404
+    },
+    {
+      "approxVideoSeconds": 5.276434999994039,
+      "wall": 5832.5,
+      "tick": 105,
+      "attackId": 2,
+      "targetId": 4,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 322.8,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 105,
+      "surface": {
+        "anchor": {
+          "x": 311.37429925914154,
+          "y": 351.3317943796644
+        },
+        "points": [
+          {
+            "x": 309.77869142156925,
+            "y": 354.49015600164853
+          },
+          {
+            "x": 309.99475307300173,
+            "y": 353.93665601027953
+          },
+          {
+            "x": 310.231300387877,
+            "y": 353.3928560758497
+          },
+          {
+            "x": 310.4879549409522,
+            "y": 352.8596261622497
+          },
+          {
+            "x": 310.7643061396923,
+            "y": 352.33781932359153
+          },
+          {
+            "x": 311.0599118811311,
+            "y": 351.82827033950423
+          },
+          {
+            "x": 311.37429925914154,
+            "y": 351.3317943796644
+          },
+          {
+            "x": 311.7069653209845,
+            "y": 350.8491856996985
+          },
+          {
+            "x": 312.05737787192606,
+            "y": 350.38121637054354
+          },
+          {
+            "x": 312.42497632663543,
+            "y": 349.92863504329796
+          },
+          {
+            "x": 312.80917260600177,
+            "y": 349.4921657515398
+          },
+          {
+            "x": 313.2093520779357,
+            "y": 349.0725067530274
+          },
+          {
+            "x": 313.62487454064916,
+            "y": 348.67032941263597
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017576000000000036
+    },
+    {
+      "approxVideoSeconds": 6.126134999997019,
+      "wall": 6682.20000000298,
+      "tick": 122,
+      "attackId": 3,
+      "targetId": 3,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 330,
+        "y": 268.2
+      },
+      "aoe": false,
+      "shownTick": 122,
+      "surface": {
+        "anchor": {
+          "x": 316.02829455455577,
+          "y": 267.2468217429271
+        },
+        "points": [
+          {
+            "x": 316.21728381724427,
+            "y": 270.83247506215366
+          },
+          {
+            "x": 316.1300556567806,
+            "y": 270.239839030638
+          },
+          {
+            "x": 316.06501644850243,
+            "y": 269.6439396918158
+          },
+          {
+            "x": 316.0222702412687,
+            "y": 269.0457303575107
+          },
+          {
+            "x": 316.00188541989235,
+            "y": 268.4461680350464
+          },
+          {
+            "x": 316.0038945957389,
+            "y": 267.84621189623914
+          },
+          {
+            "x": 316.02829455455577,
+            "y": 267.2468217429271
+          },
+          {
+            "x": 316.07504626161375,
+            "y": 266.6489564714925
+          },
+          {
+            "x": 316.14407492415484,
+            "y": 266.05357253883193
+          },
+          {
+            "x": 316.2352701110442,
+            "y": 265.4616224322291
+          },
+          {
+            "x": 316.3484859294368,
+            "y": 264.8740531455786
+          },
+          {
+            "x": 316.4835412581746,
+            "y": 264.2918046643978
+          },
+          {
+            "x": 316.64022003754195,
+            "y": 263.71580846204995
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017411000000000065
+    },
+    {
+      "approxVideoSeconds": 6.725634999997019,
+      "wall": 7281.70000000298,
+      "tick": 134,
+      "attackId": 4,
+      "targetId": 3,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 330,
+        "y": 318.6
+      },
+      "aoe": false,
+      "shownTick": 134,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017122999999999777
+    },
+    {
+      "approxVideoSeconds": 7.326334999999999,
+      "wall": 7882.4000000059605,
+      "tick": 146,
+      "attackId": 5,
+      "targetId": 7,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 289.79999999999995,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 146,
+      "surface": {
+        "anchor": {
+          "x": 276.80389238157795,
+          "y": 354.4222714084026
+        },
+        "points": [
+          {
+            "x": 275.9389357916238,
+            "y": 357.89200709937984
+          },
+          {
+            "x": 276.02870058161744,
+            "y": 357.29980605941927
+          },
+          {
+            "x": 276.1404965129599,
+            "y": 356.7119247537529
+          },
+          {
+            "x": 276.27414473600965,
+            "y": 356.12930366706195
+          },
+          {
+            "x": 276.4294314421199,
+            "y": 355.55287486879917
+          },
+          {
+            "x": 276.60610820568684,
+            "y": 354.98356052207686
+          },
+          {
+            "x": 276.80389238157795,
+            "y": 354.4222714084026
+          },
+          {
+            "x": 277.02246755730346,
+            "y": 353.8699054706229
+          },
+          {
+            "x": 277.261484059209,
+            "y": 353.3273463764064
+          },
+          {
+            "x": 277.5205595118791,
+            "y": 352.79546210456414
+          },
+          {
+            "x": 277.79927944985593,
+            "y": 352.2751035564685
+          },
+          {
+            "x": 278.0971979806958,
+            "y": 351.76710319479247
+          },
+          {
+            "x": 278.41383849830197,
+            "y": 351.2722737117471
+          }
+        ],
+        "direction": "source"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.0177959999999997
+    },
+    {
+      "approxVideoSeconds": 7.825734999991059,
+      "wall": 8381.79999999702,
+      "tick": 156,
+      "attackId": 6,
+      "targetId": 7,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 223.79999999999998,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 156,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017269999999999897
+    },
+    {
+      "approxVideoSeconds": 8.425535000002979,
+      "wall": 8981.60000000894,
+      "tick": 168,
+      "attackId": 8,
+      "targetId": 3,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 228.6,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 168,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.01916699999999949
+    },
+    {
+      "approxVideoSeconds": 9.125834999999999,
+      "wall": 9681.90000000596,
+      "tick": 182,
+      "attackId": 9,
+      "targetId": 6,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 321,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 182,
+      "surface": {
+        "anchor": {
+          "x": 309.0287608834579,
+          "y": 352.2227691522248
+        },
+        "points": [
+          {
+            "x": 307.6464571878121,
+            "y": 355.494532102211
+          },
+          {
+            "x": 307.82529788176294,
+            "y": 354.92599390373005
+          },
+          {
+            "x": 308.02521528864975,
+            "y": 354.3655730326063
+          },
+          {
+            "x": 308.2458895832683,
+            "y": 353.8141660426833
+          },
+          {
+            "x": 308.4869677338218,
+            "y": 353.27265506751786
+          },
+          {
+            "x": 308.74806406669666,
+            "y": 352.741906409154
+          },
+          {
+            "x": 309.0287608834579,
+            "y": 352.2227691522248
+          },
+          {
+            "x": 309.32860912907745,
+            "y": 351.71607380559794
+          },
+          {
+            "x": 309.6471291103266,
+            "y": 351.2226309737388
+          },
+          {
+            "x": 309.98381126318253,
+            "y": 350.7432300599161
+          },
+          {
+            "x": 310.33811696802246,
+            "y": 350.2786380033253
+          },
+          {
+            "x": 310.70947941129987,
+            "y": 349.8295980521492
+          },
+          {
+            "x": 311.0973044923252,
+            "y": 349.39682857451965
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.018251999999998603
+    },
+    {
+      "approxVideoSeconds": 9.67593499999404,
+      "wall": 10232,
+      "tick": 193,
+      "attackId": 10,
+      "targetId": 6,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 274.79999999999995,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 193,
+      "surface": {
+        "anchor": {
+          "x": 264.2366310159096,
+          "y": 350.1559538262656
+        },
+        "points": [
+          {
+            "x": 262.35543997522336,
+            "y": 353.12839757322337
+          },
+          {
+            "x": 262.62186571468015,
+            "y": 352.60069804762253
+          },
+          {
+            "x": 262.90777387113,
+            "y": 352.08483582671187
+          },
+          {
+            "x": 263.21270705251317,
+            "y": 351.5816361800002
+          },
+          {
+            "x": 263.5361774307883,
+            "y": 351.0919041195787
+          },
+          {
+            "x": 263.8776675223535,
+            "y": 350.6164231122735
+          },
+          {
+            "x": 264.2366310159096,
+            "y": 350.1559538262656
+          },
+          {
+            "x": 264.61249364644175,
+            "y": 349.7112329141845
+          },
+          {
+            "x": 265.00465411392076,
+            "y": 349.2829718346208
+          },
+          {
+            "x": 265.4124850452552,
+            "y": 348.8718557139443
+          },
+          {
+            "x": 265.83533399795414,
+            "y": 348.478542250248
+          },
+          {
+            "x": 266.2725245038963,
+            "y": 348.1036606611714
+          },
+          {
+            "x": 266.72335715153446,
+            "y": 347.7478106772865
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017139000000000237
+    },
+    {
+      "approxVideoSeconds": 10.226134999997019,
+      "wall": 10782.20000000298,
+      "tick": 204,
+      "attackId": 12,
+      "targetId": 6,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 228.6,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 204,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017540000000000333
+    },
+    {
+      "approxVideoSeconds": 10.925634999997019,
+      "wall": 11481.70000000298,
+      "tick": 218,
+      "attackId": 13,
+      "targetId": 9,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 321,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 218,
+      "surface": {
+        "anchor": {
+          "x": 309.0287608834579,
+          "y": 352.2227691522248
+        },
+        "points": [
+          {
+            "x": 307.6464571878121,
+            "y": 355.494532102211
+          },
+          {
+            "x": 307.82529788176294,
+            "y": 354.92599390373005
+          },
+          {
+            "x": 308.02521528864975,
+            "y": 354.3655730326063
+          },
+          {
+            "x": 308.2458895832683,
+            "y": 353.8141660426833
+          },
+          {
+            "x": 308.4869677338218,
+            "y": 353.27265506751786
+          },
+          {
+            "x": 308.74806406669666,
+            "y": 352.741906409154
+          },
+          {
+            "x": 309.0287608834579,
+            "y": 352.2227691522248
+          },
+          {
+            "x": 309.32860912907745,
+            "y": 351.71607380559794
+          },
+          {
+            "x": 309.6471291103266,
+            "y": 351.2226309737388
+          },
+          {
+            "x": 309.98381126318253,
+            "y": 350.7432300599161
+          },
+          {
+            "x": 310.33811696802246,
+            "y": 350.2786380033253
+          },
+          {
+            "x": 310.70947941129987,
+            "y": 349.8295980521492
+          },
+          {
+            "x": 311.0973044923252,
+            "y": 349.39682857451965
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.01726699999999859
+    },
+    {
+      "approxVideoSeconds": 11.47563499999702,
+      "wall": 12031.70000000298,
+      "tick": 229,
+      "attackId": 14,
+      "targetId": 9,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 274.79999999999995,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 229,
+      "surface": {
+        "anchor": {
+          "x": 264.2366310159096,
+          "y": 350.1559538262656
+        },
+        "points": [
+          {
+            "x": 262.35543997522336,
+            "y": 353.12839757322337
+          },
+          {
+            "x": 262.62186571468015,
+            "y": 352.60069804762253
+          },
+          {
+            "x": 262.90777387113,
+            "y": 352.08483582671187
+          },
+          {
+            "x": 263.21270705251317,
+            "y": 351.5816361800002
+          },
+          {
+            "x": 263.5361774307883,
+            "y": 351.0919041195787
+          },
+          {
+            "x": 263.8776675223535,
+            "y": 350.6164231122735
+          },
+          {
+            "x": 264.2366310159096,
+            "y": 350.1559538262656
+          },
+          {
+            "x": 264.61249364644175,
+            "y": 349.7112329141845
+          },
+          {
+            "x": 265.00465411392076,
+            "y": 349.2829718346208
+          },
+          {
+            "x": 265.4124850452552,
+            "y": 348.8718557139443
+          },
+          {
+            "x": 265.83533399795414,
+            "y": 348.478542250248
+          },
+          {
+            "x": 266.2725245038963,
+            "y": 348.1036606611714
+          },
+          {
+            "x": 266.72335715153446,
+            "y": 347.7478106772865
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017250999999999905
+    },
+    {
+      "approxVideoSeconds": 12.025634999997019,
+      "wall": 12581.70000000298,
+      "tick": 240,
+      "attackId": 16,
+      "targetId": 9,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 228.6,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 240,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.01720500000000058
+    },
+    {
+      "approxVideoSeconds": 12.725335,
+      "wall": 13281.40000000596,
+      "tick": 254,
+      "attackId": 17,
+      "targetId": 5,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 311.7,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 254,
+      "surface": {
+        "anchor": {
+          "x": 299.6601583826762,
+          "y": 352.34530352522745
+        },
+        "points": [
+          {
+            "x": 298.30700593310394,
+            "y": 355.6310261718781
+          },
+          {
+            "x": 298.4807837640153,
+            "y": 355.0606884754765
+          },
+          {
+            "x": 298.67570952095525,
+            "y": 354.4982526238506
+          },
+          {
+            "x": 298.89147136429455,
+            "y": 353.944618394383
+          },
+          {
+            "x": 299.12772412111053,
+            "y": 353.4006714837385
+          },
+          {
+            "x": 299.3840898373903,
+            "y": 352.8672820909384
+          },
+          {
+            "x": 299.6601583826762,
+            "y": 352.34530352522745
+          },
+          {
+            "x": 299.95548810618726,
+            "y": 351.8355708409613
+          },
+          {
+            "x": 300.26960654336614,
+            "y": 351.33889950169765
+          },
+          {
+            "x": 300.60201117172176,
+            "y": 350.85608407562836
+          },
+          {
+            "x": 300.9521702147579,
+            "y": 350.38789696444
+          },
+          {
+            "x": 301.31952349270244,
+            "y": 349.93508716763597
+          },
+          {
+            "x": 301.70348331867507,
+            "y": 349.4983790842968
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017220000000000013
+    },
+    {
+      "approxVideoSeconds": 13.275334999999998,
+      "wall": 13831.40000000596,
+      "tick": 265,
+      "attackId": 18,
+      "targetId": 5,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 282,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 265,
+      "surface": {
+        "anchor": {
+          "x": 270.7694229032156,
+          "y": 351.0438480080797
+        },
+        "points": [
+          {
+            "x": 269.1043398586405,
+            "y": 354.1607683961991
+          },
+          {
+            "x": 269.3325948630209,
+            "y": 353.61291537693177
+          },
+          {
+            "x": 269.5811150133849,
+            "y": 353.0752803305559
+          },
+          {
+            "x": 269.8495027305065,
+            "y": 352.54872335845647
+          },
+          {
+            "x": 270.13732865129157,
+            "y": 352.0340868394626
+          },
+          {
+            "x": 270.4441323156663,
+            "y": 351.5321940822214
+          },
+          {
+            "x": 270.7694229032156,
+            "y": 351.0438480080797
+          },
+          {
+            "x": 271.1126800183912,
+            "y": 350.56982986658124
+          },
+          {
+            "x": 271.47335452303287,
+            "y": 350.1108979856339
+          },
+          {
+            "x": 271.85086941487316,
+            "y": 349.66778655834696
+          },
+          {
+            "x": 272.24462075061723,
+            "y": 349.2412044684787
+          },
+          {
+            "x": 272.65397861212375,
+            "y": 348.8318341563736
+          },
+          {
+            "x": 273.0782881141393,
+            "y": 348.44033052720323
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017049999999999343
+    },
+    {
+      "approxVideoSeconds": 13.875234999991058,
+      "wall": 14431.29999999702,
+      "tick": 277,
+      "attackId": 19,
+      "targetId": 5,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 249.6,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 277,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017026999999998793
+    },
+    {
+      "approxVideoSeconds": 14.176234999991058,
+      "wall": 14732.29999999702,
+      "tick": 283,
+      "attackId": 20,
+      "targetId": 5,
+      "unitId": 1,
+      "popoSurface": false,
+      "position": {
+        "x": 233.4,
+        "y": 360
+      },
+      "aoe": true,
+      "shownTick": 283,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017713000000000534
+    },
+    {
+      "approxVideoSeconds": 14.425835,
+      "wall": 14981.90000000596,
+      "tick": 288,
+      "attackId": 21,
+      "targetId": 5,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 219.9,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 288,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017265000000000086
+    },
+    {
+      "approxVideoSeconds": 15.076334999999998,
+      "wall": 15632.40000000596,
+      "tick": 301,
+      "attackId": 22,
+      "targetId": 8,
+      "unitId": 2,
+      "popoSurface": true,
+      "position": {
+        "x": 282,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 301,
+      "surface": {
+        "anchor": {
+          "x": 270.7694229032156,
+          "y": 351.0438480080797
+        },
+        "points": [
+          {
+            "x": 269.1043398586405,
+            "y": 354.1607683961991
+          },
+          {
+            "x": 269.3325948630209,
+            "y": 353.61291537693177
+          },
+          {
+            "x": 269.5811150133849,
+            "y": 353.0752803305559
+          },
+          {
+            "x": 269.8495027305065,
+            "y": 352.54872335845647
+          },
+          {
+            "x": 270.13732865129157,
+            "y": 352.0340868394626
+          },
+          {
+            "x": 270.4441323156663,
+            "y": 351.5321940822214
+          },
+          {
+            "x": 270.7694229032156,
+            "y": 351.0438480080797
+          },
+          {
+            "x": 271.1126800183912,
+            "y": 350.56982986658124
+          },
+          {
+            "x": 271.47335452303287,
+            "y": 350.1108979856339
+          },
+          {
+            "x": 271.85086941487316,
+            "y": 349.66778655834696
+          },
+          {
+            "x": 272.24462075061723,
+            "y": 349.2412044684787
+          },
+          {
+            "x": 272.65397861212375,
+            "y": 348.8318341563736
+          },
+          {
+            "x": 273.0782881141393,
+            "y": 348.44033052720323
+          }
+        ],
+        "direction": "flight"
+      },
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.01794699999999949
+    },
+    {
+      "approxVideoSeconds": 15.675334999999999,
+      "wall": 16231.40000000596,
+      "tick": 313,
+      "attackId": 23,
+      "targetId": 8,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 249.6,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 313,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.017235999999998697
+    },
+    {
+      "approxVideoSeconds": 15.97523499999106,
+      "wall": 16531.29999999702,
+      "tick": 319,
+      "attackId": 24,
+      "targetId": 8,
+      "unitId": 1,
+      "popoSurface": false,
+      "position": {
+        "x": 233.4,
+        "y": 360
+      },
+      "aoe": true,
+      "shownTick": 319,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.01760399999999862
+    },
+    {
+      "approxVideoSeconds": 16.22543499999404,
+      "wall": 16781.5,
+      "tick": 324,
+      "attackId": 25,
+      "targetId": 8,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 219.9,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 324,
+      "surface": null,
+      "nearbyFrameCount": 24,
+      "nearbyMaxGapSeconds": 0.01760399999999862
+    },
+    {
+      "approxVideoSeconds": 16.776634999997018,
+      "wall": 17332.70000000298,
+      "tick": 335,
+      "attackId": 26,
+      "targetId": 8,
+      "unitId": 2,
+      "popoSurface": false,
+      "position": {
+        "x": 190.2,
+        "y": 360
+      },
+      "aoe": false,
+      "shownTick": 335,
+      "surface": null,
+      "nearbyFrameCount": 13,
+      "nearbyMaxGapSeconds": 0.0183649999999993
+    }
+  ]
+}
