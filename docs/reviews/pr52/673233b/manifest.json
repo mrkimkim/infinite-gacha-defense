@@ -1,0 +1,306 @@
+{
+  "testedSourceCommit": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+  "artifactKind": "producer-selected-review-evidence",
+  "payloadFiles": [
+    {
+      "path": "normal/390/purchased-placed.png",
+      "bytes": 28719,
+      "sha256": "f4e7546a4e8647aa4359595808712aad001748f52e6ec338f64ed589bc490de8",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "normal/390/paused.png",
+      "bytes": 35156,
+      "sha256": "f4b7de84e84f8c84fa9ba369bd61f6048fff04aeef4dbdc1318c89aa733d8a91",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "normal/390/wave-1-boundary.png",
+      "bytes": 35793,
+      "sha256": "72d12a5629a1e19c7a55a218181ffe056af95312d3c8419d4ed9d16e7605b38b",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "normal/390/wave-5-boundary.png",
+      "bytes": 39329,
+      "sha256": "c08214ae30099c7c682a996d7d233f34e143f90d6bef06da8d8c00cce6df2d9f",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "normal/390/automatic-upgrade.png",
+      "bytes": 63255,
+      "sha256": "620368364456d6f8b8e6290acaf5a6e1bd995c72bd4248793df9ed0dd4bb1aa5",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "normal/390/final-restart.png",
+      "bytes": 30956,
+      "sha256": "87b5cffc7e9becf66fb8616b28c10b25df2c9e2ef3a4a79bddc31b06ac386c28",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "normal/390/results.json",
+      "bytes": 3489,
+      "sha256": "8b5b349c9668c57f315787e9998f8169b8558d72f29119c6f6440475e91300e9"
+    },
+    {
+      "path": "normal/390/wave-5-boundary-replay.json",
+      "bytes": 135980,
+      "sha256": "3b32663fc0c336016d7235354be4175fa772d762c9df6fd40bc5d594ade414bc"
+    },
+    {
+      "path": "normal/390/automatic-upgrade-replay.json",
+      "bytes": 2303,
+      "sha256": "e57d7d892d991390f975762a3cd3f9c27e4c8bf87cf78123773c1cf6aa4b97be"
+    },
+    {
+      "path": "clock-controlled/390/results.json",
+      "bytes": 2517,
+      "sha256": "fb97a8504b63d065aa5eba9fe2b0f34b4f98521b7d339de114c5cc92dddfa2a1"
+    },
+    {
+      "path": "input/390-combat-board-pointer-repaint.png",
+      "bytes": 33425,
+      "sha256": "18507d03a76244f7e5186f29bc83caddfc023fa79490aa83c4f70bc51edb8a7f",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "input/390-combat-space-across-raf.png",
+      "bytes": 34691,
+      "sha256": "2306f0bf65db2c86d66d5b81edcb153d1ef3a499a9ca04e106b231fc5a32216d",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "input/390-resumed-pointer-repaint.png",
+      "bytes": 33737,
+      "sha256": "7da31204ca29052158905443c8394b896ffe09bcc4f5adc0b7ebe31fe2ec1030",
+      "dimensions": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "normal/1165/purchased-placed.png",
+      "bytes": 47660,
+      "sha256": "e47f492e2e9cff9a3702e24f87ef5c25bdab499b9ee93971737837bd3225e42f",
+      "dimensions": [
+        1165,
+        747
+      ]
+    },
+    {
+      "path": "normal/1165/paused.png",
+      "bytes": 49757,
+      "sha256": "ad4ab4c0c1e5edf72f70392a8312f4981f7d50e164d31090f1d80c1cf6abc862",
+      "dimensions": [
+        1165,
+        747
+      ]
+    },
+    {
+      "path": "normal/1165/wave-1-boundary.png",
+      "bytes": 66527,
+      "sha256": "ae1d4dc0cc122a1c9ca34d09b6167c52fd539c2ad397024c6aabb8896d2e5883",
+      "dimensions": [
+        1165,
+        747
+      ]
+    },
+    {
+      "path": "normal/1165/wave-5-boundary.png",
+      "bytes": 68464,
+      "sha256": "16aa55d4299e60c21239fa48f9c91e3981983cb7ed4fcaef739ffeffb494f182",
+      "dimensions": [
+        1165,
+        747
+      ]
+    },
+    {
+      "path": "normal/1165/automatic-upgrade.png",
+      "bytes": 88790,
+      "sha256": "325e5591dbd31bb1df4fafaabc569f36953c28548e82fd25287e960bd67104ae",
+      "dimensions": [
+        1165,
+        747
+      ]
+    },
+    {
+      "path": "normal/1165/final-restart.png",
+      "bytes": 85669,
+      "sha256": "f173768f0a7c851b51782eee1853f220009ada66d78a58c60300026fc7ad37fd",
+      "dimensions": [
+        1165,
+        747
+      ]
+    },
+    {
+      "path": "normal/1165/results.json",
+      "bytes": 3492,
+      "sha256": "ddfc0a189d65b03aa8c283265ed5b5248ce26258830d75d6c15d3eee1e765e40"
+    },
+    {
+      "path": "normal/1165/wave-5-boundary-replay.json",
+      "bytes": 135980,
+      "sha256": "3b32663fc0c336016d7235354be4175fa772d762c9df6fd40bc5d594ade414bc"
+    },
+    {
+      "path": "normal/1165/automatic-upgrade-replay.json",
+      "bytes": 2303,
+      "sha256": "e57d7d892d991390f975762a3cd3f9c27e4c8bf87cf78123773c1cf6aa4b97be"
+    },
+    {
+      "path": "clock-controlled/1165/results.json",
+      "bytes": 2518,
+      "sha256": "2082f9ab7cc6ad510eedf7883bd9804231f4f447b47fa67c7d88b4ccaec548f5"
+    },
+    {
+      "path": "input/1165-combat-board-pointer-repaint.png",
+      "bytes": 51929,
+      "sha256": "a7460a6f37ea1d8982fe2998a3ebb539a5f121a9a6a9bd70b40a5b739071fa60",
+      "dimensions": [
+        1165,
+        844
+      ]
+    },
+    {
+      "path": "input/1165-combat-space-across-raf.png",
+      "bytes": 56181,
+      "sha256": "cfe98d81d8c0f781873e8ed9ee83de77c765cd6eae7ba03e91405c019736d7f2",
+      "dimensions": [
+        1165,
+        844
+      ]
+    },
+    {
+      "path": "input/1165-resumed-pointer-repaint.png",
+      "bytes": 56529,
+      "sha256": "b532b1119406218e0770d66eb18692ab34a4920d3f611198a53f7171ddc750f3",
+      "dimensions": [
+        1165,
+        844
+      ]
+    },
+    {
+      "path": "input/results.json",
+      "bytes": 15535,
+      "sha256": "9fb5b1dd9d950d693836ceab189dfdb7ba997d3acc54fb96834a50dc29b8a49c"
+    },
+    {
+      "path": "reproduction/fullplay-normal-executed.mjs",
+      "bytes": 8670,
+      "sha256": "a832829fdce26af794db960729eb4a416b6d575224cbaa923764c2cf1b2f1eae"
+    },
+    {
+      "path": "reproduction/fullplay.mjs",
+      "bytes": 8713,
+      "sha256": "2b721de490688668c6a80bff720d4ae1bb2e0e637dedeb71f362dae7ec322d02"
+    },
+    {
+      "path": "reproduction/normal-frame-verification.json",
+      "bytes": 1353,
+      "sha256": "86b43f34a047cf1d6955dc8ee445ccd07d25f7ea51449cf05940699871788c89"
+    },
+    {
+      "path": "reproduction/normal-run.log",
+      "bytes": 893,
+      "sha256": "bdfd1ed88a28421dbda26da55ef85dbd3016d2d4e0c624d9ed07de5cb50bc1c8"
+    },
+    {
+      "path": "reproduction/accelerated-run.log",
+      "bytes": 1008,
+      "sha256": "04e8f07eead4721a35fb5467d32896dfa6031d470f776d8f7accdb346f642227"
+    },
+    {
+      "path": "preparation/1165-12-upgraded.png",
+      "bytes": 4877,
+      "sha256": "390b8e8db70aaea8269961b69f15eb4380ff82526fee55c7c52bd95756b73f12",
+      "dimensions": [
+        361,
+        391
+      ]
+    },
+    {
+      "path": "preparation/1165-6-swapped.png",
+      "bytes": 7151,
+      "sha256": "072d6cbeb33a2a12e24af6f9531dec22821c6e8185e23701466a27ab9d792961",
+      "dimensions": [
+        361,
+        391
+      ]
+    },
+    {
+      "path": "preparation/1165-8-sold-all.png",
+      "bytes": 2224,
+      "sha256": "6277e68af6fff076d6a608e43ef725a7022152023bea9fbcded60234b301fd10",
+      "dimensions": [
+        361,
+        391
+      ]
+    },
+    {
+      "path": "preparation/390-12-upgraded.png",
+      "bytes": 4861,
+      "sha256": "bfdd40acfa00d56abc82e71f8a4911b6bcf8b702430dc2828e39d8ca2c3ba6d0",
+      "dimensions": [
+        360,
+        391
+      ]
+    },
+    {
+      "path": "preparation/390-6-swapped.png",
+      "bytes": 7137,
+      "sha256": "9f2a876b7eee600692f3ad5e385f458415543053ef75915941c728adc6519eb2",
+      "dimensions": [
+        360,
+        391
+      ]
+    },
+    {
+      "path": "preparation/390-8-sold-all.png",
+      "bytes": 2206,
+      "sha256": "942be8cd08c6eb5b61f4d693ac882ac27f50ecc5007e92e8d03dbd6a1d6699ad",
+      "dimensions": [
+        360,
+        391
+      ]
+    },
+    {
+      "path": "preparation/results.json",
+      "bytes": 6832,
+      "sha256": "f3851352dd67161e098f1fd7aa1bcfca3c467759e63a6d80ba83f4d3a3baeb62"
+    }
+  ],
+  "payloadBytes": 1266609,
+  "preservation": "39 approved payloads copied byte-for-byte; no previous-SHA payloads included",
+  "provenance": {
+    "normal": "Explicit source SHA in results; original producer screenshots/logs/replays. Normal runner preserved unchanged.",
+    "clockControlled": "Explicit source SHA in results; separate virtual-clock run, not normal-speed footage.",
+    "input": "Explicit SHA and source-main hash in results; built-browser input26/26.",
+    "preparation": "Producer recorded24 stage checks at673233b in schema4-input-673233b-preparation-regression; original results array has no embedded SHA field. Manifest records producer provenance, not independent review."
+  },
+  "omitted": "No videos, full raw frames, endpoint proof frames, large audits/snapshots, build duplicates, archives, network diagnostic/session logs or private conversations."
+}

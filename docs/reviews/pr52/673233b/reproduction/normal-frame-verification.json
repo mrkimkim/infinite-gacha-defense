@@ -1,0 +1,54 @@
+[
+  {
+    "width": "390",
+    "sha": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+    "frames": 5638,
+    "originalDurationSeconds": 112.60469007492065,
+    "videoDurationSeconds": 112.72,
+    "medianFrameGap": 0.016726016998291016,
+    "maxFrameGap": 2.2566330432891846,
+    "ACKVerified": true,
+    "resultHash": "3e1ff7c4483e6258fc30d997fe943e6400602059fc28e3cc306317e4f6b1710d",
+    "endpointPixelsExact": true,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "format": {
+        "duration": "112.720000"
+      }
+    }
+  },
+  {
+    "width": "1165",
+    "sha": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+    "frames": 6007,
+    "originalDurationSeconds": 112.6338939666748,
+    "videoDurationSeconds": 112.76,
+    "medianFrameGap": 0.016664981842041016,
+    "maxFrameGap": 2.2474188804626465,
+    "ACKVerified": true,
+    "resultHash": "3e1ff7c4483e6258fc30d997fe943e6400602059fc28e3cc306317e4f6b1710d",
+    "endpointPixelsExact": true,
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1166,
+          "height": 748
+        }
+      ],
+      "format": {
+        "duration": "112.760000"
+      }
+    }
+  }
+]

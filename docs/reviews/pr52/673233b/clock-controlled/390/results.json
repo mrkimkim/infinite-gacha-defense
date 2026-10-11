@@ -1,0 +1,97 @@
+{
+  "sha": "673233bdea7c32663deb6cbb155ee18a0019f15b",
+  "mode": "accelerated",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "normalRAF": false,
+  "clockAccelerated": true,
+  "frames": 0,
+  "seconds": null,
+  "checkpoints": [
+    {
+      "label": "empty",
+      "tick": 0,
+      "phase": "preparation",
+      "hash": "d13fb1d3997e34b0aed21deb76e986f0e7756f96b7fe2be999a0a0730bb9b821"
+    },
+    {
+      "label": "purchased-placed",
+      "tick": 0,
+      "phase": "preparation",
+      "hash": "70c9051a640281007bf29d90e1ba7ab942bd684b6cdecb4e216542080695f379"
+    },
+    {
+      "label": "paused",
+      "tick": 40,
+      "phase": "combat",
+      "hash": "297b92edf0cc06ba835bd7acb1b72e3c06aa47cabeae670694c1103559da1cd6"
+    },
+    {
+      "label": "wave-1-boundary",
+      "tick": 330,
+      "phase": "preparation",
+      "hash": "ec3051cb12572bcc9ea8ca6fd59b1627ef181f5868dc8d03215a5cba36faa1ca"
+    },
+    {
+      "label": "wave-2-boundary",
+      "tick": 682,
+      "phase": "preparation",
+      "hash": "e1eb695162ceb3145d2b8f590048d317343e38a61f0f076eb7c657ae672e82af"
+    },
+    {
+      "label": "wave-3-boundary",
+      "tick": 1082,
+      "phase": "preparation",
+      "hash": "169656b9a003c4e07f42660cbc4fc3c162bde4ef364e4b13ac82868f39ec6fdc"
+    },
+    {
+      "label": "wave-4-boundary",
+      "tick": 1482,
+      "phase": "preparation",
+      "hash": "9af740371b3d7992ac39386173c8d2b6156c399a3a6f79821cea17891ee7e6ea"
+    },
+    {
+      "label": "wave-5-boundary",
+      "tick": 2082,
+      "phase": "result",
+      "hash": "3e1ff7c4483e6258fc30d997fe943e6400602059fc28e3cc306317e4f6b1710d"
+    },
+    {
+      "label": "restart-seed1",
+      "tick": 0,
+      "phase": "preparation",
+      "hash": "1d2658322dfbc12b7fbb615fe102bae7c92b4dab7d21ebc5a464f96624ed5cf8"
+    },
+    {
+      "label": "automatic-upgrade",
+      "tick": 0,
+      "phase": "preparation",
+      "hash": "fb319df5e1beb3263e5c605edf298c684baf1891c5a39e9c33aefc64a5a97af1"
+    },
+    {
+      "label": "final-restart",
+      "tick": 0,
+      "phase": "preparation",
+      "hash": "1d2658322dfbc12b7fbb615fe102bae7c92b4dab7d21ebc5a464f96624ed5cf8"
+    }
+  ],
+  "attacks": {
+    "art": true,
+    "fallback": true,
+    "immediate": true,
+    "cancel": true
+  },
+  "boundaries": 4,
+  "result": {
+    "tick": 2082,
+    "wave": 5,
+    "outcome": "loss",
+    "reason": "bossTimeout",
+    "hash": "3e1ff7c4483e6258fc30d997fe943e6400602059fc28e3cc306317e4f6b1710d"
+  },
+  "resultProof": null,
+  "finalProof": null,
+  "errors": []
+}
